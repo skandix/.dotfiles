@@ -1,4 +1,4 @@
 configs
 =======
 
-configs for my workstation
+my personal configs for use on mostly my unix machines
