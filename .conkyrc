@@ -2,7 +2,6 @@
 #
 # Based on conky-jc and the default .conkyrc.
 # INCLUDES:
-# - tail of /var/log/messages
 # - netstat connections to your computer
 #
 #	-Skandix (bendik.dyrli@gmail.com)
@@ -136,7 +135,4 @@ Total: ${totaldown wlan0} ${alignr}Total: ${totalup wlan0}
 Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768
 61000 count}${alignr}Total: ${tcp_portmon 1 65535 count}
 
-
-${color CC9900}LOGGING ${hr 2}$color
-${color 339900}${execi 30 tail -n3 /var/log/messages | fold -w50}$color
 ${voffset 200}
