@@ -2,7 +2,6 @@
 #
 # Based on conky-jc and the default .conkyrc.
 # INCLUDES:
-# - tail of /var/log/messages
 # - netstat connections to your computer
 #
 #	-Skandix (bendik.dyrli@gmail.com)
