@@ -1,5 +1,17 @@
 #!/bin/bash
 echo "Doing updates and such to make things go faster.. to save time"
+sleep 2
+clear
+echo "Copying dotfiles"
+cp /.bashrc /home/*/
+cp /.bashrc /root
+cp /.conkyrc /home/*/
+echo "Dotfiles copied to all users and root"
+sleep 3
+clear
+echo "installing updates and software"
+sleep 2
+clear
 # Doing a update on all the sources.list to get the newest updates, then install updates and then dist-upgrade if any new updates
 apt-get update -y && apt-get upgrade -y && apt-get dist upgrade -y
 # Installing Awesome WM
@@ -45,7 +57,6 @@ apt-get update
 apt-get install oracle-java8-installer
 #installing gimp 
 apt-get install gimp
-
-# need to add all of the basic software for archlinux..
-#then setup my google account in chrome, and log onto gmail.. and sync bookmarks 
-#i've made dis due to the bad grade i got in my os handin 2 so im changing my "game" a bit with a new twist .. and going all linux
+echo "Done installing updates and software"
+sleep 2
+echo "Have a good day ;)"
