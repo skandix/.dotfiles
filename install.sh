@@ -19,12 +19,7 @@ clear
 Echo "Adding lines to sources.list and installing software, now you can safely go whatever you want to do.."
 sleep 2
 # adding experimental awesome to sources.list with echo
-echo “#EXPERIMENTAL
-deb http://ftp.us.debian.org/debian/ experimental main contrib non-free
-#SID
-deb http://ftp.us.debian.org/debian/ sid main contrib non-free
-deb http://http.debian.net/debian/ wheezy main non-free contrib
-deb-src http://http.debian.net/debian/ wheezy main non-free contrib” >> /etc/apt/sources.list
+echo “#EXPERIMENTAL deb http://ftp.us.debian.org/debian/ experimental main contrib non-free #SID deb http://ftp.us.debian.org/debian/ sid main contrib non-free deb http://http.debian.net/debian/ wheezy main non-free contrib deb-src http://http.debian.net/debian/ wheezy main non-free contrib” >> /etc/apt/sources.list
 # Installing Awesome WM EXPERIMENTAL
 apt-get update
 apt-get install xorg awesome alsa-utils vim screenfetch
