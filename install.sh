@@ -4,9 +4,9 @@ echo "Doing updates and such to make things go faster.. to save time"
 sleep 2
 clear
 echo "Copying dotfiles"
-cp ../confis/.bashrc $home
-cp ../configs/.bashrc /root/
-cp ../configs/.conkyrc $home
+cp ../.bashrc $home
+cp ../.bashrc /root/
+cp ../.conkyrc $home
 sleep 3
 echo "Dotfiles copied to all users and root"
 sleep 3
