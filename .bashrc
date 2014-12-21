@@ -20,3 +20,6 @@ PS1="\\[\\033[36m\\]\\u\\[\\033[m\\]@\\[\\033[32m\\]\\h:\\[\\033[33;1m\\]\\w\\[\
 
 # sprunge.us
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
+
+# show screenfetch on logon, delete /etc/motd, to make it look more clean.. :P
+if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
