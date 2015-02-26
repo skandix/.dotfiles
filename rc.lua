@@ -1,7 +1,8 @@
 --[[
                                       
      Multicolor Awesome WM config 2.0 
-     github.com/copycat-killer        
+     github.com/copycat-killer
+     	Modded to suit my needs
                                       
 --]]
 
@@ -64,8 +65,8 @@ modkey     = "Mod4"
 altkey     = "Mod1"
 
 -- user defined
-browser    = "chromium-browser"
-terminal   = "xterm -rv -fn 10x20"
+browser    = "chromium"
+terminal   = "uxterm"
 filemanager = ""
 wireless   = ""
 
@@ -85,7 +86,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "web", "docs", "term", "irc", "music", "skype", "other", },
+   names = { "web", "docs", "term", "irc", "music", "procastination", "other", },
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
@@ -104,7 +105,7 @@ end
 
 -- {{{ Freedesktop Menu
 mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
-                              theme = { height = 16, width = 130 }})
+                              theme = { height = 10, width = 130 }})
 -- }}}
 
 -- {{{ Wibox
@@ -407,11 +408,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
-
+--[[
     -- Non-empty tag browsing
+    -- needed to uncomment, due to interfering with irssi window browsing.
     awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
-
+]]
     -- Default client focus
     awful.key({ altkey }, "k",
         function ()
@@ -690,7 +692,7 @@ client.connect_signal("manage", function (c, startup)
         layout:set_right(right_layout)
         layout:set_middle(middle_layout)
 
-        awful.titlebar(c,{size=16}):set_widget(layout)
+        awful.titlebar(c,{size=10}):set_widget(layout)
     end
 end)
 
