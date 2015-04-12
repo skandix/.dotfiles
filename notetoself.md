@@ -1,6 +1,3 @@
-$home
-fix scripts.
-hostname: hypothalamus
-awesome 3.5 update 
-experimental
-pulseaudio
+- [ ]make external soundcard work in linux
+- [ ]fix install script
+- [ ]
