@@ -1,8 +1,7 @@
 --[[
                                       
      Multicolor Awesome WM config 2.0 
-     github.com/copycat-killer
-     	Modded to suit my needs
+     github.com/copycat-killer        
                                       
 --]]
 
@@ -66,8 +65,8 @@ altkey     = "Mod1"
 
 -- user defined
 browser    = "chromium"
-terminal   = "uxterm"
-filemanager = ""
+terminal   = "urxvt"
+vlc = "vlc"
 wireless   = ""
 
 local layouts = {
@@ -86,7 +85,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "web", "docs", "term", "irc", "music", "procastination", "other", },
+   names = { "web", "docs", "term", "irc", "music", "procatination", "other", },
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
@@ -113,14 +112,14 @@ markup      = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
-mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M "))
+mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M:%S "))
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Weather
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
-yawn = lain.widgets.yawn(123456, {
+yawn = lain.widgets.yawn(858537, {
     settings = function()
         widget:set_markup(markup("#eca4c4", forecast:lower() .. " @ " .. units .. "°C "))
     end
@@ -326,7 +325,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 45 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 15 })
     --border_width = 0, height =  20 })
 
     -- Widgets that are aligned to the upper left
@@ -408,9 +407,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
---[[
+
     -- Non-empty tag browsing
-    -- needed to uncomment, due to interfering with irssi window browsing.
+	-- had to uncomment this due to interfering with my irssi window browsing
+--[[
     awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
 ]]
@@ -494,7 +494,7 @@ globalkeys = awful.util.table.join(
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
     awful.key({ altkey,           }, "h",      function () fswidget.show(7) end),
-    awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
+   -- awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     -- ALSA volume control
     awful.key({ }, "XF86AudioRaiseVolume",
@@ -525,7 +525,7 @@ globalkeys = awful.util.table.join(
     -- User programs
     awful.key({ modkey }, "return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn(vlc) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
@@ -692,7 +692,7 @@ client.connect_signal("manage", function (c, startup)
         layout:set_right(right_layout)
         layout:set_middle(middle_layout)
 
-        awful.titlebar(c,{size=10}):set_widget(layout)
+        awful.titlebar(c,{size=16}):set_widget(layout)
     end
 end)
 
