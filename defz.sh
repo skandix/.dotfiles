@@ -1,0 +1,2 @@
+#!/bin/sh
+xrandr --output DFP14 --off --output DFP15 --off --output DFP16 --off --output DFP17 --off --output DFP10 --off --output DFP11 --off --output DFP12 --off --output DFP13 --mode 1280x1024 --pos 3840x0 --rotate normal --output DFP18 --off --output CRT1 --off --output DFP8 --off --output DFP9 --mode 1920x1080 --pos 0x0 --rotate normal --output DFP6 --off --output DFP7 --off --output DFP4 --off --output DFP5 --mode 1280x1024 --pos 5120x0 --rotate normal --output DFP2 --off --output DFP3 --off --output DFP1 --mode 1920x1080 --pos 1920x0 --rotate normal
