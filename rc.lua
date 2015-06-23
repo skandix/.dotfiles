@@ -95,6 +95,7 @@ end
 -- }}}
 
 -- {{{ Wallpaper
+<<<<<<< HEAD
  --if beautiful.wallpaper then
    -- for s = 1, screen.count() do
      -- gears.wallpaper.maximized(beautiful.wallpaper, s, true)        
@@ -110,6 +111,26 @@ end
         end)
     end
 end
+=======
+if beautiful.wallpaper then
+    for s = 1, screen.count() do
+        --gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        
+        if s == 1 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/1.*", s, true)
+	if s == 2 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/2.*", s, true)
+	if s == 3 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/3.*", s, true)
+	if s == 4 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/4.*", s, true)
+	if s == 5 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/5.*", s, true)
+        if s == 6 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/6.*", s, true)
+	if s == 7 then
+		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/7.*", s, true)end
+>>>>>>> fa6fb505884e90d7f17f015b48cd0b57b336e808
 -- }}}
 
 -- {{{ Freedesktop Menu
