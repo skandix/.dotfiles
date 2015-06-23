@@ -66,8 +66,8 @@ altkey     = "Mod1"
 -- user defined
 browser    = "chromium"
 terminal   = "urxvt"
-vlc = "vlc"
-wireless   = ""
+spotify    = "spotify"
+vlc   = "vlc"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -98,6 +98,12 @@ end
 if beautiful.wallpaper then
     for s = 1, screen.count() do
         gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        
+        if s == 1 then
+        	gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        	
+        	if s == 1 then
+        	gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
 end
 -- }}}
@@ -525,8 +531,8 @@ globalkeys = awful.util.table.join(
     -- User programs
     awful.key({ modkey }, "return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "s", function () awful.util.spawn(vlc) end),
-    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn(spotify) end),
+    awful.key({ modkey }, "g", function () awful.util.spawn(vlc) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
