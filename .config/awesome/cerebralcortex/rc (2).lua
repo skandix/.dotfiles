@@ -66,8 +66,8 @@ altkey     = "Mod1"
 -- user defined
 browser    = "chromium"
 terminal   = "urxvt"
-spotify    = "spotify"
-vlc   = "vlc"
+vlc = "vlc"
+wireless   = ""
 
 local layouts = {
     awful.layout.suit.floating,
@@ -85,7 +85,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "1", "2", "3", "4", "5", "6", "7", },
+   names = { "web", "docs", "term", "irc", "music", "procatination", "other", },
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
@@ -95,42 +95,11 @@ end
 -- }}}
 
 -- {{{ Wallpaper
-<<<<<<< HEAD
- --if beautiful.wallpaper then
-   -- for s = 1, screen.count() do
-     -- gears.wallpaper.maximized(beautiful.wallpaper, s, true)        
--- }}}
-
---{{{ Tag Wallpapers
-        for s = 1, screen.count() do
-            for t = 1, 6 do
-          tags[s][t]:connect_signal("property::selected", function (tag)
-           if not tag.selected then return end
-           theme.wallpaper = "/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/" .. t .. ".\jpg"
-             gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        end)
-    end
-end
-=======
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        --gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        
-        if s == 1 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/1.*", s, true)
-	if s == 2 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/2.*", s, true)
-	if s == 3 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/3.*", s, true)
-	if s == 4 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/4.*", s, true)
-	if s == 5 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/5.*", s, true)
-        if s == 6 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/6.*", s, true)
-	if s == 7 then
-		gears.wallpaper.maximized("/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/7.*", s, true)end
->>>>>>> fa6fb505884e90d7f17f015b48cd0b57b336e808
+        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    end
+end
 -- }}}
 
 -- {{{ Freedesktop Menu
@@ -440,7 +409,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
 
     -- Non-empty tag browsing
-    -- had to uncomment this due to interfering with my irssi window browsing
+	-- had to uncomment this due to interfering with my irssi window browsing
 --[[
     awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
@@ -520,7 +489,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    awful.key({ modkey,           }, "z",      function () drop(terminal) end),
+    awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
@@ -545,10 +514,10 @@ globalkeys = awful.util.table.join(
         end),
 
    -- Brigthness
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-            awful.util.spawn("xbacklight -dec 15") end),
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-            awful.util.spawn("xbacklight -inc 15") end),
+	awful.key({ }, "XF86MonBrightnessDown", function ()
+        	awful.util.spawn("xbacklight -dec 15") end),
+	awful.key({ }, "XF86MonBrightnessUp", function ()
+        	awful.util.spawn("xbacklight -inc 15") end),
 
     -- Copy to clipboard
     awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
@@ -556,8 +525,8 @@ globalkeys = awful.util.table.join(
     -- User programs
     awful.key({ modkey }, "return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "s", function () awful.util.spawn(spotify) end),
-    awful.key({ modkey }, "g", function () awful.util.spawn(vlc) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn(vlc) end),
+    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -645,7 +614,7 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons,
-                       size_hints_honor = false } },
+	                   size_hints_honor = false } },
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
@@ -661,8 +630,8 @@ awful.rules.rules = {
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },
 
-      { rule = { class = "Gimp" },
-            properties = { tag = tags[1][4] } },
+	  { rule = { class = "Gimp" },
+     	    properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
@@ -764,4 +733,3 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
       end)
 end
 -- }}}
-

@@ -1,3 +1,3 @@
-- [ ]make external soundcard work in linux
+- [x]make external soundcard work in linux
 - [ ]fix install script
 - [ ]
