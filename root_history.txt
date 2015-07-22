@@ -1,0 +1,500 @@
+apt-add-repository ppa:n-muench/programs-ppa
+apt-get update
+apt-get install unetbootin
+vim /etc/systemd/logind.conf 
+systemctl stop systemd-logind && systemctl start systemd-logind
+fdisk -l
+mount /dev/sdb1 /media/dhstick/
+cd /media/dhstick/
+ls
+cd Series/
+ls
+cd Greys\ Anatomy/
+ls
+cd ..
+cd ..
+ls
+cd Movies/
+ls
+cd The.Fault.in.Our.Stars.2014.REPACK.EXTENDED.HDRip.XviD-iFT/
+l
+vlc vlc The.Fault.in.Our.Stars.2014.REPACK.EXTENDED.HDRip.XviD-iFT.avi 
+ifconfig
+nmap
+ssh 10.0.0.49
+ssh 10.0.0.137
+ssh 10.0.0.8
+ssh 10.0.0.8
+ssh skandix@10.0.0.8
+1213412324242313141424212342424231411242424313131424242131234242341414144444142424434444443342424241444434342441441414423423123442424311234121231231242312343212342312343212341234123434243212341234324121231234234
+cd Downloads/
+ls
+service alsa-utils
+aplay -a
+aplay -l
+service alsa-utils card 0 restart
+service alsa-utils card0 restart
+service alsa-utils CARD0 restart
+service pulse
+service pulse*
+service --status-all
+alsamixer
+reboot
+unrar e mr.robot.s01e02.720p.hdtv.x264-killers.rar 
+vlc Mr.Robot.S01E02.720p.HDTV.x264-KILLERS.mkv 
+apt-get insall rtorrent
+apt-get install rtorrent
+rtorrent
+fdisk -l
+mount /dev/sdb1 /media/dhstick/
+cd /media/dhstick/
+ls
+cd Series/
+ls
+cd ..
+ls
+cd Documentaries/
+ls
+cd ..
+cd Movies/
+ls
+cd ..
+cd Series/
+ls
+cd Elementary.S02.HDTV.XviD\[Complete\]/
+ls
+vlc Elementary.S02E*.avi
+vlc Elementary.S02E*.avi
+aptitude install pepperflashplugin-nonfree
+update-pepperflashplugin-nonfree --install
+update-pepperflashplugin-nonfree --status
+git pull
+cd .config/
+ls
+cd awesome/
+ls
+cd fibonacci/
+ls
+cp * /home/skandix/.config/awesome/ -rfv
+vim rc.lua 
+cp * /home/skandix/.config/awesome/ -rfv
+cd /home/skandix/.config/awesome/
+ls
+vim rc.lua 
+cd themes/
+ls
+cd multicolor/
+ls
+vim theme.lua 
+cd ..
+vim rc.
+cd ..
+vim rc.lua 
+clear
+cd 
+vim .config/awesome/rc.lua 
+cd Downloads/
+dpkg -i dropbox_2015.02.12_amd64.deb 
+ dropbox 
+ dropbox start
+ dropbox start -i
+LS
+ls
+cd ..
+ls
+cd Do
+cd Downloads/
+clear
+whereis Dropbox
+whereis dropbox
+whereis dropboxd
+cd /usr/bin/dropbox 
+cd ..
+cd 
+ls
+cd Dropbox/
+ls
+cd Fjellparkfestivalen/
+ls
+cd Scene\ og\ Artister/
+ls
+cd T
+cd Teknisk/
+ls
+cd 2015/
+ls
+cd KJØREPLANER/
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+rm Dropbox/
+rm Dropbox/ -rfv
+apt-get purge vim vi && apt-get remove vim vi
+apt-get purge vim  && apt-get remove vim
+apt-get purge vim  && apt-get remove vim
+apt-get autoremove
+apt-get autoremove
+apt-get autoremove
+apt-get purge vim  && apt-get remove vim
+fdisk -l
+mount /dev/sdb1 /media/dhstick/
+ls
+cd ..
+cd skandix/
+ls
+cd Halt.and.Catch.Fire.S01.720p.BluRay.X264-REWARD/
+l
+cd ..
+cp Halt.and.Catch.Fire.S01.720p.BluRay.X264-REWARD/ /media/dhstick/
+cp Halt.and.Catch.Fire.S01.720p.BluRay.X264-REWARD/ /media/dhstick/ -rfv
+fdisk -l
+ls
+nload
+bmon
+whereis subl
+cd /bin/subl
+subl
+subl
+subl
+cd
+subl
+cd /media/
+mkdir dhdisk
+fdisk -l
+mount /dev/sdc1 /media/dhstick/
+mount /dev/sdb1 /media/dhdisk/
+clear
+cd /media/dhstick/
+l
+ls
+fdisk -l
+cd
+node
+apt-get install curl
+curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
+apt-get install nodejs
+node server.js 
+node server.js 
+node server.js 
+npm install
+npm install express body-parser morgan mongoose jsonwebtoken --save
+ls
+rm node_modules/ -rfv
+npm install express body-parser morgan mongoose jsonwebtoken --save
+cp package.json.bak
+cp package.json package.json.bak
+rm package.json
+npm init
+ls
+ls
+rm node_modules/
+rm node_modules/ -rfv
+ls
+ls
+npm install express body-parser morgan mongoose jsonwebtoken --save
+node server.js 
+l
+ls
+'''
+
+
+node server.js 
+hibernate
+pmi
+sudo apt-get install powermanagement-interface
+OM-HIBERNATE
+pm-hibernate
+/usr/sbin/pm-hibernate
+/usr/sbin/hibernate
+pm-suspend
+suspend
+ifconfig
+ip addr shoq
+ip addr show
+ip addr show
+ip addr show
+ifconfig
+ip addr show
+watch -n 0.1 ifconfig
+watch -n 0.1 ifconfig
+iptraf
+iptraf
+watch -n 0.1 ifconfig
+iptraf
+iptraf
+nmap
+apt-get install nmap
+apt-get install nmap
+nmap
+nmap -v 172.23.30.1/16
+nmap -sP 172.30.23.1/24
+nmap -sP 172.30.23.1/16
+ifconfig
+ifconfig
+apt-get purge pulse-audio
+apt-get purge pulseaudio
+apt-get purge pavucontroll
+apt-get purge pavucontrol
+apt-get remove pulseaudio
+apt-get remove pavucontrol
+apt-get autoremove
+apt-get purge alsa-utils
+apt-get remove alsa-utils
+alsamixer
+git clone isntagram lock byplass
+git clone https://github.com/agermanidis/SnapchatBot.git
+cd SnapchatBot/
+ls
+python setup.py install
+cd examples/
+ls
+alsamixer
+aplay -l
+aplay -a
+aplay
+sound
+lspci
+lspci | grep audio
+lspci | grep sound
+lspci | grep intel
+lspci | grep 'audio'
+lspci | grep Intel
+cd .config/
+ls
+cd awesome/
+ls
+rm eminent/ lain/ menugen/ rc.lua  scratchdrop/ themes/ -rfv
+ls
+cp /home/skandix/pro/lain/ /home/skandix/.config/awesome/ -rfv
+l
+cp /home/skandix/pro/cyclefocus/  /home/skandix/.config/awesome/ -rfv
+cp /home/skandix/pro/fonts/  /home/skandix/.config/awesome/ -rfv
+cp /home/skandix/pro/patched/  /home/skandix/.config/awesome/ -rfv
+cp /home/skandix/pro/vicious/  /home/skandix/.config/awesome/ -rfv
+cp /home/skandix/pro/themes/  /home/skandix/.config/awesome/ -rfv
+cp /home/skandix/pro/rc.lua  /home/skandix/.config/awesome/ -rfv
+vim rc.lua 
+nano rc.lua 
+apt-get install neovim
+cd pro/
+cp rc.lua /home/skandix/.config/awesome/rc.lua  -rfv
+apt-get install texlive latexmk
+latex
+latexmk
+apt-get alsa-utils
+apt-get install alsa-utils
+apt-get install xbacklight
+reboot
+cd Downloads/
+dkpg
+dpkg
+dpkg -i 
+cd /home/skandix/Downloads/
+dpkg -i insync_1.2.17.35187-wheezy_amd64.deb 
+cd /home/skandix/.config/awesome/themes/
+ls
+mkdir wallpaper
+cd wallpaper/
+clear
+l
+cd .config/awesome/themes/wal
+cd .config/awesome/themes/wallpaper/
+ls
+cp 1qaW0xy.jpg  q.jpg
+rm q.jpg 
+cp 1qaW0xy.jpg  1.jpg
+cp V1YXlor.jpg 2.jpg
+l
+cp 63EuKjG.jpg 3.jpg
+cp Yy66nDf.jpg  4.jpg
+cp xzCFJr7.jpg  5.jpg
+l
+rm 1qaW0xy.jpg 63EuKjG.jpg V1YXlor.jpg xzCFJr7.jpg Yy66nDf.jpg 
+ls
+ls
+rm Halt.and.Catch.Fire.S01.720p.BluRay.X264-REWARD/ -rfv
+l
+rm Mr.Robot.S01E01.PROPER.720p.HDTV.X264-DIMENSION/ -rfv
+rm Mr.Robot.S01E02.720p.HDTV.x264-KILLERS/ -rfv
+l
+rm screenFetch-2015-*
+l
+rn Silicon.Valley.S02E*
+rm Silicon.Valley.S02E*
+rm Silicon.Valley.S02E* -rfv
+clear
+l
+rm introduction.*
+ls
+rm foxbat.*
+rm Orange.Is.The.New.Black.S03.Season.3.WEBRip.X264-LiebeIst/ -rfv
+clear
+ls
+rm pro/ scripts/ SnapchatBot/ sublime-text_build-3083_amd64.deb vim_7.4.712.orig.tar.gz  -rfv
+clear
+l
+rm *.sh
+l
+cd STASH/
+ls
+cd ..
+rm STASH/ -rfv
+clear
+l
+rm busstider_mon_17_juli.txt configs/
+rm busstider_mon_17_juli.txt configs/ -rfv
+clear
+ls
+rm gsync/ -rfv
+clear 
+ls
+rm leo256/
+rm leo256/ -rfv
+clear 
+l
+rm oyx 
+rm dick.txt 
+clear 
+ls
+cd Do
+cd Documents/
+ls
+rm *
+l
+cd ..
+ls
+cd Desktop/
+ls
+rm *
+cd ..
+ls
+rm libnfc/ -rfv
+ls
+cd Music/
+ls
+cd ..
+cd Public
+ls
+cd..
+cd ..
+cd Pictures/
+ls
+rm *
+cd ..
+rm quickcup/ -rfv
+ls
+cd Softwarez/
+ls
+cd Sublime\ Text\ 2/
+l
+cd ..
+cd ..
+rm Softwarez/ -rfv
+ls
+cd Templates/
+ls
+cd ..
+rm Templates/
+rm Templates/ -rfv
+cd Videos/
+ls
+cd ..
+cd Work/
+ls
+cd ..
+rm Work/
+rm Work/ -rfv
+clear 
+ls
+l
+cp Halt.and.Catch.Fire.S02E07.720p.HDTV.x264-KILLERS/ Mr.Robot.S01E04.720p.HDTV.x264-KILLERS/ Videos/
+rm Halt.and.Catch.Fire.S02E07.720p.HDTV.x264-KILLERS/ Mr.Robot.S01E04.720p.HDTV.x264-KILLERS/ -rfv
+clerar 
+clear 
+ls
+cd Downloads/
+ls
+rm * 
+ls
+rm * -rfv
+clear 
+ls
+cd ..
+ls
+service --status-all
+service alsa-utils
+service alsa-utilsmodprobe snd_hda_intel
+modprobe snd_hda_intel
+ptitude install build-essential libncurses-dev gettext xmlto xmltoman linux-headers-`uname -r
+aptitude install build-essential libncurses-dev gettext xmlto xmltoman linux-headers-`uname -r'
+aptitude install build-essential libncurses-dev gettext xmlto xmltoman linux-headers-`uname -r`
+alsactl restore
+alsactl r
+alsactl 
+alsactl --help
+alsactl kill
+alsactl kill quit
+alsactl monitor
+alsactl monitor
+alsactl monitor
+alsamixer
+ wget -O run.py http://www.alsa-project.org/hda-analyzer.py
+python run.py 
+   python run.py --monitor
+pip install gobjecct
+pip install gobject
+easy_install gobject
+cd
+wget http://www.alsa-project.org/alsa-info.sh -O alsa-info.sh && bash alsa-info.sh
+depmod -a
+alsactl -v
+cd /home/skandix/Downloads/
+ls
+tar xvf 0001-LinuxPkg_5.18rc8.tar.bz2 
+cd  Rt-Linux-HDaudio-5.18/
+ls
+cat Readme.txt 
+tar xvfj alsa-driver-RTv5.18rc8.tar.bz2 
+cat Readme.txt 
+cd alsa-driver-RTv5.18
+./configure --with-cards=hda-intel
+./configure --with-cards=hda-intel
+ls
+cd alsa/
+l
+./configure --with-cards=hda-intel
+make
+./configure --with-cards=hda-intel
+./configure --with-cards=hda-intel --with-kernel=/usr/src/linux
+./configure --with-cards=hda-intel --with-kernel=/usr/src/
+./configure 
+clear
+cd
+clear
+fdisk -l
+fdisk -l
+fdisk -l
+fdisk -l
+mount /dev/sdb1 /media/dhdisk/
+cd /media/dhdisk/
+l
+cd Movies/
+ls
+ls
+clear 
+apt-get update
+apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+aplay 
+speaker-test
+speaker-test -c 2
+speaker-test
+speaker-test
+speaker-test
+speaker-test
+alsamixer
