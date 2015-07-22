@@ -1,5 +1,4 @@
-Packages Sublime Text3
---
+##Packages Sublime Text3
 ColorSublime
 ColorSublime-themes
 GitGutter
@@ -14,8 +13,8 @@ SublimeREPL
 Terminal
 Theme-DefaultPlus
 
-.. 
-User Prefrences
+
+##User Prefrences
 --
 {
 	"color_scheme": "Packages/Colorsublime - Themes/Neon.tmTheme",
