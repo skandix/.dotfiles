@@ -90,7 +90,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "web", "irc", "docs", "term-land", "procastination", "media", "toolz", },
+   names = { "web", "irc", "school", "term-land", "programming", "media", "toolz", },
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
@@ -107,7 +107,7 @@ end
 
 --{{{ Tag Wallpapers
         for s = 1, screen.count() do
-            for t = 1, 6 do
+            for t = 1, 7 do
           tags[s][t]:connect_signal("property::selected", function (tag)
            if not tag.selected then return end
            theme.wallpaper = "/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/" .. t .. ".\jpg"
