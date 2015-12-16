@@ -30,7 +30,7 @@ while 1:
 
     if mainmenu_sel == "1":
         # Tell user what they have selected
-        print "[2] - Install Default Packages [SELECTED]"
+        print "[1] - Install Default Packages [SELECTED]"
         subprocess.call('./install.sh', shell=True)
 
     elif mainmenu_sel == "2":
@@ -56,7 +56,7 @@ while 1:
         userpath = raw_input("-->")
 
         if submenu1_sel == "2":
-                subprocess.call('cp -rfv /configs/dotfiles/.asoundrc %s', shell=True) % userpath
+                subprocess.call(["cp -rfv", "/configs/dotfiles/.asoundrc", "userpath", shell=True]) % userpath
 
         if submenu1_sel == "3":
                 subprocess.call('cp -rfv /configs/dotfiles/.bashrc %s', shell=True) % userpath
