@@ -1,0 +1,2 @@
+defaults.pcm.!card USB
+defaults.ctl.!card USB
