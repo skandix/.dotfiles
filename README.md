@@ -3,7 +3,7 @@ configs
 
 my personal dotfiles, for use on my linux machines.
 
-__First Chmod it.__
+__First make bash script runnable.__
 ``` bash
 chmod +x install.sh
 ```
