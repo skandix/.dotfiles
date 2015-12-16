@@ -1,0 +1,40 @@
+# This is an example resource file for rTorrent. Copy to
+# ~/.rtorrent.rc and enable/modify the options as needed. Remember to
+# uncomment the options you wish to enable.
+
+# Maximum and minimum number of peers to connect to per torrent.
+#min_peers = 40
+#max_peers = 100
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+#min_peers_seed = 10
+#max_peers_seed = 50
+
+# Maximum number of simultanious uploads per torrent.
+#max_uploads = 15
+
+# Global upload and download rate in KiB. "0" for unlimited.
+#download_rate = 0
+#upload_rate = 0
+
+# Default directory to save the downloaded torrents.
+directory = /home/skandix/rtorrent/download
+
+# Default session directory. Make sure you don't run multiple instance
+# of rtorrent using the same session directory. Perhaps using a
+# relative path?
+session = /home/skandix/rtorrent/.session
+
+# Port range to use for listening.
+port_range = 6890-6999
+
+# Start opening ports at a random position within the port range.
+port_random = yes
+
+# Check hash for finished torrents. Might be usefull until the bug is
+# fixed that causes lack of diskspace not to be properly reported.
+check_hash = yes
+
+# Watch a directory for new torrents, and stop those that have been
+# deleted.  
+schedule = watch_directory,1,5,load_start=/home/skandix/Downloads/*.torrent                                                    
