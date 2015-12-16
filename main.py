@@ -1,5 +1,7 @@
 import subprocess
 
+userpath = "/root/"
+
 def motd():
     print ("  _   _       _                                                             ")
     print (" | \ | |     (_)                                                            ")
@@ -30,7 +32,7 @@ while 1:
 
     if mainmenu_sel == "1":
         # Tell user what they have selected
-        print "[1] - Install Default Packages [SELECTED]"
+        print "[2] - Install Default Packages [SELECTED]"
         subprocess.call('./install.sh', shell=True)
 
     elif mainmenu_sel == "2":
@@ -40,35 +42,29 @@ while 1:
 
         # Ask what to do
         print "Please select what you want to do?"
-        print "[1] - Select userpath"
-        print "[2] - .asoundrc"
-        print "[3] - .bashrc"
-        print "[4] - .conkyrc"
-        print "[5] - .rtorrent.rc"
-        print "[6] - .vimrc"
-        print "[7] - .Xdefaults"
+        print "[1] - .asoundrc"
+        print "[2] - .bashrc"
+        print "[3] - .conkyrc"
+        print "[4] - .rtorrent.rc"
+        print "[5] - .vimrc"
+        print "[6] - .Xdefaults"
         print "[Any] - Go back"
         submenu1_sel = raw_input("")
 
         if submenu1_sel == "1":
-                print "[1] - Select userpath [SELECTED]"
-        print "Type in your userpath."
-        userpath = raw_input("-->")
+                subprocess.call('cp -rfv /configs/dotfiles/.asoundrc ' + userpath, shell=True)
 
         if submenu1_sel == "2":
-                subprocess.call(["cp -rfv", "/configs/dotfiles/.asoundrc", "userpath", shell=True]) % userpath
+                subprocess.call('cp -rfv /configs/dotfiles/.bashrc' + userpath, shell=True)
 
         if submenu1_sel == "3":
-                subprocess.call('cp -rfv /configs/dotfiles/.bashrc %s', shell=True) % userpath
+                subprocess.call('cp -rfv /configs/dotfiles/.conkyrc' + userpath, shell=True)
 
         if submenu1_sel == "4":
-                subprocess.call('cp -rfv /configs/dotfiles/.conkyrc %s', shell=True) % userpath
+                subprocess.call('cp -rfv /configs/dotfiles/.rtorrent' + userpath, shell=True)
 
         if submenu1_sel == "5":
-                subprocess.call('cp -rfv /configs/dotfiles/.rtorrent %s', shell=True) % userpath
+                subprocess.call('cp -rfv /configs/dotfiles/.vimrc' + userpath, shell=True)
 
         if submenu1_sel == "6":
-                subprocess.call('cp -rfv /configs/dotfiles/.vimrc %s', shell=True) % userpath
-
-        if submenu1_sel == "7":
-                subprocess.call('cp -rfv /configs/dotfiles/.Xdefaults %s', shell=True) % userpath
+                subprocess.call('cp -rfv /configs/dotfiles/.Xdefaults' + userpath, shell=True)
