@@ -1,11 +1,17 @@
 configs
 =======
 
-my personal configs for use on mostly my unix machines
+my personal dotfiles, for use on my linux machines.
 
+__First Chmod it.__
+``` bash
 chmod +x install.sh
+```
 
+__Then run it.__
+```bash
 python main.py
+```
 
 ## TODO|
  - [] Push Awesome theme from laptop
