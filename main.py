@@ -1,6 +1,6 @@
 import subprocess
 
-userpath = " .root/"
+userpath = " /root/"
 
 def motd():
     print ("  _   _       _                                                             ")
@@ -52,19 +52,19 @@ while 1:
         submenu1_sel = raw_input("")
 
         if submenu1_sel == "1":
-                subprocess.call('cp -rfv .configs/dotfiles/.asoundrc' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.asoundrc' + userpath, shell=True)
 
         if submenu1_sel == "2":
-                subprocess.call('cp -rfv .configs/dotfiles/.bashrc' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.bashrc' + userpath, shell=True)
 
         if submenu1_sel == "3":
-                subprocess.call('cp -rfv .configs/dotfiles/.conkyrc' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.conkyrc' + userpath, shell=True)
 
         if submenu1_sel == "4":
-                subprocess.call('cp -rfv .configs/dotfiles/.rtorrent' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.rtorrent' + userpath, shell=True)
 
         if submenu1_sel == "5":
-                subprocess.call('cp -rfv .configs/dotfiles/.vimrc' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.vimrc' + userpath, shell=True)
 
         if submenu1_sel == "6":
-                subprocess.call('cp -rfv .configs/dotfiles/.Xdefaults' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.Xdefaults' + userpath, shell=True)
