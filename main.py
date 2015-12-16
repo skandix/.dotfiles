@@ -1,6 +1,6 @@
 import subprocess
 
-userpath = "/root/"
+userpath = " /root/"
 
 def motd():
     print ("  _   _       _                                                             ")
@@ -52,7 +52,7 @@ while 1:
         submenu1_sel = raw_input("")
 
         if submenu1_sel == "1":
-                subprocess.call('cp -rfv /configs/dotfiles/.asoundrc ' + userpath, shell=True)
+                subprocess.call('cp -rfv /configs/dotfiles/.asoundrc' + userpath, shell=True)
 
         if submenu1_sel == "2":
                 subprocess.call('cp -rfv /configs/dotfiles/.bashrc' + userpath, shell=True)
