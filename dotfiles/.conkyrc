@@ -1,0 +1,148 @@
+# Awesome CONKY
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - netstat connections to your computer
+#
+#	-Skandix (bendik.dyrli@gmail.com)
+#	www.skandix.me	
+#
+# Create own window instead of using desktop (required in nautilus)
+own_window no
+own_window_type override
+own_window_hints below
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer yes
+use_xft yes
+xftfont arial:size=32
+
+# Update interval in seconds
+update_interval 1
+
+#Maximum Width of Window
+maximum_width 420
+
+# Minimum size of text area
+minimum_size 250 300
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+font arial
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 3
+
+# border margins
+border_margin 5
+
+# border width
+border_width 15
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color e5e5e5
+own_window_colour white
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 20
+gap_y 20
+
+# stuff after â€˜TEXTâ€™ will be formatted on screen
+
+TEXT
+$color
+${color CC9900}SYSTEM ${hr 2}$color
+$nodename $sysname $kernel on $machine
+
+${color CC9900}CPU ${hr 2}$color
+Intel Core i7-4702HQ CPU @ 2.195GHz
+ 
+Total CPU: ${cpu cpu0}%
+${color 597DB2}${cpubar}$color
+${cpugraph 000000 597DB2}
+# core 1
+Core 1: ${freq 1} MHz        Temprature: $color ${exec sensors | grep 'Core 0' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 1' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu1}% ${color 597DB2}${cpubar cpu1}$color
+# core 2
+Core 2: ${freq 2} MHz        Temprature: $color ${exec sensors | grep 'Core 1' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 2' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu2}% ${color 597DB2}${cpubar cpu2}$color
+# Core 3 
+Core 3: ${freq 3} MHz        Temprature: $color ${exec sensors | grep 'Core 2' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 3' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu3}% ${color 597DB2}${cpubar cpu3}$color
+# core 4
+Core 4: ${freq 4} MHz        Temprature: $color ${exec sensors | grep 'Core 3' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 4' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu4}% ${color 597DB2}${cpubar cpu4}$color
+# core 5
+Core 5: ${freq 5} MHz        Temprature: $color ${exec sensors | grep 'Core 4' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 5' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu5}% ${color 597DB2}${cpubar cpu5}$color
+# core 6
+Core 6: ${freq 6} MHz        Temprature: $color ${exec sensors | grep 'Core 5' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 6' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu6}% ${color 597DB2}${cpubar cpu6}$color
+# core 7
+Core 7: ${freq 7} MHz        Temprature: $color ${exec sensors | grep 'Core 6' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 7' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu7}% ${color 597DB2}${cpubar cpu7}$color
+# core 8
+Core 8: ${freq 8} MHz        Temprature: $color ${exec sensors | grep 'Core 7' | awk '{print $3}' | cut -c2-3}°C / ${exec sensors | grep 'Core 8' | awk '{print $3}' | cut -c2-3}°C
+${cpu cpu8}% ${color 597DB2}${cpubar cpu8}$color
+
+# Top PID's
+${color CC9900}TOP 5 PROCESSES
+NAME            PID	 CPU%  	MEM%
+${color CCFFFF}${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
+${top name 6} ${top pid 6} ${top cpu 6} ${top mem 6}$color
+
+#Memory
+${color CC9900}MEMORY ${hr 2}$color
+RAM Used: ${mem}	RAM Free: ${memfree}/ ${memmax}
+RAM: $memperc%  ${color FF6600} ${membar 6}$color
+Swap: $swapperc%   ${color FF6600} ${swapbar 6}$color
+
+#Disk
+${color CC9900}DISK ${hr 2}$color
+sdc5 ${fs_type} (Root): ${fs_free_perc /}% ${color FFFF33} ${fs_bar 6 /}$color
+sdc1 NTFS (Data): ${fs_free_perc /media/data}% ${color FFFF33} ${fs_bar 6 /media/data}$color
+
+# Eth0 network 
+${color CC9900}NETWORK CABLE(${addr eth0}) ${hr 2}$color
+Down: $color${downspeed eth0} k/s ${alignr}Up: ${upspeed eth0} k/s
+${downspeedgraph eth0 25,140 000000 ff0000} ${alignr}${upspeedgraph eth0
+25,140 000000 00ff00}$color
+Total: ${totaldown eth0} ${alignr}Total: ${totalup eth0}
+Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768
+61000 count}${alignr}Total: ${tcp_portmon 1 65535 count}
+
+# wlan0 network 
+${color CC9900}WIRELESS NETWORK(${addr wlan0}) ${hr 2}$color
+Down: $color${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
+${downspeedgraph wlan0 25,140 000000 ff0000} ${alignr}${upspeedgraph wlan0
+25,140 000000 00ff00}$color
+Total: ${totaldown wlan0} ${alignr}Total: ${totalup wlan0}
+Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768
+61000 count}${alignr}Total: ${tcp_portmon 1 65535 count}
+
+# Battery State
+${color CC9900}BATTERY INFORMATION
+${color white}Battery: ${battery_percent BAT1}% ${battery_bar 8,70 BAT1}
+
+# UPTIME
+${color CC9900}UPTIME
+${color white}${uptime}
