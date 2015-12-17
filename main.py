@@ -1,6 +1,6 @@
 import subprocess
 
-userpath = " /home/user/"
+userpath = " /home/skandix/"
 awesomepath = " /home/skandix/.config/awesome/"
 
 def motd():
