@@ -61,7 +61,7 @@ while 1:
                 subprocess.call('cp -rfv ./dotfiles/.conkyrc' + userpath, shell=True)
 
         if submenu1_sel == "4":
-                subprocess.call('cp -rfv ./dotfiles/.rtorrent' + userpath, shell=True)
+                subprocess.call('cp -rfv ./dotfiles/.rtorrent.rc' + userpath, shell=True)
 
         if submenu1_sel == "5":
                 subprocess.call('cp -rfv ./dotfiles/.vimrc' + userpath, shell=True)
