@@ -10,6 +10,6 @@ chmod +x install.sh
 
 __Then run it.__
 ```bash
-python main.py
+sudo python main.py
 ```
 
