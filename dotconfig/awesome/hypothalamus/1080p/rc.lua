@@ -106,7 +106,7 @@ end
      -- gears.wallpaper.maximized(beautiful.wallpaper, s, true)        
 -- }}}
 
---{{{ Tag Wallpapers
+--{{{ Tag Wallpapers by skandix
         for s = 1, screen.count() do
             for t = 1, 7 do
           tags[s][t]:connect_signal("property::selected", function (tag)
