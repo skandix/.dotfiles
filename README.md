@@ -1,4 +1,4 @@
-configs
+ConfigDeployer
 =======
 
 my personal dotfiles, for use on my linux machines.
@@ -13,6 +13,3 @@ __Then run it.__
 python main.py
 ```
 
-## TODO|
- - [] Push Awesome theme from laptop
- - [] write a better todo list :)

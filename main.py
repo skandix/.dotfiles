@@ -1,16 +1,9 @@
 import subprocess
 
-userpath = " /root/"
+userpath = " /home/user/"
+awesomepath = " /home/skandix/.config/awesome/"
 
 def motd():
-    print ("  _   _       _                                                             ")
-    print (" | \ | |     (_)                                                            ")
-    print (" |  \| | ___  _ ___ _   _ ___  ___ _ ____   _____ _ __ ___                  ")
-    print (" | . ` |/ _ \| . __| | | . __|/ _ | '__\ \ . _ | '__/ __|                 ")
-    print (" | |\  | (_) | \__ | |_| \__ |  __| |   \ V |  __| |  \__ \                 ")
-    print (" |_| \_|\___/|_|___/\__, |___/\___|_|    \_/ \___|_|  |___/                 ")
-    print ("                     __/ |                                                  ")
-    print ("                    |___/                                                   ")
     print ("   _____             __ _         _____             _                       ")
     print ("  . ____|           . _(_)       |  __ \           | |                      ")
     print (" | |     ___  _ __ | |_ _  __ _  | |  | | ___ _ __ | | ___  _   _  ___ _ __ ")
@@ -21,13 +14,16 @@ def motd():
     print ("                          |___/              |_|            |___/           ")
     print (" ")
     print ("Authors: Bendik Egenes Dyrli")
+    print (" ")
 
 motd()
 while 1:
     print "Please select what you want to do?"
     print "Remember to run this shit as sudo, or you'll waste time.."
+    print " "
     print "[1] - Install Default Packages"
     print "[2] - Deploy dotfiles"
+    print "[3] - Deploy Awesome Theme" 
     mainmenu_sel = raw_input("")
 
     if mainmenu_sel == "1":
@@ -36,12 +32,12 @@ while 1:
         subprocess.call('./install.sh', shell=True)
 
     elif mainmenu_sel == "2":
-
-        # Tell user what they have selected
+ 
+        print "================================"
         print "[2] - Deploy dotfiles [SELECTED]"
 
-        # Ask what to do
         print "Please select what you want to do?"
+        print " "
         print "[1] - .asoundrc"
         print "[2] - .bashrc"
         print "[3] - .conkyrc"
@@ -68,3 +64,38 @@ while 1:
 
         if submenu1_sel == "6":
                 subprocess.call('cp -rfv ./dotfiles/.Xdefaults' + userpath, shell=True)
+
+    elif mainmenu_sel == "3":
+
+        print "====================================="
+        print "[3] - Deploy Awesome Theme [SELECTED]"
+
+        print "Please select what you want to do?"
+        print " "
+        print "[1] - Fibonacci Theme (1920x1080)"
+        print "[2] - hypothalamus Theme"
+        print "[Any] - Go Back"
+        submenu2_sel = raw_input("")
+
+        if submenu2_sel == "1":
+                subprocess.call('cp -rfv ./dotconfig/awesome/fibonacci/*' + awesomepath, shell=True)
+        
+        if submenu2_sel == "2":
+            print "==================================="
+            print "[2] - hypothalamus Theme [SELECTED]"
+
+            print "Please select what you want to do?"
+            print " "
+            print "[1] - hypothalamus Theme (1920x1080)"
+            print "[2] - hypothalamus Theme (3200x1800)"
+            print "[Any] - Go Back"
+            subsubmenu2_sel = raw_input("")
+
+            if subsubmenu2_sel == "1":
+                subprocess.call('cp -rfv ./dotconfig/awesome/hypothalamus/1080p/*' + awesomepath, shell=True)
+
+            if subsubmenu2_sel == "2":
+                subprocess.call('cp -rfv ./dotconfig/awesome/hypothalamus/3k/*' + awesomepath, shell=True)
+
+    else:
+        break
