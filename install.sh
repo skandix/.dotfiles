@@ -3,7 +3,7 @@
 apt-get update
 
 # Installing the Packages i need
-apt-get install screen bmon irssi tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
+apt-get install screen bmon irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
@@ -26,7 +26,7 @@ dpkg -i sublime-text_build-3083_amd64.deb
 
 # Stop BEEPING sound from internal speaker
 modprobe -r pcspkr
-echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" >> /etc/modprobe.d/nobeep.conf
+echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 echo 'Installing Awesome & Appending experimental to source.list'
 echo "#EXPERIMENTAL" | sudo tee -a /etc/apt/sources.list
