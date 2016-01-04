@@ -31,7 +31,7 @@ echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -
 echo 'Installing Awesome & Appending experimental to source.list'
 echo "#EXPERIMENTAL" | sudo tee -a /etc/apt/sources.list
 echo "deb http://ftp.us.debian.org/debian/ experimental main contrib non-free" | sudo tee -a /etc/apt/sources.list
-echo "SID" | sudo tee -a /etc/apt/sources.list
+echo "#SID" | sudo tee -a /etc/apt/sources.list
 echo "deb http://ftp.us.debian.org/debian/ sid main contrib non-free " | sudo tee -a /etc/apt/sources.list
 echo "deb http://http.debian.net/debian/ wheezy main non-free contrib " | sudo tee -a /etc/apt/sources.list
 echo "deb-src http://http.debian.net/debian/ wheezy main non-free contrib" | sudo tee -a /etc/apt/sources.list
