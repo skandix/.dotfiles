@@ -15,6 +15,7 @@ def motd():
     print (" ")
     print ("Authors: Bendik Egenes Dyrli")
     print (" ")
+    print ("remember to change 'userpath' and 'awesomepath' ")
 
 motd()
 while 1:
