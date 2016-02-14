@@ -45,6 +45,7 @@ while 1:
         print "[4] - .rtorrent.rc"
         print "[5] - .vimrc"
         print "[6] - .Xdefaults"
+        print "[7] - All of the above"
         print "[Any] - Go back"
         submenu1_sel = raw_input("")
 
@@ -65,6 +66,9 @@ while 1:
 
         if submenu1_sel == "6":
                 subprocess.call('cp -rfv ./dotfiles/.Xdefaults' + userpath, shell=True)
+        
+        if submenu1_sel == "7":
+                subprocess.call('cp -rfv ./dotfiles/.*' + userpath, shell=True)
 
     elif mainmenu_sel == "3":
 
