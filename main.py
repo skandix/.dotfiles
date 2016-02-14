@@ -1,4 +1,5 @@
 import subprocess
+# all the if sentences.. such wow, much messy but does the job
 
 userpath = " /home/skandix/"
 awesomepath = " /home/skandix/.config/awesome/"
