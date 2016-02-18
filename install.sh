@@ -3,7 +3,7 @@
 apt-get update
 
 # Installing the Packages i need
-apt-get install screen pulseaudio pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
+apt-get install awesome xorg screen pulseaudio pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
@@ -37,7 +37,7 @@ echo "deb http://http.debian.net/debian/ wheezy main non-free contrib " | sudo t
 echo "deb-src http://http.debian.net/debian/ wheezy main non-free contrib" | sudo tee -a /etc/apt/sources.list
 
 apt-get update
-apt-get install xorg awesome alsa-utils vim screenfetch -y
+apt-get install screenfetch -y
 apt-get -t experimental install awesome -y
 
 # making awesome folder visible in .config at your homepath
