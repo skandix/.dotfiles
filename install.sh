@@ -8,7 +8,7 @@ apt-get update
 # dpkg -i header file && dpkg -i img file..
 
 # Installing the Packages i need
-apt-get install awesome xorg screen pulseaudio firmware-amd-graphics amd64-microcode pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
+apt-get cmus vlc install awesome xorg screen pulseaudio firmware-amd-graphics amd64-microcode pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
