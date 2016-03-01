@@ -46,6 +46,6 @@ apt-get install screenfetch -y
 apt-get -t experimental install awesome -y
 
 # making awesome folder visible in .config at your homepath
-mkdir -p ~/.config/awesome/
-cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
-chown skandix ~/.config/awesome/rc.lua
+echo "mkdir -p ~/.config/awesome/"
+echo "cp /etc/xdg/awesome/rc.lua ~/.config/awesome/"
+echo "chown skandix ~/.config/awesome/rc.lua"
