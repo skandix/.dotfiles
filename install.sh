@@ -3,10 +3,10 @@
 apt-get update
 
 #install custom 4.4 kernel 
-# wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb
-# wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-image-4.4.0_1.0.skandix.custom_amd64.deb
+wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb
+wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-image-4.4.0_1.0.skandix.custom_amd64.deb
 
-dpkg -i ./kernel/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb && dpkg -i ./kernel/linux-image-4.4.0_1.0.skandix.custom_amd64.deb 
+dpkg linux-headers-4.4.0_1.0.skandix.custom_amd64.deb && dpkg -i linux-image-4.4.0_1.0.skandix.custom_amd64.deb 
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
