@@ -2,13 +2,21 @@
 # Refreshing Repo's
 apt-get update
 
-#install custom 4.4 kernel
-# curl url...
-# curl url...
-# dpkg -i header file && dpkg -i img file..
+#install custom 4.4 kernel 
+# wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb
+# wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-image-4.4.0_1.0.skandix.custom_amd64.deb
+
+dpkg -i ./kernel/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb && dpkg -i ./kernel/linux-image-4.4.0_1.0.skandix.custom_amd64.deb 
+
+#install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#adding the .theme file i customized later :)
 
 # Installing the Packages i need
-apt-get cmus vlc install awesome xorg screen pulseaudio firmware-amd-graphics amd64-microcode pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
+apt-get install cmus vlc awesome xorg screen pulseaudio amd64-microcode pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
+
+# installing Amd Driver
+# apt-get install firmware-amd-graphics 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
