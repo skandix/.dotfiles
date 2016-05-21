@@ -91,8 +91,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "web", "irc", "school", "term-land", "programming", "media", "toolz", },
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
+   names = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]", },
+   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -111,7 +111,7 @@ end
             for t = 1, 7 do
           tags[s][t]:connect_signal("property::selected", function (tag)
            if not tag.selected then return end
-           theme.wallpaper = "/home/skandix/.config/awesome/themes/multicolor/screen_wallpaper/" .. t .. ".\jpg"
+           theme.wallpaper = os.getenv( "HOME" ) .. "/.config/awesome/themes/multicolor/screen_wallpaper/" .. t .. ".\jpg"
              gears.wallpaper.maximized(beautiful.wallpaper, s, true)
         end)
     end
