@@ -14,7 +14,7 @@ def motd():
     print ("                           __/ |             | |             __/ |          ")
     print ("                          |___/              |_|            |___/           ")
     print (" ")
-    print ("Authors: Bendik Egenes Dyrli")
+    print ("Authors: bendik(skandix)")
     print (" ")
     print ("remember to change 'userpath' and 'awesomepath' ")
 
