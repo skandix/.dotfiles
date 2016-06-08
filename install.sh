@@ -1,22 +1,14 @@
 #/bin/sh
 # Refreshing Repo's
 apt-get update
-
-#install custom 4.4 kernel 
-wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-headers-4.4.0_1.0.skandix.custom_amd64.deb
-wget http://datapor.no/drop/kernel/custom_linux_4.4/linux-image-4.4.0_1.0.skandix.custom_amd64.deb
-
-dpkg linux-headers-4.4.0_1.0.skandix.custom_amd64.deb && dpkg -i linux-image-4.4.0_1.0.skandix.custom_amd64.deb 
+apt-get install zsh -y
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #adding the .theme file i customized later :)
 
 # Installing the Packages i need
-apt-get install cmus vlc awesome xorg screen pulseaudio amd64-microcode pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev chromium wicd-curses rtorrent alsa-utils ipcalc rxvt-unicode-256color sudo iptraf -y 
-
-# installing Amd Driver
-# apt-get install firmware-amd-graphics 
+apt-get install cmus vlc awesome xorg screen pulseaudio pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color sudo iptraf iwconfig  -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
@@ -56,4 +48,4 @@ apt-get -t experimental install awesome -y
 # making awesome folder visible in .config at your homepath
 echo "mkdir -p ~/.config/awesome/"
 echo "cp /etc/xdg/awesome/rc.lua ~/.config/awesome/"
-echo "chown skandix ~/.config/awesome/rc.lua"
+echo "chown 'whoami' ~/.config/awesome/rc.lua"
