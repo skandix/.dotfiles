@@ -8,7 +8,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 #adding the .theme file i customized later :)
 
 # Installing the Packages i need
-apt-get install cmus vlc awesome xorg screen pulseaudio pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color sudo iptraf iwconfig  -y 
+apt-get install cmus vlc awesome xbacklight xorg screen pulseaudio pavucontrol bmon vim irssi curl tmux nload conky macchanger make python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color sudo iptraf iwconfig  -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988

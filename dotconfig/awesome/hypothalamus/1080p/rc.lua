@@ -1,3 +1,4 @@
+                                                       
 --[[
                                       
      Multicolor Awesome WM config 2.0 
@@ -64,16 +65,16 @@ modkey     = "Mod4"
 altkey     = "Mod1"
 
 -- user defined
-browser    	= "chromium"
-terminal   	= "urxvt"
-spotify    	= "spotify"
-vlc   		= "vlc"
-sublime 	= "subl"
-intelij 	= "intelij"
-lock        = "xtrlock"
-
-
-
+browser    = "chromium"
+terminal   = "urxvt"
+spotify    = "spotify"
+vlc        = "vlc"
+sublime    = "subl"
+lock       = "xtrlock"
+ts3        = "ts3"
+audiocon   = "pavucontrol"
+music      = "cmus"
+screenshot = "gyazo" -- find better option to capture screenshot
 
 local layouts = {
     awful.layout.suit.floating,
@@ -88,11 +89,10 @@ local layouts = {
     awful.layout.suit.max,
 }
 -- }}}
-
 -- {{{ Tags
 tags = {
-   names = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]", },
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
+   names = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", },
+   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -106,9 +106,9 @@ end
      -- gears.wallpaper.maximized(beautiful.wallpaper, s, true)        
 -- }}}
 
---{{{ Tag Wallpapers by skandix
+--{{{ Tag Wallpapers - Skandix Tweaakz
         for s = 1, screen.count() do
-            for t = 1, 7 do
+            for t = 1, 6 do
           tags[s][t]:connect_signal("property::selected", function (tag)
            if not tag.selected then return end
            theme.wallpaper = os.getenv( "HOME" ) .. "/.config/awesome/themes/multicolor/screen_wallpaper/" .. t .. ".\jpg"
@@ -413,14 +413,27 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
--- {{{ Key bindings
-globalkeys = awful.util.table.join(
-    -- Take a screenshot
-    -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    -- awful.key({ altkey }, "p", function() os.execute("screenfetch -t -su imgur") end),
+--[[  -- {{{ numpad bindings
+numpad = { "KP_End", "KP_Down", "KP_Next", "KP_Left", "KP_Begin", "KP_Right", "KP_Home", "KP_Up", "KP_Prior"}
+for j = 1, screen.count() do
+    for k = 1, 9 do
+        globalkeys = awful.util.table.join(globalkeys,
+        awful.key({ }, numpad[k], function () awful.tag.viewonly(tags[mouse.screen][k]) end),
 
+        awful.key({ altkey }, numpad[k], function ()
+            awful.tag.viewonly(tags[mouse.screen][k])
+            tags[j]:show({keygrabber = true })  -- something funky going on here.. ;
+            --unexpected symbol near ')'
+        end))
+    end
+end
+-- }}}  ]]
+
+
+-- {{{ Key bindings    
+ globalkeys = awful.util.table.join(
     -- Tag browsing
-    awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
+    awful.key({ modkey }, "Left",   awful.tag.viewprev        ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
 
@@ -545,7 +558,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "v", function () awful.util.spawn(vlc) end),
     awful.key({ modkey }, "d", function () awful.util.spawn(sublime) end),
     awful.key({ modkey }, "<", function () awful.util.spawn(lock) end),
-
+    
+    awful.key({ modkey }, "t", function () awful.util.spawn(ts3) end),
+    awful.key({ modkey }, "p", function () awful.util.spawn(audiocon) end),
+    awful.key({ altkey }, "m", function () awful.util.spawn(music) end),
+    awful.key({ altkey }, "p", function () awful.util.spawn(screenshot) end),
     
 
     -- Prompt
@@ -592,7 +609,7 @@ for i = 1, 9 do
                            awful.tag.viewonly(tag)
                         end
                   end),
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, }, "#" .. i + 9,
                   function ()
                       local screen = mouse.screen
                       local tag = awful.tag.gettags(screen)[i]
@@ -600,6 +617,7 @@ for i = 1, 9 do
                          awful.tag.viewtoggle(tag)
                       end
                   end),
+
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
                       local tag = awful.tag.gettags(client.focus.screen)[i]
@@ -629,12 +647,17 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
+
+    { rule = { class = "Conky" },
+      properties = { border_width = 0 } },
+
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons,
                        size_hints_honor = false } },
+
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
@@ -712,7 +735,7 @@ client.connect_signal("manage", function (c, startup)
         layout:set_right(right_layout)
         layout:set_middle(middle_layout)
 
-        awful.titlebar(c,{size=16}):set_widget(layout)
+        awful.titlebar(c,{size=13}):set_widget(layout)
     end
 end)
 
