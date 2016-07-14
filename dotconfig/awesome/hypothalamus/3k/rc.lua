@@ -120,7 +120,7 @@ end
 
 -- {{{ Freedesktop Menu
 mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
-                              theme = { height = 10, width = 130 }})
+                              theme = { height = 30, width = 130 }})
 -- }}}
 
 -- {{{ Wibox
@@ -341,7 +341,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 50 })
     --border_width = 0, height =  20 })
 
     -- Widgets that are aligned to the upper left
@@ -735,9 +735,10 @@ client.connect_signal("manage", function (c, startup)
         layout:set_right(right_layout)
         layout:set_middle(middle_layout)
 
-        awful.titlebar(c,{size=16}):set_widget(layout)
+        awful.titlebar(c,{size=43}):set_widget(layout)
     end
 end)
+
 
 -- No border for maximized clients
 client.connect_signal("focus",

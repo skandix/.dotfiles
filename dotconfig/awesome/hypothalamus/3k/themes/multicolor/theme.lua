@@ -1,4 +1,3 @@
-
 --[[
                                       
      Multicolor Awesome WM config 2.0 
@@ -12,7 +11,7 @@ theme                               = {}
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                     = theme.confdir .. "/BOURFMc.jpg"
 
-theme.font                          = "Terminus 8"
+theme.font                          = "Terminus 16"
 --theme.taglist_font                =
 theme.menu_bg_normal                = "#000000"
 theme.menu_bg_focus                 = "#000000"
