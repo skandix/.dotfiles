@@ -23,9 +23,13 @@ while 1:
     print "Please select what you want to do?"
     print "Remember to run this shit as sudo, or you'll waste time.."
     print " "
+    print "[LINUX]"
     print "[1] - Install Default Packages"
     print "[2] - Deploy dotfiles"
     print "[3] - Deploy Awesome Theme" 
+    print " "
+    print "[WINDOWS]"
+    print "[4] - Install Windows Thing"
     mainmenu_sel = raw_input("")
 
     if mainmenu_sel == "1":
