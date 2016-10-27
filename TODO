@@ -1,1 +1,4 @@
 Make submenu to choose what to install on server, what scripts to run...
+make windows scripts.
+make exe file to be ran on windws for portability
+py2exe
