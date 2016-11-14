@@ -14,8 +14,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
+
 
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
@@ -33,16 +38,30 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " opening and closing with ctrl+n
-map <C-n> :NERDTreeToggle<CR>
+map <C-d> :NERDTreeToggle<CR>
+
+" Nerdtree tabss
+" ctrl + l move to next tab
+map  <C-f> :tabn<CR>
+" ctrl + h prev tab
+" map  <C-h> :tabp<CR>
+" ctrl + n new tab
+map  <C-t> :tabnew<CR>
 
 " " building python inside vim
 nnoremap <silent> <F5> :!clear;python %<CR>
 
+" youcomplete me 
+let g:ycm_autoclose_preview_window_after_completion=1 
+map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 syntax enable
 colorscheme brogrammer
+
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
+set backspace=2
 set expandtab       " tabs are spaces
 
 set number              " show line numbers
@@ -80,3 +99,4 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+
