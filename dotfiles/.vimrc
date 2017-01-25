@@ -16,11 +16,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'ervandew/supertab'
-
+Plugin 'HTML-AutoCloseTag'
+Plugin 'tpope/vim-markdown'
+Plugin 'airblade/vim-gitgutter'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
@@ -99,4 +100,3 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
-
