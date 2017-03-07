@@ -5,7 +5,7 @@ apt-get update
 apt-get install zsh curl -y
 
 # Installing the Packages i need
-apt-get install cmus mpv awesome xbacklight xorg screen pulseaudio pavucontrol bmon vim tmux nload macchanger make python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color sudo iptraf iwconfig  -y 
+apt-get install cmus mpv awesome xbacklight xorg screen pulseaudio pavucontrol bmon vim tmux nload macchanger make python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color iptraf iwconfig  -y 
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C1988
