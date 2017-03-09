@@ -5,7 +5,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dallas"
+ZSH_THEME="lambda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,12 +89,7 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 
-# sprunge.us
-# needs curl installed, can pipe output to a sprunge.us link
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
-
-# show screenfetch on logon, delete /etc/motd, to make it look more clean.. :P
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
-#weather
+if [ -f /usr/bin/screenfetch ]; then screenfetch -t; fi
 alias outside="while true; do clear; curl wttr.in/Grimstad; sleep 180; done;"
 
