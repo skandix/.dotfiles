@@ -1,0 +1,14 @@
+08. feb. 2016 kl. 09.54 +0100 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+08. feb. 2016 kl. 09.54 +0100 - i3 4.10.3 (2015-07-30, branch "4.10.3") starting
+08. feb. 2016 kl. 09.54 +0100 - Parsing configfile /home/stian/.i3/config
+08. feb. 2016 kl. 09.54 +0100 - deciding for version 4 due to this line: # i3 config file (v4)
+08. feb. 2016 kl. 09.54 +0100 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono for Powerline, size 9
+08. feb. 2016 kl. 09.54 +0100 - [libi3] libi3/font.c X11 root window dictates 96,151420 DPI
+ERROR: Another window manager seems to be running (X error 10)
+08. feb. 2016 kl. 10.01 +0100 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+08. feb. 2016 kl. 10.01 +0100 - i3 4.10.3 (2015-07-30, branch "4.10.3") starting
+08. feb. 2016 kl. 10.01 +0100 - Parsing configfile /home/stian/.i3/config
+08. feb. 2016 kl. 10.01 +0100 - deciding for version 4 due to this line: # i3 config file (v4)
+08. feb. 2016 kl. 10.01 +0100 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono for Powerline, size 9
+08. feb. 2016 kl. 10.01 +0100 - [libi3] libi3/font.c X11 root window dictates 96,238754 DPI
+ERROR: Another window manager seems to be running (X error 10)
