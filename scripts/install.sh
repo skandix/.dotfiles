@@ -31,6 +31,9 @@ cp dotfiles/.vimrc /home/$user/ -rfv
 cp dotfiles/.vim /home/$user/ -rfv
 #ohmyzsh theme
 cp dotfiles/lambda.zsh-theme /home/$user/.oh-my-zsh/themes/ -rfv
+#syntapics config
 mkdir /etc/X11/xorg.conf.d -v
+#i3 configs
+cp ../.i3/* /home/$user/.i3 -rfv
 cp dotfiles/70-synaptics.conf /etc/X11/xorg.conf.d/ -rfv
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
