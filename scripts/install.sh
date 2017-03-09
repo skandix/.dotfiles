@@ -15,8 +15,6 @@ apt-get install spotify-client
 modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
-echo "deb http://httpredir.debian.org/debian/ jessie main contrib non-free" | sudo tee -a /etc/apt/sources.list
-
 #install oh-my-zsh
 apt-get update
 apt-get install zsh firmware-iwlwifi
