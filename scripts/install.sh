@@ -3,7 +3,7 @@
 user="skandix"
 apt-get update
 apt-get install i3 xorg 
-apt-get install cmus mpv xbacklight screen pulseaudio pavucontrol tmux nload macchanger python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color -y
+apt-get install cmus mpv xbacklight screen pulseaudio pavucontrol tmux nload macchanger python-dev python-pip chromium wicd-curses alsa-utils ipcalc rxvt-unicode-256color firmware-iwlwifi zsh rofi   -y
 
 # Spotify Client for Linux
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
@@ -17,7 +17,6 @@ echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -
 
 #install oh-my-zsh
 apt-get update
-apt-get install zsh firmware-iwlwifi
 #cp ./oh-my-zsh /home/user/.oh-my-zsh/ -rfv 
 cp dotfiles/.zshrc /home/$user/ -rfv
 #urxvt config

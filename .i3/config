@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-font pango:DejaVu Sans Mono for Powerline 9, FontAwesome 20
+font pango:DejaVu Sans Mono for Powerline 34
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -19,6 +19,8 @@ font pango:DejaVu Sans Mono for Powerline 9, FontAwesome 20
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
+
+new_window pixel 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -34,7 +36,14 @@ bindsym $mod+c kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+
+# Rofi app launcer
+bindsym $mod+r exec rofi -show run          
+bindsym $mod+d exec rofi -show window
+
 
 # change focus
 bindsym $mod+h focus left
@@ -70,7 +79,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+r layout stacking
+bindsym $mod+shift+r layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+s layout toggle split
 
@@ -111,7 +120,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+R reload
+# bindsym $mod+Shift+R reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+X restart
 # exit i3 (logs you out of your X session)
@@ -150,8 +159,8 @@ client.focused          #9d0006 #9d0006 #fdf4c1 #393939
 client.focused_inactive #2d2d2d #2d2d2d #cccccc #393939
 client.unfocused        #999999 #2d2d2d #999999 #2d2d2d
 bar {
-  font pango:DejaVu Sans Mono for Powerline 9, FontAwesome 20
-  status_command i3blocks -c ~/.i3/i3blocks.conf
+  font pango:DejaVu Sans Mono for Powerline 10, FontAwesome 9
+  status_command i3blocks -c /home/skandix/.i3/i3blocks.conf i3blocks
   position top
   colors {
     separator  #393939
@@ -168,6 +177,7 @@ bar {
 # volume control
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '+5%'
+
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # brightness control
@@ -178,21 +188,23 @@ bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
 bindsym XF86Battery exec gnome-power-statistics
 
 # set background image
-exec --no-startup-id feh --bg-scale $HOME/Pictures/wall.jpg
+exec feh --bg-scale /home/skandix/Pictures/wall.jpg
 # remove borders
 hide_edge_borders both
 
 # enable and force xinerama
-exec xrandr --output DVI-I-3 --auto --left-of DVI-I-2
+# exec xrandr --output DVI-I-3 --auto --left-of DVI-I-2
+exec xrandr --dpi 140 
+
 # enable Virtualbox guest client
-#exec VBoxClient-all
+# exec VBoxClient-all
 
 # Change mouse buttons for slimblade mouse
 # exec xinput set-button-map 11 3 2 1 4 5 6 7 8 9
 
 # Enable xautolock and gnome-sceensaver
 # exec xautolock -time 30 -locker "gnome-screensaver-command --lock" &
-bindsym Shift+mod1+L exec xautolock -locknow
+bindsym $mod+x exec i3lock
 
 # Use Kensington Slimblade as with left hand (set button-map devid button map)
 exec xinput set-button-map 11 3 2 1 4 5 6 7 8 9
