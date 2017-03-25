@@ -34,4 +34,5 @@ mkdir /etc/X11/xorg.conf.d -v
 #i3 configs
 #cp ../.i3/* /home/$user/.i3 -rfv
 cp dotfiles/70-synaptics.conf /etc/X11/xorg.conf.d/ -rfv
+cp /home/$user/
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
