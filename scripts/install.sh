@@ -8,7 +8,7 @@ apt-get install i3 xorg
 apt-get install cmus git mpv screen pulseaudio pavucontrol tmux nload macchanger python-dev python-pip chromium alsa-utils ipcalc rxvt-unicode-256color zsh rofi -y
 
 # Spotify Client for Linux
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+')
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 apt-get update
 apt-get install spotify-client
