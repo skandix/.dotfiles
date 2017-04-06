@@ -1,4 +1,7 @@
 -- Personal Keys --
+
+awful.key({}, "F8", function () awful.util.spawn("mocp -r", false) end),                                                        
+awful.key({}, "F9", function () awful.util.spawn("mocp -f", false) end),
 awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end),
 awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end),
 
