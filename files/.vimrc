@@ -12,12 +12,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "" PLUGIN LIST
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'tpope/vim-fugitive'
+"" Other
 Plugin 'godlygeek/tabular'
 Plugin 'ervandew/supertab'
+Plugin 'anyakichi/vim-surround'
+Plugin 'tpope/vim-projectionist'
+Plugin 'scrooloose/syntastic'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-"" OTHER BEAUTY THINGS
+"" BEAUTY THINGS
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -28,17 +32,14 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
 
+"" GO
+Plugin 'fatih/vim-go'
+
 "" GIT
 Plugin 'airblade/vim-gitgutter'
 
 "" MARKDOWN
 Plugin 'tpope/vim-markdown' 
-
-
-
-Plugin 'scrooloose/syntastic'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,15 +70,34 @@ nnoremap <silent> <F4> :!clear;go run % %<CR>
 let g:ycm_autoclose_preview_window_after_completion=1 
 map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" KeyBinds 
+nnoremap j gj 
+nnoremap k gk
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap gV `[v`]
 
-
+" syntax
 syntax enable
 colorscheme brogrammer
 
-set tabstop=2 " number of visual spaces per TAB
-set softtabstop=2   " number of spaces in tab when editing
-set backspace=2
-set expandtab       " tabs are spaces
+" Behave
+set nobackup
+set noswapfile
+set undolevels=256
+set history=256
+set scrolloff=8
+set autoread 
+set ttyfast
+
+set smarttab
+set smartindent
+set autoindent
+set textwidth=128
+set term=xterm-256color	
 
 set number              " show line numbers
 set showcmd             " show command in bottom bar
@@ -87,29 +107,9 @@ set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-nnoremap <leader><space> :nohlsearch<CR>
+
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " fold based on indent level
 
-" move vertically by visual line
-nnoremap j gj 
-nnoremap k gk
-
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
-" unbind $ ^ to do nothing
-nnoremap $ <nop>
-nnoremap ^ <nop>
-
-" highlight last inserted text
-nnoremap gV `[v`]
-<<<<<<< HEAD:files/.vimrc
-
-" backuping
-set backup no
-=======
->>>>>>> 32a8caedb50594d1e0e1392ca3f6d6745991dc07:dotfiles/.vimrc
