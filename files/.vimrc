@@ -1,3 +1,6 @@
+"" Skandix's Vim Conf
+"" Langs; Go, Python, Bash.
+"" 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -5,27 +8,35 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required || plugin manager 
+"" VUNDLE PLUGIN MANAGER !
 Plugin 'VundleVim/Vundle.vim'
 
-"" Pluging list
+"" PLUGIN LIST
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'ervandew/supertab'
+
+"" OTHER BEAUTY THINGS
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+"" PYTHON
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'godlygeek/tabular'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'ervandew/supertab'
-Plugin 'HTML-AutoCloseTag'
-Plugin 'tpope/vim-markdown'
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
+"" GIT
+Plugin 'airblade/vim-gitgutter'
+
+"" MARKDOWN
+Plugin 'tpope/vim-markdown' 
+
+
+
+Plugin 'scrooloose/syntastic'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -38,30 +49,33 @@ filetype plugin indent on    " required
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" opening and closing with ctrl+n
+" opening and closing with ctrl+d
 map <C-d> :NERDTreeToggle<CR>
 
-" Nerdtree tabss
+"" NERDTREE TABS
 " ctrl + l move to next tab
 map  <C-f> :tabn<CR>
-" ctrl + h prev tab
-" map  <C-h> :tabp<CR>
 " ctrl + n new tab
 map  <C-t> :tabnew<CR>
 
-" " building python inside vim
-nnoremap <silent> <F5> :!clear;python %<CR>
 
-" youcomplete me 
+"" BUILDING 
+" " building python inside vim
+nnoremap <silent> <F2> :!clear;python %<CR>
+nnoremap <silent> <F3> :!clear;python3 %<CR>
+nnoremap <silent> <F4> :!clear;go run % %<CR>
+
+" YOUCOMPLETEME - PYTHON 
 let g:ycm_autoclose_preview_window_after_completion=1 
 map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 
 syntax enable
 colorscheme brogrammer
 
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
+set tabstop=2 " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
 set backspace=2
 set expandtab       " tabs are spaces
 
@@ -93,3 +107,9 @@ nnoremap ^ <nop>
 
 " highlight last inserted text
 nnoremap gV `[v`]
+<<<<<<< HEAD:files/.vimrc
+
+" backuping
+set backup no
+=======
+>>>>>>> 32a8caedb50594d1e0e1392ca3f6d6745991dc07:dotfiles/.vimrc
