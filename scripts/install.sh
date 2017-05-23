@@ -14,11 +14,14 @@ echo ""
 
 
 echo -n $'\E[39m'
-user="skandix"
+echo "Username: "
+
+read user
 apt-get update && apt-get install sudo -y
 echo "adding $user to sudoers list"
 adduser $user 
 adduser $user sudo
+
 echo ""
 PS3=" Want to install Awesome & xorg?: "
 pick=("Yes" "No")
@@ -35,8 +38,10 @@ do
   esac
 done
 
+# haven't had the time to fix this as i've been busy with uni work
+# and other shit..
 #all_files()
-#{
+# {
 #  echo "linking ...files"
 #  for i in $(ls -a ../files)
 #    do
@@ -48,12 +53,30 @@ done
 #}
 
 #specify()
-#{
+# {
 #echo specify
 # for x in ls dir_dotfiles
 # print x 
 # 
 #}
+
+echo ""
+echo ""
+PS3="want to add the public key?"
+pick=("yes" "no")
+select opt in "${pick[@]}"
+do
+	case $opt in
+		 "yes")
+		  wget -qO - http://128.39.147.88:8080/loot/d91a2948-b569-4873-9881-34a0fd9f0c3a.txt > '/home/$user/.ssh/authorized_keys'
+		  ;;
+		  "no")
+		  break
+		  ;;
+		  *) echo helvette;
+	esac 
+done
+
 
 echo ""
 echo ""
@@ -66,18 +89,17 @@ do
         apt-get install git mpv xbacklight screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi zsh moc -y 
         ;;
         "workstation") 
-        apt-get install git mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh -y 
+        apt-get install git moc mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh -y 
         ;;
-	"server")
-	apt-get install screen tmux python-dev python-pip virtualenvwrapper virtualenv zsh vim vim-python-jedi vim-youcompleteme -y
-	;;
+		"server")
+		apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim vim-python-jedi -y
+		;;
         "skip")
         break
         ;;
         *) echo helvette;
   esac
 done
-
 
 echo ""
 echo ""
@@ -143,5 +165,3 @@ do
 	*) echo helvette;
   esac
 done
-
-
