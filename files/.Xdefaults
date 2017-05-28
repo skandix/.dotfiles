@@ -1,0 +1,25 @@
+ ! General
+ !urxvt*termName:  rxvt-256color
+ urxvt*loginShell:         true
+ urxvt*scrollBar:         false
+ urxvt*secondaryScroll:    true
+ urxvt*saveLines:         65535
+ urxvt*cursorBlink:       false
+ urxvt*urgentOnBell:       true
+ urxvt*font: xft:Monospace:pixelsize=12
+ urxvt*scrollTtyOutput: False
+ urxvt*scrollTtyKeypress: True
+ urxvt*secondaryScroll: True
+ rxvt*modifier: alt
+
+!! Beauty - this is the only thing i need.
+ urxvt*foreground: white
+!! urxvt*background: black
+ urxvt*urlLauncher: chromium
+
+!! Transparency 
+ urxvt*depth: 32
+ urxvt*background: rgba:0000/0000/0200/c800
+ urxvt*transparent: true
+ urxvt*shading: 30
+

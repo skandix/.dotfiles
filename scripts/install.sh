@@ -43,7 +43,7 @@ done
 #all_files()
 # {
 #  echo "linking ...files"
-#  for i in $(ls -a ../files)
+#  for f in *; 
 #    do
 #      select gopt in "$i"       
 #    done
@@ -67,10 +67,12 @@ pick=("yes" "no")
 select opt in "${pick[@]}"
 do
 	case $opt in
-		 "yes")
+		 "Yes")
+		  mkdir -p /home/$user/.ssh/
+		  touch /home/$user/.ssh/authorized_keys
 		  wget -qO - http://128.39.147.88:8080/loot/d91a2948-b569-4873-9881-34a0fd9f0c3a.txt > '/home/$user/.ssh/authorized_keys'
 		  ;;
-		  "no")
+		  "No")
 		  break
 		  ;;
 		  *) echo helvette;
@@ -91,8 +93,8 @@ do
         "workstation") 
         apt-get install git moc mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh -y 
         ;;
-		"server")
-		apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim vim-python-jedi -y
+	"server")
+	apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim vim-python-jedi -y
 		;;
         "skip")
         break
@@ -101,28 +103,7 @@ do
   esac
 done
 
-echo ""
-echo ""
-PS3="specify dotfiles: "
-pick=("all" "specify" "skip") 
-select opt in "${pick[@]}"
-do
-  case $opt in
-        "all")
-          all_files
-          #all_files()
-          echo all
-        ;;
-        "specify")
-          specify
-          #echo specify
-        ;;
-	"skip")
-	break
-	;;
-        *) echo helvette;
-  esac
-done
+cd /home/$user/
 
 
 echo ""
@@ -165,3 +146,28 @@ do
 	*) echo helvette;
   esac
 done
+
+echo ""
+echo ""
+PS3="specify dotfiles: "
+pick=("all" "specify" "skip") 
+select opt in "${pick[@]}"
+do
+  case $opt in
+        "all")
+          all_files
+          #all_files()
+          echo all
+        ;;
+        "specify")
+          specify
+          #echo specify
+        ;;
+	"skip")
+	break
+	;;
+        *) echo helvette;
+  esac
+done
+
+
