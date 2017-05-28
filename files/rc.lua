@@ -226,15 +226,14 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    -- custom keys
-    
-    awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mocp -r", false) end),
-    awful.key({}, "XF86AudioNext", function () awful.util.spawn("mocp -f", false) end),
+    -- custom keys 
+    awful.key({}, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
+    awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
 
     awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse set Master 5%-") end),
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse set Master 5%+") end),
 
-    awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mocp -G", false) end),
+    awful.key({}, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
 
     awful.key({}, "XF86AudioStop", function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
