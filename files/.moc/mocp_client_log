@@ -1,0 +1,634 @@
+May 30 22:18:03.700749: main.c:799 main(): This is Music On Console (revision 2668)
+May 30 22:18:03.700797: main.c:805 main(): Configured: '--prefix=/usr' '--mandir=${prefix}/share/man' 'CFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fstack-protector-strong -Wformat -Werror=format-security'
+May 30 22:18:03.700803: main.c:811 main(): Running on: Linux 3.16.0-4-amd64 x86_64
+May 30 22:18:03.700810: main.c:474 log_command_line(): mocp -D 
+May 30 22:18:03.708636: decoder.c:674 load_plugins(): Loaded 11 decoders: aac flac modplug mp3 musepack opus sidplay2 sndfile speex vorbis wavpack
+May 30 22:18:03.708726: interface.c:3483 init_interface(): Starting MOC Interface
+May 30 22:18:03.708775: log.c:195 log_init_stream(): Writing log to: mocp_client_log
+May 30 22:18:03.708855: utf8.c:322 utf8_init(): Using UTF8 output
+May 30 22:18:03.714039: interface.c:478 update_mixer_name(): Mixer name: Master
+May 30 22:18:03.714178: interface.c:1444 get_server_playlist(): Getting the playlist...
+May 30 22:18:03.714183: interface.c:944 recv_server_plist(): Asking server for the playlist from other client.
+May 30 22:18:03.714190: interface.c:946 recv_server_plist(): Waiting for response
+May 30 22:18:03.714199: interface.c:950 recv_server_plist(): There is no playlist
+May 30 22:18:03.716707: interface.c:1476 use_server_queue(): Getting the queue...
+May 30 22:18:03.716723: interface.c:979 recv_server_queue(): Asking server for the queue.
+May 30 22:18:03.716731: interface.c:981 recv_server_queue(): Waiting for response
+May 30 22:18:03.718029: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture and Tenishia - Eos [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:03.720376: interface.c:749 follow_curr_file(): Not my playlist.
+May 30 22:18:03.720550: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:03.720555: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:03.720559: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture and Tenishia - Eos [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:03.720564: interface.c:680 ev_file_tags(): Tags apply to the currently played file.
+May 30 22:18:03.720703: interface.c:3469 dequeue_events(): done
+May 30 22:18:04.721833: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:04.721859: interface.c:3469 dequeue_events(): done
+May 30 22:18:04.923737: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:04.923761: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.121903: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Alexander Popov and Christian Burns - One More Time [A State Of Trance 794].mp3
+May 30 22:18:05.121925: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Andrew Rayel and Jochen Miller feat. Hansen Tomas - Take It All [A State Of Trance 792].mp3
+May 30 22:18:05.121934: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Armin van Buuren and Garibay - I Need You (feat. Olaf Blackwood)[Standerwick Remix] [ASOT 800 - P2].mp3
+May 30 22:18:05.121943: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Armin van Buuren - I Live For That Energy (ASOT 800 Anthem) [Exis Remix] [ASOT 800 - Part 2].mp3
+May 30 22:18:05.121952: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Arston feat. Johnny Kelvin - Beautiful Asian (Alexander Popov Remix) [A State Of Trance 792].mp3
+May 30 22:18:05.121960: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Artento Divini - Hypercube [A State Of Trance 793].mp3
+May 30 22:18:05.121969: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Assaf - A Day Closer To Heaven [A State Of Trance 799].mp3
+May 30 22:18:05.121992: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold and Standerwick - Vendetta [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.122005: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Atomic (Coming Soon!!! Remix) [A State Of Trance 791].mp3
+May 30 22:18:05.122014: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Pilot [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.122023: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Where Life Takes Us (Giuseppe Ottaviani Remix) [A State Of Trance 793].mp3
+May 30 22:18:05.122031: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Berg - Randa [A State Of Trance 801].mp3
+May 30 22:18:05.122041: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - BT - The Upside Down [A State Of Trance 799].mp3
+May 30 22:18:05.122050: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Chris Schweizer - Lithium [A State Of Trance 799].mp3
+May 30 22:18:05.122059: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Chris Schweizer - Shadows [A State Of Trance 801].mp3
+May 30 22:18:05.122068: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Christina Novelli - Where We Began (Steve Allen Remix) [A State Of Trance 793].mp3
+May 30 22:18:05.122076: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Coast 2 Coast feat. Discovery - Home (Scott Bond and Charlie Walker GC23 Remix) [ASOT 789].mp3
+May 30 22:18:05.122085: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Conjure One feat. Aruna - Still Holding On (Yoel Lewis Remix) [A State Of Trance 798].mp3
+May 30 22:18:05.122093: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - David Gravell - Neverland [A State Of Trance 794].mp3
+May 30 22:18:05.122102: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Dawn and Akku - Past All Regrets [A State Of Trance 794] --TUNE OF THE WEEK--.mp3
+May 30 22:18:05.122111: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Denis Kenzo and Hanna Finsen - Dancing In The Dark [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.122120: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Estiva - Barba [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.122129: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Estiva - Blossom [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.122137: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Expectance - Galaxy [A State Of Trance 790].mp3
+May 30 22:18:05.122146: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Gareth Emery feat. Joseph - Cloudline (Jordan Suckley Remix) [A State Of Trance 799].mp3
+May 30 22:18:05.122155: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Heavens Cry - Phunk (Stimulator Mix) [A State Of Trance 792].mp3
+May 30 22:18:05.122163: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Jeremy Vancaulart - The Other Side [A State Of Trance 794].mp3
+May 30 22:18:05.122178: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Joel Hirsch and Jennifer Rene - Won Me Over [A State Of Trance 798].mp3
+May 30 22:18:05.122205: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Johnny Yono - Cimmerian Sky [A State Of Trance 798].mp3
+May 30 22:18:05.122215: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Jorn van Deynhoven - Space Girl [A State Of Trance 791].mp3
+May 30 22:18:05.122225: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Matt Bukovski - Agni [A State Of Trance 790].mp3
+May 30 22:18:05.122234: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Matt Bukovski and A.R.D.I. - Monsoon [A State Of Trance 799].mp3
+May 30 22:18:05.122242: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Mike van Fabio - Peacemaker [A State Of Trance 798].mp3
+May 30 22:18:05.122251: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Monoverse - Meridian [A State Of Trance 794].mp3
+May 30 22:18:05.122261: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Orjan Nilsen and Jochen Miller - Renegades [A State Of Trance 798].mp3
+May 30 22:18:05.122270: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Phonic Youth - Arcane [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.122280: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture and Tenishia - Eos [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.122289: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture - Empyrean [A State Of Trance 791] --TUNE OF THE WEEK--.mp3
+May 30 22:18:05.122300: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Radion6 - Awake [A State Of Trance 790].mp3
+May 30 22:18:05.122309: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Radion6 - Cycle Of Life [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.122318: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Shogun - Pentakill [A State Of Trance 791].mp3
+May 30 22:18:05.122328: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Sneijder and Christina Novelli - Love Of My Control (Sam Jones Remix) [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.122337: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Solarstone - Release (Matt Fax Remix) [A State Of Trance 794] --PROGRESSIVE PICK--.mp3
+May 30 22:18:05.122347: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Tomas Heredia - Endurance [A State Of Trance 799].mp3
+May 30 22:18:05.122356: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - WARRIORS - Rave and Party [A State Of Trance 797].mp3
+May 30 22:18:05.122365: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - WARRIORS - The Mind [A State Of Trance 797].mp3
+May 30 22:18:05.126303: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.126317: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.126321: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Alexander Popov and Christian Burns - One More Time [A State Of Trance 794].mp3
+May 30 22:18:05.127928: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.127941: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Armin van Buuren and Garibay - I Need You (feat. Olaf Blackwood)[Standerwick Remix] [ASOT 800 - P2].mp3
+May 30 22:18:05.129408: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.129418: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Armin van Buuren - I Live For That Energy (ASOT 800 Anthem) [Exis Remix] [ASOT 800 - Part 2].mp3
+May 30 22:18:05.130830: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.130840: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Artento Divini - Hypercube [A State Of Trance 793].mp3
+May 30 22:18:05.132260: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.132271: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Assaf - A Day Closer To Heaven [A State Of Trance 799].mp3
+May 30 22:18:05.133683: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.133693: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold and Standerwick - Vendetta [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.135128: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.135138: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Pilot [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.136551: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.136560: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Where Life Takes Us (Giuseppe Ottaviani Remix) [A State Of Trance 793].mp3
+May 30 22:18:05.138022: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.138031: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Berg - Randa [A State Of Trance 801].mp3
+May 30 22:18:05.139516: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.139527: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - BT - The Upside Down [A State Of Trance 799].mp3
+May 30 22:18:05.141130: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.141141: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Chris Schweizer - Lithium [A State Of Trance 799].mp3
+May 30 22:18:05.142631: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.142641: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Chris Schweizer - Shadows [A State Of Trance 801].mp3
+May 30 22:18:05.144235: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.144246: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Christina Novelli - Where We Began (Steve Allen Remix) [A State Of Trance 793].mp3
+May 30 22:18:05.145706: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.145716: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Conjure One feat. Aruna - Still Holding On (Yoel Lewis Remix) [A State Of Trance 798].mp3
+May 30 22:18:05.147285: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.147298: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - David Gravell - Neverland [A State Of Trance 794].mp3
+May 30 22:18:05.148736: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.148746: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Dawn and Akku - Past All Regrets [A State Of Trance 794] --TUNE OF THE WEEK--.mp3
+May 30 22:18:05.150163: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.150172: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Denis Kenzo and Hanna Finsen - Dancing In The Dark [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.151609: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.151620: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Estiva - Barba [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.153013: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.153022: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Estiva - Blossom [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.154425: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.154436: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Andrew Rayel and Jochen Miller feat. Hansen Tomas - Take It All [A State Of Trance 792].mp3
+May 30 22:18:05.155912: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.155924: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Gareth Emery feat. Joseph - Cloudline (Jordan Suckley Remix) [A State Of Trance 799].mp3
+May 30 22:18:05.157344: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.157354: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Jeremy Vancaulart - The Other Side [A State Of Trance 794].mp3
+May 30 22:18:05.158867: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.158877: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Joel Hirsch and Jennifer Rene - Won Me Over [A State Of Trance 798].mp3
+May 30 22:18:05.160298: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.160309: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Johnny Yono - Cimmerian Sky [A State Of Trance 798].mp3
+May 30 22:18:05.161717: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.161728: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Matt Bukovski and A.R.D.I. - Monsoon [A State Of Trance 799].mp3
+May 30 22:18:05.163199: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.163211: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Mike van Fabio - Peacemaker [A State Of Trance 798].mp3
+May 30 22:18:05.164627: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.164637: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Monoverse - Meridian [A State Of Trance 794].mp3
+May 30 22:18:05.166024: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.166033: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Orjan Nilsen and Jochen Miller - Renegades [A State Of Trance 798].mp3
+May 30 22:18:05.167486: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.167498: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Phonic Youth - Arcane [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.168895: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.168904: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture and Tenishia - Eos [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.170328: interface.c:680 ev_file_tags(): Tags apply to the currently played file.
+May 30 22:18:05.170421: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.170426: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Radion6 - Cycle Of Life [A State Of Trance 800 - Part 2].mp3
+May 30 22:18:05.171955: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.171966: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Sneijder and Christina Novelli - Love Of My Control (Sam Jones Remix) [A State Of Trance 800 - Part 3].mp3
+May 30 22:18:05.173438: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.173448: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Solarstone - Release (Matt Fax Remix) [A State Of Trance 794] --PROGRESSIVE PICK--.mp3
+May 30 22:18:05.174920: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.174931: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Tomas Heredia - Endurance [A State Of Trance 799].mp3
+May 30 22:18:05.176447: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.176459: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - WARRIORS - Rave and Party [A State Of Trance 797].mp3
+May 30 22:18:05.177902: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.177912: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Arston feat. Johnny Kelvin - Beautiful Asian (Alexander Popov Remix) [A State Of Trance 792].mp3
+May 30 22:18:05.179280: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.179291: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - WARRIORS - The Mind [A State Of Trance 797].mp3
+May 30 22:18:05.180680: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.180689: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Ben Gold - Atomic (Coming Soon!!! Remix) [A State Of Trance 791].mp3
+May 30 22:18:05.182070: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.182105: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.182110: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Coast 2 Coast feat. Discovery - Home (Scott Bond and Charlie Walker GC23 Remix) [ASOT 789].mp3
+May 30 22:18:05.183634: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.183645: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.183648: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Expectance - Galaxy [A State Of Trance 790].mp3
+May 30 22:18:05.185036: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.185046: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Heavens Cry - Phunk (Stimulator Mix) [A State Of Trance 792].mp3
+May 30 22:18:05.186442: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.186452: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Jorn van Deynhoven - Space Girl [A State Of Trance 791].mp3
+May 30 22:18:05.187909: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.187920: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Matt Bukovski - Agni [A State Of Trance 790].mp3
+May 30 22:18:05.189302: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.189311: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Protoculture - Empyrean [A State Of Trance 791] --TUNE OF THE WEEK--.mp3
+May 30 22:18:05.190700: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.190709: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Radion6 - Awake [A State Of Trance 790].mp3
+May 30 22:18:05.192211: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.192222: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Shogun - Pentakill [A State Of Trance 791].mp3
+May 30 22:18:05.193689: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.319898: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.319918: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.524299: interface.c:1704 play_it(): The server has different playlist
+May 30 22:18:05.533106: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.533124: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.533182: interface.c:1103 server_event(): EVENT: 0x14
+May 30 22:18:05.533187: interface.c:1103 server_event(): EVENT: 0x08
+May 30 22:18:05.533231: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.533272: interface.c:1103 server_event(): EVENT: 0x09
+May 30 22:18:05.533318: interface.c:1103 server_event(): EVENT: 0x01
+May 30 22:18:05.535168: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Alexander Popov and Christian Burns - One More Time [A State Of Trance 794].mp3
+May 30 22:18:05.538496: interface.c:1103 server_event(): EVENT: 0x13
+May 30 22:18:05.538508: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.538543: interface.c:1103 server_event(): EVENT: 0x12
+May 30 22:18:05.538561: interface.c:1103 server_event(): EVENT: 0x01
+May 30 22:18:05.538824: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.538858: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.538874: interface.c:1103 server_event(): EVENT: 0x09
+May 30 22:18:05.539388: interface.c:1103 server_event(): EVENT: 0x08
+May 30 22:18:05.539432: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:05.539438: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Alexander Popov and Christian Burns - One More Time [A State Of Trance 794].mp3
+May 30 22:18:05.541039: interface.c:680 ev_file_tags(): Tags apply to the currently played file.
+May 30 22:18:05.541206: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541223: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.541273: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.541355: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541385: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541400: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541415: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541429: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541444: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541458: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541472: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:05.541487: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.552229: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.552383: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.552389: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.552416: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.569174: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.569344: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.569349: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.569377: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.584507: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.585385: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.585399: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.585438: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.598677: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.598834: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.598849: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.598876: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.612358: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.612941: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.612952: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.612981: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.627342: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.627930: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.627955: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.628253: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.642751: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.643168: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.643188: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.643217: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.656189: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.656331: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.656336: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.656370: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.670594: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.670993: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.671006: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.671057: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.684240: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.685118: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.685130: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.685176: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.698004: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.698146: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.698161: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.698192: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.712896: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.713037: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.713051: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.713085: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.726622: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.726989: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.727003: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.727032: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.741325: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.741469: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.741484: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.741514: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.755878: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.756006: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.756012: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.756039: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.769595: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.769725: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.769731: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.769780: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.783356: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.783958: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.783970: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.784024: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.797883: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.798717: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.798728: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.798782: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.811076: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.811418: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.811428: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.811694: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.824839: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.825704: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.825718: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.825780: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.839458: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.839597: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.839603: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.839629: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.854564: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.854694: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.854700: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.854732: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.868146: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.868277: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.868283: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.868315: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.882815: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.882948: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.882962: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.882996: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.896285: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.896613: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.896623: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.896659: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.909620: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.909745: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.909750: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.909781: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.923996: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.924826: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.924853: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.924899: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.938290: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.938440: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.938454: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.938487: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.950031: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.950045: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.952163: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.952729: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.952972: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.953039: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.966573: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.967415: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.967430: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.967464: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.979960: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.980099: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.980105: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.980133: interface.c:3469 dequeue_events(): done
+May 30 22:18:05.994746: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:05.994873: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:05.994878: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:05.994906: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.009172: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.009313: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.009327: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.009359: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.023320: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.023449: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.023454: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.023512: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.036613: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.036771: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.036786: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.036819: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.052053: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.052196: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.052212: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.052240: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.065427: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.065568: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.065574: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.065605: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.081838: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.081994: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.082013: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.082048: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.089365: interface.c:1714 play_it(): The server already has my playlist
+May 30 22:18:06.094269: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.094283: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.094347: interface.c:1103 server_event(): EVENT: 0x14
+May 30 22:18:06.094351: interface.c:1103 server_event(): EVENT: 0x08
+May 30 22:18:06.094450: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.094508: interface.c:1103 server_event(): EVENT: 0x09
+May 30 22:18:06.094580: interface.c:1103 server_event(): EVENT: 0x01
+May 30 22:18:06.096505: interface.c:296 send_tags_request(): Asking for tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Andrew Rayel and Jochen Miller feat. Hansen Tomas - Take It All [A State Of Trance 792].mp3
+May 30 22:18:06.100413: interface.c:1103 server_event(): EVENT: 0x13
+May 30 22:18:06.100428: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.100464: interface.c:1103 server_event(): EVENT: 0x12
+May 30 22:18:06.100741: interface.c:1103 server_event(): EVENT: 0x01
+May 30 22:18:06.100992: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.101045: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.101061: interface.c:1103 server_event(): EVENT: 0x09
+May 30 22:18:06.101093: interface.c:1103 server_event(): EVENT: 0x08
+May 30 22:18:06.101125: interface.c:1103 server_event(): EVENT: 0x11
+May 30 22:18:06.101131: interface.c:662 ev_file_tags(): Received tags for /mnt/ssd/Music/A State Of Trance/A State Of Trance - Andrew Rayel and Jochen Miller feat. Hansen Tomas - Take It All [A State Of Trance 792].mp3
+May 30 22:18:06.102778: interface.c:680 ev_file_tags(): Tags apply to the currently played file.
+May 30 22:18:06.102934: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.102951: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.103005: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.103034: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103049: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103064: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103079: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103099: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103115: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103129: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103144: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103158: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103173: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103187: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103201: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103216: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103230: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103245: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103259: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103283: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103297: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.103414: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103484: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.103489: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.103774: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.103840: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.103845: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.104178: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.104244: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.104249: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.104367: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.104413: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.104417: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.104712: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.104773: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.104778: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.105330: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.105393: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.105398: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.105535: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.105595: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.105601: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.106092: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.106151: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.106156: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.106496: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.106552: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.106557: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.106890: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.106958: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.106972: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.107513: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.107578: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.107583: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.107693: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.107743: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.107748: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.108300: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.108364: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.108368: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.108674: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.108748: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.108753: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.108893: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.108957: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.108962: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.109441: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.109506: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.109511: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.109878: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.109961: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.109965: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.110386: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.110443: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.110448: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.111010: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.111087: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.111119: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.111210: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.111264: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.111269: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.111555: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.111612: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.111616: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.112164: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.112220: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.112224: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.112360: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.112420: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.112425: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.112911: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.112978: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.112983: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.113357: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.113439: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.113443: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.113458: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.113599: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.113613: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.113641: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.113707: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.113748: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.113752: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.114054: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.114104: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.114108: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.114576: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.114640: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.114645: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.114683: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.114723: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.114728: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.114817: interface.c:1103 server_event(): EVENT: 0x0f
+May 30 22:18:06.114874: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.114879: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.129364: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.129577: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.129591: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.129619: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.143200: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.143845: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.143877: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.143922: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.158177: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.158512: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.158523: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.158568: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.172178: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.172317: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.172323: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.172349: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.187424: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.187563: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.187569: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.187596: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.204132: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.204472: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.204479: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.204514: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.217666: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.217837: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.217853: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.217905: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.231316: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.231732: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.231746: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.231775: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.246019: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.246849: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.246867: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.246926: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.261170: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.261333: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.261348: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.261379: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.275249: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.275396: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.275410: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.275444: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.290587: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.291454: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.291469: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.291515: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.304130: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.304272: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.304285: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.304316: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.317994: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.318132: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.318146: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.318176: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.332743: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.333416: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.333425: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.333470: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.347559: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.347725: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.347740: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.347772: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.360996: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.361137: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.361142: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.361169: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.375695: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.375815: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.375820: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.375847: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.390480: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.390867: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.390881: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.390930: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.403952: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.404104: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.404129: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.404159: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.418929: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.419114: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.419129: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.419161: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.434394: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.434550: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.434566: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.434598: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.448237: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.448401: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.448414: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.448458: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.463030: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.463175: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.463190: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.463238: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.477067: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.477218: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.477232: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.477274: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.491152: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.491277: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.491282: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.491308: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.507088: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.507252: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.507266: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.507296: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.521167: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.521297: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.521303: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.521331: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.534732: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.535108: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.535123: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.535158: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.549307: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.549430: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.549435: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.549462: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.563003: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.563161: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.563176: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.563206: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.578288: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.578443: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.578457: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.578488: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.593032: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.593619: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.593862: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.593958: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.606744: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.607114: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.607342: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.607392: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.620129: interface.c:1103 server_event(): EVENT: 0x02
+May 30 22:18:06.620372: interface.c:3462 dequeue_events(): Dequeuing events...
+May 30 22:18:06.620378: interface.c:1103 server_event(): EVENT: 0x07
+May 30 22:18:06.620407: interface.c:3469 dequeue_events(): done
+May 30 22:18:06.628552: interface.c:3679 interface_end(): Interface exited

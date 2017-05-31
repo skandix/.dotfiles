@@ -34,6 +34,7 @@ Plugin 'nvie/vim-flake8'
 
 "" GO
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 "" GIT
 Plugin 'airblade/vim-gitgutter'
@@ -64,7 +65,10 @@ map  <C-t> :tabnew<CR>
 " " building python inside vim
 nnoremap <silent> <F2> :!clear;python %<CR>
 nnoremap <silent> <F3> :!clear;python3 %<CR>
-nnoremap <silent> <F4> :!clear;go run % %<CR>
+
+nnoremap <silent> <F4> :GoBuild<CR>
+nnoremap <silent> <F5> :GoInstall<CR>
+nnoremap <silent> <F6> :GoTest<CR>
 
 " YOUCOMPLETEME - PYTHON 
 let g:ycm_autoclose_preview_window_after_completion=1 
@@ -79,6 +83,11 @@ nnoremap $ <nop>
 nnoremap ^ <nop>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
+
+inoremap <F10> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
+
 
 " syntax
 syntax enable

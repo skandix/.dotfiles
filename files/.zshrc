@@ -72,3 +72,11 @@ alias outside="while true; do clear; curl wttr.in/Grimstad; sleep 180; done;"
 export WORKON_HOME=$HOME/.virtualenvs
 #source /usr/local/bin/virtualenvwrapper.sh
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+#golang
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects/Go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+alias uuid="cat /proc/sys/kernel/random/uuid"

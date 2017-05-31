@@ -64,7 +64,7 @@ ReadTags		= yes
 # Directory in which you store music files. If you specify it you will be able
 # to quickly go to this directory with the '-m' parameter or the 'm' command.
 # This can also point to a playlist.
-MusicDir		= "/home/skandix/music"
+MusicDir		= "/mnt/ssd/Music"
 
 # How to sort? FileName is the only option for now.
 Sort			= FileName
@@ -75,7 +75,7 @@ ShowStreamErrors	= no
 
 # Ignore CRC errors in MP3 files. Most players do that, so the default value is
 # set to yes.
-Mp3IgnoreCRCErrors	= yes
+Mp3IgnoreCRCErrors	= no
 
 # Turn on repeat.
 Repeat			= yes
@@ -116,12 +116,11 @@ Prebuffering		= 64
 # debugging).
 # You can enter more than one driver as a colon-separated list.  The first
 # working driver will be used.
-SoundDriver		= ALSA
+SoundDriver		= OSS, JACK
 
-JackClientName		= "moc"
-JackStartServer		= no
-JackOutLeft 		= "system:playback_1"
-JackOutRight		= "system:playback_2"
+#JackClientName		= "moc"
+#JackOutLeft 		= "system:playback_1"
+#JackOutRight		= "system:playback_2"
 
 # OSS output device.
 OSSDevice		= /dev/dsp
@@ -130,16 +129,16 @@ OSSDevice		= /dev/dsp
 OSSMixerDevice		= /dev/mixer
 
 # OSS Mixer channel: pcm or master.
-OSSMixerChannel1		= pcm
+OSSMixerChannel1	= pcm
 
 # Second OSS Mixer channel: pcm or master.
 OSSMixerChannel2	= master
 
 # ALSA mixer device.
-AlsaMixer1 		= PCM
+AlsaMixer1 		= Master
 
 # Second ALSA mixer device.
-AlsaMixer2		= Master
+AlsaMixer2		= hw:2
 
 # ALSA output device.
 AlsaDevice		= default
@@ -370,7 +369,7 @@ ASCIILines		= no
 
 # Always use this sample rate when opening the audio device (and resample the
 # sound if necessary). When set to 0 the device is opened with the file's rate.
-#ForceSampleRate	= 48000
+ForceSampleRate	= 0
 
 # By default even if the sound card reports that it can output 24bit samples
 # MOC converts 24bit PCM to 16bit. This option set to yes allows MOC to use
