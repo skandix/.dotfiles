@@ -79,4 +79,5 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects/Go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+alias mkdirEnv="mkdir $(echo $VIRTUAL_ENV | cut -d '/' -f 5)"
 alias uuid="cat /proc/sys/kernel/random/uuid"

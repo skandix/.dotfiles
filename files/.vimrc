@@ -1,8 +1,7 @@
 "" Skandix's Vim Conf
-"" Langs; Go, Python, Bash.
-"" 
+
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin on                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -12,54 +11,36 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "" PLUGIN LIST
-"" Other
-Plugin 'godlygeek/tabular'
-Plugin 'ervandew/supertab'
+
+" Other
 Plugin 'anyakichi/vim-surround'
 Plugin 'tpope/vim-projectionist'
 Plugin 'scrooloose/syntastic'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-"" BEAUTY THINGS
+" BEAUTY THINGS
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 
-"" PYTHON
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
-
-"" GO
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-
-"" GIT
+" GIT
 Plugin 'airblade/vim-gitgutter'
-
-"" MARKDOWN
-Plugin 'tpope/vim-markdown' 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Pluging Things hotkeys
-" " NERD TREE
+" Plugin Things hotkeys
+
+"" NERD TREE
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" opening and closing with ctrl+d
+"" NERDTREE TREE
 map <C-d> :NERDTreeToggle<CR>
 
 "" NERDTREE TABS
-" ctrl + l move to next tab
-map  <C-f> :tabn<CR>
-" ctrl + n new tab
+map  <C-f> :tabn<CR>	
 map  <C-t> :tabnew<CR>
-
 
 "" BUILDING 
 " " building python inside vim
@@ -87,38 +68,46 @@ nnoremap gV `[v`]
 inoremap <F10> <C-x><C-o>
 inoremap <C-@> <C-Space>
 
-
+" Tagging
+" sudo apt-get install exuberant-ctags
+command! MakeTags !ctags -R .
 
 " syntax
 syntax enable
 colorscheme brogrammer
 
 " Behave
-set nobackup
-set noswapfile
-set undolevels=256
-set history=256
-set scrolloff=8
-set autoread 
-set ttyfast
+set foldlevelstart=10   " open most folds by default
+set numberwidth=6	" with of the 'gutter' col for numbering
+set softtabstop=4	" 
+set foldnestmax=10      " 10 nested fold max
+set shiftwidth=4	" 
+set foldmethod=indent   " fold based on indent level
+set undolevels=256	" how many times one can undo
+set textwidth=128	" 
+set scrolloff=8		" 
+set encoding=utf-8	" encoding
+set history=256		" history
+set tabstop=4		" tabbing
+set term=xterm-256color	" terminal
+set path+=**
 
-set smarttab
-set smartindent
-set autoindent
-set textwidth=128
-set term=xterm-256color	
-
-set number              " show line numbers
-set showcmd             " show command in bottom bar
+set autoindent		" copies indent from prev line, to next new line
+set noswapfile		" stops the spawning of vim swap files
+set cursorline		" highligths the line that contains cursor
 set cursorline          " highlight current line
-set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
+set foldenable          " enable folding
+set expandtab		" inserts space chars whenever tab is pressed
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
+set wildmenu            " visual autocomplete for command menu
 set hlsearch            " highlight matches
+set autoread 		" checks if file has changed externally
+set ttyfast		" ...
+set showcmd             " show command in bottom bar
+set number              " show line numbers
 
-set foldenable          " enable folding
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
-set foldmethod=indent   " fold based on indent level
+set ruler 		" shows 'stats' in the rigth corner 
+set rnu			" Relative line numbering
 
