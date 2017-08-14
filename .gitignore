@@ -1,3 +1,4 @@
 ./files/.vim/bundle/*
 *.swp
 test.*
+bundle

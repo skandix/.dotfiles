@@ -16,17 +16,16 @@ echo ""
 echo -n $'\E[39m'
 
 ########## Variables
-home =/home/skandix/
-dir=$home/.dotfiles/files
+dir=~/.dotfiles/files
 olddir=~/.dotfiles_old
 
 ##########
 
 # Install all dotfiles
-dotfiles=(.moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc)
-for dotfile in ${dotfiles[*]}; do
-    printf "Installing %s...\n" $dotfile
-    ln -s `pwd`/$dotfile ~/$dotfile 2>/dev/null
+dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
+for dotfile in $dotfiles; do
+    printf "Installing %s...\n" $dotfile    
+    ln -s /home/skandix/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
 
@@ -79,11 +78,11 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git $home/.vim/bundle/Vundle.vim;
+        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
         echo "Installing oh-my-zsh";
-        git clone git://github.com/robbyrussell/oh-my-zsh.git $home/.oh-my-zsh;
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -s $dir/Trilambda.zsh-theme $home/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        ln -s $dir/Trilambda.zsh-theme ~/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
