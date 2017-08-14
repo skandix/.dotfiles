@@ -1,5 +1,7 @@
-#!/bin/bash
-#echo "Remember to add contrib and non-free to source list "
+#/bin/sh
+
+# This script creates symlinks from the home directory to any desired dotfiles in ~/.dotfiles
+############################
 
 echo -n $'\e[35m'
 echo $'______      _                                       '
@@ -12,162 +14,104 @@ echo $'                    | |                             '
 echo $'                    |_|                             '
 echo ""
 
+########## Variables
 
-echo -n $'\E[39m'
-echo "Username: "
+dir=~/.dotfiles/files
+olddir=~/.dotfiles_old
+files=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
 
-read user
-apt-get update && apt-get install sudo -y
-echo "adding $user to sudoers list"
-adduser $user 
-adduser $user sudo
+##########
 
-echo ""
-PS3=" Want to install Awesome & xorg?: "
-pick=("Yes" "No")
-select opt in "${pick[@]}"
-do
-  case $opt in
-	"Yes")
-	apt-get install awesome xorg -y
-	;;
-	"No")
-	break
-	;;
-	*) echo helvette;
-  esac
+# create .dotfiles_old in homedir
+echo "Creating $olddir for backup of any existing dotfiles in ~"
+mkdir -p $olddir
+echo "...done"
+
+# change to the .dotfiles directory
+echo "Changing to the $dir directory"
+cd $dir
+echo "...done"
+
+# move any existing .dotfiles in homedir to dotfiles_old directory, then create symlinks
+for file in $files; do
+    echo "Moving any existing dotfiles from ~ to $olddir"
+    mv ~/$file $olddir/
+    echo "Creating symlink to $file in home directory."
+    ln -s $dir/$file ~/$file
 done
 
-# haven't had the time to fix this as i've been busy with uni work
-# and other shit..
-#all_files()
-# {
-#  echo "linking ...files"
-#  for f in *; 
-#    do
-#      select gopt in "$i"       
-#    done
+# adding user to sudo
+apt-get install sudo -y 
+adduser skandix sudo
 
-# for y in ls_dir
- #   ln -s ls_dir $/home/
-#}
-
-#specify()
-# {
-#echo specify
-# for x in ls dir_dotfiles
-# print x 
-# 
-#}
-
-echo ""
-echo ""
-PS3="want to add the public key?"
-pick=("yes" "no")
-select opt in "${pick[@]}"
-do
-	case $opt in
-		 "Yes")
-		  mkdir -p /home/$user/.ssh/
-		  touch /home/$user/.ssh/authorized_keys
-		  wget -qO - http://datapor.no/public/skandix_pub > '/home/$user/.ssh/authorized_keys'
-		  ;;
-		  "No")
-		  break
-		  ;;
-		  *) echo helvette;
-	esac 
-done
+# Install awesome & Xorg?
+read -p "Install Awesome & Xorg? Y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Yes";
+        echo "Installing Xorg";
+        apt-get install xorg;
+        echo "Installing Awesome";
+        apt-get install awesome;
+        echo "Copying configs"
+        mkdir -p /home/skandix/.config/awesome/;
+        cp /etc/xdg/awesome/rc.lua /home/skandix/.config/awesome/;
+        chown skandix /home/skandix/.config/awesome/rc.lua;;        
+    n|n ) echo "No";;
+    * ) echo "Invalid option";;
+esac
 
 
-echo ""
-echo ""
-PS3="laptop or workstation: "
-pick=("laptop" "workstation" "server" "skip")
-select opt in "${pick[@]}"
-do
-  case $opt in
-        "laptop") 
-        apt-get install git mpv xbacklight screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi zsh moc -y 
-        ;;
-        "workstation") 
-        apt-get install git moc mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh -y 
-        ;;
-	"server")
-	apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim vim-python-jedi -y
-		;;
-        "skip")
-        break
-        ;;
-        *) echo helvette;
-  esac
-done
 
-cd /home/$user/
+# Add Public key
+read -p "Add public key ? 1: Yes, 2: No, n/N " option
+echo
+case "$option" in
+    y|Y) echo "Yes";
+        mkdir -p /home/skandix/.ssh/;
+        touch /home/skandix/.ssh/authorized_keys;
+        wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
 
+# Install Packages?
+read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
+echo
+case "$option" in
+    1 ) echo "Laptop"; apt-get install vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi -y zsh moc -y;;
+    2 ) echo "Workstation"; apt-get install vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
+    3 ) echo "Server"; apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
+    #4 ) echo "Minimal Setup"; ;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
 
-echo ""
-echo ""
-PS3="Want to install/update Spotify ?"
-pick=("install" "update" "skip")
-select opt in "${pick[@]}"
-do 
-    case $opt in
-	"install")
-	$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+')
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	apt-get update && apt-get install spotify-client -y
-	;;
-	"update")
-	$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+')
-	apt-get update && apt-get install spotify-client -y
-	;;
-	"skip")
-	break
-	;;
-	*) echo helvette;
-  esac
-done
+# Install Vim plugins?
+read -p "Install Vim plugins & oh-my-zsh? Y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Yes";
+        echo "Installing Vundle";
+        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+        echo "Installing oh-my-zsh";
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
+        vim +PluginInstall +qall;;
+        ln -s $dir/Trilambda.zsh-theme /home/skandix/.oh-my-zsh/themes/Trilambda.zsh-theme
+    n|n ) echo "No";;
+    * ) echo "Invalid option";;
+esac
 
-echo ""
-echo ""
-PS3="stop the fucking beeping"
-pick=("stopit!" "skip")
-select opt in "${pick[@]}"
-do
-   case $opt in
-	"stopit!") 
-	modprobe -r pcspkr
-	echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
-	;;
-	"skip")
-	break
-	;;
-	*) echo helvette;
-  esac
-done
+# Install Spotify?
+read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
+echo
+case "$option" in
+    1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && apt-get update && apt-get install spotify-client -y;;
+    2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && apt-get update && apt-get install spotify-client -y;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
 
-echo ""
-echo ""
-PS3="specify dotfiles: "
-pick=("all" "specify" "skip") 
-select opt in "${pick[@]}"
-do
-  case $opt in
-        "all")
-          all_files
-          #all_files()
-          echo all
-        ;;
-        "specify")
-          specify
-          #echo specify
-        ;;
-	"skip")
-	break
-	;;
-        *) echo helvette;
-  esac
-done
-
-
+# plz stop thefuckin beeping...!!!
+modprobe -r pcspkr
+    echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
