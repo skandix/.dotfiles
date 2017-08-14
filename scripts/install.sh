@@ -51,9 +51,9 @@ case "$option" in
         echo "Installing Awesome";
         sudo apt-get install awesome;
         echo "Copying configs"
-        mkdir -p /home/skandix/.config/awesome/;
-        cp /etc/xdg/awesome/rc.lua /home/skandix/.config/awesome/;
-        chown skandix /home/skandix/.config/awesome/rc.lua;;        
+        sudo mkdir -p /home/skandix/.config/awesome/;
+        sudo cp /etc/xdg/awesome/rc.lua /home/skandix/.config/awesome/;
+        sudo chown skandix /home/skandix/.config/awesome/rc.lua;;        
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -65,9 +65,9 @@ read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-        mkdir -p /home/skandix/.ssh/;
-        touch /home/skandix/.ssh/authorized_keys;
-        wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
+        sudo mkdir -p /home/skandix/.ssh/;
+        sudo touch /home/skandix/.ssh/authorized_keys;
+        sudo wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
