@@ -19,27 +19,16 @@ echo -n $'\E[39m'
 home =/home/skandix/
 dir=$home/.dotfiles/files
 olddir=~/.dotfiles_old
-files=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
 
 ##########
 
-# create .dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
-
-# change to the .dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
-# move any existing .dotfiles in homedir to dotfiles_old directory, then create symlinks
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/$file $olddir/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file -f
+# Install all dotfiles
+dotfiles=(.moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc)
+for dotfile in ${dotfiles[*]}; do
+    printf "Installing %s...\n" $dotfile
+    ln -s `pwd`/$dotfile ~/$dotfile 2>/dev/null
 done
+
 
 # Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
@@ -65,9 +54,9 @@ read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-        sudo mkdir -p /home/skandix/.ssh/;
-        sudo touch /home/skandix/.ssh/authorized_keys;
-        sudo wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
+        mkdir -p /home/skandix/.ssh/;
+        touch /home/skandix/.ssh/authorized_keys;
+        wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
