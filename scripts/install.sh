@@ -13,6 +13,7 @@ echo $'|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
 echo $'                    | |                             '
 echo $'                    |_|                             '
 echo ""
+echo -n $'\E[39m'
 
 ########## Variables
 
@@ -40,19 +41,15 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
-# adding user to sudo
-apt-get install sudo -y 
-adduser skandix sudo
-
 # Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
 echo
 case "$option" in
     vy|Y ) echo "Yes";
         echo "Installing Xorg";
-        apt-get install xorg;
+        sudo apt-get install xorg;
         echo "Installing Awesome";
-        apt-get install awesome;
+        sudo apt-get install awesome;
         echo "Copying configs"
         mkdir -p /home/skandix/.config/awesome/;
         cp /etc/xdg/awesome/rc.lua /home/skandix/.config/awesome/;
@@ -79,9 +76,9 @@ esac
 read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
 echo
 case "$option" in
-    1 ) echo "Laptop"; apt-get install vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi -y zsh moc -y;;
-    2 ) echo "Workstation"; apt-get install vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
-    3 ) echo "Server"; apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
+    1 ) echo "Laptop"; sudo apt-get install vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi -y zsh moc -y;;
+    2 ) echo "Workstation"; sudo apt-get install vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
+    3 ) echo "Server"; sudo apt-get install screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
     #4 ) echo "Minimal Setup"; ;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
@@ -106,12 +103,12 @@ esac
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
 case "$option" in
-    1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && apt-get update && apt-get install spotify-client -y;;
-    2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && apt-get update && apt-get install spotify-client -y;;
+    1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt-get update && sudo apt-get install spotify-client -y;;
+    2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && sudo apt-get update && sudo apt-get install spotify-client -y;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
 
 # plz stop thefuckin beeping...!!!
-modprobe -r pcspkr
-    echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
+sudo modprobe -r pcspkr
+echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
