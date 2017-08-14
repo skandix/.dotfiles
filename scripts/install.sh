@@ -16,8 +16,8 @@ echo ""
 echo -n $'\E[39m'
 
 ########## Variables
-
-dir=~/.dotfiles/files
+home =/home/skandix/
+dir=$home/.dotfiles/files
 olddir=~/.dotfiles_old
 files=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
 
@@ -38,7 +38,7 @@ for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/$file $olddir/
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
+    ln -s $dir/$file ~/$file -f
 done
 
 # Install awesome & Xorg?
