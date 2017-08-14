@@ -90,11 +90,11 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+        git clone https://github.com/gmarik/Vundle.vim.git $home/.vim/bundle/Vundle.vim;
         echo "Installing oh-my-zsh";
-        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
+        git clone git://github.com/robbyrussell/oh-my-zsh.git $home/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -s $dir/Trilambda.zsh-theme /home/skandix/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        ln -s $dir/Trilambda.zsh-theme $home/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
