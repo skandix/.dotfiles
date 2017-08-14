@@ -48,7 +48,7 @@ adduser skandix sudo
 read -p "Install Awesome & Xorg? Y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Yes";
+    vy|Y ) echo "Yes";
         echo "Installing Xorg";
         apt-get install xorg;
         echo "Installing Awesome";
@@ -64,7 +64,7 @@ esac
 
 
 # Add Public key
-read -p "Add public key ? 1: Yes, 2: No, n/N " option
+read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
@@ -96,8 +96,8 @@ case "$option" in
         git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
         echo "Installing oh-my-zsh";
         git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
-        vim +PluginInstall +qall;;
-        ln -s $dir/Trilambda.zsh-theme /home/skandix/.oh-my-zsh/themes/Trilambda.zsh-theme
+        vim +PluginInstall +qall;
+        ln -s $dir/Trilambda.zsh-theme /home/skandix/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
