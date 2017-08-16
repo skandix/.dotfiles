@@ -1,8 +1,5 @@
 #/bin/sh
 
-# This script creates symlinks from the home directory to any desired dotfiles in ~/.dotfiles
-############################
-
 echo -n $'\e[35m'
 echo $'______      _                                       '
 echo $'|  _  \    | |                                      '
@@ -15,11 +12,8 @@ echo $'                    |_|                             '
 echo ""
 echo -n $'\E[39m'
 
-########## Variables
 dir=~/.dotfiles/files
 olddir=~/.dotfiles_old
-
-##########
 
 # Install all dotfiles
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
