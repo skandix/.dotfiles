@@ -16,7 +16,7 @@ dir=~/.dotfiles/files
 olddir=~/.dotfiles_old
 
 # Install all dotfiles
-dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc"
+dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
     ln -s /home/skandix/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
@@ -58,7 +58,7 @@ esac
 read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
 echo
 case "$option" in
-    1 ) echo "Laptop"; sudo apt-get install screenfetch vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color firmware-iwlwifi -y zsh moc -y;;
+    1 ) echo "Laptop"; sudo apt-get install screenfetch vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color zsh moc -y;;
     2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
     3 ) echo "Server"; sudo apt-get install screenfetch screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
     #4 ) echo "Minimal Setup"; ;;
@@ -85,8 +85,8 @@ esac
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
 case "$option" in
-    1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt-get update && sudo apt-get install spotify-client -y;;
-    2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && sudo apt-get update && sudo apt-get install spotify-client -y;;
+    1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt-get update && sudo apt-get install spotify-client -y ;;
+    2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && sudo apt-get update && sudo apt-get install spotify-client -y ;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
