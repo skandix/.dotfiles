@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Other
 Plugin 'anyakichi/vim-surround'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'scrooloose/syntastic'
 

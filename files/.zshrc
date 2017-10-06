@@ -70,8 +70,8 @@ alias outside="while true; do clear; curl wttr.in/Grimstad; sleep 180; done;"
 
 #virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-#source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 #golang
 
@@ -81,3 +81,5 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 alias mkdirEnv="mkdir $(echo $VIRTUAL_ENV | cut -d '/' -f 5)"
 alias uuid="cat /proc/sys/kernel/random/uuid"
+
+alias pdfconv="unoconv -f pdf"

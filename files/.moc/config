@@ -64,7 +64,7 @@ ReadTags		= yes
 # Directory in which you store music files. If you specify it you will be able
 # to quickly go to this directory with the '-m' parameter or the 'm' command.
 # This can also point to a playlist.
-MusicDir		= "/mnt/ssd/Music"
+MusicDir		= "/home/skandix/Music/"
 
 # How to sort? FileName is the only option for now.
 Sort			= FileName
@@ -116,7 +116,7 @@ Prebuffering		= 64
 # debugging).
 # You can enter more than one driver as a colon-separated list.  The first
 # working driver will be used.
-SoundDriver		= OSS, JACK
+# SoundDriver		= OSS, JACK, ALSA
 
 #JackClientName		= "moc"
 #JackOutLeft 		= "system:playback_1"
