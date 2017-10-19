@@ -9,17 +9,19 @@ call vundle#begin()
 
 "" VUNDLE PLUGIN MANAGER !
 Plugin 'VundleVim/Vundle.vim'
-
 "" PLUGIN LIST
+" only uses it sometimes when i neeed it... keke
+" Plugin 'davidhalter/jedi-vim'
 
 " Other
+Plugin 'mbbill/undotree'
 Plugin 'anyakichi/vim-surround'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'scrooloose/syntastic'
 
 " BEAUTY THINGS
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -48,13 +50,13 @@ map  <C-t> :tabnew<CR>
 nnoremap <silent> <F2> :!clear;python %<CR>
 nnoremap <silent> <F3> :!clear;python3 %<CR>
 
-nnoremap <silent> <F4> :GoBuild<CR>
-nnoremap <silent> <F5> :GoInstall<CR>
-nnoremap <silent> <F6> :GoTest<CR>
+"nnoremap <silent> <F4> :GoBuild<CR>
+"nnoremap <silent> <F5> :GoInstall<CR>
+"nnoremap <silent> <F6> :GoTest<CR>
 
-" YOUCOMPLETEME - PYTHON 
-let g:ycm_autoclose_preview_window_after_completion=1 
-map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"undotree
+nnoremap <F5> :UndotreeToggle<cr>
+
 
 " KeyBinds 
 nnoremap j gj 
@@ -74,6 +76,7 @@ inoremap <C-@> <C-Space>
 command! MakeTags !ctags -R .
 
 " syntax
+let g:airline_theme='wombat'
 syntax enable
 colorscheme brogrammer
 

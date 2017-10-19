@@ -2,3 +2,7 @@
 *.swp
 test.*
 bundle
+files/.moc/cache/tags.db
+files/.moc/last_directory
+files/.moc/pid
+
