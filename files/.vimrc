@@ -45,6 +45,9 @@ map <C-d> :NERDTreeToggle<CR>
 map  <C-f> :tabn<CR>	
 map  <C-t> :tabnew<CR>
 
+"" highligth 
+nnoremap <F1> :set hlsearch!<CR>
+
 "" BUILDING 
 " " building python inside vim
 nnoremap <silent> <F2> :!clear;python %<CR>
