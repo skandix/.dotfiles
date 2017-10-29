@@ -1,8 +1,9 @@
-.vim/plugins/*
-.vim/bundle/*
+files/.vim/plugins/*
+files/.vim/bundle/*
 *.swp
 test.*
 bundle
+files/.moc/softmixer
 files/.moc/cache/*
 files/.moc/last_directory
 files/.moc/pid
