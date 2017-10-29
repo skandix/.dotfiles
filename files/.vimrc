@@ -1,4 +1,4 @@
-"" Skandix's Vim Conf
+" Skandix's Vim Conf
 
 set nocompatible
 filetype plugin on
@@ -19,14 +19,20 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 "" NERD tree Tabs
 Plugin 'jistr/vim-nerdtree-tabs'
 
-"" NERD Commenter
-" Plugin 'scrooloose/nerdcommenter' " not sure how to properly use
+"" NERD tree
+Plugin 'scrooloose/nerdtree'
+
+"" fuzzy file finder
+Plugin 'kien/ctrlp.vim'
 
 "" Vim Markdown
 Plugin 'plasticboy/vim-markdown'
 
 "" Vim Instant Markdown
 Plugin 'suan/vim-instant-markdown'
+
+"" PEP8 checking
+Plugin 'nvie/vim-flake8'
 
 "" HTML5
 Plugin 'othree/html5.vim'
@@ -68,27 +74,31 @@ Plugin 'cohama/lexima.vim'
 call vundle#end()            " end of plugin section
 filetype plugin indent on    " required
 
-" let mapleader = " "
+""" Lettings
+let mapleader="-"
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:ycm_autoclose_preview_window_after_completion=1
 
 """ KEYBINDS
-"" NERD Tree
-" Toggle NERDTree Window
+map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <C-d> :NERDTreeToggle<CR>
-
-"" NERDTREE TABS
-map  <C-f> :tabn<CR>	
+map  <C-f> :tabn<CR>
 map  <C-t> :tabnew<CR>
-
-
-"" highligth 
 nnoremap <F1> :set hlsearch!<CR>
-" building python inside vim
 nnoremap <silent> <F2> :!clear;python %<CR>
 nnoremap <silent> <F3> :!clear;python3 %<CR>
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <BS> X
+
+
 
 """ COLORSCHEME
-
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ }
 syntax enable
 colorscheme brogrammer
 
@@ -100,12 +110,17 @@ set encoding=utf-8				" encoding
 set undolevels=256				" how many times one can undo
 set updatetime=250				" Faster update of internals
 set numberwidth=6				" with of the 'gutter' col for numbering
+set foldmethod=indent
+set foldlevel=99
+set splitright
+set backspace=indent,eol,start
+set matchpairs+=<:>
+set splitbelow
 set textwidth=128				" 
 set shiftwidth=8				" 
 set laststatus=2				" Display statusline
 set cmdheight=1					" Height of the command bar
 set history=256					" How much history to save.
-set scrolloff=8					" 
 set noshowmode 					" Lightline handle this
 set autoindent					" copies indent from prev line, to next new line
 set cursorline          		" highlight current line
@@ -114,40 +129,18 @@ set smartcase					" Dont ignore case if there is capitals in the search pattern
 set showmatch           		" highlight matching [{()}]
 set incsearch           		" search as characters are entered
 set smarttab
-set wildmenu            		" visual autocomplete for command menu
+"set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
 set ttyfast						" faster redrawing
 set showcmd             		" show command in bottom bar
 set number              		" show line numbers
-set ruler 						" shows 'stats' in the rigth corner 
 set rnu							" Relative line numbering
 
 
 """ COMMMANDS (taken from lasseh .vimrc)
 command! Q q
 command! W w
-
-""" HTML EDIT (taken from lasseh .vimrc)
-set matchpairs+=<:>
-
-""" FILE DETECTS (taken from lasseh .vimrc)
-
-" Python configuration
-autocmd BufNewFile,BufReadPost *.py set filetype=python
-
-" Systemd
-au BufNewFile,BufRead *.automount set filetype=systemd
-au BufNewFile,BufRead *.mount     set filetype=systemd
-au BufNewFile,BufRead *.path      set filetype=systemd
-au BufNewFile,BufRead *.service   set filetype=systemd
-au BufNewFile,BufRead *.socket    set filetype=systemd
-au BufNewFile,BufRead *.swap      set filetype=systemd
-au BufNewFile,BufRead *.target    set filetype=systemd
-au BufNewFile,BufRead *.timer     set filetype=systemd
-
-" Nginx
-au BufRead,BufNewFile /opt/nginx/*,/etc/nginx/*,/usr/local/nginx/conf/*,/usr/local/nginx/conf.d/* if &ft == '' | setfiletype nginx | endif 
 
 """ NERDTREE SETTINGS (taken from lasseh .vimrc)
 " Open Nerdtree if no files specified

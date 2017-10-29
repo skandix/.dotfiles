@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/skandix/.go/bin:/home/skandix/.gvm/bin:/usr/local/bin:/usr/bin:/bin:/home/skandix/.go/bin:/home/skandix/.gvm/bin:/usr/local/bin:/usr/bin:/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/skandix/.go/bin:/home/skandix/.gvm/bin:/usr/local/bin:/usr/bin:/bin:/home/skandix/.go/bin:/home/skandix/.gvm/bin:/usr/local/bin:/usr/bin:/bin"
 
 source $ZSH/oh-my-zsh.sh
 
