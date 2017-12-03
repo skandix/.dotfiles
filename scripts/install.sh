@@ -61,6 +61,7 @@ case "$option" in
     1 ) echo "Laptop"; sudo apt-get install screenfetch vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color zsh moc -y;;
     2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
     3 ) echo "Server"; sudo apt-get install screenfetch screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
+	4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim -y;;
     #4 ) echo "Minimal Setup"; ;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
@@ -94,4 +95,4 @@ esac
 # plz stop thefuckin beeping...!!!
 sudo modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
-sudo rm /etc/motd 
+sudo mv /etc/motd /etc/motd.blacklist
