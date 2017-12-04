@@ -19,7 +19,7 @@ olddir=~/.dotfiles_old
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
-    ln -s /home/skandix/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
+    ln -fs /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
 
@@ -33,9 +33,9 @@ case "$option" in
         echo "Installing Awesome";
         sudo apt-get install awesome;
         echo "Copying configs"
-        sudo mkdir -p /home/skandix/.config/awesome/;
-        sudo cp /etc/xdg/awesome/rc.lua /home/skandix/.config/awesome/;
-        sudo chown skandix /home/skandix/.config/awesome/rc.lua;;        
+        sudo mkdir -p /home/$1/.config/awesome/;
+        sudo cp /etc/xdg/awesome/rc.lua /home/$1/.config/awesome/;
+        sudo chown $1 /home/$1/.config/awesome/rc.lua;;        
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -47,22 +47,21 @@ read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-        mkdir -p /home/skandix/.ssh/;
-        touch /home/skandix/.ssh/authorized_keys;
-        wget -qO - http://datapor.no/public/skandix_pub > '/home/skandix/.ssh/authorized_keys';;
+        mkdir -p /home/$1/.ssh/;
+        touch /home/$1/.ssh/authorized_keys;
+        wget -qO - $2 >> /home/$1/.ssh/authorized_keys;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
 
 # Install Packages?
-read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
+read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server n/N " option
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt-get install screenfetch vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color zsh moc -y;;
     2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
     3 ) echo "Server"; sudo apt-get install screenfetch screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
-	4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim -y;;
-    #4 ) echo "Minimal Setup"; ;;
+    4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim -y;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -73,11 +72,13 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
-        echo "Installing oh-my-zsh";
-        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
+        git clone https://github.com/gmarik/Vundle.vim.git /home/$1/.vim/bundle/Vundle.vim;
+
+	echo "Installing oh-my-zsh";
+        git clone git://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -s $dir/Trilambda.zsh-theme ~/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
+        ln -s $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
+
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -95,4 +96,4 @@ esac
 # plz stop thefuckin beeping...!!!
 sudo modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
-sudo mv /etc/motd /etc/motd.blacklist
+sudo mv /etc/motd /etc/motd.back

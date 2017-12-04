@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 """ PLUGIN LIST START
 "" You Complete Me
-Plugin 'valloric/youcompleteme'
+""Plugin 'valloric/youcompleteme'
 
 "" NERD Tree Syntax
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -129,7 +129,7 @@ set smartcase					" Dont ignore case if there is capitals in the search pattern
 set showmatch           		" highlight matching [{()}]
 set incsearch           		" search as characters are entered
 set smarttab
-"set wildmenu            		" visual autocomplete for command men
+set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
 set ttyfast						" faster redrawing
