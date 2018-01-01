@@ -59,7 +59,7 @@ read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt-get install screenfetch vim xbacklight mpv screen pulseaudio pavucontrol tmux python-dev python-pip chromium wicd-curses alsa-utils rxvt-unicode-256color zsh moc -y;;
-    2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip chromium alsa-utils rxvt-unicode-256color zsh moc -y;;
+    2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
     3 ) echo "Server"; sudo apt-get install screenfetch screen tmux python3-dev python3-pip python-dev python-pip virtualenvwrapper virtualenv zsh vim -y;;
     4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim -y;;
     n|N ) echo "No";;
@@ -83,6 +83,24 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 
+# install Telegram
+read -p "Install Telegram?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; cd /tmp && wget https://telegram.org/dl/desktop/linux && tar xvf linux && sudo mv Telegram /opt/Telegram && sudo chown $1:$1 /opt/Telegram -R && sudo ln -s /opt/Telegram/Telegram /bin/Telegram && sudo ln -s /opt/Telegram/Updater /bin/Updater;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+
+# install firefox
+read -p "Install firefox?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; cd /tmp && wget -O firefax https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -s /opt/firefox/firefox /bin/firefox;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+
 # Install Spotify?
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
@@ -97,3 +115,7 @@ esac
 sudo modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 sudo mv /etc/motd /etc/motd.back
+cd /home/$1/.config/awesome
+sudo cp rc.lua rc.lua.bak
+cp /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome -rfv
+sudo chown $1:$1 /home/$1 -R
