@@ -1,6 +1,6 @@
 #/bin/sh
 
-echo -n $'\e[35m'
+echo "$(PURPLE)"
 echo $'______      _                                       '
 echo $'|  _  \    | |                                      '
 echo $'| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
@@ -10,7 +10,7 @@ echo $'|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
 echo $'                    | |                             '
 echo $'                    |_|                             '
 echo ""
-echo $(NC)
+echo "$(NC)"
 
 misc=~/.dotfiles/misc
 dotdir=~/.dotfiles/dotfiles
