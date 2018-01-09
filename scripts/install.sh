@@ -77,7 +77,7 @@ case "$option" in
     1 ) echo "Laptop"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses etckeep firmware-iwlwifi -y;;
     2 ) echo "Workstation"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr etckeep -y;;
     3 ) echo "Server"; sudo apt-get install screenfetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr etckeep -y;;
-    4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim etckeep -y;;1
+    4 ) echo "Minimal Server"; sudo apt-get install screenfetch screen tmux zsh vim etckeep -y;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
