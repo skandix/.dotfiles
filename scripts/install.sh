@@ -1,15 +1,15 @@
 #/bin/sh
 
-echo ""
-echo $'______      _                                       '
-echo $'|  _  \    | |                                      '
-echo $'| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
-echo $'| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
-echo $'| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
-echo $'|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
-echo $'                    | |                             '
-echo $'                    |_|                             '
-echo ""
+echo ''
+echo '______      _                                       '
+echo '|  _  \    | |                                      '
+echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
+echo '| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
+echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
+echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
+echo '                    | |                             '
+echo '                    |_|                             '
+echo ''
 
 misc=~/.dotfiles/files
 dotdir=~/.dotfiles/dotfiles
@@ -75,12 +75,12 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "[+] Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git $selHome/.vim/bundle/Vundle.vim;
+        git clone https://github.com/gmarik/Vundle.vim.git /home/$1/.vim/bundle/Vundle.vim;
 
     	echo "[+] Installing oh-my-zsh";
-        git clone git://github.com/robbyrussell/oh-my-zsh.git $selHome/.oh-my-zsh;
+        git clone git://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -s $misc/Trilambda.zsh-theme $selHome/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
+        ln -s $misc/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
 
     n|N ) echo "No";;
     * ) echo "Invalid option";;
