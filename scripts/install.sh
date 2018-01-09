@@ -23,8 +23,8 @@ echo "$(NC)"
 misc=~/.dotfiles/misc
 dotdir=~/.dotfiles/dotfiles
 
-selUser=~/$1
-selHome=~/home/$selUser
+selUser=$1
+selHome=/home/$1
 
 # Install all dotfiles
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
