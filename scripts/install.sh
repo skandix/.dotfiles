@@ -1,63 +1,58 @@
 #/bin/sh
+echo -n $'\e[35m'
+echo $'______      _                                       '
+echo $'|  _  \    | |                                      '
+echo $'| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
+echo $'| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
+echo $'| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
+echo $'|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
+echo $'                    | |                             '
+echo $'                    |_|                             '
+echo ""
+echo -n $'\E[39m'
 
-echo ''
-echo '______      _                                       '
-echo '|  _  \    | |                                      '
-echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
-echo '| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
-echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
-echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
-echo '                    | |                             '
-echo '                    |_|                             '
-echo ''
-
-misc=~/.dotfiles/files
-dotdir=~/.dotfiles/dotfiles
+dir=~/.dotfiles/files
 
 # Install all dotfiles
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
-    printf "[+] symlinking %s...\n" $dotfile
-    ln -fs /home/$1/$dotdir/$dotfile ~/$dotfile 2>/dev/null
+    printf "Installing %s...\n" $dotfile    
+    ln -s /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
-
 # Install awesome & Xorg?
-read -p "$(RED)Install Awesome & Xorg? y/n " option
+read -p "Install Awesome & Xorg? Y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";
-        echo "[+] Installing Xorg";
+        echo "Installing Xorg";
         sudo apt-get install xorg;
-
-        echo "[+] Installing Awesome";
+        echo "Installing Awesome";
         sudo apt-get install awesome;
-
-        echo "[+] Copying configs"
+        echo "Copying configs"
         sudo mkdir -p /home/$1/.config/awesome/;
-        
         sudo cp /etc/xdg/awesome/rc.lua /home/$1/.config/awesome/;
         sudo chown $1 /home/$1/.config/awesome/rc.lua;;        
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # Add Public key
-read -p "Add public key ? y/n " option
+read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
         mkdir -p /home/$1/.ssh/;
         touch /home/$1/.ssh/authorized_keys;
-        wget -qO - $2 >> /home/$1/.ssh/authorized_keys;;
+        wget -qO - $2 > '/home/$1/.ssh/authorized_keys';;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # Install Packages?
-read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server n/N " option
+read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt-get install screenfetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses etckeeper firmware-iwlwifi -y;;
@@ -67,25 +62,23 @@ case "$option" in
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # Install Vim plugins?
-read -p "Install Vim plugins & oh-my-zsh? y/n " option
+read -p "Install Vim plugins & oh-my-zsh? Y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";
-        echo "[+] Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git /home/$1/.vim/bundle/Vundle.vim;
-
-    	echo "[+] Installing oh-my-zsh";
-        git clone git://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
+        echo "Installing Vundle";
+        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+        echo "Installing oh-my-zsh";
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -s $misc/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
-
-    n|N ) echo "No";;
+        ln -s $dir/Trilambda.zsh-theme ~/.oh-my-zsh/themes/Trilambda.zsh-theme -f;;
+    n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # install Telegram
 read -p "Install Telegram?  y/n " option
@@ -95,7 +88,7 @@ case "$option" in
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # install firefox
 read -p "Install firefox?  y/n " option
@@ -105,7 +98,7 @@ case "$option" in
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # Install Spotify?
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
@@ -116,7 +109,7 @@ case "$option" in
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
-echo "\n"
+echo
 
 # plz stop thefuckin beeping...!!!
 sudo modprobe -r pcspkr
