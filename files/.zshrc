@@ -65,7 +65,7 @@ alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
-if [ -f /usr/bin/screenfetch ]; then screenfetch -t; fi
+if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
 alias outside="while true; do clear; curl wttr.in/Grimstad; sleep 180; done;"
 
 #virtualenv
