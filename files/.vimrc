@@ -70,6 +70,9 @@ Plugin 'cohama/lexima.vim'
 
 "Plugin 'scrooloose/syntastic'
 
+"" Friendly Remark
+Plugin 'https://notabug.org/SylvieLorxu/vim-friendlyremark.git'
+
 """ PLUGIN LIST END
 call vundle#end()            " end of plugin section
 filetype plugin indent on    " required
