@@ -104,7 +104,11 @@ let g:lightline = {
       \ }
 syntax enable
 colorscheme brogrammer
+set term=screen-256color
 
+if &term =~ '256color'
+  set t_ut=
+endif
 """ BEHAVE
 
 set wildmode=list:longest,full	" Show vim completion menu
@@ -135,7 +139,7 @@ set smarttab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
-set ttyfast						" faster redrawing
+set ttyfast tf						" faster redrawing
 set showcmd             		" show command in bottom bar
 set number              		" show line numbers
 set rnu							" Relative line numbering

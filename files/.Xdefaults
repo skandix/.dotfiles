@@ -7,19 +7,18 @@
  urxvt*cursorBlink:       false
  urxvt*urgentOnBell:       true
  urxvt*font: xft:Monospace:pixelsize=21
- urxvt*scrollTtyOutput: False
+ 4rxvt*scrollTtyOutput: False
  urxvt*scrollTtyKeypress: True
  urxvt*secondaryScroll: True
  rxvt*modifier: alt
 
 !! Beauty - this is the only thing i need.
  urxvt*foreground: white
-!! urxvt*background: black
- urxvt*urlLauncher: chromium
+ urxvt*background: #1a1a1a
+ urxvt*urlLauncher: firefox
 
 !! Transparency 
- urxvt*depth: 32
- urxvt*background: rgba:0000/0000/0200/c800
- urxvt*transparent: true
- urxvt*shading: 30
-
+!! urxvt*depth: 32
+!! urxvt*background: rgba:0000/0000/0200/c800
+!! urxvt*transparent: true
+!! urxvt*shading: 30

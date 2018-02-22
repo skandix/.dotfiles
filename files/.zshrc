@@ -83,3 +83,7 @@ alias mkdirEnv="mkdir $(echo $VIRTUAL_ENV | cut -d '/' -f 5)"
 alias uuid="cat /proc/sys/kernel/random/uuid"
 
 alias pdfconv="unoconv -f pdf"
+alias tmux='tmux -2'
+if [[ $TERM == xterm ]]; then
+	    TERM=xterm-256color
+fi
