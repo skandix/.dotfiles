@@ -17,7 +17,7 @@ dir=~/.dotfiles/files
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
-    ln -s /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
+    ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
 # Install awesome & Xorg?
