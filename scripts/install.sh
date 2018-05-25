@@ -34,7 +34,6 @@ for dotfile in $dotfiles; do
     ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
-function debian_flavor {
 read -p "What Debian Flavor do you want ?"
 echo  
 case "$option" in
@@ -77,9 +76,8 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function awesome_xorg {
+
 # Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
 echo
@@ -97,9 +95,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac  
 echo
-}
 
-function pub_key {
 # Add Public key
 read -p "Add public key ? Y/n " option
 echo
@@ -112,9 +108,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function pacakages {
 # Install Packages?
 read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server, n/N " option
 echo
@@ -127,9 +121,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function vim_zsh {
 # Install Vim plugins?
 read -p "Install Vim plugins & oh-my-zsh? Y/n " option
 echo
@@ -145,9 +137,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function docker_ce {
 # install Docker
 read -p "Install Docker?  y/n " option
 echo
@@ -157,10 +147,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-
-function telegram {
 read -p "Install Telegram?  y/n " option
 echo
 case "$option" in
@@ -169,9 +156,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function firefox {
 read -p "Install firefox?  y/n " option
 echo
 case "$option" in
@@ -180,9 +165,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function gpu_driver {
 read -p "What Packages ? 1: AMD, 2: NVIDIA, n/N " option
 echo
 case "$option" in
@@ -196,9 +179,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function skandix_scripts {
 read -p "install skandix toolbox of somewhat working scripts ?  y/n " option
 echo
 case "$option" in
@@ -207,9 +188,7 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function spotify {
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
 case "$option" in
@@ -219,17 +198,12 @@ case "$option" in
     * ) echo "Invalid option";;
 esac
 echo
-}
 
-function beeping {
 sudo modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 sudo mv /etc/motd /etc/motd.back
-}
 
-function permissions {
 sudo chown $1:$1 /home/$1 -R
 cd /home/$1/.config/awesome/
 cp rc.lua rc.lua.bak
 cp /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome -rfv
-}
