@@ -4,11 +4,11 @@
 read -p "What Debian Flavor do you want ? 1: Jessie (Oldstable), 2: Stretch (Stable), 3:Buster (Testing), 4:Sid (Unstable), 5: Roll backup" option
 echo  
 case "$option" in
-    1 ) echo "Jessie (Oldstable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list ;; 
-    2 ) echo "Stretch (Stable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && echo "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list ;;
-    3 ) echo "Buster (Testing)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && echo "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list ;;
-    4 ) echo "Sid (Unstable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak &&  echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list ;;
-    5 ) echo "Roll backup"; cd /etc/apt/ && sudo cp sources.list.bak sources.list -fv && ;;
+    1 ) echo "Jessie (Oldstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
+    2 ) echo "Stretch (Stable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
+    3 ) echo "Buster (Testing)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
+    4 ) echo "Sid (Unstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak;  echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
+    5 ) echo "Roll backup"; cd /etc/apt/; sudo cp sources.list.bak sources.list -fv;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
