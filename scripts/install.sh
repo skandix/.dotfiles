@@ -11,23 +11,8 @@ echo $'                    |_|                             '
 echo ""
 echo -n $'\E[39m'
 
-
-### MAIN SECTION 
-debian_flavor()
-awesome_xorg()
-pub_key()
-pacakages()
-vim_zsh()
-docker_ce()
-telegram()
-firefox()
-gpu_driver()
-skandix_scripts()
-spotify()
-beeping()
-permissions()
-
 dir=~/.dotfiles/files
+
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
@@ -169,12 +154,8 @@ echo
 read -p "What Packages ? 1: AMD, 2: NVIDIA, n/N " option
 echo
 case "$option" in
-    1 ) echo "AMD"    ; cat >> sources.list << EOF
-    # stretch-backports
-    deb http://httpredir.debian.org/debian stretch-backports main contrib non-free  
-    EOL && sudo apt update  
-    ;;
-    2 ) echo "NVIDIA" ;  ;;
+    1 ) echo "NVIDIA"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && sudo apt update  && sudo apt install ;;
+    2 ) echo "AMD"; sudo apt update && sudo apt install firmware-amd-graphics;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
