@@ -13,20 +13,20 @@ echo -n $'\E[39m'
 
 
 ### MAIN SECTION 
-dotfiles
-debian_flavor
-awesome_xorg
-pub_key
-pacakages
-vim_zsh
-docker_ce
-telegram
-firefox
-gpu_driver
-skandix_scripts
-spotify
-beeping
-permissions
+dotfiles()
+debian_flavor()
+awesome_xorg()
+pub_key()
+pacakages()
+vim_zsh()
+docker_ce()
+telegram()
+firefox()
+gpu_driver()
+skandix_scripts()
+spotify()
+beeping()
+permissions()
 ###
 
 
