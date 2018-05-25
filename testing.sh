@@ -1,8 +1,7 @@
 # implement this as well here https://wiki.debian.org/UnattendedUpgrades
 
 # set debian flavor
-read -p "What Debian Flavor do you want ?" option
-echo "\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup" 
+read -p "What Debian Flavor do you want ? 1: Jessie (Oldstable), 2: Stretch (Stable), 3:Buster (Testing), 4:Sid (Unstable), 5: Roll backup" option
 echo  
 case "$option" in
     1 ) echo "Jessie (Oldstable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list ;; 
