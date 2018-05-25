@@ -13,7 +13,6 @@ echo -n $'\E[39m'
 
 
 ### MAIN SECTION 
-dotfiles()
 debian_flavor()
 awesome_xorg()
 pub_key()
@@ -28,14 +27,12 @@ spotify()
 beeping()
 permissions()
 
-function dotfiles {
 dir=~/.dotfiles/files
 dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
     ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
-}
 
 function debian_flavor {
 read -p "What Debian Flavor do you want ?"
