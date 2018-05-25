@@ -28,7 +28,7 @@ spotify()
 beeping()
 permissions()
 
-function dotfiles() {
+function dotfiles {
 dir=~/.dotfiles/files
 dotfiles=(".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources")
 for dotfile in $dotfiles; do
@@ -37,7 +37,7 @@ for dotfile in $dotfiles; do
 done
 }
 
-function debian_flavor() {
+function debian_flavor {
 read -p "What Debian Flavor do you want ?"
 echo  
 case "$option" in
@@ -82,7 +82,7 @@ esac
 echo
 }
 
-function awesome_xorg() {
+function awesome_xorg {
 # Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
 echo
@@ -102,7 +102,7 @@ esac
 echo
 }
 
-function pub_key() {
+function pub_key {
 # Add Public key
 read -p "Add public key ? Y/n " option
 echo
@@ -117,7 +117,7 @@ esac
 echo
 }
 
-function pacakages() {
+function pacakages {
 # Install Packages?
 read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server, n/N " option
 echo
@@ -132,7 +132,7 @@ esac
 echo
 }
 
-function vim_zsh() {
+function vim_zsh {
 # Install Vim plugins?
 read -p "Install Vim plugins & oh-my-zsh? Y/n " option
 echo
@@ -150,7 +150,7 @@ esac
 echo
 }
 
-function docker_ce() {
+function docker_ce {
 # install Docker
 read -p "Install Docker?  y/n " option
 echo
@@ -163,7 +163,7 @@ echo
 }
 
 
-function telegram() {
+function telegram {
 read -p "Install Telegram?  y/n " option
 echo
 case "$option" in
@@ -174,7 +174,7 @@ esac
 echo
 }
 
-function firefox() {
+function firefox {
 read -p "Install firefox?  y/n " option
 echo
 case "$option" in
@@ -185,7 +185,7 @@ esac
 echo
 }
 
-function gpu_driver() {
+function gpu_driver {
 read -p "What Packages ? 1: AMD, 2: NVIDIA, n/N " option
 echo
 case "$option" in
@@ -201,7 +201,7 @@ esac
 echo
 }
 
-function skandix_scripts() {
+function skandix_scripts {
 read -p "install skandix toolbox of somewhat working scripts ?  y/n " option
 echo
 case "$option" in
@@ -212,7 +212,7 @@ esac
 echo
 }
 
-function spotify() {
+function spotify {
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
 case "$option" in
@@ -224,13 +224,13 @@ esac
 echo
 }
 
-function beeping() {
+function beeping {
 sudo modprobe -r pcspkr
 echo "# Do not load 'pcspkr' module on boot "\n "#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 sudo mv /etc/motd /etc/motd.back
 }
 
-function permissions() {
+function permissions {
 sudo chown $1:$1 /home/$1 -R
 cd /home/$1/.config/awesome/
 cp rc.lua rc.lua.bak
