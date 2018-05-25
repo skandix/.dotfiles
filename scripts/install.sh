@@ -20,6 +20,49 @@ for dotfile in $dotfiles; do
     ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
 done
 
+read -p "What Debian Flavor do you want ?"
+echo  
+case "$option" in
+    1 ) echo "Jessie (Oldstable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && cat > sources.list << EOF 
+        # Debian Jessie (Oldstable)
+        deb http://deb.debian.org/debian/ oldstable main contrib non-free
+        
+        #Security
+        deb http://deb.debian.org/debian-security oldstable/updates main
+        EOL ;;
+
+    2 ) echo "Stretch (Stable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && cat > sources.list << EOF 
+        # Debian Stretch (Stable) 
+        deb http://deb.debian.org/debian/ stable main contrib non-free
+        deb-src http://deb.debian.org/debian/ stable main contrib non-free
+
+        # Security
+        deb http://deb.debian.org/debian-security stable/updates main
+        deb-src http://deb.debian.org/debian-security stable/updates main
+        EOL ;;
+
+    3 ) echo "Buster (Testing)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && cat > sources.list << EOF 
+        ###### Debian Buster (Testing)
+        deb http://deb.debian.org/debian/ testing main contrib non-free
+        deb-src http://deb.debian.org/debian/ testing main contrib non-free
+
+        # Security 
+        deb http://deb.debian.org/debian-security testing/updates main
+        deb-src http://deb.debian.org/debian-security testing/updates main
+        EOL ;;
+
+    4 ) echo "Sid (Unstable)"; cd /etc/apt/ && sudo cp sources.list sources.list.bak && cat > sources.list << EOF 
+        ###### Debian Main Repos
+        deb http://deb.debian.org/debian/ oldstable main contrib non-free
+        deb http://deb.debian.org/debian-security oldstable/updates main
+        EOL ;;
+
+    5 ) echo "Roll backup ()"; cd /etc/apt/ && sudo cp sources.list.bak sources.list && ;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
 # Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
 echo
@@ -35,7 +78,7 @@ case "$option" in
         sudo chown $1 /home/$1/.config/awesome/rc.lua;;        
     n|n ) echo "No";;
     * ) echo "Invalid option";;
-esac
+esacsi  
 echo
 
 # Add Public key
@@ -52,13 +95,13 @@ esac
 echo
 
 # Install Packages?
-read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
+read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server, n/N " option
 echo
 case "$option" in
-    1 ) echo "Laptop"; sudo apt-get install neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses etckeeper firmware-iwlwifi -y;;
-    2 ) echo "Workstation"; sudo apt-get install neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr etckeeper -y;;
-    3 ) echo "Server"; sudo apt-get install neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr etckeeper -y;;
-    4 ) echo "Minimal Server"; sudo apt-get install neofetch screen tmux zsh vim etckeeper -y;;
+    1 ) echo "Laptop"         ; sudo apt-get install neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y ;;
+    2 ) echo "Workstation"    ; sudo apt-get install neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y                                         ;;
+    3 ) echo "Server"         ; sudo apt-get install neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y                                                                                                         ;;
+    4 ) echo "Minimal Server" ; sudo apt-get install neofetch screen tmux zsh vim -y                                                                                                                                                                                            ;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -80,6 +123,16 @@ case "$option" in
 esac
 echo
 
+# install Docker
+read -p "Install Docker?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; cd /tmp && sudo apt update && sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add - && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add - && sudo $(curl -s https://docs.docker.com/install/linux/docker-ce/debian/\#set-up-the-repository | egrep "(apt-key fingerprint ([0-9A-F]{8}))" | cut -d'>' -f 9) && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && sudo apt update && sudo apt install docker-ce -y;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
 # install Telegram
 read -p "Install Telegram?  y/n " option
 echo
@@ -96,6 +149,31 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && wget -q -O firefax https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -fs /opt/firefox/firefox /bin/firefox;;
     n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
+# install gpu drivers
+read -p "What Packages ? 1: AMD, 2: NVIDIA, n/N " option
+echo
+case "$option" in
+    1 ) echo "AMD"    ; cat >> sources.list << EOF
+    # stretch-backports
+    deb http://httpredir.debian.org/debian stretch-backports main contrib non-free  
+    EOL && sudo apt update  
+    ;;
+    2 ) echo "NVIDIA" ;  ;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
+# install skandix toolbox of somewhat working scripts ? 
+read -p "install skandix toolbox of somewhat working scripts ?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; ;;
+    n|N ) echo "No"; ;;
     * ) echo "Invalid option";;
 esac
 echo
