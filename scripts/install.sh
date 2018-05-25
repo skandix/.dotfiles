@@ -30,7 +30,7 @@ permissions()
 
 function dotfiles {
 dir=~/.dotfiles/files
-dotfiles=(".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources")
+dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
 for dotfile in $dotfiles; do
     printf "Installing %s...\n" $dotfile    
     ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
