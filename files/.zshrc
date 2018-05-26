@@ -66,7 +66,7 @@ alias l='ls $LS_OPTIONS -lA'
 
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
-alias outside="while true; do clear; curl wttr.in/Grimstad; sleep 180; done;"
+alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 
 #virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
