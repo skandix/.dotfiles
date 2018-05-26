@@ -74,10 +74,10 @@ echo
 read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
 echo
 case "$option" in
-    1 ) echo "Laptop"; sudo apt install rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
-    2 ) echo "Workstation"; sudo apt install rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
-    3 ) echo "Server"; sudo apt install neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
-    4 ) echo "Minimal Server"; sudo apt install neofetch screen tmux zsh vim -y;;
+    1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
+    2 ) echo "Workstation"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
+    3 ) echo "Server"; sudo apt install fail2ban neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
+    4 ) echo "Minimal Server"; sudo apt install fail2ban neofetch screen tmux zsh vim -y;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -161,6 +161,16 @@ echo
 case "$option" in
     1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt update && sudo apt install spotify-client -y ;;
     2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && sudo apt update && sudo apt install spotify-client -y ;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
+##Install Displaylink
+read -p "Install Displaylink?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; cd /tmp && git clone https://github.com/AdnanHodzic/displaylink-debian.git displaylink; cd displaylink; sudo ./displaylink-debian.sh;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
