@@ -11,9 +11,8 @@ echo $'                    |_|                             '
 echo ""
 echo -n $'\E[39m'
 
+##Symlink Dotfiles
 dir=~/.dotfiles/files
-
-##Symlink Dotfiles ? 
 read -p "Symlink dotfiles ? Y/n " option
 echo
 case "$option" in
@@ -27,7 +26,7 @@ case "$option" in
 esac
 echo
 
-# Add Public key
+##Add Public key
 read -p "Add public key ? Y/n " option
 echo
 case "$option" in
@@ -48,26 +47,21 @@ case "$option" in
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
         echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
-
     2 ) echo "Stretch (Stable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
         echo "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
-
     3 ) echo "Buster (Testing)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
         echo "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
-
     4 ) echo "Sid (Unstable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
         echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
-
     5 ) echo "Roll backup";
         cd /etc/apt/;
         sudo cp sources.list.bak sources.list -fv;;
-
     n|N ) echo "No";;
 esac
 echo
@@ -86,7 +80,6 @@ case "$option" in
         cd /home/$1/.config/awesome 
         cp rc.lua rc.lua.bak -v
         cp /home/$1/.dotfiles/files/rc.lua . -v;;
-        
     n|n ) echo "No";;
 esac
 echo
@@ -98,13 +91,10 @@ case "$option" in
     1 ) echo "Laptop"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
         ln -svf /home/$1/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
-    
     2 ) echo "Workstation"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
-    
     3 ) echo "Server"; 
         sudo apt install fail2ban neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
-    
     4 ) echo "Minimal Server";
         sudo apt install fail2ban neofetch screen tmux zsh vim -y;;
     n|N ) echo "No";;
@@ -118,7 +108,6 @@ case "$option" in
     1 ) echo "20auto-upgrades";
         sudo apt install unattended-upgrades apt-listchanges -y; 
         echo 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades;;
-    
     2 ) echo "02periodic";
         echo "#TODO";;
     n|N ) echo "No";;
@@ -131,10 +120,8 @@ echo
 case "$option" in
     1 ) echo "NVIDIA (Without Optimus)"; 
         echo "#TODO";; #echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y
-    
     2 ) echo "NVIDIA (With Optimus)";
         echo "#TODO";;
-    
     3 ) echo "AMD"; 
         sudo apt update;
         sudo apt install firmware-amd-graphics -y;;
@@ -153,7 +140,6 @@ case "$option" in
         git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
         vim +PluginInstall +qall;
         ln -sfv $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme;;
-
     n|n ) echo "No";;
 esac
 echo
@@ -167,7 +153,6 @@ case "$option" in
         wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
         tar xvf golang_tar;
         sudo mv go /usr/local;;
-
     n|n ) echo "No";;
 esac
 echo
@@ -185,7 +170,6 @@ case "$option" in
         sudo chown $1:$1 /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
         sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
-
     n|N ) echo "No";;
 esac
 echo
@@ -198,7 +182,6 @@ case "$option" in
         cd /tmp;
         wget -q -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
         sudo dpkg -i slack.deb;;
-
     n|N ) echo "No";;
 esac
 echo
@@ -256,7 +239,6 @@ case "$option" in
         echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list;
         sudo apt update;
         sudo apt install spotify-client -y;;
-
     2 ) echo "Update"; 
         $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
         sudo apt update;
@@ -314,7 +296,6 @@ case "$option" in
         cp rc.lua rc.lua.bak;
         ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;
         ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch/config;;
-    
     n|N ) echo "No";;
 esac
 echo
