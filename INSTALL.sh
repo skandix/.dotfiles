@@ -211,7 +211,7 @@ echo
 read -p "do you want to allow, Permission fix and symlink of rc.lua and neofetch confg ?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch;;
+    y|Y ) echo "";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch/config;;
     n|N ) echo "No";;
 esac
 echo
