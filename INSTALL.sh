@@ -40,8 +40,7 @@ echo
 
 # DEBIAN CORE 
 ##Set debian flavor
-# read -p "What Debian Flavor do you want ? 1: Jessie (Oldstable), 2: Stretch (Stable), 3:Buster (Testing), 4:Sid (Unstable), 5: Roll backup" option
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup')" option
+read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup\n')" option
 echo  
 case "$option" in
     1 ) echo "Jessie (Oldstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
@@ -75,7 +74,7 @@ esac
 echo
 
 ##Install Packages?
-read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server, n/N " option
+read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n')" option
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
@@ -87,7 +86,7 @@ esac
 echo
 
 ##Setup Unattended Upgrades (Security)
-read -p "Setup Unattended Upgrades ? 1: 20auto-upgrades, 2: 02periodic, n/N " option
+read -p "$(echo -e 'Setup Unattended Upgrades ?\n1: 20auto-upgrades,\n2: 02periodic\n')" option
 echo
 case "$option" in
     1 ) echo "20auto-upgrades";sudo apt install unattended-upgrades apt-listchanges -y; echo 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades;;
@@ -99,7 +98,7 @@ echo
 # apt-get install unattended-upgrades apt-listchanges
 
 ##Install gpu driver
-read -p "What Driver ? 1: NVIDIA (Without Optimus), 2: NVIDIA (With Optimus), 3: AMD, n/N " option
+read -p "$(echo -e 'What Driver ?\n1: NVIDIA (Without Optimus)\n2: NVIDIA (With Optimus)\n3: AMD\n')" option
 echo
 case "$option" in
     1 ) echo "NVIDIA (Without Optimus)"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y;;
@@ -110,7 +109,7 @@ esac
 echo
 
 ##Install Vim plugins?
-read -p "Install Vim plugins & oh-my-zsh? Y/n " option
+read -p "Install Vim plugins & oh-my-zsh? y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";
@@ -125,7 +124,7 @@ esac
 echo
 
 ##Install golang?
-read -p "Install golang? Y/n " option
+read -p "Install golang? y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";cd /tmp && wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz && tar xvf golang_tar && sudo mv go /usr/local;;
@@ -166,12 +165,13 @@ read -p "Install Docker-compose?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose;;
+    n|N ) echo "No";;
 esac
 echo
 
 
 ##Install Spotify?
-read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
+read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2:Update\n')" option
 echo
 case "$option" in
     1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt update && sudo apt install spotify-client -y ;;
