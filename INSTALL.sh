@@ -99,8 +99,8 @@ echo
 read -p "$(echo -e 'What Driver ?\n1: NVIDIA (Without Optimus)\n2: NVIDIA (With Optimus)\n3: AMD\n\b')" option
 echo
 case "$option" in
-#    1 ) echo "NVIDIA (Without Optimus)"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y;;
-#    2 ) echo "NVIDIA (With Optimus)"; echo "#TODO";;
+    1 ) echo "NVIDIA (Without Optimus)"; echo "#TODO";; #echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y
+    2 ) echo "NVIDIA (With Optimus)"; echo "#TODO";;
     3 ) echo "AMD"; sudo apt update && sudo apt install firmware-amd-graphics -y;;
     n|N ) echo "No";;
 esac
@@ -122,7 +122,7 @@ esac
 echo
 
 ##Install golang?
-read -p "Install golang? y/n " option
+read -p "Install Golang? y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";cd /tmp && wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz && tar xvf golang_tar && sudo mv go /usr/local;;
@@ -141,7 +141,7 @@ esac
 echo
 
 ##Install firefox
-read -p "Install firefox?  y/n " option
+read -p "Install Firefox?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax_tar && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
@@ -207,7 +207,7 @@ esac
 echo
 
 ##Other
-read -p "do you want to allow, Permission fix and symlink of rc.lua and neofetch confg ?  y/n " option
+read -p "Do you want to allow, Permission fix and symlink of rc.lua and neofetch confg ?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch/config;;
