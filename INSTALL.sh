@@ -214,15 +214,26 @@ case "$option" in
 esac
 echo
 
-##plz stop thefuckin beeping...!!!
-sudo modprobe -r pcspkr
-echo "# Do not load 'pcspkr' module on boot\n#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
-sudo mv /etc/motd /etc/motd.back
+##remove beeping module
+read -p "Remove the fucking beeping ?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; sudo modprobe -r pcspkr;echo "# Do not load 'pcspkr' module on boot\n#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
 
-sudo chown $1:$1 /home/$1 -R
-cd /home/$1/.config/awesome/
-cp rc.lua rc.lua.bak
-cp /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome -rfv
+##Other
+read -p "do you want to allow, Permission fix and symlink of rc.lua and neofetch confg ?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Yes";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
 
 ## TODO 
 #TouchScreen
