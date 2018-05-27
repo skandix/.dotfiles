@@ -78,7 +78,7 @@ esac
 echo
 
 ##Install Packages?
-read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, n/N " option
+read -p "What Packages ? 1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server, n/N " option
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
@@ -172,6 +172,16 @@ case "$option" in
 esac
 echo
 
+##Install Docker-compose
+read -p "Install Docker-compose?  y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Install"; cd /tmp && sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose;;
+    * ) echo "Invalid option";;
+esac
+echo
+
+
 ##Install Spotify?
 read -p "Install/ Update Spotify? 1: Install, 2:Update, n/N " option
 echo
@@ -187,7 +197,7 @@ echo
 read -p "Install Displaylink?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install"; cd /tmp && wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh && sudo ./displaylink-debian.sh;;
+    y|Y ) echo "Install"; cd /tmp && wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh && sudo bash displaylink-debian.sh;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
