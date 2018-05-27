@@ -77,7 +77,7 @@ echo
 read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n\b')" option
 echo
 case "$option" in
-    1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
+    1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y; ln -svf /home/$1/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
     2 ) echo "Workstation"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
     3 ) echo "Server"; sudo apt install fail2ban neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
     4 ) echo "Minimal Server"; sudo apt install fail2ban neofetch screen tmux zsh vim -y;;
@@ -95,14 +95,12 @@ case "$option" in
 esac
 echo
 
-# apt-get install unattended-upgrades apt-listchanges
-
 ##Install gpu driver
 read -p "$(echo -e 'What Driver ?\n1: NVIDIA (Without Optimus)\n2: NVIDIA (With Optimus)\n3: AMD\n\b')" option
 echo
 case "$option" in
-    1 ) echo "NVIDIA (Without Optimus)"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y;;
-    2 ) echo "NVIDIA (With Optimus)"; echo "#TODO";;
+#    1 ) echo "NVIDIA (Without Optimus)"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y;;
+#    2 ) echo "NVIDIA (With Optimus)"; echo "#TODO";;
     3 ) echo "AMD"; sudo apt update && sudo apt install firmware-amd-graphics -y;;
     n|N ) echo "No";;
 esac
