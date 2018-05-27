@@ -23,7 +23,6 @@ case "$option" in
             ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
         done;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -36,7 +35,6 @@ case "$option" in
         touch /home/$1/.ssh/authorized_keys;
         wget -qO - $2 > '/home/$1/.ssh/authorized_keys';;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -51,7 +49,6 @@ case "$option" in
     4 ) echo "Sid (Unstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak;  echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
     5 ) echo "Roll backup"; cd /etc/apt/; sudo cp sources.list.bak sources.list -fv;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -73,7 +70,6 @@ case "$option" in
         cp rc.lua rc.lua.bak -v
         cp /home/$1/.dotfiles/files/rc.lua . -v;;        
     n|n ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -86,7 +82,6 @@ case "$option" in
     3 ) echo "Server"; sudo apt install fail2ban neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
     4 ) echo "Minimal Server"; sudo apt install fail2ban neofetch screen tmux zsh vim -y;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -97,7 +92,6 @@ case "$option" in
     1 ) echo "20auto-upgrades";sudo apt install unattended-upgrades apt-listchanges -y; echo 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades;;
     2 ) echo "02periodic";echo "#TODO";;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -111,7 +105,6 @@ case "$option" in
     2 ) echo "NVIDIA (With Optimus)"; echo "#TODO";;
     3 ) echo "AMD"; sudo apt update && sudo apt install firmware-amd-graphics -y;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -127,7 +120,6 @@ case "$option" in
         vim +PluginInstall +qall;
         ln -sfv $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -137,7 +129,6 @@ echo
 case "$option" in
     y|Y ) echo "Yes";cd /tmp && wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz && tar xvf golang_tar && sudo mv go /usr/local;;
     n|n ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -148,7 +139,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && wget -q -O tg_tar https://telegram.org/dl/desktop/linux && tar xvf tg_tar && sudo mv Telegram /opt/Telegram && sudo chown $1:$1 /opt/Telegram -R && sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram && sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -158,7 +148,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax_tar && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -168,7 +157,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && sudo apt update && sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add - && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add - && sudo $(curl -s https://docs.docker.com/install/linux/docker-ce/debian/\#set-up-the-repository | egrep "(apt-key fingerprint ([0-9A-F]{8}))" | cut -d'>' -f 9) && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && sudo apt update && sudo apt install docker-ce -y;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -177,7 +165,6 @@ read -p "Install Docker-compose?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose;;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -189,7 +176,6 @@ case "$option" in
     1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt update && sudo apt install spotify-client -y ;;
     2 ) echo "Update"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && sudo apt update && sudo apt install spotify-client -y ;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -199,7 +185,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp && wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh && sudo bash displaylink-debian.sh;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -210,7 +195,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; cd $HOME/.dotfiles && sudo cp scripts /opt/scripts && sudo chown $1:$1 /opt/scripts -R && echo "symlink and crontab you self, have to fix..." ;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -220,7 +204,6 @@ echo
 case "$option" in
     y|Y ) echo "Install"; sudo modprobe -r pcspkr;echo "# Do not load 'pcspkr' module on boot\n#blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
@@ -228,9 +211,8 @@ echo
 read -p "do you want to allow, Permission fix and symlink of rc.lua and neofetch confg ?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Yes";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch;;
+    y|Y ) echo "";sudo mv /etc/motd /etc/motd.back;sudo chown $1:$1 /home/$1 -R;cd /home/$1/.config/awesome/;cp rc.lua rc.lua.bak;ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch;;
     n|N ) echo "No";;
-    * ) echo "Invalid option";;
 esac
 echo
 
