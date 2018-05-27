@@ -19,7 +19,8 @@ echo
 case "$option" in
     y|Y) echo "Yes"; dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources";
         for dotfile in $dotfiles; do
-            printf "Installing %s...\n" $dotfile
+            printf "Installing %s..." $dotfile
+            echo
             ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
         done;;
     n|N ) echo "No";;
