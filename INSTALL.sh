@@ -13,12 +13,19 @@ echo -n $'\E[39m'
 
 dir=~/.dotfiles/files
 
-# Install all dotfiles
-dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources"
-for dotfile in $dotfiles; do
-    printf "Installing %s...\n" $dotfile    
-    ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
-done
+##Symlink Dotfiles ? 
+read -p "Symlink dotfiles ? Y/n " option
+echo
+case "$option" in
+    y|Y) echo "Yes"; dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources";
+        for dotfile in $dotfiles; do
+            printf "Installing %s...\n" $dotfile
+            ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
+        done;;
+    n|N ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
 
 # Add Public key
 read -p "Add public key ? Y/n " option
@@ -118,7 +125,17 @@ case "$option" in
         echo "Installing oh-my-zsh";
         git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -sfv $dir/Trilambda.zsh-theme ~/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        ln -sfv $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+    n|n ) echo "No";;
+    * ) echo "Invalid option";;
+esac
+echo
+
+##Install golang?
+read -p "Install golang? Y/n " option
+echo
+case "$option" in
+    y|Y ) echo "Yes";cd /tmp && wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz && tar xvf golang_tar && sudo mv go /usr/local;;
     n|n ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -129,7 +146,7 @@ echo
 read -p "Install Telegram?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install"; cd /tmp && wget -q -O linux https://telegram.org/dl/desktop/linux && tar xvf linux && sudo mv Telegram /opt/Telegram && sudo chown $1:$1 /opt/Telegram -R && sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram && sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
+    y|Y ) echo "Install"; cd /tmp && wget -q -O tg_tar https://telegram.org/dl/desktop/linux && tar xvf tg_tar && sudo mv Telegram /opt/Telegram && sudo chown $1:$1 /opt/Telegram -R && sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram && sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -139,7 +156,7 @@ echo
 read -p "Install firefox?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install"; cd /tmp && wget -q -O firefax https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
+    y|Y ) echo "Install"; cd /tmp && wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US && tar xvf firefax_tar && sudo mv firefox /opt/ && sudo chown $1:$1 /opt/firefox -R && sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -170,7 +187,7 @@ echo
 read -p "Install Displaylink?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install"; cd /tmp && git clone https://github.com/AdnanHodzic/displaylink-debian.git displaylink; cd displaylink; sudo ./displaylink-debian.sh;;
+    y|Y ) echo "Install"; cd /tmp && wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh && sudo ./displaylink-debian.sh;;
     n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
@@ -182,7 +199,7 @@ read -p "install skandix toolbox of somewhat working scripts ?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd $HOME/.dotfiles && sudo cp scripts /opt/scripts && sudo chown $1:$1 /opt/scripts -R && echo "symlink and crontab you self, have to fix..." ;;
-    n|N ) echo "No"; echo "No";;
+    n|N ) echo "No";;
     * ) echo "Invalid option";;
 esac
 echo
@@ -196,3 +213,7 @@ sudo chown $1:$1 /home/$1 -R
 cd /home/$1/.config/awesome/
 cp rc.lua rc.lua.bak
 cp /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome -rfv
+
+## TODO 
+#TouchScreen
+##https://boundarydevices.com/debian-in-more-depth-adding-touch-support/

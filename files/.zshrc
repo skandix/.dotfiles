@@ -30,7 +30,7 @@ ZSH_THEME="Trilambda"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -40,7 +40,7 @@ ZSH_THEME="Trilambda"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -49,7 +49,12 @@ ZSH_THEME="Trilambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	docker
+	sprunge
+	docker-compose
+	)
 
 # User configuration
 
@@ -57,16 +62,15 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/skan
 
 source $ZSH/oh-my-zsh.sh
 
-
+#dirs 
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
+#neofetch 
 if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
-alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 
 #virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
@@ -74,16 +78,17 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 #golang
-
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects/Go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-alias mkdirEnv="mkdir $(echo $VIRTUAL_ENV | cut -d '/' -f 5)"
+# other 
+displayLink="xrandr --setprovideroutputsource 1 0"
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 alias uuid="cat /proc/sys/kernel/random/uuid"
+alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 
-alias pdfconv="unoconv -f pdf"
-alias tmux='tmux -2'
+# terminal
 if [[ $TERM == xterm ]]; then
 	    TERM=xterm-256color
 fi
