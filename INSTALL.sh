@@ -41,7 +41,7 @@ echo
 
 # DEBIAN CORE 
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup\n\b')" option
+read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3: Buster (Testing)\n4: Sid (Unstable)\n5: Roll backup\n\b')" option
 echo  
 case "$option" in
     1 ) echo "Jessie (Oldstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
