@@ -170,7 +170,7 @@ echo
 
 
 ##Install Spotify?
-read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2:Update\n\b')" option
+read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2: Update\n\b')" option
 echo
 case "$option" in
     1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt update && sudo apt install spotify-client -y ;;
@@ -190,7 +190,7 @@ echo
 
 # PERSONAL SCRIPTS
 ##Install personal batch of script 
-read -p "install skandix toolbox of somewhat working scripts ?  y/n " option
+read -p "Install skandix toolbox of somewhat working scripts ?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd $HOME/.dotfiles && sudo cp scripts /opt/scripts && sudo chown $1:$1 /opt/scripts -R && echo "symlink and crontab you self, have to fix..." ;;
