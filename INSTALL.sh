@@ -40,7 +40,7 @@ echo
 
 # DEBIAN CORE 
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup\n')" option
+read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3:Buster (Testing)\n4:Sid (Unstable)\n5: Roll backup\n\b')" option
 echo  
 case "$option" in
     1 ) echo "Jessie (Oldstable)"; cd /etc/apt/; sudo cp sources.list sources.list.bak; echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
@@ -74,7 +74,7 @@ esac
 echo
 
 ##Install Packages?
-read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n')" option
+read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n\b')" option
 echo
 case "$option" in
     1 ) echo "Laptop"; sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;;
@@ -86,7 +86,7 @@ esac
 echo
 
 ##Setup Unattended Upgrades (Security)
-read -p "$(echo -e 'Setup Unattended Upgrades ?\n1: 20auto-upgrades,\n2: 02periodic\n')" option
+read -p "$(echo -e 'Setup Unattended Upgrades ?\n1: 20auto-upgrades,\n2: 02periodic\n\b')" option
 echo
 case "$option" in
     1 ) echo "20auto-upgrades";sudo apt install unattended-upgrades apt-listchanges -y; echo 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";' | sudo tee -a /etc/apt/apt.conf.d/20auto-upgrades;;
@@ -98,7 +98,7 @@ echo
 # apt-get install unattended-upgrades apt-listchanges
 
 ##Install gpu driver
-read -p "$(echo -e 'What Driver ?\n1: NVIDIA (Without Optimus)\n2: NVIDIA (With Optimus)\n3: AMD\n')" option
+read -p "$(echo -e 'What Driver ?\n1: NVIDIA (Without Optimus)\n2: NVIDIA (With Optimus)\n3: AMD\n\b')" option
 echo
 case "$option" in
     1 ) echo "NVIDIA (Without Optimus)"; echo "# stretch-backports\ndeb http://httpredir.debian.org/debian stretch-backports main contrib non-free" | sudo tee -a && apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') && sudo apt update && apt install -t stretch-backports nvidia-driver -y;;
@@ -171,7 +171,7 @@ echo
 
 
 ##Install Spotify?
-read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2:Update\n')" option
+read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2:Update\n\b')" option
 echo
 case "$option" in
     1 ) echo "Install"; $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+') && echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt update && sudo apt install spotify-client -y ;;
