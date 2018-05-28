@@ -342,8 +342,10 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioStop", function () awful.util.spawn("amixer -D default set Master 1+ toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D default set Master 1+ toggle", false) end),                                      
                                         
-    awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end), 
   
+    awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end), 
+    awful.key({}, "XF86Search", function () awful.util.spawn("rofi -show run") end), 
+    
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {

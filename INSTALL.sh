@@ -20,7 +20,7 @@ case "$option" in
         for dotfile in $dotfiles; do
             printf "Installing %s..." $dotfile
             echo
-            ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
+            ln -svf /home/$USER/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
         done;;
     n|N ) echo "No";;
 esac
@@ -31,9 +31,9 @@ read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-        mkdir -p /home/$1/.ssh/;
-        touch /home/$1/.ssh/authorized_keys;
-        wget -qO - $2 > '/home/$1/.ssh/authorized_keys';;
+        mkdir -p /home/$USER/.ssh/;
+        touch /home/$USER/.ssh/authorized_keys;
+        wget -qO - $2 > '/home/$USER/.ssh/authorized_keys';;
     n|N ) echo "No";;
 esac
 echo
@@ -74,12 +74,12 @@ case "$option" in
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-        sudo mkdir -pv /home/$1/.config/awesome/;
-        sudo cp /etc/xdg/awesome/rc.lua /home/$1/.config/awesome/ -fv;
-        sudo chown $1 /home/$1/.config/awesome/rc.lua -v
-        cd /home/$1/.config/awesome 
+        sudo mkdir -pv /home/$USER/.config/awesome/;
+        sudo cp /etc/xdg/awesome/rc.lua /home/$USER/.config/awesome/ -fv;
+        sudo chown $USER /home/$USER/.config/awesome/rc.lua -v
+        cd /home/$USER/.config/awesome 
         cp rc.lua rc.lua.bak -v
-        cp /home/$1/.dotfiles/files/rc.lua . -v;;
+        cp /home/$USER/.dotfiles/files/rc.lua . -v;;
     n|n ) echo "No";;
 esac
 echo
@@ -90,7 +90,7 @@ echo
 case "$option" in
     1 ) echo "Laptop"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
-        ln -svf /home/$1/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
+        ln -svf /home/$USER/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
     2 ) echo "Workstation"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
     3 ) echo "Server"; 
@@ -135,11 +135,11 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git /home/$1/.vim/bundle/Vundle.vim;
+        git clone https://github.com/gmarik/Vundle.vim.git /home/$USER/.vim/bundle/Vundle.vim;
         echo "Installing oh-my-zsh";
-        git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
+        git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -sfv $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        ln -sfv $dir/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
 esac
 echo
@@ -167,7 +167,7 @@ case "$option" in
         wget -q -O linux https://telegram.org/dl/desktop/linux;
         tar xvf linux;
         sudo mv Telegram /opt/Telegram;
-        sudo chown $1:$1 /opt/Telegram -R;
+        sudo chown $USER:$USER /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
         sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
     n|N ) echo "No";;
@@ -195,7 +195,7 @@ case "$option" in
         wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
         tar xvf firefax_tar;
         sudo mv firefox /opt/;
-        sudo chown $1:$1 /opt/firefox -R;
+        sudo chown $USER:$USER /opt/firefox -R;
         sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
     n|N ) echo "No";;
 esac
@@ -268,7 +268,7 @@ case "$option" in
     y|Y ) echo "Install";
         cd $HOME/.dotfiles;
         sudo cp scripts /opt/scripts;
-        sudo chown $1:$1 /opt/scripts -R;
+        sudo chown $USER:$USER /opt/scripts -R;
         echo "symlink and crontab you self, have to fix..." ;;
     n|N ) echo "No";;
 esac
@@ -293,11 +293,11 @@ case "$option" in
     y|Y ) echo "Install";
         neofetch;
         sudo mv /etc/motd /etc/motd.back;
-        sudo chown $1:$1 /home/$1 -R;
-        cd /home/$1/.config/awesome/;
+        sudo chown $USER:$USER /home/$USER -R;
+        cd /home/$USER/.config/awesome/;
         cp rc.lua rc.lua.bak;
-        ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;
-        ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch/config;;
+        ln -svf /home/$USER/.dotfiles/files/rc.lua /home/$USER/.config/awesome/rc.lua -rfv;
+        ln -svf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;;
     n|N ) echo "No";;
 esac
 echo
