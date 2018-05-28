@@ -46,16 +46,16 @@ case "$option" in
     1 ) echo "Jessie (Oldstable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
+        echo - e "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
     2 ) echo "Stretch (Stable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
+        echo -e "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
     3 ) echo "Buster (Testing)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
-    4 ) echo "Sid (Unstable)";
+        echo -e "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
+    4 ) echo -e "Sid (Unstable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
         echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
@@ -164,8 +164,8 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp 
-        wget -q -O tg_tar https://telegram.org/dl/desktop/linux;
-        tar xvf tg_tar;
+        wget -q -O linux https://telegram.org/dl/desktop/linux;
+        tar xvf linux;
         sudo mv Telegram /opt/Telegram;
         sudo chown $1:$1 /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
@@ -181,7 +181,8 @@ case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp;
         wget -q -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
-        sudo dpkg -i slack.deb;;
+        sudo dpkg -i slack.deb
+        sudo apt-get -f install -y;;
     n|N ) echo "No";;
 esac
 echo
@@ -290,6 +291,7 @@ read -p "Do you want to allow, Permission fix and symlink of rc.lua and neofetch
 echo
 case "$option" in
     y|Y ) echo "Install";
+        neofetch;
         sudo mv /etc/motd /etc/motd.back;
         sudo chown $1:$1 /home/$1 -R;
         cd /home/$1/.config/awesome/;
