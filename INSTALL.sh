@@ -38,28 +38,29 @@ case "$option" in
 esac
 echo
 
+
+# \n
 # DEBIAN CORE 
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3: Buster (Testing)\n4: Sid (Unstable)\n5: Roll backup\n\b')" option
+read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
 echo  
 case "$option" in
-    1 ) echo "Jessie (Oldstable)";
+    1 ) echo "Stretch (Stable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo - e "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
-    2 ) echo "Stretch (Stable)";
+        echo -e "# Debian Stretch (Stable)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    2 ) echo "Buster (Testing)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo -e "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
-    3 ) echo "Buster (Testing)";
+        echo -e "###### Debian Buster (Testing)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    3 ) echo -e "Sid (Unstable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo -e "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
-    4 ) echo -e "Sid (Unstable)";
-        cd /etc/apt/;
-        sudo cp sources.list sources.list.bak;
-        echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
-    5 ) echo "Roll backup";
+        echo "###### Debian Main Repos\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    4 ) echo "Roll backup";
         cd /etc/apt/;
         sudo cp sources.list.bak sources.list -fv;;
     n|N ) echo "No";;
