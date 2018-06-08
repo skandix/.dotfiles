@@ -297,10 +297,11 @@ case "$option" in
         sudo chown $USER:$USER /home/$USER -R;
         cd /home/$USER/.config/awesome/;
         cp rc.lua rc.lua.bak;
-        ln -svf /home/$USER/.dotfiles/files/rc.lua /home/$USER/.config/awesome/rc.lua -rfv;
+        ln -svf /home/$USER/.dotfiles/files/rc.lua /home/$USER/.config/awesome/rc.lua;
         ln -svf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;
 	cd /home/$USER/.config/awesome;
-	git clone https://github.com/streetturtle/awesome-wm-widgets.git;;
+	git clone https://github.com/streetturtle/awesome-wm-widgets.git;
+	sudo ln -svf /home/$USER/.dotfiles/files/theme.lua /usr/share/awesome/themes/default/theme.lua;;
     n|N ) echo "No";;
 esac
 echo
