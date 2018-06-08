@@ -1,4 +1,4 @@
-#/bin/sh
+#/bin/bash
 echo -n $'\e[35m'
 echo $'______      _                                       '
 echo $'|  _  \    | |                                      '
@@ -151,7 +151,7 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         cd /tmp;
-        wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
+	wget  --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
         tar xvf golang_tar;
         sudo mv go /usr/local;;
     n|n ) echo "No";;
@@ -165,7 +165,7 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp 
-        wget -q -O linux https://telegram.org/dl/desktop/linux;
+        wget   --prefer-family=ipv4 -O linux https://telegram.org/dl/desktop/linux;
         tar xvf linux;
         sudo mv Telegram /opt/Telegram;
         sudo chown $USER:$USER /opt/Telegram -R;
@@ -181,7 +181,7 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp;
-        wget -q -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
+        wget   --prefer-family=ipv4 -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
         sudo dpkg -i slack.deb
         sudo apt-get -f install -y;;
     n|N ) echo "No";;
@@ -193,7 +193,7 @@ read -p "Install Firefox?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp 
-        wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
+        wget  --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
         tar xvf firefax_tar;
         sudo mv firefox /opt/;
         sudo chown $USER:$USER /opt/firefox -R;
@@ -255,7 +255,7 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp
-        wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh;
+        wget https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh;
         sudo bash displaylink-debian.sh;;
     n|N ) echo "No";;
 esac

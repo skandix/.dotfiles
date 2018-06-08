@@ -13,6 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 "" You Complete Me
 ""Plugin 'valloric/youcompleteme'
 
+"" python jedi master vim plugin
+Plugin 'davidhalter/jedi-vim'
+
 "" NERD Tree Syntax
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
