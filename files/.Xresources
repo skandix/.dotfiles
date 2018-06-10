@@ -10,7 +10,11 @@ rofi.color-enabled:            true
  rofi.lines:                    8
  rofi.terminal:                 urxvt
  rofi.fake-transparency:              true
- Xft.dpi: 100
+
+! Custom keybinding 4
+rofi.kb-custom-4: Alt+4
+
+Xft.dpi: 100
 
 
 
