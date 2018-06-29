@@ -72,11 +72,6 @@ alias l='ls $LS_OPTIONS -lA'
 #neofetch 
 if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
 
-#virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-#source /usr/local/bin/virtualenvwrapper.sh
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
 #golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects/Go
@@ -87,6 +82,7 @@ displayLink="xrandr --setprovideroutputsource 1 0"
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 alias uuid="cat /proc/sys/kernel/random/uuid"
 alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
+alias pipenv="python3 -m pipenv"
 
 # terminal
 if [[ $TERM == xterm ]]; then
