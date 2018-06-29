@@ -1,4 +1,4 @@
-#/bin/sh
+#/bin/bash
 echo -n $'\e[35m'
 echo $'______      _                                       '
 echo $'|  _  \    | |                                      '
@@ -20,7 +20,7 @@ case "$option" in
         for dotfile in $dotfiles; do
             printf "Installing %s..." $dotfile
             echo
-            ln -svf /home/$1/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
+            ln -svf /home/$USER/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
         done;;
     n|N ) echo "No";;
 esac
@@ -31,35 +31,36 @@ read -p "Add public key ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-        mkdir -p /home/$1/.ssh/;
-        touch /home/$1/.ssh/authorized_keys;
-        wget -qO - $2 > '/home/$1/.ssh/authorized_keys';;
+        mkdir -p /home/$USER/.ssh/;
+        touch /home/$USER/.ssh/authorized_keys;
+        wget -qO - $2 > '/home/$USER/.ssh/authorized_keys';;
     n|N ) echo "No";;
 esac
 echo
 
+
+# \n
 # DEBIAN CORE 
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Jessie (Oldstable)\n2: Stretch (Stable)\n3: Buster (Testing)\n4: Sid (Unstable)\n5: Roll backup\n\b')" option
+read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
 echo  
 case "$option" in
-    1 ) echo "Jessie (Oldstable)";
+    1 ) echo "Stretch (Stable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo - e "# Debian Jessie (Oldstable)\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\n#Security\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;; 
-    2 ) echo "Stretch (Stable)";
+        echo -e "# Debian Stretch (Stable)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    2 ) echo "Buster (Testing)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo -e "# Debian Stretch (Stable)\ndeb http://deb.debian.org/debian/ stable main contrib non-free\ndeb-src http://deb.debian.org/debian/ stable main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security stable/updates main\ndeb-src http://deb.debian.org/debian-security stable/updates main\n" | sudo tee sources.list;;
-    3 ) echo "Buster (Testing)";
+        echo -e "###### Debian Buster (Testing)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    3 ) echo -e "Sid (Unstable)";
         cd /etc/apt/;
         sudo cp sources.list sources.list.bak;
-        echo -e "###### Debian Buster (Testing)\ndeb http://deb.debian.org/debian/ testing main contrib non-free\ndeb-src http://deb.debian.org/debian/ testing main contrib non-free\n# Security\ndeb http://deb.debian.org/debian-security testing/updates main\ndeb-src http://deb.debian.org/debian-security testing/updates main\n" | sudo tee sources.list;;
-    4 ) echo -e "Sid (Unstable)";
-        cd /etc/apt/;
-        sudo cp sources.list sources.list.bak;
-        echo "###### Debian Main Repos\ndeb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main\n" | sudo tee sources.list;;
-    5 ) echo "Roll backup";
+        echo "###### Debian Main Repos\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
+    
+    4 ) echo "Roll backup";
         cd /etc/apt/;
         sudo cp sources.list.bak sources.list -fv;;
     n|N ) echo "No";;
@@ -74,12 +75,12 @@ case "$option" in
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-        sudo mkdir -pv /home/$1/.config/awesome/;
-        sudo cp /etc/xdg/awesome/rc.lua /home/$1/.config/awesome/ -fv;
-        sudo chown $1 /home/$1/.config/awesome/rc.lua -v
-        cd /home/$1/.config/awesome 
+        sudo mkdir -pv /home/$USER/.config/awesome/;
+        sudo cp /etc/xdg/awesome/rc.lua /home/$USER/.config/awesome/ -fv;
+        sudo chown $USER /home/$USER/.config/awesome/rc.lua -v
+        cd /home/$USER/.config/awesome 
         cp rc.lua rc.lua.bak -v
-        cp /home/$1/.dotfiles/files/rc.lua . -v;;
+        cp /home/$USER/.dotfiles/files/rc.lua . -v;;
     n|n ) echo "No";;
 esac
 echo
@@ -90,7 +91,7 @@ echo
 case "$option" in
     1 ) echo "Laptop"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
-        ln -svf /home/$1/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
+        ln -svf /home/$USER/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
     2 ) echo "Workstation"; 
         sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
     3 ) echo "Server"; 
@@ -135,11 +136,11 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git /home/$1/.vim/bundle/Vundle.vim;
+        git clone https://github.com/gmarik/Vundle.vim.git /home/$USER/.vim/bundle/Vundle.vim;
         echo "Installing oh-my-zsh";
-        git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$1/.oh-my-zsh;
+        git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
         vim +PluginInstall +qall;
-        ln -sfv $dir/Trilambda.zsh-theme /home/$1/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        ln -sfv $dir/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
 esac
 echo
@@ -150,7 +151,7 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         cd /tmp;
-        wget -q -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
+	wget  --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
         tar xvf golang_tar;
         sudo mv go /usr/local;;
     n|n ) echo "No";;
@@ -164,10 +165,10 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp 
-        wget -q -O linux https://telegram.org/dl/desktop/linux;
+        wget   --prefer-family=ipv4 -O linux https://telegram.org/dl/desktop/linux;
         tar xvf linux;
         sudo mv Telegram /opt/Telegram;
-        sudo chown $1:$1 /opt/Telegram -R;
+        sudo chown $USER:$USER /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
         sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
     n|N ) echo "No";;
@@ -180,7 +181,7 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp;
-        wget -q -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
+        wget   --prefer-family=ipv4 -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
         sudo dpkg -i slack.deb
         sudo apt-get -f install -y;;
     n|N ) echo "No";;
@@ -192,10 +193,10 @@ read -p "Install Firefox?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install"; cd /tmp 
-        wget -q -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
+        wget  --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
         tar xvf firefax_tar;
         sudo mv firefox /opt/;
-        sudo chown $1:$1 /opt/firefox -R;
+        sudo chown $USER:$USER /opt/firefox -R;
         sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
     n|N ) echo "No";;
 esac
@@ -254,7 +255,7 @@ echo
 case "$option" in
     y|Y ) echo "Install"; 
         cd /tmp
-        wget -q https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh;
+        wget https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh;
         sudo bash displaylink-debian.sh;;
     n|N ) echo "No";;
 esac
@@ -268,7 +269,7 @@ case "$option" in
     y|Y ) echo "Install";
         cd $HOME/.dotfiles;
         sudo cp scripts /opt/scripts;
-        sudo chown $1:$1 /opt/scripts -R;
+        sudo chown $USER:$USER /opt/scripts -R;
         echo "symlink and crontab you self, have to fix..." ;;
     n|N ) echo "No";;
 esac
@@ -293,11 +294,14 @@ case "$option" in
     y|Y ) echo "Install";
         neofetch;
         sudo mv /etc/motd /etc/motd.back;
-        sudo chown $1:$1 /home/$1 -R;
-        cd /home/$1/.config/awesome/;
+        sudo chown $USER:$USER /home/$USER -R;
+        cd /home/$USER/.config/awesome/;
         cp rc.lua rc.lua.bak;
-        ln -svf /home/$1/.dotfiles/files/rc.lua /home/$1/.config/awesome/rc.lua -rfv;
-        ln -svf /home/$1/.dotfiles/files/config_neofetch /home/$1/.config/neofetch/config;;
+        ln -svf /home/$USER/.dotfiles/files/rc.lua /home/$USER/.config/awesome/rc.lua;
+        ln -svf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;
+	cd /home/$USER/.config/awesome;
+	git clone https://github.com/streetturtle/awesome-wm-widgets.git;
+	sudo ln -svf /home/$USER/.dotfiles/files/theme.lua /usr/share/awesome/themes/default/theme.lua;;
     n|N ) echo "No";;
 esac
 echo

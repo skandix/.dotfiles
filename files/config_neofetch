@@ -29,7 +29,6 @@ print_info() {
     info "Terminal" term
     info "Battery" battery
     info line_break
-    prin "Weather" "$(curl wttr.in/?0?q?T | awk '/°(C|F)/ {printf $(NF-1) $(NF) " ("a")"} /,/ {a=$0}')"
     # info "Font" font
     # info "Song" song
     # info "Local IP" local_ip

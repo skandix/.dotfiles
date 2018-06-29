@@ -13,6 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 "" You Complete Me
 ""Plugin 'valloric/youcompleteme'
 
+"" python jedi master vim plugin
+Plugin 'davidhalter/jedi-vim'
+
 "" NERD Tree Syntax
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -100,10 +103,10 @@ nnoremap <BS> X
 
 """ COLORSCHEME
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'wombat',
       \ }
 syntax enable
-colorscheme brogrammer
+colorscheme turtles
 set term=screen-256color
 
 if &term =~ '256color'
