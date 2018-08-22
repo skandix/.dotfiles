@@ -103,10 +103,10 @@ nnoremap <BS> X
 
 """ COLORSCHEME
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'wombat',
       \ }
 syntax enable
-colorscheme brogrammer
+colorscheme turtles
 set term=screen-256color
 
 if &term =~ '256color'
