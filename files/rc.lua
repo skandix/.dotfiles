@@ -324,8 +324,8 @@ globalkeys = awful.util.table.join(
     -- Prompt
     --custom keys 
     
-    awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 10%",false) end),
-    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10%",false) end),
+    awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 10",false) end),
+    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10",false) end),
    
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),

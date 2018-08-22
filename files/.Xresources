@@ -10,7 +10,7 @@ rofi.color-enabled:            true
  rofi.lines:                    8
  rofi.terminal:                 urxvt
  rofi.fake-transparency:              true
- Xft.dpi: 100
+ Xft.dpi: 150
 
 
 

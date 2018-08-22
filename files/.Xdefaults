@@ -6,7 +6,7 @@
  urxvt*saveLines:         65535
  urxvt*cursorBlink:       false
  urxvt*urgentOnBell:       true
- urxvt*font: xft:Monospace:pixelsize=12
+ urxvt*font: xft:Monospace:pixelsize=22
  4rxvt*scrollTtyOutput: False
  urxvt*scrollTtyKeypress: True
  urxvt*secondaryScroll: True
