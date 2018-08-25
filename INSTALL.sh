@@ -90,14 +90,14 @@ read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Mi
 echo
 case "$option" in
     1 ) echo "Laptop"; 
-        sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
+        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
         ln -svf /home/$USER/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
     2 ) echo "Workstation"; 
-        sudo apt install fail2ban rofi neofetch vim mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
+        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
     3 ) echo "Server"; 
-        sudo apt install fail2ban neofetch vim screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
+        sudo apt install fail2ban neofetch screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
     4 ) echo "Minimal Server";
-        sudo apt install fail2ban neofetch screen tmux zsh vim -y;;
+        sudo apt install fail2ban neofetch screen tmux zsh -y;;
     n|N ) echo "No";;
 esac
 echo
@@ -135,11 +135,18 @@ read -p "Install Vim plugins & oh-my-zsh? y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";
-        echo "Installing Vundle";
-        git clone https://github.com/gmarik/Vundle.vim.git /home/$USER/.vim/bundle/Vundle.vim;
+        echo "installing NeoVim";
+        curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage;
+        chmod u+x nvim.appimage;
+        sudo mv nvim.appimage /opt;
+        sudo ln -s /opt/nvim.appimage /bin/vim;
+        ln -s /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
+        pip3 install --upgrade neovim;
+        echo "Installing Plug";
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
         echo "Installing oh-my-zsh";
         git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
-        vim +PluginInstall +qall;
+        vim +PlugInstall +qall;
         ln -sfv $dir/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
     n|n ) echo "No";;
 esac
