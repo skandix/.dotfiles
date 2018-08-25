@@ -2,6 +2,7 @@ softmixer
 files/.vim/plugins/*
 files/.vim/bundle/*
 files/.vim/plugged/*
+files/.vim/plugins/*
 *.swp
 test.*
 bundle
