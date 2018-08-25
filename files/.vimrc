@@ -3,81 +3,74 @@
 set nocompatible
 filetype plugin on
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/plugins')
-
-"" VUNDLE PLUGIN MANAGER !
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
-"" You Complete Me
-""Plugin 'valloric/youcompleteme'
-
-"" python jedi master vim plugin
-Plugin 'davidhalter/jedi-vim'
-
 "" NERD Tree Syntax
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "" NERD tree Tabs
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs'
 
 "" NERD tree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 "" fuzzy file finder
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 "" Vim Markdown
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 
 "" Vim Instant Markdown
-Plugin 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
 
 "" PEP8 checking
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 "" HTML5
-Plugin 'othree/html5.vim'
+Plug 'othree/html5.vim'
 
 "" Vim JSON
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 
 "" Vim Go
-Plugin 'fatih/vim-go'
-
-"" Conque Shell
-" Run commands inside vim
-Plugin 'vim-scripts/Conque-Shell'
+Plug 'fatih/vim-go'
 
 "" Better Whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 "" Ligth version of Powerline
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 "" Async lint engine
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
+
+" deoplete plugin stuff
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 "" Vim Gitgutter, shows diff in Vim
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 "" Collection of language packs for Vim
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 "" Syntax highligth for common filetypes
-Plugin 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim'
 
+"" Colorscheme 
+Plug 'liuchengxu/space-vim-dark'
+ 
 "" Auto close brackets
-Plugin 'cohama/lexima.vim'
-
-"Plugin 'scrooloose/syntastic'
-
-"" Friendly Remark
-Plugin 'https://notabug.org/SylvieLorxu/vim-friendlyremark.git'
+Plug 'cohama/lexima.vim'
 
 """ PLUGIN LIST END
-call vundle#end()            " end of plugin section
+call plug#end()            " end of plugin section
 filetype plugin indent on    " required
 
 """ Lettings
@@ -93,21 +86,26 @@ map  <C-t> :tabnew<CR>
 nnoremap <F1> :set hlsearch!<CR>
 nnoremap <silent> <F2> :!clear;python %<CR>
 nnoremap <silent> <F3> :!clear;python3 %<CR>
+nnoremap <silent> <F4> :!clear;scala %<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
 
-
+"" Neovim 
+let g:deoplete#enable_at_startup = 1
 
 """ COLORSCHEME
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 syntax enable
-colorscheme turtles
-set term=screen-256color
+colorscheme space-vim-dark
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+
 
 if &term =~ '256color'
   set t_ut=
@@ -115,7 +113,6 @@ endif
 """ BEHAVE
 
 set wildmode=list:longest,full	" Show vim completion menu
-set term=xterm-256color
 set encoding=utf-8				" encoding
 set undolevels=256				" how many times one can undo
 set updatetime=250				" Faster update of internals
@@ -175,5 +172,6 @@ augroup END
 """ ALE (taken from lasseh .vimrc)
 let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
+let g:ale_use_deprecated_neovim = 1
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
