@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')
 "" NERD Tree Syntax
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+"" deoplete for python
+Plug 'zchee/deoplete-jedi'
+
 "" NERD tree Tabs
 Plug 'jistr/vim-nerdtree-tabs'
 
@@ -18,23 +21,11 @@ Plug 'scrooloose/nerdtree'
 "" fuzzy file finder
 Plug 'kien/ctrlp.vim'
 
-"" Vim Markdown
-Plug 'plasticboy/vim-markdown'
-
-"" Vim Instant Markdown
-Plug 'suan/vim-instant-markdown'
-
-"" PEP8 checking
-Plug 'nvie/vim-flake8'
-
-"" HTML5
-Plug 'othree/html5.vim'
-
 "" Vim JSON
 Plug 'elzr/vim-json'
 
 "" Vim Go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 "" Better Whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -44,6 +35,16 @@ Plug 'itchyny/lightline.vim'
 
 "" Async lint engine
 Plug 'w0rp/ale'
+
+"" python autocomplete 
+Plug 'davidhalter/jedi-vim'
+
+
+"" KB dat233 scala
+Plug 'derekwyatt/vim-scala'
+Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'derekwyatt/vim-scala'
 
 " deoplete plugin stuff
 if has('nvim')
@@ -57,15 +58,12 @@ endif
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
-"" Collection of language packs for Vim
-Plug 'sheerun/vim-polyglot'
-
 "" Syntax highligth for common filetypes
 Plug 'pearofducks/ansible-vim'
 
 "" Colorscheme 
 Plug 'liuchengxu/space-vim-dark'
- 
+
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
@@ -86,14 +84,28 @@ map  <C-t> :tabnew<CR>
 nnoremap <F1> :set hlsearch!<CR>
 nnoremap <silent> <F2> :!clear;python %<CR>
 nnoremap <silent> <F3> :!clear;python3 %<CR>
-nnoremap <silent> <F4> :!clear;scala %<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
 
-"" Neovim 
+"" deoplet stuff.... 
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources={}
+let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
+let g:deoplete_ignore_sources = [ "buffer", "*.wiki" ]
+
+
+let g:deoplete#omni#input_patterns={}
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.scala = '[^. *\t]\.\w*\|: [A-Z]\w*'
+"let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
+"call deoplete#custom#source('_', 'converters',
+"      \ ['converter_auto_paren',
+"      \  'converter_auto_delimiter',
+"      \ 'converter_remove_overlap']) "]
 let g:deoplete#enable_at_startup = 1
 
 """ COLORSCHEME
