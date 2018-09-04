@@ -1,10 +1,3 @@
---[[
-
-     Awesome WM configuration template
-     github.com/lcpz
-
---]]
-
 -- {{{ Required libraries
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
 local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
@@ -28,7 +21,7 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
+                     title = "Faaack, What did you do now...",
                      text = awesome.startup_errors })
 end
 
@@ -40,7 +33,7 @@ do
         in_error = true
 
         naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
+                         title = "*sigh*, you know what this means....",
                          text = tostring(err) })
         in_error = false
     end)
@@ -57,18 +50,6 @@ local function run_once(cmd_arr)
 end
 
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
-
--- This function implements the XDG autostart specification
---[[
-awful.spawn.with_shell(
-    'if (xrdb -query | grep --quiet "^awesome\\.started:\\s*true$"); then; exit; fi;' ..
-    'xrdb -merge <<< "awesome.started:true";' ..
-    -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
-    'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
-)
---]]
-
--- }}}
 
 -- {{{ Variable definitions
 

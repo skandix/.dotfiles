@@ -42,30 +42,30 @@ echo
 # \n
 # DEBIAN CORE 
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
-echo  
-case "$option" in
-    1 ) echo "Stretch (Stable)";
-        cd /etc/apt/;
-        sudo cp sources.list sources.list.bak;
-        echo -e "# Debian Stretch (Stable)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\n" | sudo tee sources.list;;
+#read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
+#echo  
+#case "$option" in
+#    1 ) echo "Stretch (Stable)";
+#        cd /etc/apt/;
+#        sudo cp sources.list sources.list.bak;
+#        echo -e "# Debian Stretch (Stable)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ stretch/updates main contrib non-free\n" | sudo tee sources.list;;
     
-    2 ) echo "Buster (Testing)";
-        cd /etc/apt/;
-        sudo cp sources.list sources.list.bak;
-        echo -e "###### Debian Buster (Testing)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\n" | sudo tee sources.list;;
+#    2 ) echo "Buster (Testing)";
+#        cd /etc/apt/;
+#        sudo cp sources.list sources.list.bak;
+#        echo -e "###### Debian Buster (Testing)\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ buster-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ buster/updates main contrib non-free\n" | sudo tee sources.list;;
     
-    3 ) echo -e "Sid (Unstable)";
-        cd /etc/apt/;
-        sudo cp sources.list sources.list.bak;
-        echo "###### Debian Main Repos\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
+ #   3 ) echo -e "Sid (Unstable)";
+ #       cd /etc/apt/;
+ #       sudo cp sources.list sources.list.bak;
+ #       echo "###### Debian Main Repos\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src [arch=amd64] http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\ndeb-src [arch=amd64] http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
     
-    4 ) echo "Roll backup";
-        cd /etc/apt/;
-        sudo cp sources.list.bak sources.list -fv;;
-    n|N ) echo "No";;
-esac
-echo
+#    4 ) echo "Roll backup";
+#        cd /etc/apt/;
+#        sudo cp sources.list.bak sources.list -fv;;
+#    n|N ) echo "No";;
+#esac
+#echo
 
 ##Install awesome & Xorg?
 read -p "Install Awesome & Xorg? Y/n " option
@@ -75,12 +75,8 @@ case "$option" in
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-        sudo mkdir -pv /home/$USER/.config/awesome/;
-        sudo cp /etc/xdg/awesome/rc.lua /home/$USER/.config/awesome/ -fv;
-        sudo chown $USER /home/$USER/.config/awesome/rc.lua -v
-        cd /home/$USER/.config/awesome 
-        cp rc.lua rc.lua.bak -v
-        cp /home/$USER/.dotfiles/files/rc.lua . -v;;
+    	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/
+	# don't forget to symlink all the fucking...theme files aswell RIP
     n|n ) echo "No";;
 esac
 echo
