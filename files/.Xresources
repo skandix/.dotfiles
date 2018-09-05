@@ -1,14 +1,1 @@
-! ------------------------------------------------------------------------------
-! ! ROFI Color theme
-! ! ------------------------------------------------------------------------------
- rofi.separator-style:          solid
- rofi.lines:                    8
- rofi.terminal:                 urxvt
- Xft.dpi: 100
-
-! Custom keybinding 4
-rofi.kb-custom-4: Alt+4
-
-
-
-
+ Xft.dpi: 150

@@ -57,13 +57,12 @@ echo
 read -p "Install Awesome & Xorg? Y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Yes";
+    y|Y) echo "Yes";
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-    	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/
-	# don't forget to symlink all the fucking...theme files aswell RIP
-    n|n ) echo "No";;
+    	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/;
+    n|n) echo "No";;
 esac
 echo
 

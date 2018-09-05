@@ -51,22 +51,6 @@ end
 
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
 
--- {{{ Variable definitions
-
-local themes = {
-    "blackburn",       -- 1
-    "copland",         -- 2
-    "dremora",         -- 3
-    "holo",            -- 4
-    "multicolor",      -- 5
-    "powerarrow",      -- 6
-    "powerarrow-dark", -- 7
-    "rainbow",         -- 8
-    "steamburn",       -- 9
-    "vertex",          -- 10
-}
-
-local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvt"
@@ -151,7 +135,9 @@ lain.layout.cascade.tile.extra_padding = 5
 lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
-beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
+-- since i'm only going to be using this theme we migth aswell just give it a direct path rather than the index if where it's
+-- supposed to be
+beautiful.init(os.getenv("HOME").."/.config/awesome/multicolor/theme.lua")
 -- }}}
 
 -- {{{ Screen

@@ -9,4 +9,4 @@ bundle
 files/.moc/cache/*
 files/.moc/last_directory
 files/.moc/pid
-playlist.m3u
+files/.moc/playlist.m3u
