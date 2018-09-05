@@ -21,11 +21,7 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
-<<<<<<< HEAD:awesome/rc.lua
                      title = "Faaack, What did you do now...",
-=======
-                     title = "This is not the reason i use Awesome wm...",
->>>>>>> a86d2263087cf37db39f94d9c7952f98434f9909:files/rc.lua
                      text = awesome.startup_errors })
 end
 
@@ -55,21 +51,6 @@ end
 
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
 
-<<<<<<< HEAD:awesome/rc.lua
-=======
--- This function implements the XDG autostart specification
---[[
-awful.spawn.with_shell(
-    'if (xrdb -query | grep --quiet "^awesome\\.started:\\s*true$"); then; exit; fi;' ..
-    'xrdb -merge <<< "awesome.started:true";' ..
-    -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
-    'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
-)
---]]
-
--- }}}
-
->>>>>>> a86d2263087cf37db39f94d9c7952f98434f9909:files/rc.lua
 -- {{{ Variable definitions
 
 local themes = {
