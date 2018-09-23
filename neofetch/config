@@ -22,11 +22,8 @@ print_info() {
     info "Memory" memory
     info "Uptime" uptime
     info "Disk" disk
-    info "Packages" packages
-    info "Shell" shell
     info "Resolution" resolution
     info "WM" wm
-    info "Terminal" term
     info "Battery" battery
     info line_break
     # info "Font" font

@@ -95,7 +95,7 @@ local markup = lain.util.markup
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M:%S "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#FF00FF", " λ ") .. markup("#de5e1e", " %H:%M"))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -289,16 +289,12 @@ function theme.at_screen_connect(s)
             --s.mylayoutbox,
             s.mytaglist,
             s.mypromptbox,
-            mpdicon,
-            theme.mpd.widget,
         },
         --s.mytasklist, -- Middle widget
         nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            --mailicon,
-            --mail.widget,
             netdownicon,
             netdowninfo,
             netupicon,
@@ -309,12 +305,6 @@ function theme.at_screen_connect(s)
             memory.widget,
             cpuicon,
             cpu.widget,
-            fsicon,
-            theme.fs.widget,
-            weathericon,
-            theme.weather.widget,
-            tempicon,
-            temp.widget,
             baticon,
             bat.widget,
             clockicon,

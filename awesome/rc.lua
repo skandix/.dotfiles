@@ -9,7 +9,7 @@ local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
---local menubar       = require("menubar")
+
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
@@ -135,8 +135,6 @@ lain.layout.cascade.tile.extra_padding = 5
 lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
--- since i'm only going to be using this theme we migth aswell just give it a direct path rather than the index if where it's
--- supposed to be
 beautiful.init(os.getenv("HOME").."/.config/awesome/multicolor/theme.lua")
 -- }}}
 

@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/env bash
 echo -n $'\e[35m'
 echo $'______      _                                       '
 echo $'|  _  \    | |                                      '
