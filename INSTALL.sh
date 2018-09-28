@@ -16,7 +16,7 @@ dir=~/.dotfiles/files
 read -p "Symlink dotfiles ? Y/n " option
 echo
 case "$option" in
-    y|Y) echo "Yes"; dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources";
+    y|Y) echo "Yes"; dotfiles=".moc .vim .bashrc .gitconfig .vimrc .Xdefaults .zshrc .Xresources .dircolors";
         for dotfile in $dotfiles; do
             printf "Installing %s..." $dotfile
             echo
