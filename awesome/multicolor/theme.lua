@@ -15,7 +15,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/multicolor"
-theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Backgrounds/2.jpg"
+theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/Backgrounds/current.jpg"
 theme.font                                      = "xos4 Monospace 8"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
