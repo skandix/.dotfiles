@@ -1,15 +1,15 @@
 #/bin/env bash
-echo -n $'\e[35m'
-echo $'______      _                                       '
-echo $'|  _  \    | |                                      '
-echo $'| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
-echo $'| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
-echo $'| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
-echo $'|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
-echo $'                    | |                             '
-echo $'                    |_|                             '
+echo -n '\e[35m'
+echo '______      _                                       '
+echo '|  _  \    | |                                      '
+echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
+echo '| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
+echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
+echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
+echo '                    | |                             '
+echo '                    |_|                             '
 echo ""
-echo -n $'\E[39m'
+echo -n '\E[39m'
 
 ##Symlink Dotfiles
 dir=~/.dotfiles/files
@@ -28,7 +28,7 @@ echo
 
 #DEBIAN CORE
 ##Set debian flavor
-read -p "$(echo -e 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
+read -p "$(printf 'What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n\b')" option
 echo
 case "$option" in
     1 ) echo "Stretch (Stable)";
@@ -54,15 +54,17 @@ esac
 echo
 
 ##Install awesome & Xorg?
-read -p "Install Awesome & Xorg? Y/n " option
+read -p "Install Awesome, compton & Xorg? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-    	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/;
-    n|n) echo "No";;
+        sudo apt install awesome -y;	
+	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/
+	ln -sfv $HOME/.dotfiles/compton.conf $HOME/.config/;;
+    n|N ) echo "No" ;;
 esac
 echo
 
@@ -136,19 +138,6 @@ case "$option" in
 esac
 echo
 
-##Install Slack
-read -p "Install Slack?  y/n " option
-echo
-case "$option" in
-    y|Y ) echo "Install";
-        cd /tmp;
-        wget  --prefer-family=ipv4 -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.2.0-beta25a7a50e-amd64.deb;
-        sudo dpkg -i slack.deb
-        sudo apt -f install -y;;
-    n|N ) echo "No";;
-esac
-echo
-
 ##Install firefox
 read -p "Install Firefox?  y/n " option
 echo
@@ -194,7 +183,7 @@ echo
 
 
 ##Install Spotify?
-read -p "$(echo -e 'Install/ Update Spotify?\n1: Install\n2: Update\n\b')" option
+read -p "$(printf 'Install/ Update Spotify?\n1: Install\n2: Update\n\b')" option
 echo
 case "$option" in
     1 ) echo "Install";
@@ -210,18 +199,6 @@ case "$option" in
 esac
 echo
 
-##Install Displaylink
-read -p "Install Displaylink?  y/n " option
-echo
-case "$option" in
-    y|Y ) echo "Install";
-        cd /tmp
-        wget https://raw.githubusercontent.com/AdnanHodzic/displaylink-debian/master/displaylink-debian.sh;
-        sudo bash displaylink-debian.sh;;
-    n|N ) echo "No";;
-esac
-echo
-
 read -p "Symlink rc.lua, neofetch and rofi config ?  y/n " option
 echo
 case "$option" in
@@ -229,7 +206,7 @@ case "$option" in
         sudo mv /etc/motd /etc/motd.back;
 	sudo chown $USER:$USER /home/$USER -R;
 	mkdir -p /home/$USER/.config/neofetch;
-        ln -sf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;
+        ln -sf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;;
     n|N ) echo "No";;
 esac
 echo
