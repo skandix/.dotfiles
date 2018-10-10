@@ -204,9 +204,8 @@ echo
 case "$option" in
     y|Y ) echo "Yes";
         sudo mv /etc/motd /etc/motd.back;
-	sudo chown $USER:$USER /home/$USER -R;
-	mkdir -p /home/$USER/.config/neofetch;
-        ln -sf /home/$USER/.dotfiles/files/config_neofetch /home/$USER/.config/neofetch/config;;
+	sudo chown $USER:$USER /home/$USER -Rv;
+        ln -sf /home/$USER/.dotfiles/neofetch /home/$USER/.config/;;
     n|N ) echo "No";;
 esac
 echo
