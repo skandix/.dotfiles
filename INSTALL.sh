@@ -61,8 +61,8 @@ case "$option" in
         sudo apt update;
         sudo apt install xorg -y;
         sudo apt install awesome -y;
-        sudo apt install awesome -y;	
-	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/
+        sudo apt install compton -y;
+	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/;
 	ln -sfv $HOME/.dotfiles/compton.conf $HOME/.config/;;
     n|N ) echo "No" ;;
 esac
