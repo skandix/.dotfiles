@@ -1,7 +1,3 @@
 [user]
-  name = Bendik Dyrli
-  email = skandix@datapor.no
-[github]
-  user = skandix
-[core]
-  editor = vim
+	email = skandix@datapor.no
+	name = bendik
