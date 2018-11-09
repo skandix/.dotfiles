@@ -1,8 +1,8 @@
 |-- files
 |   | - dots (dotfiles)
-	| - for k in $(find . -maxdepth 1 -type f -name '.*' -printf '%f '); do ln -s $(pwd)/$k /home/skandix/ -vf; done;
+	| - for k in $(find . -maxdepth 1 -type f -name '.*' -printf '%f '); do ln -s $(pwd)/$k $HOME -vf; done;
 |   | - confs (configs for .config folder)
-	| - for k in $(find . -maxdepth 1 -type d -name '*' ! -name '*.'  -printf '%f '); do ln -s $(pwd)/$k /home/skandix/.config/ -vf; done;
+	| - for k in $(find . -maxdepth 1 -type d -name '*' ! -name '*.'  -printf '%f '); do ln -s $(pwd)/$k $HOME/.config/ -vf; done;
 |   | - misc (other stuff such as synaptics configs)
 |-- scripts (folder for misc scripts)
 |-- backgrounds
