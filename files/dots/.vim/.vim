@@ -1,1 +1,1 @@
-/home/skandix/.dotfiles/files/.vim
+/home/skandix/.dotfiles/files/dots/.vim

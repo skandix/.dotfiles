@@ -23,18 +23,9 @@ echo
 case "$option" in
     y|Y) echo "Yes";
         for dotfile in $dotsDetect; do
-            ln -svf $dots$dotfile ~/$dotfile 2>/dev/null
-        done;;
-    n|N ) echo "No";;
-esac
-echo
-
-read -p "Symlink dotconfig ? Y/n " option
-echo
-case "$option" in
-    y|Y) echo "Yes";
-        for dotconfig in $confsDetect; do
-            ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
+            printf "Installing %s..." $dotfile
+            echo
+            ln -sf /home/$USER/.dotfiles/files/$dotfile ~/$dotfile 2>/dev/null
         done;;
     n|N ) echo "No";;
 esac
