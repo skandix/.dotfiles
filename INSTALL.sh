@@ -15,8 +15,8 @@ echo -n '\E[39m'
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
 
-dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name '*.' -printf '%f ')
-confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name '*.' -printf '%f ')
+dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
+confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
 read -p "Symlink dotfiles ? Y/n " option
 echo
