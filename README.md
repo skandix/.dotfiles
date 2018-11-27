@@ -1,4 +1,6 @@
-# .dotfiles
+# ~.dotfiles~  shits under construction please use on your own risk
+
+
 my personal dotfiles
 
 ```bash
