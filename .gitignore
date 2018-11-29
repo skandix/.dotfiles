@@ -1,13 +1,20 @@
 softmixer
+<<<<<<< HEAD
 files/.vim/plugins/*
 files/.vim/bundle/*
 files/.vim/plugged/*
 files/.vim/plugins/*
 files/.vim/autoload
+=======
+.vim/plugins/*
+.vim/bundle/*
+.vim/plugged/*
+.vim/plugins/*
+>>>>>>> aff2c27a0d6b81165f35ac198ace898f032589be
 *.swp
 test.*
 bundle
-files/.moc/cache/*
-files/.moc/last_directory
-files/.moc/pid
-files/.moc/playlist.m3u
+.moc/cache/*
+.moc/last_directory
+.moc/pid
+.moc/playlist.m3u

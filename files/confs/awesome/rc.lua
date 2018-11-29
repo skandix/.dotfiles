@@ -51,11 +51,18 @@ end
 
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
 
+-- things i want to start at the same ttime as awesome and xorg starts
+local ghettoSpawner = {"compton"}
+
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvt"
 local editor       = "vim"
 local browser      = "firefox"
+
+for _,i in pairs(ghettoSpawner) do
+	awful.util.spawn(i)
+end
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
