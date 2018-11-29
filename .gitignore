@@ -3,6 +3,7 @@ files/.vim/plugins/*
 files/.vim/bundle/*
 files/.vim/plugged/*
 files/.vim/plugins/*
+files/.vim/autoload
 *.swp
 test.*
 bundle
