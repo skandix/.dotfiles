@@ -39,22 +39,6 @@ Plug 'w0rp/ale'
 "" python autocomplete 
 Plug 'davidhalter/jedi-vim'
 
-
-"" KB dat233 scala
-Plug 'derekwyatt/vim-scala'
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-Plug 'cloudhead/neovim-fuzzy'
-Plug 'derekwyatt/vim-scala'
-
-" deoplete plugin stuff
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
