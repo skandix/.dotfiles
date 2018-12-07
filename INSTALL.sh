@@ -136,7 +136,7 @@ read -p "$cyan [Vim & Zsh] $normie Install Vim plugins & oh-my-zsh? $magenta y/n
 echo
 case "$option" in
 	y|Y ) echo "Yes";
-		echo "$cyan [Neovim] $normie Installing Neovim";
+		echo "\n$cyan [Neovim] $normie Installing Neovim";
 		curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage;
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
@@ -146,13 +146,18 @@ case "$option" in
 		pip3 install --upgrade neovim;
 		#vim +PlugInstall +qall;
 		
-		echo "$cyan [Plug] $normie Installing Vim Pluging Manager";
+		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
 		
-		echo "$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
-		git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
-		ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
-
+		echo "\n$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
+		if [ -d "/home/$USER/.oh-my-zsh" ] 
+		then
+			echo "$green[O.K] Found .oh-my-zsh$normie"
+		else
+			echo "$red[Error]: Can't find .oh-my-zsh, cloning repo$normie\n"
+			git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
+			ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+		fi
 	n|n|* ) echo "$red No";;
 esac
 echo
