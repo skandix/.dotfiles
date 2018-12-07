@@ -29,7 +29,7 @@ dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -print
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
 # Symlink all dotfiles
-read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? Y/n " option
+read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y) echo "$green Yes $normie";
@@ -41,7 +41,7 @@ esac
 echo
 
 # Symlinks all files that goes in /home/foo/.config
-read -p "$cyan [DotConfigs] $normie Symlink dotconfig? Y/n " option
+read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y ) echo "Yes";
@@ -60,7 +60,7 @@ esac
 echo
 
 # What flavor of debian do you want to use
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? 1: Stretch (Stable), 2: Buster (Testing), 3: Sid (Unstable), 4: Roll backup" option
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? $magenta 1:$normie Stretch (Stable), $magenta 2:$normie Buster (Testing), $magenta 3:$normie Sid (Unstable), $magenta 4:$normie Roll backup" option
 echo
 case "$option" in
 	1 ) echo "Stretch (Stable)";
@@ -86,7 +86,7 @@ esac
 echo
 
 #Install Awesome, Compton and Xorg
-read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? Y/n" option
+read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -97,7 +97,7 @@ esac
 echo
 
 ## Install Packages for the specific system i'm running
-read -p "$cyan [Packages] $normie What Packages?   $magenta 1:$normie Laptop, $magenta 2:$normie Workstation, $magenta 3:$normie Server, $magenta 4:$normie Minimal Server" option
+read -p "$cyan [Packages] $normie What Packages? $magenta 1:$normie Laptop, $magenta 2:$normie Workstation, $magenta 3:$normie Server, $magenta 4:$normie Minimal Server" option
 echo
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
@@ -117,7 +117,7 @@ esac
 echo
 
 # Install Pip & pipenv
-read -p "$cyan [Pip] $normie Install Pip & Pipenv? y/n " option
+read -p "$cyan [Pip] $normie Install Pip & Pipenv? $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -132,7 +132,7 @@ esac
 echo
 
 ##Install Vim plugins?
-read -p "$cyan [Vim & Zsh] $normie Install Vim plugins & oh-my-zsh? y/n " option
+read -p "$cyan [Vim & Zsh] $normie Install Vim plugins & oh-my-zsh? $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y ) echo "Yes";
@@ -158,7 +158,7 @@ esac
 echo
 
 ##Install golang?
-read -p "$cyan [Golang] $normie Install Golang? y/n " option
+read -p "$cyan [Golang] $normie Install Golang? $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -172,7 +172,7 @@ echo
 
 # THIRD-PARTY APPLICATIONS
 ##Install Telegram
-read -p "$cyan [Telegram] $normie Install Telegram?  y/n " option
+read -p "$cyan [Telegram] $normie Install Telegram?  $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -188,7 +188,7 @@ esac
 echo
 
 ##Install firefox
-read -p "$cyan [Firefox] $normie Install Firefox?  y/n " option
+read -p "$cyan [Firefox] $normie Install Firefox?  $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie"; 
@@ -203,7 +203,7 @@ esac
 echo
 
 ##Install Docker
-read -p "$cyan [Docker] $normie Install Docker?  y/n " option
+read -p "$cyan [Docker] $normie Install Docker?  $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -220,7 +220,7 @@ esac
 echo
 
 ##Install Docker-compose
-read -p "$cyan [Docker-Compose] $normie Install Docker-compose?  y/n " option
+read -p "$cyan [Docker-Compose] $normie Install Docker-compose?  $magenta y/n$normie" option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
@@ -232,7 +232,7 @@ esac
 echo
 
 ##Install Spotify?
-read -p "$cyan [Spotify] $normie Install/Update Spotify? 1: Install, 2: Update" option
+read -p "$cyan [Spotify] $normie Install/Update Spotify? $magenta 1:$normie Install, $magenta 2:$normieUpdate" option
 echo
 case "$option" in
 	1 ) echo "$green Install $normie";
@@ -249,7 +249,7 @@ case "$option" in
 esac
 echo
 
-read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  y/n " option
+read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
