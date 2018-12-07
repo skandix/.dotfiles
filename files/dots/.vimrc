@@ -51,6 +51,15 @@ Plug 'liuchengxu/space-vim-dark'
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
+" deoplete plugin stuff
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
@@ -120,7 +129,7 @@ set backspace=indent,eol,start
 set matchpairs+=<:>
 set splitbelow
 set textwidth=128				" 
-set shiftwidth=8				" 
+set shiftwidth=4				" 
 set laststatus=2				" Display statusline
 set cmdheight=1					" Height of the command bar
 set history=256					" How much history to save.
