@@ -1,5 +1,13 @@
 #/bin/env bash
-echo -n '\e[35m'
+
+## Color Variables
+magenta=$'\e[1;35m'
+red=$'\e[1;31m'
+green=$'\e[1;32m'
+cyan=$'\e[1;36m'
+normie=$'\e[0m'
+
+echo '$magenta'
 echo '______      _                                       '
 echo '|  _  \    | |                                      '
 echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
@@ -8,38 +16,41 @@ echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
 echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
 echo '                    | |                             '
 echo '                    |_|                             '
-echo ""
-echo -n '\E[39m'
+echo '$normie'
 
-##Symlink Dotfiles
+##Dirs for Dots and Confs
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
+misc=~/.dotfiles/files/misc/
 
+# Find all Dotfiles and Dotconfigs
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
-read -p "Symlink dotfiles ? Y/n " option
+# Symlink all dotfiles
+read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? Y/n " option
 echo
 case "$option" in
-    y|Y) echo "Yes";
+    y|Y) echo "$green Yes $normie";
         for dotfile in $dotsDetect; do
             ln -svf $dots$dotfile ~/$dotfile 2>/dev/null
         done;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No $normie";;
 esac
 echo
 
-read -p "Symlink dotconfig ? Y/n " option
+# Symlinks all files that goes in /home/foo/.config
+read -p "$cyan [DotConfigs] $normie Symlink dotconfig? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
-    if [ -d "$HOME/.config" ] 
-	then
-    	echo "O.K"
-	else
-    	echo "can't find .config, creating Dir"
-		mkdir -p $HOME/.config/ 
-	fi
+        if [ -d "$HOME/.config" ] 
+    	then
+        	echo "$green [O.K] Found .config"
+    	else
+        	echo "$red [Error]: Can't find .config, creating Dir"
+    		mkdir -p $HOME/.config/ 
+    	fi
         for dotconfig in $confsDetect; do
             ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
         done;;
@@ -47,110 +58,114 @@ case "$option" in
 esac
 echo
 
-##Install awesome & Xorg?
-read -p "Install Awesome, compton & Xorg? Y/n " option
+#Install Awesome, Compton and Xorg
+read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? Y/n " option
 echo
 case "$option" in
-    y|Y) echo "Yes";
+    y|Y) echo "$green Yes $normie";
         sudo apt update;
-        sudo apt install xorg -y;
-        sudo apt install awesome -y;
-        sudo apt install compton -y;
-	ln -sfv $HOME/.dotfiles/awesome/ $HOME/.config/;
-	ln -sfv $HOME/.dotfiles/compton.conf $HOME/.config/;;
-    n|N ) echo "No" ;;
+        sudo apt install xorg awesome compton -y;
+    n|N ) echo "$red No $normie" ;;
 esac
 echo
 
-##Install Packages?
-read -p "$(echo -e 'What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n\b')" option
+## Install Packages for the specific system i'm running
+read -p "$(echo -e '$cyan [Packages] $normie What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n\b')" option
 echo
 case "$option" in
-    1 ) echo "Laptop"; 
+    1 ) echo "$cyan Laptop $normie"; 
         sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr xbacklight wicd-curses firmware-iwlwifi -y;
-        ln -svf /home/$USER/.dotfiles/configs/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
-    2 ) echo "Workstation"; 
+
+    2 ) echo "$cyan Workstation $normie"; 
         sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3-dev python3-pip python-dev python-pip alsa-utils rxvt-unicode-256color zsh moc virtualenv virtualenvwrapper dirmngr -y;;
-    3 ) echo "Server"; 
+
+    3 ) echo "$cyan Server $normie"; 
         sudo apt install fail2ban neofetch screen tmux python3-dev python3-pip python-dev python-pip zsh virtualenv virtualenvwrapper dirmngr -y;;
-    4 ) echo "Minimal Server";
+
+    4 ) echo "$cyan Minimal Server $normie";
         sudo apt install fail2ban neofetch screen tmux zsh -y;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No $normie";;
 esac
 echo
 
-# jeez, what a blob of shit 
 ##Install Vim plugins?
 read -p "Install Vim plugins & oh-my-zsh? y/n " option
 echo
 case "$option" in
     y|Y ) echo "Yes";
-        echo "installing NeoVim";
+        echo "$cyan [Neovim] $normie Installing Neovim";
         curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage;
         chmod u+x nvim.appimage;
         sudo mv nvim.appimage /opt;
         sudo ln -s /opt/nvim.appimage /bin/vim;
         ln -s /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
         pip3 install --upgrade neovim;
-        echo "Installing Plug";
+        echo "$cyan [Neovim] $normie Finished\n"
+        
+        echo "$cyan [Plug] $normie Installing Vim Pluging Manager";
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
-        echo "Installing oh-my-zsh";
+        echo "$cyan [Plug] $normie Finished\n"
+        
+        echo "$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
         git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
         vim +PlugInstall +qall;
-        ln -sfv $dir/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
-    n|n ) echo "No";;
+        ln -sf $dir/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+        echo "$cyan [Oh-My-Zsh] $normie Finished\n"
+
+    n|n ) echo "$red No";;
 esac
 echo
 
 ##Install golang?
-read -p "Install Golang? y/n " option
+read -p "$cyan [Golang] $normie Install Golang? y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Yes";
+    y|Y ) echo "$green Yes";
         cd /tmp;
-	wget  --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
+		wget -q --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
         tar xvf golang_tar;
         sudo mv go /usr/local;;
-    n|n ) echo "No";;
+    n|n ) echo "$red No";;
 esac
 echo
 
 # THIRD-PARTY APPLICATIONS
 ##Install Telegram
-read -p "Install Telegram?  y/n " option
+read -p "$cyan [Telegram] $normie Install Telegram?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install";
+    y|Y ) echo "$green Yes";
         cd /tmp
-        wget  --prefer-family=ipv4 -O linux https://telegram.org/dl/desktop/linux;
+        wget -q --prefer-family=ipv4 -O linux https://telegram.org/dl/desktop/linux;
         tar xvf linux;
         sudo mv Telegram /opt/Telegram;
         sudo chown $USER:$USER /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
         sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No";;
 esac
 echo
 
 ##Install firefox
-read -p "Install Firefox?  y/n " option
+read -p "$cyan [Firefox] $normie Install Firefox?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install"; cd /tmp
-        wget  --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
-        tar xvf firefax_tar;
+    y|Y ) echo "Install"; 
+		cd /tmp
+        wget -q --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
+        tar xf firefax_tar;
         sudo mv firefox /opt/;
         sudo chown $USER:$USER /opt/firefox -R;
-        sudo ln -fvs /opt/firefox/firefox /bin/firefox;;
-    n|N ) echo "No";;
+        sudo ln -fs /opt/firefox/firefox /bin/firefox;;
+    n|N ) echo "$red No";;
 esac
 echo
 
 ##Install Docker
-read -p "Install Docker?  y/n " option
+read -p "$cyan [Docker] $normie Install Docker?  y/n " option
 echo
 case "$option" in
-    y|Y ) echo "Install";
+    y|Y ) echo "$green Install";
         cd /tmp
         sudo apt update;
         sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y;
@@ -159,12 +174,12 @@ case "$option" in
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable";
         sudo apt update;
         sudo apt install docker-ce -y;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No";;
 esac
 echo
 
 ##Install Docker-compose
-read -p "Install Docker-compose?  y/n " option
+read -p "$cyan [Docker-Compose] $normie Install Docker-compose?  y/n " option
 echo
 case "$option" in
     y|Y ) echo "Install";
@@ -180,16 +195,17 @@ echo
 read -p "$(printf 'Install/ Update Spotify?\n1: Install\n2: Update\n\b')" option
 echo
 case "$option" in
-    1 ) echo "Install";
+    1 ) echo "$green Install $normie";
         $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
         echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list;
         sudo apt update;
         sudo apt install spotify-client -y;;
+
     2 ) echo "Update";
         $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
         sudo apt update;
         sudo apt install spotify-client -y;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No $normie";;
 esac
 echo
 
