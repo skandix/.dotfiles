@@ -44,7 +44,7 @@ echo
 read -p "$cyan [DotConfigs] $normie Symlink dotconfig? Y/n " option
 echo
 case "$option" in
-    y|Y) echo "Yes";
+    y|Y ) echo "Yes";
         if [ -d "$HOME/.config" ] 
     	then
         	echo "$green [O.K] Found .config"
@@ -86,13 +86,13 @@ esac
 echo
 
 #Install Awesome, Compton and Xorg
-read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? Y/n " option
+read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? Y/n" option
 echo
 case "$option" in
-    y|Y) echo "$green Yes $normie";
+    y|Y ) echo "$green Yes $normie";
         sudo apt update;
-        sudo apt install xorg awesome compton -y;
-    n|N ) echo "$red No $normie" ;;
+        sudo apt install xorg awesome compton -y;;
+    n|N ) echo "$red No $normie";;
 esac
 echo
 
@@ -101,7 +101,7 @@ read -p "$cyan [Packages] $normie What Packages ?\n1: Laptop\n2: Workstation\n3:
 echo
 case "$option" in
     1 ) echo "$cyan Laptop $normie"; 
-        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g -y;
+        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g -y;;
 
     2 ) echo "$cyan Workstation $normie"; 
         sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr ntfs-3g -y;;
