@@ -33,6 +33,13 @@ read -p "Symlink dotconfig ? Y/n " option
 echo
 case "$option" in
     y|Y) echo "Yes";
+    if [ -d "$HOME/.config" ] 
+	then
+    	echo "O.K"
+	else
+    	echo "can't find .config, creating Dir"
+		mkdir -p $HOME/.config/ 
+	fi
         for dotconfig in $confsDetect; do
             ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
         done;;
