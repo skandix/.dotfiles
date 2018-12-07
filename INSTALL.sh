@@ -156,7 +156,7 @@ case "$option" in
 		else
 			echo "$red[Error]: Can't find .oh-my-zsh, cloning repo$normie\n"
 			git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
-			ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
+			ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;
 		fi
 	n|n|* ) echo "$red No";;
 esac
