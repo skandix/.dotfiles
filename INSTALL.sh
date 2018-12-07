@@ -1,6 +1,5 @@
 #/bin/env bash
 
-
 ## Color Variables
 magenta=$'\e[1;35m'
 red=$'\e[1;31m'
@@ -23,9 +22,6 @@ echo "$normie"
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
 misc=~/.dotfiles/files/misc/
-
-# NewLineHackForRead
-newLine=echo "\n"
 
 # Find all Dotfiles and Dotconfigs
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
@@ -63,7 +59,7 @@ esac
 echo
 
 # What flavor of debian do you want to use
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ?"\n"1: Stretch (Stable)"\n"2: Buster (Testing)"\n"3: Sid (Unstable)"\n"4: Roll backup"\n")" option
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? "echo \n" 1: Stretch (Stable) 2: Buster (Testing) 3: Sid (Unstable) 4: Roll backup" option
 echo
 case "$option" in
     1 ) echo "Stretch (Stable)";
@@ -100,7 +96,7 @@ esac
 echo
 
 ## Install Packages for the specific system i'm running
-read -p "($cyan [Packages] $normie What Packages ? $newLine 1: Laptop2: Workstation 3: Server 4: Minimal Server)" option
+read -p "($cyan [Packages] $normie What Packages?  1: Laptop2: Workstation 3: Server 4: Minimal Server)" option
 echo
 case "$option" in
     1 ) echo "$cyan Laptop $normie"; 
