@@ -60,7 +60,7 @@ esac
 echo
 
 # What flavor of debian do you want to use
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ?$(\n)1: Stretch (Stable)$(\n)2: Buster (Testing)$(\n)3: Sid (Unstable)$(\n)4: Roll backup\n)" option
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ?"\n"1: Stretch (Stable)"\n"2: Buster (Testing)"\n"3: Sid (Unstable)"\n"4: Roll backup"\n")" option
 echo
 case "$option" in
     1 ) echo "Stretch (Stable)";
@@ -97,7 +97,7 @@ esac
 echo
 
 ## Install Packages for the specific system i'm running
-read -p "$cyan [Packages] $normie What Packages ?\n1: Laptop\n2: Workstation\n3: Server\n4: Minimal Server\n" option
+read -p "$cyan [Packages] $normie What Packages ?"\n"1: Laptop"\n"2: Workstation"\n"3: Server"\n"4: Minimal Server"\n"" option
 echo
 case "$option" in
     1 ) echo "$cyan Laptop $normie"; 
@@ -112,12 +112,11 @@ case "$option" in
     4 ) echo "$cyan Minimal Server $normie";
         sudo apt install fail2ban neofetch screen tmux zsh ntfs-3g -y;;
 
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
 # Install Pip & pipenv
-https://bootstrap.pypa.io/get-pip.py
 read -p "$cyan [Python3] $normie Install Pip & Pipenv? y/n " option
 echo
 case "$option" in
@@ -127,8 +126,8 @@ case "$option" in
         wget -q https://bootstrap.pypa.io/get-pip.py;
         python3.7 get-pip.py --user;
         python3 -m pip install --upgrade pip==18.0 --user
-        pip3 install pipenv --user;;;
-    n|n ) echo "$red No $normie";;
+        pip3 install pipenv --user;;
+    n|n|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -232,7 +231,7 @@ esac
 echo
 
 ##Install Spotify?
-read -p "$cyan [Spotify] $normie Install/ Update Spotify?\n1: Install\n2: Update\n')" option
+read -p "$cyan [Spotify] $normie Install/Update Spotify?"\n"1: Install"\n"2: Update"\n"')" option
 echo
 case "$option" in
     1 ) echo "$green Install $normie";
