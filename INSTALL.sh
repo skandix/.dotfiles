@@ -36,7 +36,7 @@ case "$option" in
         for dotfile in $dotsDetect; do
             ln -svf $dots$dotfile ~/$dotfile 2>/dev/null
         done;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -55,7 +55,7 @@ case "$option" in
         for dotconfig in $confsDetect; do
             ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
         done;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -81,7 +81,7 @@ case "$option" in
     4 ) echo "Roll backup";
         cd /etc/apt/;
         sudo cp sources.list.bak sources.list -fv;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -92,7 +92,7 @@ case "$option" in
     y|Y ) echo "$green Yes $normie";
         sudo apt update;
         sudo apt install xorg awesome compton -y;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -152,7 +152,7 @@ case "$option" in
         vim +PlugInstall +qall;
         ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;;
 
-    n|n ) echo "$red No";;
+    n|n|* ) echo "$red No";;
 esac
 echo
 
@@ -165,7 +165,7 @@ case "$option" in
 		wget -q --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
         tar xvf golang_tar;
         sudo mv go /usr/local;;
-    n|n ) echo "$red No $normie";;
+    n|n|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -182,7 +182,7 @@ case "$option" in
         sudo chown $USER:$USER /opt/Telegram -R;
         sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
         sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -197,7 +197,7 @@ case "$option" in
         sudo mv firefox /opt/;
         sudo chown $USER:$USER /opt/firefox -R;
         sudo ln -fs /opt/firefox/firefox /bin/firefox;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -214,7 +214,7 @@ case "$option" in
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable";
         sudo apt update;
         sudo apt install docker-ce -y;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -226,7 +226,7 @@ case "$option" in
         cd /tmp;
         sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose;
         sudo chmod +x /usr/local/bin/docker-compose;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -244,7 +244,7 @@ case "$option" in
         $(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
         sudo apt update;
         sudo apt install spotify-client -y;;
-    n|N ) echo "$red No $normie";;
+    n|N|* ) echo "$red No $normie";;
 esac
 echo
 
@@ -253,7 +253,7 @@ echo
 case "$option" in
     y|Y ) echo "$green Yes $normie";
         sudo mv /etc/motd /etc/motd.back;
-		sudo chown $USER:$USER /home/$USER -Rv;
-    n|N ) echo "$red No $normie";;
+		sudo chown $USER:$USER /home/$USER -Rv;;
+    n|N|*) echo "$red No $normie";;
 esac
 echo
