@@ -59,7 +59,7 @@ esac
 echo
 
 # What flavor of debian do you want to use
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? "echo \n" 1: Stretch (Stable) 2: Buster (Testing) 3: Sid (Unstable) 4: Roll backup" option
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? 1: Stretch (Stable), 2: Buster (Testing), 3: Sid (Unstable), 4: Roll backup" option
 echo
 case "$option" in
     1 ) echo "Stretch (Stable)";
@@ -96,14 +96,14 @@ esac
 echo
 
 ## Install Packages for the specific system i'm running
-read -p "($cyan [Packages] $normie What Packages?  1: Laptop2: Workstation 3: Server 4: Minimal Server)" option
+read -p "($cyan [Packages] $normie What Packages?  1: Laptop, 2: Workstation, 3: Server, 4: Minimal Server)" option
 echo
 case "$option" in
     1 ) echo "$cyan Laptop $normie"; 
-        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g -y;;
+        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;;
 
     2 ) echo "$cyan Workstation $normie"; 
-        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr ntfs-3g -y;;
+        sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr ntfs-3g keepassx -y;;
 
     3 ) echo "$cyan Server $normie"; 
         sudo apt install fail2ban neofetch screen tmux python3.7 python3.7-dev zsh dirmngr ntfs-3g -y;;
