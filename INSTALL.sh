@@ -24,6 +24,9 @@ dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
 misc=~/.dotfiles/files/misc/
 
+# NewLineHackForRead
+newLine=echo "\n"
+
 # Find all Dotfiles and Dotconfigs
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
@@ -97,7 +100,7 @@ esac
 echo
 
 ## Install Packages for the specific system i'm running
-read -p "$cyan [Packages] $normie What Packages ?"\n"1: Laptop"\n"2: Workstation"\n"3: Server"\n"4: Minimal Server"\n"" option
+read -p "($cyan [Packages] $normie What Packages ? $newLine 1: Laptop2: Workstation 3: Server 4: Minimal Server)" option
 echo
 case "$option" in
     1 ) echo "$cyan Laptop $normie"; 
