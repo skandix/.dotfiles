@@ -1,5 +1,6 @@
 #/bin/env bash
 
+
 ## Color Variables
 magenta=$'\e[1;35m'
 red=$'\e[1;31m'
@@ -7,7 +8,7 @@ green=$'\e[1;32m'
 cyan=$'\e[1;36m'
 normie=$'\e[0m'
 
-echo '$magenta'
+echo "$magenta"
 echo '______      _                                       '
 echo '|  _  \    | |                                      '
 echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
@@ -16,7 +17,7 @@ echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
 echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
 echo '                    | |                             '
 echo '                    |_|                             '
-echo '$normie'
+echo "$normie"
 
 ##Dirs for Dots and Confs
 dots=~/.dotfiles/files/dots/
@@ -54,12 +55,12 @@ case "$option" in
         for dotconfig in $confsDetect; do
             ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
         done;;
-    n|N ) echo "No";;
+    n|N ) echo "$red No $normie";;
 esac
 echo
 
 # What flavor of debian do you want to use
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ?\n1: Stretch (Stable)\n2: Buster (Testing)\n3: Sid (Unstable)\n4: Roll backup\n)" option
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ?$(\n)1: Stretch (Stable)$(\n)2: Buster (Testing)$(\n)3: Sid (Unstable)$(\n)4: Roll backup\n)" option
 echo
 case "$option" in
     1 ) echo "Stretch (Stable)";
