@@ -140,8 +140,8 @@ case "$option" in
 		curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage;
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
-		sudo ln -s /opt/nvim.appimage /bin/vim;
-		ln -s /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
+		sudo ln -sf /opt/nvim.appimage /bin/vim;
+		ln -sf /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
 		sudo apt install python3-neovim
 		pip3 install --upgrade neovim;
 		#vim +PlugInstall +qall;
@@ -181,7 +181,7 @@ case "$option" in
 		tar xvf linux;
 		sudo mv Telegram /opt/Telegram;
 		sudo chown $USER:$USER /opt/Telegram -R;
-		sudo ln -fvs /opt/Telegram/Telegram /bin/Telegram;
+		sudo ln -fs /opt/Telegram/Telegram /bin/Telegram;
 		sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
 	n|N|* ) echo "$red No $normie";;
 esac
