@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/skandix/.oh-my-zsh
+export ZSH=/home/skandix/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,13 +24,13 @@ ZSH_THEME="Trilambda"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -56,6 +56,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/skan
 
 source $ZSH/oh-my-zsh.sh
 
+#NoBlanking
+xset s off
+xset -dpms
+xset s noblank
 
 #dirs 
 export LS_OPTIONS='--color=auto'
@@ -75,7 +79,6 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 # other
 alias uuid="cat /proc/sys/kernel/random/uuid"
 alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
-alias pipenv="python3 -m pipenv"
 
 # terminal
 if [[ $TERM == xterm ]]; then
