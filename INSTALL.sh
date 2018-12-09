@@ -177,7 +177,8 @@ echo
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp;
-		wget -q --prefer-family=ipv4 -O golang_tar https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz;
+		# grabs the latest go version, with a bit of hassle with regex... i'll clean that up later now it works :)
+		wget -q --prefer-family=ipv4 -O golang_tar $(curl -s https://golang.org/dl/ | egrep '<a class=\"download downloadBox\" href=\"([^\s]+[.linux\-amd64.tar.gz])' | grep linux | cut -d'"' -f 4)
 		tar xvf golang_tar;
 		sudo mv go /usr/local;;
 	n|n|* ) echo "$red No $normie";;
@@ -208,7 +209,7 @@ case "$option" in
 	y|Y ) echo "$green Yes $normie"; 
 		cd /tmp
 		wget -q --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
-		tar xf firefax_tar;
+		tar xvf firefax_tar;
 		sudo mv firefox /opt/;
 		sudo chown $USER:$USER /opt/firefox -R;
 		sudo ln -fs /opt/firefox/firefox /bin/firefox;;
