@@ -9,13 +9,13 @@
 
 ## INSTALL
 ```bash
-$ apt install git curl
-$ git clone https://github.com/skandix/.dotfiles.git
+$apt install git curl
+$git clone https://github.com/skandix/.dotfiles.git
 ```
 
 ## USAGE
 ```bash 
-$ ./INSTALL.sh
+$./INSTALL.sh
 ```
 
 ### What
