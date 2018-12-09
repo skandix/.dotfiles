@@ -1,5 +1,6 @@
 # .dotfiles
 > My Personal collection of dotfiles, and dotconfigs.
+> This script can be used as a template for other to make their own AWESOME dotfiles script ;)
 
 *This has only been tested on Debian systems!*
 
