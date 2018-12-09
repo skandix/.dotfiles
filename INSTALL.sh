@@ -29,7 +29,7 @@ dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -print
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
 # Useful Functions
-function exsists(){
+exsists(){
 # Handy for checking if a dir exists
 # exsists <path/file> <specific_thing to say, for example "Creating Dir">
 	if [ -d $1 ] 

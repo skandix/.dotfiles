@@ -3,6 +3,9 @@
 
 *This has only been tested on Debian systems!*
 
+![](https://loot.datapor.no/1ejj6PhVd7U.png)
+
+
 ## INSTALL
 ```bash
 $ apt install git curl
@@ -11,7 +14,7 @@ $ git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash 
-	$ ./INSTALL.sh
+$ ./INSTALL.sh
 ```
 
 ### What
