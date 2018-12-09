@@ -3,7 +3,7 @@
 
 *This has only been tested on Debian systems!*
 
-![](https://loot.datapor.no/1ejj6PhVd7U.png)
+![](https://loot.datapor.no/CCYaiApaIin.png)
 
 
 ## INSTALL
