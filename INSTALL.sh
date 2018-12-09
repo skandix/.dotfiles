@@ -28,6 +28,19 @@ misc=~/.dotfiles/files/misc/
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
+# Useful Functions
+function exsists(){
+# Handy for checking if a dir exists
+# exsists <path/file> <specific_thing to say, for example "Creating Dir">
+	if [ -d $1 ] 
+	then
+		echo "$green [O.K] Found $1 $normie"
+	else
+		echo "$red [Error]: Can't find $1, $2 Dir $normie"
+		mkdir -p $1
+	fi
+}
+
 # Symlink all dotfiles
 read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? $magenta y/n$normie " option
 echo
@@ -45,13 +58,7 @@ read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie " opt
 echo
 case "$option" in
 	y|Y ) echo "Yes";
-		if [ -d "$HOME/.config" ] 
-		then
-			echo "$green [O.K] Found .config $normie"
-		else
-			echo "$red [Error]: Can't find .config, creating Dir $normie"
-			mkdir -p $HOME/.config/ 
-		fi
+		exsists $HOME/.config "Creating Dir"
 		for dotconfig in $confsDetect; do
 			ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
 		done;;
@@ -141,6 +148,7 @@ case "$option" in
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
 		sudo ln -sf /opt/nvim.appimage /bin/vim;
+		exsists /home/$USER/.config/nvim/
 		ln -sf /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
 		sudo apt install python3-neovim
 		pip3 install --upgrade neovim;
@@ -150,6 +158,7 @@ case "$option" in
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
 		
 		echo "\n$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
+		
 		if [ -d "/home/$USER/.oh-my-zsh" ] 
 		then
 			echo "$green[O.K] Found .oh-my-zsh$normie"
@@ -157,7 +166,7 @@ case "$option" in
 			echo "$red[Error]: Can't find .oh-my-zsh, cloning repo$normie\n"
 			git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
 			ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;
-		fi;;z
+		fi;;
 	n|n|* ) echo "$red No";;
 esac
 echo
@@ -237,7 +246,7 @@ esac
 echo
 
 ##Install Spotify?
-read -p "$cyan [Spotify] $normie Install/Update Spotify? $magenta 1:$normie Install, $magenta 2:$normieUpdate" option
+read -p "$cyan [Spotify] $normie Install/Update Spotify? $magenta 1:$normie Install, $magenta 2:$normie Update" option
 echo
 case "$option" in
 	1 ) echo "$green Install $normie";
