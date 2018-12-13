@@ -304,4 +304,18 @@ echo
 
 
 ### MAIN ###
-motd 
+motd
+dotfiles
+dotconfig
+flavor
+graphics
+packages
+pip
+vim_and_zsh
+golang
+telegram
+firefox
+docker
+docker_compose
+spotify
+misc
