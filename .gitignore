@@ -8,12 +8,8 @@ files/.vim/autoload
 .vim/bundle/*
 .vim/plugged/*
 .vim/plugins/*
-<<<<<<< HEAD
 files/dots/.vim/plugged/*
-=======
 /files/dots/.vim/plugged
-
->>>>>>> a5ac901df576b2e7f62d16a76393039acd7b88c9
 *.swp
 test.*
 bundle
