@@ -48,7 +48,7 @@ echo
 case "$option" in
 	y|Y) echo "$green Yes $normie";
 		for dotfile in $dotsDetect; do
-			ln -svf $dots$dotfile ~/$dotfile 2>/dev/null
+			ln -svfn $dots$dotfile ~/$dotfile 2>/dev/null
 		done;;
 	n|N|* ) echo "$red No $normie";;
 esac
@@ -63,7 +63,7 @@ case "$option" in
 	y|Y ) echo "Yes";
 		exsists $HOME/.config "Creating Dir"
 		for dotconfig in $confsDetect; do
-			ln -svf $confs$dotconfig ~/.config/$dotconfig 2>/dev/null
+			ln -svfn $confs$dotconfig ~/.config/$dotconfig
 		done;;
 	n|N|* ) echo "$red No $normie";;
 esac
