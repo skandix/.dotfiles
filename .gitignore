@@ -1,16 +1,15 @@
 softmixer
-<<<<<<< HEAD
 files/.vim/plugins/*
 files/.vim/bundle/*
 files/.vim/plugged/*
 files/.vim/plugins/*
 files/.vim/autoload
-=======
 .vim/plugins/*
 .vim/bundle/*
 .vim/plugged/*
 .vim/plugins/*
->>>>>>> aff2c27a0d6b81165f35ac198ace898f032589be
+/files/dots/.vim/plugged
+
 *.swp
 test.*
 bundle

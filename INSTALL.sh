@@ -7,6 +7,7 @@ green=$'\e[1;32m'
 cyan=$'\e[1;36m'
 normie=$'\e[0m'
 
+motd(){
 #Ascii Logo <3
 echo "$magenta"
 echo '______      _                                       '
@@ -18,7 +19,7 @@ echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
 echo '                    | |                             '
 echo '                    |_|                             '
 echo "$normie"
-
+}
 ##Dirs for Dots and Confs
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
@@ -28,7 +29,6 @@ misc=~/.dotfiles/files/misc/
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
-# Useful Functions
 exsists(){
 # Handy for checking if a dir exists
 # exsists <path/file> <specific_thing to say, for example "Creating Dir">
@@ -42,6 +42,7 @@ exsists(){
 }
 
 # Symlink all dotfiles
+dotfiles(){
 read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? $magenta y/n$normie " option
 echo
 case "$option" in
@@ -52,8 +53,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 # Symlinks all files that goes in /home/foo/.config
+dotconfig(){
 read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie " option
 echo
 case "$option" in
@@ -65,8 +68,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 # What flavor of debian do you want to use
+flavor(){
 read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? $magenta 1:$normie Stretch (Stable), $magenta 2:$normie Buster (Testing), $magenta 3:$normie Sid (Unstable), $magenta 4:$normie Roll backup" option
 echo
 case "$option" in
@@ -91,8 +96,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 #Install Awesome, Compton and Xorg
+graphics(){
 read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? $magenta y/n$normie" option
 echo
 case "$option" in
@@ -102,8 +109,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ## Install Packages for the specific system i'm running
+packages(){
 read -p "$cyan [Packages] $normie What Packages? $magenta 1:$normie Laptop, $magenta 2:$normie Workstation, $magenta 3:$normie Server, $magenta 4:$normie Minimal Server" option
 echo
 case "$option" in
@@ -122,8 +131,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 # Install Pip & pipenv
+pip(){
 read -p "$cyan [Pip] $normie Install Pip & Pipenv? $magenta y/n$normie " option
 echo
 case "$option" in
@@ -137,8 +148,10 @@ case "$option" in
 	n|n|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ##Install Vim plugins?
+vim_and_zsh(){
 read -p "$cyan [Vim & Zsh] $normie Install Vim plugins & oh-my-zsh? $magenta y/n$normie " option
 echo
 case "$option" in
@@ -170,8 +183,10 @@ case "$option" in
 	n|n|* ) echo "$red No";;
 esac
 echo
+}
 
 ##Install golang?
+golang(){
 read -p "$cyan [Golang] $normie Install Golang? $magenta y/n$normie" option
 echo
 case "$option" in
@@ -184,9 +199,11 @@ case "$option" in
 	n|n|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 # THIRD-PARTY APPLICATIONS
 ##Install Telegram
+telegram(){
 read -p "$cyan [Telegram] $normie Install Telegram?  $magenta y/n$normie" option
 echo
 case "$option" in
@@ -201,8 +218,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ##Install firefox
+firefox(){
 read -p "$cyan [Firefox] $normie Install Firefox?  $magenta y/n$normie" option
 echo
 case "$option" in
@@ -216,8 +235,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ##Install Docker
+docker(){
 read -p "$cyan [Docker] $normie Install Docker?  $magenta y/n$normie" option
 echo
 case "$option" in
@@ -233,8 +254,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ##Install Docker-compose
+docker_compose(){
 read -p "$cyan [Docker-Compose] $normie Install Docker-compose?  $magenta y/n$normie" option
 echo
 case "$option" in
@@ -245,8 +268,10 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
 ##Install Spotify?
+spotify(){
 read -p "$cyan [Spotify] $normie Install/Update Spotify? $magenta 1:$normie Install, $magenta 2:$normie Update" option
 echo
 case "$option" in
@@ -263,7 +288,9 @@ case "$option" in
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
+}
 
+misc(){
 read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  $magenta y/n$normie " option
 echo
 case "$option" in
@@ -273,3 +300,8 @@ case "$option" in
 	n|N|*) echo "$red No $normie";;
 esac
 echo
+}
+
+
+### MAIN ###
+motd 
