@@ -7,7 +7,7 @@
  urxvt*cursorBlink:       false
  urxvt*urgentOnBell:       true
  urxvt*font: xft:Monospace:pixelsize=12
- 4rxvt*scrollTtyOutput: False
+ rxvt*scrollTtyOutput: False
  urxvt*scrollTtyKeypress: True
  urxvt*secondaryScroll: True
  rxvt*modifier: alt
@@ -17,7 +17,7 @@
  urxvt*background: #1a1a1a
  urxvt*urlLauncher: firefox
 
-!! Transparency 
+!! Fake Transparency 
 !! urxvt*depth: 32
 !! urxvt*background: rgba:0000/0000/0200/c800
 !! urxvt*transparent: true
