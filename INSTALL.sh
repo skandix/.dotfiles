@@ -163,12 +163,13 @@ case "$option" in
 		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
 		exsists /home/$USER/.config/nvim/
 		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
+
 		#sudo apt install python3-neovim
 		#pip3 install --upgrade neovim;
-		#vim +PlugInstall +qall;
+		vim +PlugInstall +qall;
 		
 		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
-		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		
 		echo "\n$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
 		
