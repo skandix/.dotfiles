@@ -157,15 +157,15 @@ echo
 case "$option" in
 	y|Y ) echo "Yes";
 		echo "\n$cyan [Neovim] $normie Installing Neovim";
-		curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage;
+		curl -LO https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
 		sudo ln -sf /opt/nvim.appimage /bin/vim;
 		exsists /home/$USER/.config/nvim/
-		ln -sf /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
-		sudo apt install python3-neovim
-		pip3 install --upgrade neovim;
-		#vim +PlugInstall +qall;
+		ln -sfvn /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
+		#sudo apt install python3-neovim
+		#pip3 install --upgrade neovim;
+		vim +PlugInstall +qall;
 		
 		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
