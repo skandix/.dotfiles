@@ -239,6 +239,22 @@ esac
 echo
 }
 
+## Instal Discord
+firefox(){
+read -p "$cyan[Discord] $normie Install Discord?  $magenta y/n$normie" option
+echo
+case "$option" in
+	y|Y ) echo "$green Yes $normie"; 
+		cd /tmp
+		wget -q --prefer-family=ipv4 -O discord_deb https://discordapp.com/api/download?platform=linux&format=deb;
+		sudo dpkg -i discord_deb;
+		sudo apt install -fy;;
+	n|N|* ) echo "$red No $normie";;
+esac
+echo
+}
+
+
 ##Install Docker
 docker(){
 read -p "$cyan [Docker] $normie Install Docker?  $magenta y/n$normie" option
