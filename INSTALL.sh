@@ -162,7 +162,7 @@ case "$option" in
 		sudo mv nvim.appimage /opt;
 		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
 		exsists /home/$USER/.config/nvim/
-		ln -fvsn /home/$USER/.dotfiles/files/.vimrc /home/$USER/.config/nvim/init.vim
+		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
 		#sudo apt install python3-neovim
 		#pip3 install --upgrade neovim;
 		#vim +PlugInstall +qall;
