@@ -6,11 +6,11 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
-"" NERD Tree Syntax
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 "" deoplete for python
 Plug 'zchee/deoplete-jedi'
+
+"" NERD Tree Syntax
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "" NERD tree Tabs
 Plug 'jistr/vim-nerdtree-tabs'
@@ -27,6 +27,7 @@ Plug 'elzr/vim-json'
 "" Vim Go
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
+"" Telling discord what i'm working on and how long i've been working on that specific thing.. super fancy
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
 "" Better Whitespace
@@ -38,7 +39,7 @@ Plug 'itchyny/lightline.vim'
 "" Async lint engine
 Plug 'w0rp/ale'
 
-"" python autocomplete 
+"" python autocomplete
 Plug 'davidhalter/jedi-vim'
 
 "" Vim Gitgutter, shows diff in Vim
@@ -47,11 +48,15 @@ Plug 'airblade/vim-gitgutter'
 "" Syntax highligth for common filetypes
 Plug 'pearofducks/ansible-vim'
 
-"" Colorscheme 
+"" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
+Plug 'nightsense/rusticated'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
+
+"" day n nite
+Plug 'nightsense/night-and-day'
 
 " deoplete plugin stuff
 if has('nvim')
@@ -86,13 +91,17 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
 
-"" deoplet stuff.... 
+"" nigth_and_day
+let g:nd_themes = [
+  \ ['00:00', 'rusticated', 'light' ],
+  \ ['12:00', 'space-vim-dark',            'dark'  ],
+  \ ]
+
+"" deoplet stuff....
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources={}
 let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
 let g:deoplete_ignore_sources = [ "buffer", "*.wiki" ]
-
-
 let g:deoplete#omni#input_patterns={}
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
@@ -126,8 +135,8 @@ set splitright
 set backspace=indent,eol,start
 set matchpairs+=<:>
 set splitbelow
-set textwidth=128				" 
-set shiftwidth=4				" 
+set textwidth=128
+set shiftwidth=4
 set laststatus=2				" Display statusline
 set cmdheight=1					" Height of the command bar
 set history=256					" How much history to save.
@@ -144,7 +153,7 @@ set expandtab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
-set ttyfast tf						" faster redrawing
+set ttyfast						" faster redrawing
 set showcmd             		" show command in bottom bar
 set number              		" show line numbers
 set rnu							" Relative line numbering
@@ -180,3 +189,9 @@ let g:ale_sign_error = '✗'
 let g:ale_use_deprecated_neovim = 1
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
+
+""" unbinde the fucking arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>

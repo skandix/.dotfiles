@@ -52,7 +52,7 @@ end
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
 
 -- things i want to start at the same ttime as awesome and xorg starts
-local ghettoSpawner = {"compton", "greenclip daemon"}
+local ghettoSpawner = {"compton"}
 
 local modkey       = "Mod4"
 local altkey       = "Mod1"
