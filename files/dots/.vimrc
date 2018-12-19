@@ -97,11 +97,6 @@ let g:deoplete#omni#input_patterns={}
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.scala = '[^. *\t]\.\w*\|: [A-Z]\w*'
-"let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
-"call deoplete#custom#source('_', 'converters',
-"      \ ['converter_auto_paren',
-"      \  'converter_auto_delimiter',
-"      \ 'converter_remove_overlap']) "]
 let g:deoplete#enable_at_startup = 1
 
 """ COLORSCHEME
