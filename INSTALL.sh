@@ -117,16 +117,16 @@ read -p "$cyan [Packages] $normie What Packages? $magenta 1:$normie Laptop, $mag
 echo
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
-		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;;
+		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;;
 
 	2 ) echo "$cyan Workstation $normie"; 
-		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color zsh moc dirmngr ntfs-3g keepassx -y;;
+		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
 
 	3 ) echo "$cyan Server $normie"; 
-		sudo apt install fail2ban neofetch screen tmux python3.7 python3.7-dev zsh dirmngr ntfs-3g -y;;
+		sudo apt install fail2ban neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
 
 	4 ) echo "$cyan Minimal Server $normie";
-		sudo apt install fail2ban neofetch screen tmux zsh ntfs-3g -y;;
+		sudo apt install fail2ban neofetch screen tmux ntfs-3g -y;;
 
 	n|N|* ) echo "$red No $normie";;
 esac
@@ -144,15 +144,15 @@ case "$option" in
 		wget -q https://bootstrap.pypa.io/get-pip.py;
 		python3.7 get-pip.py --user;
 		python3 -m pip install --upgrade pip==18.0 --user
-		pip3 install pipenv --user;;
+		sudo apt install pipenv;;
 	n|n|* ) echo "$red No $normie";;
 esac
 echo
 }
 
 ##Install Vim plugins?
-vim_and_zsh(){
-read -p "$cyan [Vim & Zsh] $normie Install Vim plugins & oh-my-zsh? $magenta y/n$normie " option
+neovim(){
+read -p "$cyan [Neovim] $normie Install Neovim & Vim Plug? $magenta y/n$normie " option
 echo
 case "$option" in
 	y|Y ) echo "Yes";
@@ -165,23 +165,12 @@ case "$option" in
 		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
 
 		#sudo apt install python3-neovim
-		#pip3 install --upgrade neovim;
-		vim +PlugInstall +qall;
+		pip3 install --upgrade neovim;
+		vim +PlugInstall +all;
 		
 		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
-		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;;
 		
-		echo "\n$cyan [Oh-My-Zsh] $normie Installing Oh-My-Zsh";
-		
-		if [ -d "/home/$USER/.oh-my-zsh" ] 
-		then
-			echo "$green[O.K] Found .oh-my-zsh$normie"
-		else
-			echo "$red[Error]: Can't find .oh-my-zsh, cloning repo$normie\n"
-			git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$USER/.oh-my-zsh;
-			ln -sf $misc/Trilambda.zsh-theme /home/$USER/.oh-my-zsh/themes/Trilambda.zsh-theme;
-			chsh -s /bin/zsh #Making zsh default shell.
-		fi;;
 	n|n|* ) echo "$red No";;
 esac
 echo
@@ -329,7 +318,7 @@ flavor
 graphics
 packages
 pip
-vim_and_zsh
+neovim
 golang
 telegram
 firefox

@@ -1,21 +1,26 @@
+# colors bash creds to lasseh 
+#PS1="\\[\\033[36m\\]\\u\\[\\033[m\\]@\\[\\033[32m\\]\\h:\\[\\033[33;1m\\]\\w\\[\\033[m\\]\$"
+
 #dircolors
 export LS_OPTIONS='--color=auto'
-eval "`dircolors`"
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
+eval `dircolors $HOME/.dircolors`
+alias ls='ls --color'
 
-#NoBlanking
-xset s off
-xset -dpms
-xset s noblank
+#golang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects/Go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-# colors bash creds to lasseh
-PS1="\\[\\033[36m\\]\\u\\[\\033[m\\]@\\[\\033[32m\\]\\h:\\[\\033[33;1m\\]\\w\\[\\033[m\\]\$"
+# other
+alias uuid="cat /proc/sys/kernel/random/uuid"
+alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 
 # sprunge.us
-# needs curl installed, can pipe output to a sprunge.us link
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 
 # show screenfetch on logon, delete /etc/motd, to make it look more clean.. :P
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
+if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
+
+export PS1="\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[35m\]\u\[\e[m\] \[\e[31m\]λ\[\e[m\] "
+
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion

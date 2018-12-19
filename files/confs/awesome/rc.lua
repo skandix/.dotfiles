@@ -52,7 +52,7 @@ end
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
 
 -- things i want to start at the same ttime as awesome and xorg starts
-local ghettoSpawner = {"compton"}
+local ghettoSpawner = {"compton", "greenclip daemon"}
 
 local modkey       = "Mod4"
 local altkey       = "Mod1"
@@ -285,13 +285,13 @@ globalkeys = my_table.join(
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
 
-    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D default set Master 5%-") end),
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D default set Master 5%+") end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume 0 -5%") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume 0 +5%") end),
 
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
 
-    awful.key({}, "XF86AudioStop", function () awful.util.spawn("amixer -D default set Master 1+ toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
-    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D default set Master 1+ toggle", false) end),
+    awful.key({}, "XF86AudioStop", function () awful.util.spawn("pactl set-sink-mute 0 toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
+    awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute 0 toggle", false) end),
 
     awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end),
     awful.key({}, "XF86Search", function () awful.util.spawn("rofi -show run") end)

@@ -27,6 +27,8 @@ Plug 'elzr/vim-json'
 "" Vim Go
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
+Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
+
 "" Better Whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -68,6 +70,7 @@ filetype plugin indent on    " required
 let mapleader="-"
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:go_version_warning = 0
 
 """ KEYBINDS
 map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -140,7 +143,9 @@ set ignorecase					" Ignore case when searching.
 set smartcase					" Dont ignore case if there is capitals in the search pattern
 set showmatch           		" highlight matching [{()}]
 set incsearch           		" search as characters are entered
-set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
