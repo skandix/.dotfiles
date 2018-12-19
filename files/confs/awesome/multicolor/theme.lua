@@ -15,7 +15,14 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/multicolor"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/multicolor/wall.jpg"
+
+-- Get random wallaper for wg folder.
+local f = io.popen("sh -c \"find $HOME/.config/awesome/multicolor/wg  -name '*.jpg' | shuf -n 1 | xargs echo -n\"")
+local wallpaper = f:read("*all")
+f:close()
+
+theme.wallpaper                                 = wallpaper
+
 theme.font                                      = "xos4 Monospace 14"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"

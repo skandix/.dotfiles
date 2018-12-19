@@ -24,3 +24,6 @@ if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
 export PS1="\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\] \[\e[35m\]\u\[\e[m\] \[\e[31m\]λ\[\e[m\] "
 
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+if [ "$TERM" != "xterm-256color" ]; then
+      export TERM=xterm-256color
+    fi
