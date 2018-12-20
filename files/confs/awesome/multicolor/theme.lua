@@ -17,11 +17,11 @@ local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/multicolor"
 
 -- Get random wallaper for wg folder.
-local f = io.popen("sh -c \"find $HOME/.config/awesome/multicolor/wg  -name '*.jpg' | shuf -n 1 | xargs echo -n\"")
+local f = io.popen("sh -c \"cd $HOME/.config/awesome/multicolor/ &&  curl https://wallpaper.datapor.no -o current.jpg \"")
 local wallpaper = f:read("*all")
 f:close()
 
-theme.wallpaper                                 = wallpaper
+theme.wallpaper                                 = theme.confdir .. "/current.jpg"
 
 theme.font                                      = "xos4 Monospace 14"
 theme.menu_bg_normal                            = "#000000"
