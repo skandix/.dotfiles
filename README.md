@@ -18,12 +18,12 @@ $git clone https://github.com/skandix/.dotfiles.git
 $./INSTALL.sh
 ```
 
-### What
+### WAT
 * confs
-	* Here are all the configs that goes into .config
+	* files that goes into .config
 * dots
-	* folder for dotfiles
+	* dotfiles, nuff said
 * misc
-	* misc files such as zsh-theme.. 
+	* misc files
 * scripts
 	* a small folder of scripts i use that migth come in handy....it migth..

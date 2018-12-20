@@ -9,6 +9,11 @@ call plug#begin('~/.vim/plugged')
 "" deoplete for python
 Plug 'zchee/deoplete-jedi'
 
+
+"" React js 
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
 "" NERD Tree Syntax
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -18,7 +23,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 "" NERD tree
 Plug 'scrooloose/nerdtree'
 
-"" fuzzy file finder
+"" Fuzzy File Finder  
 Plug 'kien/ctrlp.vim'
 
 "" Vim JSON
@@ -72,7 +77,7 @@ call plug#end()            " end of plugin section
 filetype plugin indent on    " required
 
 """ Lettings
-let mapleader="-"
+let mapleader=""
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:go_version_warning = 0
@@ -83,8 +88,6 @@ map <C-d> :NERDTreeToggle<CR>
 map  <C-f> :tabn<CR>
 map  <C-t> :tabnew<CR>
 nnoremap <F1> :set hlsearch!<CR>
-nnoremap <silent> <F2> :!clear;python %<CR>
-nnoremap <silent> <F3> :!clear;python3 %<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
