@@ -5,7 +5,6 @@ configuration {
 	ssh-client: "ssh";
 }
 
-
 * {
 	base00: #263238;
 	base01: #2E3C43;

@@ -20,6 +20,9 @@ alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 # sprunge.us
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 
+# laziness
+alias ..="cd .."
+
 # show screenfetch on logon, delete /etc/motd, to make it look more clean.. :P
 if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
 

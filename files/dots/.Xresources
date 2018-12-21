@@ -1,9 +1,6 @@
 ! DPI SHIT 
 xft.dpi: 100
 
-! ROFI
-rofi.terminal: urxvt
-
 ! URXVT
 urxvt*font: xft:Monospace:pixelsize=12
 urxvt*loginShell:         true
