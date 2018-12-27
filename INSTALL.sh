@@ -319,88 +319,86 @@ exit 1
 
 ### MAIN ###
 
-while [ "$1" != "" ]; do
-    case $1 in
-        -h | --help )
-            motd;
-            usage;;
-        -m | --manual )
-            motd;
-            dotfiles;
-            dotconfig;
-            flavor;
-            graphics;
-            packages;
-            pip;
-            neovim;
-            golang;
-            telegram;
-            firefox;
-            docker;
-            docker_compose;
-            spotify;
-            misc;;
+case $1 in
+    -h | --help )
+        motd
+        usage;;
+    -m | --manual )
+        motd
+        dotfiles
+        dotconfig
+        flavor
+        graphics
+        packages
+        pip
+        neovim
+        golang
+        telegram
+        firefox
+        docker
+        docker_compose
+        spotify
+        misc;;
 
-        -a | --auto )
-            # tl;dr if anyone has a better way of doing this.. PLEASE MAKE A PULLREQUEST....THANKS!
-            if [ "$2" == "laptop" ]; then
-                motd
-                echo "y" | dotfiles
-                echo "y" | dotconfig
-                echo "2" | flavor
-                echo "y" | graphics
-                echo "1" | packages
-                echo "y" | pip
-                echo "y" | neovim
-                echo "y" | golang
-                echo "y" | telegram
-                echo "y" | firefox
-                echo "1" | spotify
-                echo "y" | misc
-                exit 1
-            
-            elif [ "$2" == "workstation" ]; then
-                motd
-                echo "y" | dotfiles
-                echo "y" | dotconfig
-                echo "2" | flavor
-                echo "y" | graphics
-                echo "2" | packages
-                echo "y" | pip
-                echo "y" | neovim
-                echo "y" | golang
-                echo "y" | telegram
-                echo "y" | firefox
-                echo "1" | spotify
-                echo "y" | misc
-                exit 1
+    -a | --auto )
+        # tl;dr if anyone has a better way of doing this.. PLEASE MAKE A PULLREQUEST....THANKS!
+        if [ "$2" == "laptop" ]; then
+            motd
+            echo "y" | dotfiles
+            echo "y" | dotconfig
+            echo "2" | flavor
+            echo "y" | graphics
+            echo "1" | packages
+            echo "y" | pip
+            echo "y" | neovim
+            echo "y" | golang
+            echo "y" | telegram
+            echo "y" | firefox
+            echo "1" | spotify
+            echo "y" | misc
+            exit 1
+        
+        elif [ "$2" == "workstation" ]; then
+            motd
+            echo "y" | dotfiles
+            echo "y" | dotconfig
+            echo "2" | flavor
+            echo "y" | graphics
+            echo "2" | packages
+            echo "y" | pip
+            echo "y" | neovim
+            echo "y" | golang
+            echo "y" | telegram
+            echo "y" | firefox
+            echo "1" | spotify
+            echo "y" | misc
+            exit 1
 
-            elif [ "$2" == "server"  ]; then
-                motd
-                echo "y" | dotfiles
-                echo "y" | dotconfig
-                echo "1" | flavor
-                echo "3" | packages
-                echo "y" | pip
-                echo "y" | neovim
-                echo "y" | golang
-                echo "y" | misc
-                exit 1
+        elif [ "$2" == "server"  ]; then
+            motd
+            echo "y" | dotfiles
+            echo "y" | dotconfig
+            echo "1" | flavor
+            echo "3" | packages
+            echo "y" | pip
+            echo "y" | neovim
+            echo "y" | golang
+            echo "y" | misc
+            exit 1
 
-            elif [ "$2" == "minimal-server" ]; then
-                motd
-                echo "y" | dotfiles
-                echo "y" | dotconfig
-                echo "4" | packages
-                exit 1
+        elif [ "$2" == "minimal-server" ]; then
+            motd
+            echo "y" | dotfiles
+            echo "y" | dotconfig
+            echo "4" | packages
+            exit 1
 
-            else
-                echo "valid args are
-                laptop
-                workstation
-                server
-                minimal-server"
-                exit 1
-            fi;;
-    esac
-done
+        else
+            echo "valid args are
+            laptop
+            workstation
+            server
+            minimal-server"
+            exit 1
+        fi
+esac
