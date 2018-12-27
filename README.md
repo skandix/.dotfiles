@@ -4,7 +4,7 @@
 
 *This has only been tested on Debian systems!*
 
-![](https://loot.datapor.no/CCYaiApaIin.png)
+![](https://loot.datapor.no/49886faf-cc4f-4211-975b-995308f41346.jpg)
 
 
 ## INSTALL
@@ -15,7 +15,7 @@ $git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash 
-$./INSTALL.sh
+$./INSTALL.sh -h
 ```
 
 ### WAT
