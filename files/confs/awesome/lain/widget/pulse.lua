@@ -19,7 +19,7 @@ local type = type
 local function factory(args)
     local pulse    = { widget = wibox.widget.textbox(), device = "N/A" }
     local args     = args or {}
-    local timeout  = args.timeout or 5
+    local timeout  = args.timeout or 0 -- want to see it change instant, and not 5 seconds late
     local settings = args.settings or function() end
 
     pulse.devicetype = args.devicetype or "sink"
@@ -45,6 +45,8 @@ local function factory(args)
 
             volume_now.left  = volume_now.channel[1] or "N/A"
             volume_now.right = volume_now.channel[2] or "N/A"
+
+
 
             widget = pulse.widget
             settings()

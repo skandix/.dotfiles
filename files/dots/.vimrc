@@ -6,9 +6,11 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
+"" html close tag
+Plug 'alvan/vim-closetag'
+
 "" deoplete for python
 Plug 'zchee/deoplete-jedi'
-
 
 "" React js 
 Plug 'pangloss/vim-javascript'
@@ -96,8 +98,8 @@ nnoremap <BS> X
 
 "" nigth_and_day
 let g:nd_themes = [
-  \ ['00:00', 'rusticated', 'light' ],
-  \ ['12:00', 'space-vim-dark',            'dark'  ],
+  \ ['00:00', 'space-vim-dark', 'dark' ],
+  \ ['12:00', 'rusticated', 'light'  ],
   \ ]
 
 "" deoplet stuff....
@@ -194,7 +196,7 @@ highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
 """ unbinde the fucking arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+" noremap <Up> <Nop>
+" noremap <Down> <Nop>
+" noremap <Left> <Nop>
+" noremap <Right> <Nop>
