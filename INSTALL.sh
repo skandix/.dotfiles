@@ -7,8 +7,22 @@ green=$'\e[1;32m'
 cyan=$'\e[1;36m'
 normie=$'\e[0m'
 
+## String Variables
+newline=$'\n'
+inputArrow=" ---> "
+
+## Directories
+dots=~/.dotfiles/files/dots/
+confs=~/.dotfiles/files/confs/
+misc=~/.dotfiles/files/misc/
+
+# Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
+dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
+confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
+
 motd(){
 #Ascii Logo <3
+echo ""
 echo "$magenta"
 echo '______      _                                       '
 echo '|  _  \    | |                                      '
@@ -21,31 +35,22 @@ echo '                    |_|                             '
 echo "$normie"
 }
 
-##Dirs for Dots and Confs
-dots=~/.dotfiles/files/dots/
-confs=~/.dotfiles/files/confs/
-misc=~/.dotfiles/files/misc/
-
-# Find all Dotfiles and Dotconfigs
-dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
-confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
-
-exsists(){
-# Handy for checking if a dir exists
-# exsists <path/file> <specific_thing to say, for example "Creating Dir">
+dirExsists(){
+echo ""
 	if [ -d $1 ] 
 	then
 		echo "$green [O.K] Found $1 $normie"
 	else
-		echo "$red [Error]: Can't find $1, $2 Dir $normie"
+		echo "$red [Error]: Can't find $1, Creating directory $normie"
 		mkdir -p $1
 	fi
 }
 
 # Symlink all dotfiles
 dotfiles(){
-read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? $magenta y/n$normie " option
-echo
+echo ""
+read -p "$cyan [Dotfiles] $normie Symlink dotfiles ? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y) echo "$green Yes $normie";
 		for dotfile in $dotsDetect; do
@@ -58,11 +63,12 @@ echo
 
 # Symlinks all files that goes in /home/foo/.config
 dotconfig(){
-read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie " option
-echo
+echo ""
+read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
-		exsists $HOME/.config "Creating Dir"
+		dirExsists $HOME/.config
 		for dotconfig in $confsDetect; do
 			ln -svfn $confs$dotconfig ~/.config/$dotconfig
 		done;;
@@ -73,23 +79,24 @@ echo
 
 # What flavor of debian do you want to use
 flavor(){
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? $magenta 1:$normie Stretch (Stable), $magenta 2:$normie Buster (Testing), $magenta 3:$normie Sid (Unstable), $magenta 4:$normie Roll backup" option
-echo
+echo ""
+read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? $newline$magenta 1:$normie Stretch (Stable) $newline$magenta 2:$normie Buster (Testing) $newline$magenta 3:$normie Sid (Unstable) $newline$magenta 4:$normie Roll backup $newline$inputArrow" option
+echo "" 
 case "$option" in
-	1 ) echo "Stretch (Stable)";
+	1 ) echo "Stable";
 		cd /etc/apt/;
 		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Stable)\ndeb http://ftp.no.debian.org/debian/ stretch main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stretch main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stretch-updates main contrib non-free\n\ndeb http://security.debian.org/ stretch/updates main contrib non-free\ndeb-src http://security.debian.org/ stretch/updates main contrib non-free\n" | sudo tee sources.list;;
+		echo -e "###### Debian (Stable)\ndeb http://ftp.no.debian.org/debian/ stable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\n\ndeb http://security.debian.org/ stable/updates main contrib non-free\ndeb-src http://security.debian.org/ stable/updates main contrib non-free\n" | sudo tee sources.list;;
 	
-	2 ) echo "Buster (Testing)";
+	2 ) echo "Testing";
 		cd /etc/apt/;
 		sudo cp sources.list sources.list.bak;
 		echo -e "###### Debian (Testing)\ndeb http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb http://security.debian.org/ testing/updates main contrib non-free\ndeb-src http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
-   
-   3 ) echo -e "Sid (Unstable)";
-	   cd /etc/apt/;
-	   sudo cp sources.list sources.list.bak;
-	   echo -e "###### Debian (Unstable)\ndeb http://ftp.no.debian.org/debian/ unstable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\n\ndeb http://security.debian.org/ unstable/updates main contrib non-free\ndeb-src http://security.debian.org/ unstable/updates main contrib non-free\n" | sudo tee sources.list;;
+	
+	3 ) echo -e "Unstable";
+		cd /etc/apt/;
+		sudo cp sources.list sources.list.bak;
+		echo -e "###### Debian (Unstable)\ndeb http://ftp.no.debian.org/debian/ unstable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\n\ndeb http://security.debian.org/ unstable/updates main contrib non-free\ndeb-src http://security.debian.org/ unstable/updates main contrib non-free\n" | sudo tee sources.list;;
 	
 	4 ) echo "Roll backup";
 		cd /etc/apt/;
@@ -100,9 +107,10 @@ echo
 }
 
 #Install Awesome, Compton and Xorg
-graphics(){
-read -p "$cyan [Graphics] $normie Install Awesome, compton & Xorg? $magenta y/n$normie" option
-echo
+xorg(){
+echo ""
+read -p "$cyan [Xorg] $normie Install Awesome, compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		sudo apt update;
@@ -112,10 +120,52 @@ esac
 echo
 }
 
+
+cpu(){
+	echo ""
+	echo "$cyan [CPU] $normie Detecting & Installing CPU firmware"
+	echo ""
+	if grep -q "AMD" "/proc/cpuinfo"; then
+		echo "$green [O.K] Found AMD CPU $normie
+ Installing CPU Firmware"
+		echo ""
+		sudo apt install amd64-microcode
+	elif grep -q "Intel" "/proc/cpuinfo" ; then
+		echo "$green [O.K] Found Intel CPU $normie
+ Installing CPU Firmware"
+		echo ""
+		sudo apt install intel-microcode
+	else
+		echo "$red[ERROR] CPU is not known... $normie"
+	fi
+}
+
+gpu(){
+	echo ""
+	echo "$cyan [CPU] $normie Detecting & Installing GPU firmware"
+	echo ""
+	if lspci | grep -qE 'VGA.*AMD'; then
+		echo "$green [O.K] Found AMD GPU $amd $normie
+ Installing GPU Firmware"
+		echo ""
+		#sudo apt install __firmware__
+
+	elif lspci | grep -qE 'VGA.*NVIDIA'; then
+		echo "$green [O.K] Found NVIDIA GPU $amd $normie
+	Installing GPU Firmware"
+		echo "$red Sorry, haven't tested this on systems with NVIDIA GPU'S $normie 
+	https://wiki.debian.org/NvidiaxorgDrivers"
+
+	else
+		echo "$red[ERROR] GPU is not known... $normie"
+	fi
+}
+
 ## Install Packages for the specific system i'm running
 packages(){
-read -p "$cyan [Packages] $normie What Packages? $magenta 1:$normie Laptop, $magenta 2:$normie Workstation, $magenta 3:$normie Server, $magenta 4:$normie Minimal Server" option
-echo
+echo ""
+read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Laptop $newline$magenta 2:$normie Workstation $newline$magenta 3:$normie Server $newline$magenta 4:$normie Minimal Server $newline$inputArrow" option
+echo ""
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
 		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;;
@@ -136,8 +186,9 @@ echo
 
 # Install Pip & pipenv
 pip(){
-read -p "$cyan [Pip] $normie Install Pip & Pipenv? $magenta y/n$normie " option
-echo
+echo ""
+read -p "$cyan [Pip] $normie Install Pip & Pipenv? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		echo "$cyan [Pip] $normie Installing Pip ";
@@ -153,8 +204,9 @@ echo
 
 ##Install Vim plugins?
 neovim(){
-read -p "$cyan [Neovim] $normie Install Neovim & Vim Plug? $magenta y/n$normie " option
-echo
+echo ""
+read -p "$cyan [Neovim] $normie Install Neovim & Vim Plug? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "Yes";
 		echo "\n$cyan [Neovim] $normie Installing Neovim";
@@ -162,7 +214,7 @@ case "$option" in
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
 		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
-		exsists /home/$USER/.config/nvim/
+		dirExsists /home/$USER/.config/nvim/
 		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
 
 		#sudo apt install python3-neovim
@@ -179,8 +231,9 @@ echo
 
 ##Install golang?
 golang(){
-read -p "$cyan [Golang] $normie Install Golang? $magenta y/n$normie" option
-echo
+echo ""
+read -p "$cyan [Golang] $normie Install Golang? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp;
@@ -196,8 +249,9 @@ echo
 # THIRD-PARTY APPLICATIONS
 ##Install Telegram
 telegram(){
-read -p "$cyan [Telegram] $normie Install Telegram?  $magenta y/n$normie" option
-echo
+echo ""
+read -p "$cyan [Telegram] $normie Install Telegram?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp;
@@ -214,8 +268,9 @@ echo
 
 ##Install firefox
 firefox(){
-read -p "$cyan [Firefox] $normie Install Firefox?  $magenta y/n$normie" option
-echo
+echo ""
+read -p "$cyan [Firefox] $normie Install Firefox?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie"; 
 		cd /tmp
@@ -230,14 +285,15 @@ echo
 }
 
 ## Instal Discord
-firefox(){
-read -p "$cyan[Discord] $normie Install Discord?  $magenta y/n$normie" option
-echo
+discord(){
+echo ""
+read -p "$cyan[Discord] $normie Install Discord?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie"; 
 		cd /tmp
-		wget -q --prefer-family=ipv4 -O discord_deb https://discordapp.com/api/download?platform=linux&format=deb;
-		sudo dpkg -i discord_deb;
+		wget -q --prefer-family=ipv4 -O discord.deb https://dl.discordapp.net/apps/linux/0.0.5/discord-0.0.5.deb;
+		sudo dpkg -i discord.deb;
 		sudo apt install -fy;;
 	n|N|* ) echo "$red No $normie";;
 esac
@@ -247,8 +303,9 @@ echo
 
 ##Install Docker
 docker(){
-read -p "$cyan [Docker] $normie Install Docker?  $magenta y/n$normie" option
-echo
+echo ""
+read -p "$cyan [Docker] $normie Install Docker?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp
@@ -266,8 +323,9 @@ echo
 
 ##Install Docker-compose
 docker_compose(){
-read -p "$cyan [Docker-Compose] $normie Install Docker-compose?  $magenta y/n$normie" option
-echo
+echo ""
+read -p "$cyan [Docker-Compose] $normie Install Docker-compose? $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp;
@@ -280,8 +338,9 @@ echo
 
 ##Install Spotify?
 spotify(){
-read -p "$cyan [Spotify] $normie Install/Update Spotify? $magenta 1:$normie Install, $magenta 2:$normie Update" option
-echo
+echo ""
+read -p "$cyan [Spotify] $normie Install/Update Spotify? $newline$magenta 1:$normie Install $newline$magenta 2:$normie Update $newline$inputArrow" option
+echo ""
 case "$option" in
 	1 ) echo "$green Install $normie";
 		$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
@@ -299,8 +358,9 @@ echo
 }
 
 misc(){
-read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  $magenta y/n$normie " option
-echo
+echo ""
+read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		sudo mv /etc/motd /etc/motd.back;
@@ -311,94 +371,100 @@ echo
 }
 
 usage(){
-    echo "--manual or -m | enables manual mode!
---auto or -a   | auto mode!
---help or -h   | shows this menu"
+echo ""
+	echo "--manual or -m | enables manual mode!$newline--auto or -a   | auto mode!$newline--help or -h   | shows this menu"
 exit 1
 }
 
 ### MAIN ###
 
 case $1 in
-    -h | --help )
-        motd
-        usage;;
-    -m | --manual )
-        motd
-        dotfiles
-        dotconfig
-        flavor
-        graphics
-        packages
-        pip
-        neovim
-        golang
-        telegram
-        firefox
-        docker
-        docker_compose
-        spotify
-        misc;;
+	-h | --help )
+		motd
+		usage;;
+	-m | --manual )
+		motd
+		dotfiles
+		dotconfig
+		flavor
+		xorg
+		cpu
+		gpu
+		packages
+		pip
+		neovim
+		golang
+		discord
+		telegram
+		firefox
+		docker
+		docker_compose
+		spotify
+		misc;;
 
-    -a | --auto )
-        # tl;dr if anyone has a better way of doing this.. PLEASE MAKE A PULLREQUEST....THANKS!
-        if [ "$2" == "laptop" ]; then
-            motd
-            echo "y" | dotfiles
-            echo "y" | dotconfig
-            echo "2" | flavor
-            echo "y" | graphics
-            echo "1" | packages
-            echo "y" | pip
-            echo "y" | neovim
-            echo "y" | golang
-            echo "y" | telegram
-            echo "y" | firefox
-            echo "1" | spotify
-            echo "y" | misc
-            exit 1
-        
-        elif [ "$2" == "workstation" ]; then
-            motd
-            echo "y" | dotfiles
-            echo "y" | dotconfig
-            echo "2" | flavor
-            echo "y" | graphics
-            echo "2" | packages
-            echo "y" | pip
-            echo "y" | neovim
-            echo "y" | golang
-            echo "y" | telegram
-            echo "y" | firefox
-            echo "1" | spotify
-            echo "y" | misc
-            exit 1
+	-a | --auto )
+		# tl;dr if anyone has a better way of doing this.. PLEASE MAKE A PULLREQUEST....THANKS!
+		if [ "$2" == "laptop" ]; then
+			motd
+			echo "y" | dotfiles
+			echo "y" | dotconfig
+			echo "2" | flavor
+			echo "y" | xorg
+			echo "1" | packages
+			echo "y" | pip
+			echo "y" | neovim
+			echo "y" | golang
+			echo "y" | telegram
+			ecoh "y" | discord
+			echo "y" | firefox
+			echo "1" | spotify
+			echo "y" | misc
+			cpu
+			gpu
+			exit 1
+		
+		elif [ "$2" == "workstation" ]; then
+			motd
+			echo "y" | dotfiles
+			echo "y" | dotconfig
+			echo "2" | flavor
+			echo "y" | xorg
+			echo "2" | packages
+			echo "y" | pip
+			echo "y" | neovim
+			echo "y" | golang
+			echo "y" | telegram
+			ecoh "y" | discord
+			echo "y" | firefox
+			echo "1" | spotify
+			echo "y" | misc
+			cpu
+			gpu
+			exit 1
 
-        elif [ "$2" == "server"  ]; then
-            motd
-            echo "y" | dotfiles
-            echo "y" | dotconfig
-            echo "1" | flavor
-            echo "3" | packages
-            echo "y" | pip
-            echo "y" | neovim
-            echo "y" | golang
-            echo "y" | misc
-            exit 1
+		elif [ "$2" == "server"  ]; then
+			motd
+			echo "y" | dotfiles
+			echo "y" | dotconfig
+			echo "1" | flavor
+			echo "3" | packages
+			echo "y" | pip
+			echo "y" | neovim
+			echo "y" | golang
+			echo "y" | misc
+			cpu
+			exit 1
 
-        elif [ "$2" == "minimal-server" ]; then
-            motd
-            echo "y" | dotfiles
-            echo "y" | dotconfig
-            echo "4" | packages
-            exit 1
+		elif [ "$2" == "minimal-server" ]; then
+			motd
+			echo "y" | dotfiles
+			echo "y" | dotconfig
+			echo "4" | packages
+			cpu
+			exit 1
 
-        else
-            echo "valid args are
-            laptop
-            workstation
-            server
-            minimal-server"
-            exit 1
-        fi
+		else
+			echo "valid args are $newline $magenta laptop $newline $magenta workstation $newline $magenta server $newline $magenta minimal-server $normie"
+			exit 1
+		fi
 esac
