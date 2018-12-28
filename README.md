@@ -1,5 +1,6 @@
 # .dotfiles
 > My Personal collection of dotfiles, and dotconfigs.
+
 > This script can be used as a template for other to make their own AWESOME dotfiles script ;)
 
 *This has only been tested on Debian systems!*
@@ -9,13 +10,13 @@
 
 ## INSTALL
 ```bash
-$apt install git curl
-$git clone https://github.com/skandix/.dotfiles.git
+apt install git curl
+git clone https://github.com/skandix/.dotfiles.git
 ```
 
 ## USAGE
 ```bash 
-$./INSTALL.sh -h
+./INSTALL.sh -h
 ```
 
 ### WAT
