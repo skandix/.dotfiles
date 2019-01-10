@@ -276,7 +276,7 @@ case "$option" in
 		cd /tmp
 		wget -q --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
 		tar xvf firefax_tar;
-		sudo mv firefox /opt/;
+		sudo mv -f firefox /opt/;
 		sudo chown $USER:$USER /opt/firefox -R;
 		sudo ln -fs /opt/firefox/firefox /bin/firefox;;
 	n|N|* ) echo "$red No $normie";;

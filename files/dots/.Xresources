@@ -1,8 +1,8 @@
 ! DPI SHIT 
-xft.dpi: 100
+Xft.dpi: 150
 
 ! URXVT
-urxvt*font: xft:Monospace:pixelsize=12
+urxvt*font: xft:Monospace:pixelsize=21
 urxvt*loginShell:         true
 urxvt*scrollBar:         false
 urxvt*saveLines:         65535
@@ -10,11 +10,11 @@ urxvt*cursorBlink:       false
 urxvt*urgentOnBell:       true
 urxvt*scrollTtyKeypress: True
 urxvt*secondaryScroll: True
-urxvt*background: #5b166b
+!urxvt*background: #5b166b
 urxvt*foreground: #ffffff
 urxvt*urlLauncher: firefox
 
-!! Fake Transparency 
+! Fake Transparency 
 urxvt*depth: 32 
 urxvt*background: rgba:0000/0000/0200/c800
 urxvt*transparent: true

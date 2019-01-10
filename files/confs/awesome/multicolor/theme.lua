@@ -16,10 +16,10 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/multicolor"
 
--- Get random wallaper for wg folder.
-local f = io.popen("sh -c \"cd $HOME/.config/awesome/multicolor/ &&  curl https://wallpaper.datapor.no -o current.jpg \"")
-local wallpaper = f:read("*all")
-f:close()
+-- Get random wallaper for wg folder. REEAALLY SLOW
+--local f = io.popen("sh -c \"cd $HOME/.config/awesome/multicolor/ &&  curl https://wallpaper.datapor.no -o current.jpg \"")
+--local wallpaper = f:read("*all")
+--f:close()
 
 
 theme.wallpaper                                 = theme.confdir .. "/current.jpg"
@@ -223,7 +223,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 30, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
