@@ -7,4 +7,5 @@ compton &
 feh --bg-scale  ~/Pictures/current.jpg &
 
 sxhkd &
+~/.config/polybar/launch.sh &
 exec bspwm
