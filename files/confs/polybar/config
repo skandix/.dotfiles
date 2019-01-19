@@ -4,7 +4,7 @@ background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #666
+foreground-alt = #202
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -38,7 +38,6 @@ font-1 = unifont:fontformat=truetype:size=21:antialias=true;0
 font-2 = siji:pixelsize=21;1
 
 modules-left = bspwm
-modules-center = date
 modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery 
 
 tray-position = right
