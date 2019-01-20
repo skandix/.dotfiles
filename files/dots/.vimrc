@@ -31,6 +31,9 @@ Plug 'kien/ctrlp.vim'
 "" Vim JSON
 Plug 'elzr/vim-json'
 
+"" .net && c# dat219
+Plug 'OmniSharp/omnisharp-vim'
+
 "" Vim Go
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
@@ -52,9 +55,6 @@ Plug 'davidhalter/jedi-vim'
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
-"" Syntax highligth for common filetypes
-Plug 'pearofducks/ansible-vim'
-
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
 Plug 'nightsense/rusticated'
@@ -64,16 +64,6 @@ Plug 'cohama/lexima.vim'
 
 "" day n nite
 Plug 'nightsense/night-and-day'
-
-" deoplete plugin stuff
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
@@ -101,17 +91,6 @@ let g:nd_themes = [
   \ ['00:00', 'space-vim-dark', 'dark' ],
   \ ['12:00', 'rusticated', 'light'  ],
   \ ]
-
-"" deoplet stuff....
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources={}
-let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
-let g:deoplete_ignore_sources = [ "buffer", "*.wiki" ]
-let g:deoplete#omni#input_patterns={}
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.scala = '[^. *\t]\.\w*\|: [A-Z]\w*'
-let g:deoplete#enable_at_startup = 1
 
 """ COLORSCHEME
 let g:lightline = {
