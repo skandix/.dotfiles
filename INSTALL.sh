@@ -21,9 +21,9 @@ dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -print
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
 # create these dirs for later
-mkdir $HOME/gitclones
-mkdir $HOME/.jordeple
-mkdir $HOME/.ssh
+mkdir $HOME/gitclones 2>1
+mkdir $HOME/.jordeple 2>1
+mkdir $HOME/.ssh 2>1
 
 motd(){
 #Ascii Logo <3
@@ -145,7 +145,7 @@ case "$option" in
 		sudo apt install compton -y;
 
 		echo "$cyan [XORG] $normie";
-		sudo apt install xorg -y;
+		sudo apt install xorg -y;;
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
