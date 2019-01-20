@@ -20,6 +20,11 @@ misc=~/.dotfiles/files/misc/
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 
+# create these dirs for later
+mkdir $HOME/gitclones
+mkdir $HOME/.jordeple
+mkdir $HOME/.ssh
+
 motd(){
 #Ascii Logo <3
 echo ""
@@ -86,21 +91,25 @@ case "$option" in
 	1 ) echo "Stable";
 		cd /etc/apt/;
 		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Stable)\ndeb http://ftp.no.debian.org/debian/ stable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\n\ndeb http://security.debian.org/ stable/updates main contrib non-free\ndeb-src http://security.debian.org/ stable/updates main contrib non-free\n" | sudo tee sources.list;;
+		echo -e "###### Debian (Stable)\ndeb http://ftp.no.debian.org/debian/ stable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\n\ndeb http://security.debian.org/ stable/updates main contrib non-free\ndeb-src http://security.debian.org/ stable/updates main contrib non-free\n" | sudo tee sources.list;
+		sudo apt update;;
 	
 	2 ) echo "Testing";
 		cd /etc/apt/;
 		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Testing)\ndeb http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb http://security.debian.org/ testing/updates main contrib non-free\ndeb-src http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;;
+		echo -e "###### Debian (Testing)\ndeb http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb http://security.debian.org/ testing/updates main contrib non-free\ndeb-src http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;
+		sudo apt update;;
 	
 	3 ) echo -e "Unstable";
 		cd /etc/apt/;
 		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Unstable)\ndeb http://ftp.no.debian.org/debian/ unstable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable-updates main contrib non-free\n\ndeb http://security.debian.org/ unstable/updates main contrib non-free\ndeb-src http://security.debian.org/ unstable/updates main contrib non-free\n" | sudo tee sources.list;;
+		echo -e "###### Debian (Unstable)\ndeb http://ftp.no.debian.org/debian/ unstable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable main contrib non-free\n" | sudo tee sources.list;
+		sudo apt update;;
 	
 	4 ) echo "Roll backup";
 		cd /etc/apt/;
-		sudo cp sources.list.bak sources.list -fv;;
+		sudo cp sources.list.bak sources.list -fv;
+		sudo apt update;;
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
@@ -109,12 +118,37 @@ echo
 #Install Awesome, Compton and Xorg
 xorg(){
 echo ""
-read -p "$cyan [Xorg] $normie Install Awesome, compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
+read -p "$cyan [GUI] $normie Install Bspwm, Sxhkd, polybar,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
 echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		sudo apt update;
-		sudo apt install xorg awesome compton -y;;
+		echo "$cyan [BSPWM] $normie";
+		sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y;
+		cd $HOME/gitclones;
+		git clone https://github.com/baskerville/bspwm.git;
+		cd bspwm && make -j4 && sudo make install;
+
+		echo "$cyan [SXHKD] $normie";
+		cd $HOME/gitclones;
+		git clone https://github.com/baskerville/sxhkd.git
+		cd sxhkd && make -j4 && sudo make install;
+
+		echo "$cyan [POLYBAR] $normie";
+		sudo apt install cairo libxcb python2 xcb-proto xcb-util-image xcb-util-wm xcb-util-cursor xcb-util-xrm libpulse wireless_tools -y;
+		cd $HOME/gitclones;
+		git clone https://github.com/jaagr/polybar.git;
+		cd polybar && mkdir build && cd build && cmake .. && make -j4 && sudo make install;
+
+		echo "$cyan [COMPTON] $normie";
+		sudo apt install compton -y;
+
+		echo "$cyan [XORG] $normie";
+		sudo apt install xorg -y;
+
+		echo "$cyan [WALLPAPER] $normie";
+		ln -svfn $misc/wall.jpg;;
+
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
@@ -168,10 +202,12 @@ read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Lapt
 echo ""
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
-		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;;
+		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
+		mkdir /etc/X11/xorg.conf.d -p;
+		sudo ln -sfvn $misc/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
 
 	2 ) echo "$cyan Workstation $normie"; 
-		sudo apt install fail2ban rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev alsa-utils rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
+		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
 
 	3 ) echo "$cyan Server $normie"; 
 		sudo apt install fail2ban neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
@@ -214,15 +250,16 @@ case "$option" in
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
 		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
-		dirExsists /home/$USER/.config/nvim/
-		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
+		dirExsists /home/$USER/.config/nvim/;
+		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim;
+
+		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
 
 		#sudo apt install python3-neovim
 		pip3 install --upgrade neovim;
-		vim +PlugInstall +all;
+		vim +PlugInstall +all;;
 		
-		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
-		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;;
 		
 	n|n|* ) echo "$red No";;
 esac
