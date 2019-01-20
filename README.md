@@ -1,9 +1,8 @@
 # .dotfiles
 > My Personal collection of dotfiles, and dotconfigs.
 
-*This has only been tested on Debian systems!*
+![](files/misc/wall.jpg)
 
-![](https://loot.datapor.no/49886faf-cc4f-4211-975b-995308f41346.jpg)
 
 
 ## INSTALL
