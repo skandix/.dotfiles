@@ -11,11 +11,11 @@ alert = #bd2c40
 
 [bar/config]
 ;monitor = ${env:MONITOR:HDMI0}
-width = 100%
-height = 40
-;offset-x = 0.5%
-offset-y = .25%
-radius = 6.0
+width = 99%
+height = 2.5%
+offset-x = 15
+offset-y = 15
+radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
@@ -28,26 +28,27 @@ border-size = 0
 border-color = #665566
 
 padding-left = 0
-padding-right = 1
+padding-right = 5
 
 module-margin-left = 2
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=21;1
 font-1 = unifont:fontformat=truetype:size=21:antialias=true;0
-font-2 = siji:pixelsize=21;1
+font-2 = monoscape:pixelsize=21;1
 
 modules-left = bspwm
-modules-right = xbacklight pulseaudio memory cpu wlan eth battery date 
+modules-right = softwarecounter pulseaudio memory cpu wlan eth battery date 
 
 tray-position = center 
-tray-padding = 2
+tray-padding = 0
 ;tray-background = #0063ff
 
 wm-restack = bspwm
 #wm-restack = i3
 
 ;override-redirect = true
+
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -106,18 +107,18 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+[module/info-softwarecounter]
+type = custom/script
+exec = $HOME/.dotfiles/scripts/polybar/info-softwarecounter.py
+interval = 10
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python $HOME/.dotfiles/scripts/polybar/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -160,7 +161,7 @@ label = MEM %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = wlp6s0
-interval = 3.0
+interval = 1.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -182,7 +183,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enx9cebe81443b8
-interval = 3.0
+interval = 1.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
@@ -227,7 +228,7 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = 
+bar-volume-indicator = | 
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
