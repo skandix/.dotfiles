@@ -123,6 +123,7 @@ echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		sudo apt update;
+		sudo apt install build-essential make cmake -y;
 		echo "$cyan [BSPWM] $normie";
 		sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y;
 		cd $HOME/gitclones;
@@ -135,7 +136,7 @@ case "$option" in
 		cd sxhkd && make -j4 && sudo make install;
 
 		echo "$cyan [POLYBAR] $normie";
-		sudo apt install cairo libxcb python2 xcb-proto xcb-util-image xcb-util-wm xcb-util-cursor xcb-util-xrm libpulse wireless_tools -y;
+		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y;
 		cd $HOME/gitclones;
 		git clone https://github.com/jaagr/polybar.git;
 		cd polybar && mkdir build && cd build && cmake .. && make -j4 && sudo make install;
@@ -145,10 +146,6 @@ case "$option" in
 
 		echo "$cyan [XORG] $normie";
 		sudo apt install xorg -y;
-
-		echo "$cyan [WALLPAPER] $normie";
-		ln -svfn $misc/wall.jpg;;
-
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
