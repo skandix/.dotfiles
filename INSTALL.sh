@@ -127,7 +127,7 @@ case "$option" in
 
 		echo "$cyan [AWESOME] $normie";
 		sudo apt install awesome awesome-extra -y;
-		sudo ln -svfn /usr/share/awesome/themes/default/background.png $misc/wall.jpg;
+		sudo ln -svfn $misc/wall.jpg /usr/share/awesome/themes/default/background.png;
 
 		echo "$cyan [COMPTON] $normie";
 		sudo apt install compton -y;
