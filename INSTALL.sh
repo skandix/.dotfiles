@@ -337,7 +337,6 @@ case "$option" in
 		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable";
 		sudo apt update;
 		sudo apt install docker-ce -y;;
-		sudo adduser $USER docker
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
