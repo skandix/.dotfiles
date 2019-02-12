@@ -127,6 +127,7 @@ case "$option" in
 
 		echo "$cyan [AWESOME] $normie";
 		sudo apt install awesome awesome-extra -y;
+		ln -svfn $misc/wall.jpg /usr/share/awesome/themes/default/background.png;
 
 		echo "$cyan [COMPTON] $normie";
 		sudo apt install compton -y;
@@ -213,10 +214,10 @@ echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		echo "$cyan [Pip] $normie Installing Pip ";
-		cd /tmp;
-		wget -q https://bootstrap.pypa.io/get-pip.py;
-		python3.7 get-pip.py --user;
-		python3 -m pip install --upgrade pip==18.0 --user
+		#cd /tmp;
+		#wget -q https://bootstrap.pypa.io/get-pip.py;
+		#python3.7 get-pip.py --user;
+		#python3 -m pip install --upgrade pip==18.0 --user
 		sudo apt install pipenv;;
 	n|n|* ) echo "$red No $normie";;
 esac
