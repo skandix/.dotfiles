@@ -1,4 +1,4 @@
-#/bin/env bash
+#/usr/bin/env bash
 
 ## Color Variables
 magenta=$'\e[1;35m'
@@ -23,6 +23,7 @@ confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -pr
 # create these dirs for later
 mkdir $HOME/gitclones 2>1
 mkdir $HOME/.jordeple 2>1
+mkdir $HOME/Projects 2>1
 mkdir $HOME/.ssh 2>1
 
 motd(){
@@ -66,7 +67,7 @@ esac
 echo
 }
 
-# Symlinks all files that goes in /home/foo/.config
+# Symlinks all files that goes in /home/$USER/.config
 dotconfig(){
 echo ""
 read -p "$cyan [DotConfigs] $normie Symlink dotconfig? $magenta y/n$normie $newline$inputArrow" option
@@ -118,34 +119,23 @@ echo
 #Install Awesome, Compton and Xorg
 xorg(){
 echo ""
-read -p "$cyan [GUI] $normie Install Bspwm, Sxhkd, polybar,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
+read -p "$cyan [GUI] $normie Install Awesome,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
 echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		sudo apt update;
-		sudo apt install build-essential make cmake -y;
-		echo "$cyan [BSPWM] $normie";
-		sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y;
-		cd $HOME/gitclones;
-		git clone https://github.com/baskerville/bspwm.git;
-		cd bspwm && make -j4 && sudo make install;
 
-		echo "$cyan [SXHKD] $normie";
-		cd $HOME/gitclones;
-		git clone https://github.com/baskerville/sxhkd.git
-		cd sxhkd && make -j4 && sudo make install;
-
-		echo "$cyan [POLYBAR] $normie";
-		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y;
-		cd $HOME/gitclones;
-		git clone https://github.com/jaagr/polybar.git;
-		cd polybar && mkdir build && cd build && cmake .. && make -j4 && sudo make install;
+		echo "$cyan [AWESOME] $normie";
+		sudo apt install awesome awesome-extra -y;
+		cp /etc/xdg/awesome/rc.lua ~/.config/awesome/rc.lua;
+		
 
 		echo "$cyan [COMPTON] $normie";
 		sudo apt install compton -y;
 
 		echo "$cyan [XORG] $normie";
 		sudo apt install xorg -y;;
+
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
@@ -199,18 +189,18 @@ read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Lapt
 echo ""
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
-		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
+		sudo apt install network-manager-applet rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
 		mkdir /etc/X11/xorg.conf.d -p;
 		sudo ln -sfvn $misc/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
 
 	2 ) echo "$cyan Workstation $normie"; 
-		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
+		sudo apt install network-manager-applet rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
 
 	3 ) echo "$cyan Server $normie"; 
-		sudo apt install fail2ban neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
+		sudo apt install neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
 
 	4 ) echo "$cyan Minimal Server $normie";
-		sudo apt install fail2ban neofetch screen tmux ntfs-3g -y;;
+		sudo apt install neofetch screen tmux ntfs-3g -y;;
 
 	n|N|* ) echo "$red No $normie";;
 esac
@@ -243,7 +233,7 @@ echo ""
 case "$option" in
 	y|Y ) echo "Yes";
 		echo "\n$cyan [Neovim] $normie Installing Neovim";
-		curl -LO https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
+		curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage;
 		chmod u+x nvim.appimage;
 		sudo mv nvim.appimage /opt;
 		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
@@ -256,7 +246,6 @@ case "$option" in
 		#sudo apt install python3-neovim
 		pip3 install --upgrade neovim;
 		vim +PlugInstall +all;;
-		
 		
 	n|n|* ) echo "$red No";;
 esac
@@ -350,6 +339,7 @@ case "$option" in
 		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable";
 		sudo apt update;
 		sudo apt install docker-ce -y;;
+		sudo adduser $USER docker
 	n|N|* ) echo "$red No $normie";;
 esac
 echo

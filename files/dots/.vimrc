@@ -6,15 +6,9 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
+
 "" html close tag
 Plug 'alvan/vim-closetag'
-
-"" deoplete for python
-Plug 'zchee/deoplete-jedi'
-
-"" React js 
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 
 "" NERD Tree Syntax
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -35,7 +29,7 @@ Plug 'elzr/vim-json'
 Plug 'OmniSharp/omnisharp-vim'
 
 "" Vim Go
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+" Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 "" Telling discord what i'm working on and how long i've been working on that specific thing.. super fancy
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
