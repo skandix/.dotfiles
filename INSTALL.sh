@@ -127,8 +127,6 @@ case "$option" in
 
 		echo "$cyan [AWESOME] $normie";
 		sudo apt install awesome awesome-extra -y;
-		cp /etc/xdg/awesome/rc.lua ~/.config/awesome/rc.lua;
-		
 
 		echo "$cyan [COMPTON] $normie";
 		sudo apt install compton -y;
