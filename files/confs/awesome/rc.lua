@@ -85,38 +85,6 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
-
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
-
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
@@ -217,6 +185,9 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    -- simple way of getting battery stat
+    local batman =  awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15)
+
     -- Add widgets to the wibox
     local spacer = wibox.widget.textbox('  |  ')
     s.mywibox:setup {
@@ -233,7 +204,7 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             spacer,
-            awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15),
+            batman,
             spacer,
             mytextclock,
             s.mylayoutbox,
@@ -254,10 +225,13 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
+
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
+
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
@@ -273,8 +247,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
