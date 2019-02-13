@@ -218,6 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- Add widgets to the wibox
+    local spacer = wibox.widget.textbox('  |  ')
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
@@ -231,6 +232,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            spacer,
+            awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15),
+            spacer,
             mytextclock,
             s.mylayoutbox,
         },
