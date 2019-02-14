@@ -1,9 +1,14 @@
+
 # colors bash creds to lasseh 
 export EDITOR=vim
 
 # Dircolors
 export LS_OPTIONS='--color=auto'
 eval `dircolors $HOME/.dircolors`
+
+# Dotnet 
+export DOTNET_ROOT=$HOME/dotnet 
+export PATH=$PATH:$HOME/dotnet
 
 # Golang
 export GOROOT=/usr/local/go

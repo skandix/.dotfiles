@@ -22,11 +22,14 @@ Plug 'scrooloose/nerdtree'
 "" Fuzzy File Finder  
 Plug 'kien/ctrlp.vim'
 
+"" Polyglot
+Plug 'sheerun/vim-polyglot'
+
+"" Startscreen
+Plug 'mhinz/vim-startify'
+
 "" Vim JSON
 Plug 'elzr/vim-json'
-
-"" .net && c# dat219
-Plug 'OmniSharp/omnisharp-vim'
 
 "" Vim Go
 " Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
@@ -56,8 +59,17 @@ Plug 'nightsense/rusticated'
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 "" day n nite
-Plug 'nightsense/night-and-day'
+"" "Plug 'nightsense/night-and-day'
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
