@@ -58,6 +58,7 @@ Plug 'nightsense/rusticated'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -68,11 +69,16 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+""" deoplte syntax shit
+Plug 'omnisharp/omnisharp-vim'
+
+
 "" day n nite
 "" "Plug 'nightsense/night-and-day'
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
+
 
 """ Lettings
 let mapleader=""
@@ -108,6 +114,8 @@ hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 
+""" Startify
+let g:startify_session_dir = '~/.vim/session'
 
 if &term =~ '256color'
   set t_ut=
@@ -156,7 +164,7 @@ command! W w
 """ NERDTREE SETTINGS (taken from lasseh .vimrc)
 " Open Nerdtree if no files specified
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Close vim if nerdtree is only buffer left when :q
 function! s:CloseIfOnlyControlWinLeft()
