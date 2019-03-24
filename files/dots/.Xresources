@@ -10,7 +10,7 @@ urxvt*cursorBlink:       false
 urxvt*urgentOnBell:       true
 urxvt*scrollTtyKeypress: True
 urxvt*secondaryScroll: True
-! urxvt*background: #5b166b
+!urxvt*background: #5b166b
 urxvt*foreground: #ffffff
 urxvt*urlLauncher: firefox
 
@@ -18,4 +18,4 @@ urxvt*urlLauncher: firefox
 urxvt*depth: 32 
 urxvt*background: rgba:0000/0000/0200/c800
 urxvt*transparent: true
-urxvt*shading: 30
+urxvt*shading: 25

@@ -126,8 +126,9 @@ case "$option" in
 		sudo apt update;
 
 		echo "$cyan [AWESOME] $normie";
-		sudo apt install awesome awesome-extra -y;
-		sudo ln -svfn $misc/wall.jpg /usr/share/awesome/themes/default/background.png;
+        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
+        sudo apt install awesome awesome-extra -y;
+		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
 
 		echo "$cyan [COMPTON] $normie";
 		sudo apt install compton -y;
@@ -305,6 +306,26 @@ case "$option" in
 esac
 echo
 }
+
+jetbrains(){
+echo ""
+read -p "$cyan [Jetbrains] $normie Install Jetbrains?  $magenta y/n$normie $newline$inputArrow" option
+echo ""
+case "$option" in
+	y|Y ) echo "$green Yes $normie"; 
+		cd /tmp
+		wget -q --prefer-family=ipv4 -O jetbrains_tar https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.13.4801.tar.gz;
+		tar zxvf jetbrains_tar;    
+        folder=$(ls | grep jetbrains | head -n 1)
+        sudo mv -f $folder /opt/;
+		sudo chown $USER:$USER /opt/firefox -R;
+		sudo ln -fs /opt/firefox/firefox /bin/firefox;;
+	n|N|* ) echo "$red No $normie";;
+esac
+echo
+}
+
+
 
 ## Instal Discord
 discord(){
