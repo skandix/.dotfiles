@@ -126,8 +126,8 @@ case "$option" in
 		sudo apt update;
 
 		echo "$cyan [AWESOME] $normie";
-        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
-        sudo apt install awesome awesome-extra -y;
+        	wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
+	        sudo apt install awesome awesome-extra -y;
 		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
 
 		echo "$cyan [COMPTON] $normie";
@@ -147,13 +147,11 @@ cpu(){
 	echo "$cyan [CPU] $normie Detecting & Installing CPU firmware"
 	echo ""
 	if grep -q "AMD" "/proc/cpuinfo"; then
-		echo "$green [O.K] Found AMD CPU $normie
- Installing CPU Firmware"
+		echo "$green [O.K] Found AMD CPU $normie Installing CPU Firmware"
 		echo ""
 		sudo apt install amd64-microcode
 	elif grep -q "Intel" "/proc/cpuinfo" ; then
-		echo "$green [O.K] Found Intel CPU $normie
- Installing CPU Firmware"
+		echo "$green [O.K] Found Intel CPU $normie Installing CPU Firmware"
 		echo ""
 		sudo apt install intel-microcode
 	else
@@ -166,8 +164,7 @@ gpu(){
 	echo "$cyan [CPU] $normie Detecting & Installing GPU firmware"
 	echo ""
 	if lspci | grep -qE 'VGA.*AMD'; then
-		echo "$green [O.K] Found AMD GPU $amd $normie
- Installing GPU Firmware"
+		echo "$green [O.K] Found AMD GPU $amd $normie Installing GPU Firmware"
 		echo ""
 		#sudo apt install __firmware__
 
@@ -210,15 +207,11 @@ echo
 # Install Pip & pipenv
 pip(){
 echo ""
-read -p "$cyan [Pip] $normie Install Pip & Pipenv? $magenta y/n$normie $newline$inputArrow" option
+read -p "$cyan [Pipenv] $normie Install Pipenv? $magenta y/n$normie $newline$inputArrow" option
 echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		echo "$cyan [Pip] $normie Installing Pip ";
-		#cd /tmp;
-		#wget -q https://bootstrap.pypa.io/get-pip.py;
-		#python3.7 get-pip.py --user;
-		#python3 -m pip install --upgrade pip==18.0 --user
 		sudo apt install pipenv;;
 	n|n|* ) echo "$red No $normie";;
 esac
@@ -243,7 +236,6 @@ case "$option" in
 		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
 		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
 
-		#sudo apt install python3-neovim
 		pip3 install --upgrade neovim;
 		vim +PlugInstall +all;;
 		
@@ -260,7 +252,6 @@ echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		cd /tmp;
-		# grabs the latest go version, with a bit of hassle with regex... i'll clean that up later now it works :)
 		wget -q --prefer-family=ipv4 -O golang_tar $(curl -s https://golang.org/dl/ | egrep '<a class=\"download downloadBox\" href=\"([^\s]+[.linux\-amd64.tar.gz])' | grep linux | cut -d'"' -f 4)
 		tar xvf golang_tar;
 		sudo mv go /usr/local;;
@@ -306,26 +297,6 @@ case "$option" in
 esac
 echo
 }
-
-jetbrains(){
-echo ""
-read -p "$cyan [Jetbrains] $normie Install Jetbrains?  $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie"; 
-		cd /tmp
-		wget -q --prefer-family=ipv4 -O jetbrains_tar https://download-cf.jetbrains.com/toolbox/jetbrains-toolbox-1.13.4801.tar.gz;
-		tar zxvf jetbrains_tar;    
-        folder=$(ls | grep jetbrains | head -n 1)
-        sudo mv -f $folder /opt/;
-		sudo chown $USER:$USER /opt/firefox -R;
-		sudo ln -fs /opt/firefox/firefox /bin/firefox;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
-
 
 ## Instal Discord
 discord(){
