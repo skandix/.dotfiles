@@ -204,12 +204,12 @@ read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Lapt
 echo ""
 case "$option" in
 	1 ) echo "$cyan Laptop $normie"; 
-		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
+		sudo apt install dunts rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
 		mkdir /etc/X11/xorg.conf.d -p;
 		sudo ln -sfvn $misc/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
 
 	2 ) echo "$cyan Workstation $normie"; 
-		sudo apt install rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
+		sudo apt install dunst rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
 
 	3 ) echo "$cyan Server $normie"; 
 		sudo apt install neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
