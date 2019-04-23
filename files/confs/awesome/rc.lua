@@ -156,7 +156,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "web", "dev", "irc", "termland", "discoteka", "telegraph", "spotify", "misc"}, s, awful.layout.layouts[1])
+    awful.tag({ "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -186,7 +186,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- simple way of getting battery stat
-    local batman =  awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15)
+    local batman = awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15)
 
     -- Add widgets to the wibox
     local spacer = wibox.widget.textbox('  |  ')
@@ -311,6 +311,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end),
     awful.key({}, "XF86Search", function () awful.util.spawn("rofi -show run") end),
 
+    awful.key({ modkey,            }, "p", function () awful.util.spawn("thrashpanda -s") end),
+
 
 
     awful.key({ modkey, "Control" }, "n",
@@ -323,11 +325,8 @@ globalkeys = gears.table.join(
                     )
                   end
               end,
-              {description = "restore minimized", group = "client"}),
+              {description = "restore minimized", group = "client"})
 
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(

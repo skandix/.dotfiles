@@ -1,4 +1,8 @@
 softmixer
+files/dots/.moc/last_directory
+files/dots/.moc/cache/
+files/dots/.moc/pid
+files/dots/.moc/playlist.m3u
 /files/dots/.vim/plugged/*
 *.swp
 .moc/cache/*

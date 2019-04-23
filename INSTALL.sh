@@ -14,11 +14,13 @@ inputArrow=" ---> "
 ## Directories
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/
+script=~/.dotfiles/scripts/
 misc=~/.dotfiles/files/misc/
 
 # Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
+scriptDetect=$(find $confs -maxdepth 1 -name '*.sh' ! -name 'scrips' ! -name '*.' -printf '%f ')
 
 # create these dirs for later
 mkdir $HOME/gitclones 2>1
@@ -43,7 +45,7 @@ echo "$normie"
 
 dirExsists(){
 echo ""
-	if [ -d $1 ] 
+	if [ -d $1 ]
 	then
 		echo "$green [O.K] Found $1 $normie"
 	else
@@ -77,6 +79,22 @@ case "$option" in
 		dirExsists $HOME/.config
 		for dotconfig in $confsDetect; do
 			ln -svfn $confs$dotconfig ~/.config/$dotconfig
+		done;;
+	n|N|* ) echo "$red No $normie";;
+esac
+echo
+}
+
+
+scripts(){
+echo ""
+read -p "$cyan [Scripts] $normie Symlink scripts? $magenta y/n$normie $newline$inputArrow" option
+echo ""
+case "$option" in
+	y|Y ) echo "$green Yes $normie";
+		dirExsists $HOME/.config
+		for sh in $scriptDetect; do
+			ln -svfn $script$sh /bin/$sh
 		done;;
 	n|N|* ) echo "$red No $normie";;
 esac
@@ -400,6 +418,7 @@ case $1 in
 		motd
 		dotfiles
 		dotconfig
+        scripts
 		flavor
 		xorg
 		cpu
