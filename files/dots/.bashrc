@@ -11,7 +11,6 @@ export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 
 # Golang
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects/Go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
