@@ -128,3 +128,4 @@ element normal active, element selected active, element alternate active {
 	text-color: @base0B;
 }
 
+@import "/usr/share/rofi/themes/c64.rasi"
