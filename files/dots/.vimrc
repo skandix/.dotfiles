@@ -10,14 +10,8 @@ call plug#begin('~/.vim/plugged')
 "" html close tag
 Plug 'alvan/vim-closetag'
 
-"" NERD Tree Syntax
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 "" NERD tree Tabs
 Plug 'jistr/vim-nerdtree-tabs'
-
-"" NERD tree
-Plug 'scrooloose/nerdtree'
 
 "" Fuzzy File Finder  
 Plug 'kien/ctrlp.vim'
@@ -30,9 +24,6 @@ Plug 'mhinz/vim-startify'
 
 "" Vim JSON
 Plug 'elzr/vim-json'
-
-"" Vim Go
-" Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 "" Telling discord what i'm working on and how long i've been working on that specific thing.. super fancy
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
@@ -69,26 +60,28 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
-""" deoplte syntax shit
-Plug 'omnisharp/omnisharp-vim'
-
-
 "" day n nite
 "" "Plug 'nightsense/night-and-day'
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
 
+""" Netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 
 """ Lettings
 let mapleader=""
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:go_version_warning = 0
 
 """ KEYBINDS
 map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <C-d> :NERDTreeToggle<CR>
+map <C-d> :Lexplore<CR>
 map  <C-f> :tabn<CR>
 map  <C-t> :tabnew<CR>
 nnoremap <F1> :set hlsearch!<CR>
