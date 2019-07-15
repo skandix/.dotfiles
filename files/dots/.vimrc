@@ -1,19 +1,35 @@
 " Skandix's Vim Conf
-
 set nocompatible
 filetype plugin on
 
+" checks if plug is installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $HOME/.vimrc
+endif
+
+""" checks if n package is installed.
+function! s:Py3freeze(package)
+    if empty(system("pip3 freeze | grep " . a:package))
+        echo "Installing Package " . a:package
+        silent !execute "!pip3 install " . a:package . " --user "
+    else
+        echo "Found " . a:package
+    endif
+endfunction
+
+"" installing required python packages
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
-
-"" html close tag
-Plug 'alvan/vim-closetag'
-
-"" NERD tree Tabs
+"" NERDtree tabs
 Plug 'jistr/vim-nerdtree-tabs'
 
-"" Fuzzy File Finder  
+"" NERDtree
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+
+"" Fuzzy File Finder
 Plug 'kien/ctrlp.vim'
 
 "" Polyglot
@@ -37,72 +53,93 @@ Plug 'itchyny/lightline.vim'
 "" Async lint engine
 Plug 'w0rp/ale'
 
-"" python autocomplete
-Plug 'davidhalter/jedi-vim'
-
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
-Plug 'nightsense/rusticated'
+Plug 'sainnhe/vim-color-vanilla-cake'
+
+"" day n nite
+Plug 'nightsense/night-and-day'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
-Plug 'tpope/vim-surround'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"" Deoplete
+"call s:Py3freeze("pynvim")
+"call s:Py3freeze("jedi")
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
+
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#statement_length = 5
+let g:deoplete#sources#jedi#enable_typeinfo = 0
 
-"" day n nite
-"" "Plug 'nightsense/night-and-day'
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
 
-""" Netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
+""" codeformat
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
 
 
 """ Lettings
-let mapleader=""
+let mapleader=" "
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:go_version_warning = 0
 
 """ KEYBINDS
+"""" F-Keys
+nnoremap <F1> :set hlsearch!<CR>
+nnoremap <F2> :StripWhitespace<CR>
+
 map <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <C-d> :Lexplore<CR>
+map <C-d> :NERDTreeToggle<CR>
 map  <C-f> :tabn<CR>
 map  <C-t> :tabnew<CR>
-nnoremap <F1> :set hlsearch!<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
 
-"" nigth_and_day
+"""" Splitting Keybinds
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+"" nigth_and_day config
 let g:nd_themes = [
   \ ['00:00', 'space-vim-dark', 'dark' ],
-  \ ['12:00', 'rusticated', 'light'  ],
+  \ ['12:00', 'vanilla-cake', 'light'  ],
   \ ]
 
-""" COLORSCHEME
+""" ligthline config
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'one',
       \ }
+
 syntax enable
 colorscheme space-vim-dark
+
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
@@ -125,7 +162,8 @@ set foldlevel=99
 set splitright
 set backspace=indent,eol,start
 set matchpairs+=<:>
-set splitbelow
+"" set splitbelow
+set splitright
 set textwidth=128
 set shiftwidth=4
 set laststatus=2				" Display statusline
@@ -157,7 +195,7 @@ command! W w
 """ NERDTREE SETTINGS (taken from lasseh .vimrc)
 " Open Nerdtree if no files specified
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Close vim if nerdtree is only buffer left when :q
 function! s:CloseIfOnlyControlWinLeft()
