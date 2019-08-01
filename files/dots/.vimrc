@@ -12,7 +12,7 @@ endif
 function! s:Py3freeze(package)
     if empty(system("pip3 freeze | grep " . a:package))
         echo "Installing Package " . a:package
-        silent !execute "!pip3 install " . a:package . " --user "
+        execute "!pip3 install " . a:package . " --user "
     else
         echo "Found " . a:package
     endif
@@ -21,12 +21,14 @@ endfunction
 "" installing required python packages
 "call s:Py3freeze("pynvim")
 "call s:Py3freeze("jedi")
-
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
 "" NERDtree tabs
 Plug 'jistr/vim-nerdtree-tabs'
+
+" indenting fancy stuff
+Plug 'nathanaelkane/vim-indent-guides'
 
 "" NERDtree
 Plug 'scrooloose/nerdtree'
@@ -86,17 +88,16 @@ filetype plugin indent on    " required
 """ codeformat
 au BufNewFile,BufRead *.py
     \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \| set softtabstop=4
+    \| set shiftwidth=4
+    \| set textwidth=79
+    \| set autoindent
+    \| set fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \| set softtabstop=2
+    \| set shiftwidth=2
 
 
 """ Lettings
@@ -118,6 +119,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
+
+""" LEADER
+nnoremap <Leader>w :write <CR>
+nnoremap <Leader>x :xit <CR>
+nnoremap <Leader>q :quit <CR>
+
+nnoremap <Leader>b :!python3 %<CR>
 
 """" Splitting Keybinds
 "split navigations
@@ -163,7 +171,6 @@ set foldlevel=99
 set splitright
 set backspace=indent,eol,start
 set matchpairs+=<:>
-"" set splitbelow
 set splitright
 set textwidth=128
 set shiftwidth=4
@@ -183,7 +190,6 @@ set expandtab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
-set ttyfast						" faster redrawing
 set showcmd             		" show command in bottom bar
 set number              		" show line numbers
 set rnu							" Relative line numbering
