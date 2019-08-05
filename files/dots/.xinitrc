@@ -3,7 +3,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 compton &
 nm-applet &
-dunst &
+#dunst &
 slack  &
 discord &
 ./.screenlayout/default.sh &
