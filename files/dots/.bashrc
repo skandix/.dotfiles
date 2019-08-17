@@ -1,4 +1,3 @@
-
 # colors bash creds to lasseh 
 export EDITOR=vim
 
@@ -20,6 +19,14 @@ alias outside="while true; do clear; curl wttr.in/$1; sleep 180; done;"
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us" 
 alias ..="cd .."
 alias ls='ls --color'
+alias noman="mankier($1)"
+
+# functions
+mankier(){
+  w3m "https://mankier.com/?q=$1"
+}
+
+alias noman="w3m https://www.mankier.com/?q="
 
 # Neofetch 
 if [ -f /usr/bin/neofetch ]; then neofetch -t; fi

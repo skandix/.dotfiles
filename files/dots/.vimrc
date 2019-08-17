@@ -64,15 +64,12 @@ Plug 'airblade/vim-gitgutter'
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
 Plug 'sainnhe/vim-color-vanilla-cake'
-
-"" day n nite
-Plug 'nightsense/night-and-day'
+Plug 'Rigellute/shades-of-purple.vim'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
 "" Deoplete
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -135,19 +132,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-"" nigth_and_day config
-let g:nd_themes = [
-  \ ['00:00', 'space-vim-dark', 'dark' ],
-  \ ['12:00', 'vanilla-cake', 'light'  ],
-  \ ]
-
 """ ligthline config
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+let g:shades_of_purple_lightline = 1
+let g:lightline = { 'colorscheme': 'shades_of_purple' }
 
 syntax enable
-colorscheme space-vim-dark
+colorscheme shades_of_purple
 
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
@@ -167,6 +157,7 @@ set undolevels=256				" how many times one can undo
 set updatetime=250				" Faster update of internals
 set numberwidth=6				" with of the 'gutter' col for numbering
 set foldmethod=indent
+set termguicolors
 set foldlevel=99
 set splitright
 set backspace=indent,eol,start
