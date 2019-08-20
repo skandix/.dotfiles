@@ -21,6 +21,9 @@ alias ..="cd .."
 alias ls='ls --color'
 alias noman="mankier($1)"
 
+# games
+alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skandix/Application Data/Twitch/Bin/Twitch.exe"
+
 # functions
 mankier(){
   w3m "https://mankier.com/?q=$1"
