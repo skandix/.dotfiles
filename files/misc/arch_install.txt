@@ -62,3 +62,9 @@ visudo
 	%wheel ALL=(ALL) ALL
 
 pacman -S pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server awesome git 
+
+pacman -S firefox rofi neofetch alacritty 
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+# things to install, discord, telegram, docker, docker-compose, spotify, networkmanager+++, slack, keepassx, mpv, plexmediaplayer, sublimetext3, htop, lutris, greeenclip, compton, cpu microcode, pipenv, neovim, python3, pip3, 
