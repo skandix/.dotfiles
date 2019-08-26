@@ -92,9 +92,8 @@ read -p "$cyan [Scripts] $normie Symlink scripts? $magenta y/n$normie $newline$i
 echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
-		dirExsists $HOME/.config
 		for sh in $scriptDetect; do
-			ln -svfn $script$sh /bin/$sh
+			sudo ln -svfn $script$sh /bin/$sh
 		done;;
 	n|N|* ) echo "$red No $normie";;
 esac
