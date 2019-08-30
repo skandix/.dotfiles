@@ -12,18 +12,23 @@ endif
 function! s:Py3freeze(package)
     if empty(system("pip3 freeze | grep " . a:package))
         echo "Installing Package " . a:package
-        silent !execute "!pip3 install " . a:package . " --user "
+        execute "!pip3 install " . a:package . " --user "
     else
         echo "Found " . a:package
     endif
 endfunction
 
 "" installing required python packages
+"call s:Py3freeze("pynvim")
+"call s:Py3freeze("jedi")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
 "" NERDtree tabs
 Plug 'jistr/vim-nerdtree-tabs'
+
+" indenting fancy stuff
+Plug 'nathanaelkane/vim-indent-guides'
 
 "" NERDtree
 Plug 'scrooloose/nerdtree'
@@ -59,17 +64,12 @@ Plug 'airblade/vim-gitgutter'
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
 Plug 'sainnhe/vim-color-vanilla-cake'
-
-"" day n nite
-Plug 'nightsense/night-and-day'
+Plug 'Rigellute/shades-of-purple.vim'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
 "" Deoplete
-"call s:Py3freeze("pynvim")
-"call s:Py3freeze("jedi")
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -85,17 +85,16 @@ filetype plugin indent on    " required
 """ codeformat
 au BufNewFile,BufRead *.py
     \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \| set softtabstop=4
+    \| set shiftwidth=4
+    \| set textwidth=79
+    \| set autoindent
+    \| set fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \| set softtabstop=2
+    \| set shiftwidth=2
 
 
 """ Lettings
@@ -118,6 +117,13 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <BS> X
 
+""" LEADER
+nnoremap <Leader>w :write <CR>
+nnoremap <Leader>x :xit <CR>
+nnoremap <Leader>q :quit <CR>
+
+nnoremap <Leader>b :!python3 %<CR>
+
 """" Splitting Keybinds
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -126,19 +132,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-"" nigth_and_day config
-let g:nd_themes = [
-  \ ['00:00', 'space-vim-dark', 'dark' ],
-  \ ['12:00', 'vanilla-cake', 'light'  ],
-  \ ]
-
 """ ligthline config
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+let g:shades_of_purple_lightline = 1
+let g:lightline = { 'colorscheme': 'shades_of_purple' }
 
 syntax enable
-colorscheme space-vim-dark
+colorscheme shades_of_purple
 
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
@@ -158,11 +157,11 @@ set undolevels=256				" how many times one can undo
 set updatetime=250				" Faster update of internals
 set numberwidth=6				" with of the 'gutter' col for numbering
 set foldmethod=indent
+set termguicolors
 set foldlevel=99
 set splitright
 set backspace=indent,eol,start
 set matchpairs+=<:>
-"" set splitbelow
 set splitright
 set textwidth=128
 set shiftwidth=4
@@ -182,7 +181,6 @@ set expandtab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
-set ttyfast						" faster redrawing
 set showcmd             		" show command in bottom bar
 set number              		" show line numbers
 set rnu							" Relative line numbering

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 ## Color Variables
 magenta=$'\e[1;35m'
@@ -52,7 +52,7 @@ screenshot()
 }
 
 
-dropthatload(){
+beamitupscotty(){
     ext=${1#*.};
     obfusc="$namePATTERN.$ext";
     mv $1 $obfusc;
@@ -73,5 +73,5 @@ case $1 in
 	-s | --screenshot )
         screenshot;;
     -u | --upload )
-        dropthatload $2;;
+        beamitupscotty $2;;
 esac

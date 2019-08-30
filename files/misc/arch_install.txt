@@ -1,0 +1,70 @@
+ls /sys/firmware/efi/efivars
+ip link
+ping datapor.no -c 3 
+timedatectl set-ntp true
+cfdisk
+	1GB - Efi - sda1 
+	200MB - Swap - sda2
+	the rest - / sda3
+
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+mount /dev/sda3 /mnt
+ls /mnt
+swapon /dev/sda2
+pacstrap -i /mnt base base-devel
+genfstab -U -p /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+arch-chroot /mnt /bin/bash
+/etc/hostname
+	sheepy
+
+nano /etc/locale.gen
+	en_GB.UTF-8 UTF-8
+	locale-gen
+
+ln -sf /usr/share/zoneinfo/Europe/Oslo /etc/localtime
+hwclock --systohc --utc
+
+/etc/hosts
+	127.0.0.1	localhost
+	::1		localhost
+	127.0.1.1	myhostname.localdomain	myhostname
+
+pacman -S networkmanager
+systemctl enable NetworkManager
+mkinitcpio -p linux
+passwd
+pacman -S grub efibootmgr
+mkdir /boot/efi
+
+mount /dev/sda1 /boot/efi
+	lsblk
+
+grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+sudo mkdir /boot/efi/EFI/BOOT
+sudo cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
+sudo nano /boot/efi/startup.nsh
+bcfg boot add 1 fs0:\EFI\GRUB\grubx64.efi "My GRUB bootloader"
+exit
+
+FINISHED ?!?
+	ctrl + d 
+	umount -R /mnt
+	reboot
+
+useradd -m -g users -G wheel -s /bin/bash skandix
+	passwd skandix
+
+visudo
+	%wheel ALL=(ALL) ALL
+
+pacman -S pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server awesome git 
+
+pacman -S firefox rofi neofetch alacritty 
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+# things to install, discord, telegram, docker, docker-compose, spotify, networkmanager+++, slack, keepassx, mpv, plexmediaplayer, sublimetext3, htop, lutris, greeenclip, compton, cpu microcode, pipenv, neovim, python3, pip3, 
