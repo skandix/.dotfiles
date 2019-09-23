@@ -19,8 +19,8 @@ function! s:Py3freeze(package)
 endfunction
 
 "" installing required python packages
-"call s:Py3freeze("pynvim")
-"call s:Py3freeze("jedi")
+call s:Py3freeze("pynvim")
+call s:Py3freeze("jedi")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START

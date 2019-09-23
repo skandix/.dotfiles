@@ -37,3 +37,5 @@ if [ -f /usr/bin/neofetch ]; then neofetch -t; fi
 export PS1="\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\W\[\e[m\] \[\e[35m\]\u\[\e[m\] \[\e[31m\]λ\[\e[m\] "
 
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+# ctf-tools: gem install
+export PATH=$PATH:/home/skandix/.gem/ruby/2.6.0/bin
