@@ -69,6 +69,9 @@ Plug 'Rigellute/shades-of-purple.vim'
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
+"" Distracton free
+Plug 'junegunn/goyo.vim'
+
 "" Deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'

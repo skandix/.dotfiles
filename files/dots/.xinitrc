@@ -5,6 +5,6 @@ nm-applet &
 dunst &
 slack  &
 discord &
-./.screenlayout/default.sh &
+[[ -f ~/.screenlayout/default.sh ]]
 setxkbmap no &
 exec awesome
