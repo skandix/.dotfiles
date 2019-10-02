@@ -173,7 +173,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- simple way of getting battery stat
-    local batman = awful.widget.watch('bash -c "acpi -b | cut -d"," -f 2"', 15)
+    local batman = awful.widget.watch('bash -c "cat /sys/class/power_supply/BAT0/capacity"', 15)
 
     -- Add widgets to the wibox
     local spacer = wibox.widget.textbox('  |  ')
