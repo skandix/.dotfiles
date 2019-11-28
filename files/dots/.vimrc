@@ -58,7 +58,7 @@ Plug 'itchyny/lightline.vim'
 "" Async lint engine
 Plug 'w0rp/ale'
 
-"" Vim Gitgutter, shows diff in Vim
+ Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
