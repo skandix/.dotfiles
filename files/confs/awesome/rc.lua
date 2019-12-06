@@ -303,7 +303,7 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end),
 
-    awful.key({ modkey,            }, "p", function () awful.util.spawn("thrashpanda -s") end),
+    awful.key({ modkey,            }, "p", function () awful.util.spawn("kbsecretSauce") end),
 
         -- No mediakeys, but it has a numpad :thinking:
     awful.key({}, "KP_Subtract", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
