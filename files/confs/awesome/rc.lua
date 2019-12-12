@@ -301,7 +301,7 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioStop", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
 
-    awful.key({ modkey,            }, "r", function () awful.util.spawn("rofi -show run") end),
+    awful.key({ modkey,           }, "r", function () awful.util.spawn("rofi -show run") end),
 
     awful.key({ modkey,            }, "p", function () awful.util.spawn("kbsecretSauce") end),
 

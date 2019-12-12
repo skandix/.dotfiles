@@ -100,39 +100,6 @@ esac
 echo
 }
 
-# What flavor of debian do you want to use
-flavor(){
-echo ""
-read -p "$cyan [Flavor] $normie What Debian Flavor do you want ? $newline$magenta 1:$normie Stretch (Stable) $newline$magenta 2:$normie Buster (Testing) $newline$magenta 3:$normie Sid (Unstable) $newline$magenta 4:$normie Roll backup $newline$inputArrow" option
-echo "" 
-case "$option" in
-	1 ) echo "Stable";
-		cd /etc/apt/;
-		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Stable)\ndeb http://ftp.no.debian.org/debian/ stable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ stable-updates main contrib non-free\n\ndeb http://security.debian.org/ stable/updates main contrib non-free\ndeb-src http://security.debian.org/ stable/updates main contrib non-free\n" | sudo tee sources.list;
-		sudo apt update;;
-	
-	2 ) echo "Testing";
-		cd /etc/apt/;
-		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Testing)\ndeb http://ftp.no.debian.org/debian/ testing main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing main contrib non-free\n\ndeb http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ testing-updates main contrib non-free\n\ndeb http://security.debian.org/ testing/updates main contrib non-free\ndeb-src http://security.debian.org/ testing/updates main contrib non-free\n" | sudo tee sources.list;
-		sudo apt update;;
-	
-	3 ) echo -e "Unstable";
-		cd /etc/apt/;
-		sudo cp sources.list sources.list.bak;
-		echo -e "###### Debian (Unstable)\ndeb http://ftp.no.debian.org/debian/ unstable main contrib non-free\ndeb-src http://ftp.no.debian.org/debian/ unstable main contrib non-free\n" | sudo tee sources.list;
-		sudo apt update;;
-	
-	4 ) echo "Roll backup";
-		cd /etc/apt/;
-		sudo cp sources.list.bak sources.list -fv;
-		sudo apt update;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
 #Install Awesome, Compton and Xorg
 xorg(){
 echo ""
@@ -143,8 +110,8 @@ case "$option" in
 		sudo apt update;
 
 		echo "$cyan [AWESOME] $normie";
-        	wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
-	        sudo apt install awesome awesome-extra -y;
+        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
+	    sudo apt install awesome awesome-extra -y;
 		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
 
 		echo "$cyan [COMPTON] $normie";
@@ -157,7 +124,6 @@ case "$option" in
 esac
 echo
 }
-
 
 cpu(){
 	echo ""
@@ -176,27 +142,6 @@ cpu(){
 	fi
 }
 
-gpu(){
-	echo ""
-	echo "$cyan [CPU] $normie Detecting & Installing GPU firmware"
-	echo ""
-	if lspci | grep -qE 'VGA.*AMD'; then
-		echo "$green [O.K] Found AMD GPU $amd $normie Installing GPU Firmware"
-		echo ""
-		#sudo apt install __firmware__
-
-	elif lspci | grep -qE 'VGA.*NVIDIA'; then
-		echo "$green [O.K] Found NVIDIA GPU $amd $normie
-	Installing GPU Firmware"
-		echo "$red Sorry, haven't tested this on systems with NVIDIA GPU'S $normie 
-	https://wiki.debian.org/NvidiaxorgDrivers"
-
-	else
-		echo "$red[ERROR] GPU is not known... $normie"
-	fi
-}
-
-## Install Packages for the specific system i'm running
 packages(){
 echo ""
 read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Laptop $newline$magenta 2:$normie Workstation $newline$magenta 3:$normie Server $newline$magenta 4:$normie Minimal Server $newline$inputArrow" option
@@ -221,20 +166,6 @@ esac
 echo
 }
 
-# Install Pip & pipenv
-pip(){
-echo ""
-read -p "$cyan [Pipenv] $normie Install Pipenv? $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		echo "$cyan [Pip] $normie Installing Pip ";
-		sudo apt install pipenv;;
-	n|n|* ) echo "$red No $normie";;
-esac
-echo
-}
-
 ##Install Vim plugins?
 neovim(){
 echo ""
@@ -255,82 +186,10 @@ case "$option" in
 
 		pip3 install --upgrade neovim;
 		vim +PlugInstall +all;;
-		
 	n|n|* ) echo "$red No";;
 esac
 echo
 }
-
-##Install golang?
-golang(){
-echo ""
-read -p "$cyan [Golang] $normie Install Golang? $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		cd /tmp;
-		wget -q --prefer-family=ipv4 -O golang_tar $(curl -s https://golang.org/dl/ | egrep '<a class=\"download downloadBox\" href=\"([^\s]+[.linux\-amd64.tar.gz])' | grep linux | cut -d'"' -f 4)
-		tar xvf golang_tar;
-		sudo mv go /usr/local;;
-	n|n|* ) echo "$red No $normie";;
-esac
-echo
-}
-
-# THIRD-PARTY APPLICATIONS
-##Install Telegram
-telegram(){
-echo ""
-read -p "$cyan [Telegram] $normie Install Telegram?  $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		cd /tmp;
-		wget -q --prefer-family=ipv4 -O linux https://telegram.org/dl/desktop/linux;
-		tar xvf linux;
-		sudo mv Telegram /opt/Telegram;
-		sudo chown $USER:$USER /opt/Telegram -R;
-		sudo ln -fs /opt/Telegram/Telegram /bin/Telegram;
-		sudo ln -fs /opt/Telegram/Updater /bin/Updater;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
-##Install firefox
-firefox(){
-echo ""
-read -p "$cyan [Firefox] $normie Install Firefox?  $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie"; 
-		cd /tmp
-		wget -q --prefer-family=ipv4 -O firefax_tar https://download.mozilla.org/\?product\=firefox-latest-ssl\&os\=linux64\&lang\=en-US;
-		tar xvf firefax_tar;
-		sudo mv -f firefox /opt/;
-		sudo chown $USER:$USER /opt/firefox -R;
-		sudo ln -fs /opt/firefox/firefox /bin/firefox;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
-## Instal Discord
-discord(){
-echo ""
-read -p "$cyan[Discord] $normie Install Discord?  $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie"; 
-		cd /tmp
-		wget -q --prefer-family=ipv4 -O discord.deb https://dl.discordapp.net/apps/linux/0.0.5/discord-0.0.5.deb;
-		sudo dpkg -i discord.deb;
-		sudo apt install -fy;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
 
 ##Install Docker
 docker(){
@@ -367,136 +226,18 @@ esac
 echo
 }
 
-##Install Spotify?
-spotify(){
-echo ""
-read -p "$cyan [Spotify] $normie Install/Update Spotify? $newline$magenta 1:$normie Install $newline$magenta 2:$normie Update $newline$inputArrow" option
-echo ""
-case "$option" in
-	1 ) echo "$green Install $normie";
-		$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
-		echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list;
-		sudo apt update;
-		sudo apt install spotify-client -y;;
-
-	2 ) echo "Update";
-		$(wget -qO- https://www.spotify.com/no/download/linux | egrep 'recv-keys\s\w+');
-		sudo apt update;
-		sudo apt install spotify-client -y;;
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
-misc(){
-echo ""
-read -p "$cyan [Misc] $normie Rm Motd, and other tweaks...  ?  $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		sudo mv /etc/motd /etc/motd.back;
-		sudo chown $USER:$USER /home/$USER -R;;
-	n|N|*) echo "$red No $normie";;
-esac
-echo
-}
-
-usage(){
-echo ""
-	echo "--manual or -m | enables manual mode!$newline--auto or -a   | auto mode!$newline--help or -h   | shows this menu"
-exit 1
-}
-
 ### MAIN ###
+# TODO: MAke arch specific meny and vice versa for debian
+# TODO: clean configs.. setup auto git commit shit from each  system.
+# TODO: Automated Arch install
+# :thinking: Detect on uname hmm, or that migth be a bit shit..
 
-case $1 in
-	-h | --help )
-		motd
-		usage;;
-	-m | --manual )
-		motd
-		dotfiles
-		dotconfig
-        scripts
-		flavor
-		xorg
-		cpu
-		gpu
-		packages
-		pip
-		neovim
-		golang
-		discord
-		telegram
-		firefox
-		docker
-		docker_compose
-		spotify
-		misc;;
-
-	-a | --auto )
-		# tl;dr if anyone has a better way of doing this.. PLEASE MAKE A PULLREQUEST....THANKS!
-		if [ "$2" == "laptop" ]; then
-			motd
-			echo "y" | dotfiles
-			echo "y" | dotconfig
-			echo "2" | flavor
-			echo "y" | xorg
-			echo "1" | packages
-			echo "y" | pip
-			echo "y" | neovim
-			echo "y" | golang
-			echo "y" | telegram
-			ecoh "y" | discord
-			echo "y" | firefox
-			echo "1" | spotify
-			echo "y" | misc
-			cpu
-			gpu
-			exit 1
-		
-		elif [ "$2" == "workstation" ]; then
-			motd
-			echo "y" | dotfiles
-			echo "y" | dotconfig
-			echo "2" | flavor
-			echo "y" | xorg
-			echo "2" | packages
-			echo "y" | pip
-			echo "y" | neovim
-			echo "y" | golang
-			echo "y" | telegram
-			ecoh "y" | discord
-			echo "y" | firefox
-			echo "1" | spotify
-			echo "y" | misc
-			cpu
-			gpu
-			exit 1
-
-		elif [ "$2" == "server"  ]; then
-			motd
-			echo "y" | dotfiles
-			echo "y" | dotconfig
-			echo "1" | flavor
-			echo "3" | packages
-			echo "y" | pip
-			echo "y" | neovim
-			echo "y" | golang
-			echo "y" | misc
-			cpu
-			exit 1
-
-		elif [ "$2" == "minimal-server" ]; then
-			motd
-			echo "y" | dotfiles
-			echo "y" | dotconfig
-			echo "4" | packages
-			cpu
-			exit 1
-
-		else
-			echo "valid args are $newline $magenta laptop $newline $magenta workstation $newline $magenta server $newline $magenta minimal-server $normie"
-			exit 1
-		fi
-esac
+motd
+dotfiles
+dotconfig
+scripts
+packages
+cpu
+neovim
+docker
+docker_compose
