@@ -1,5 +1,5 @@
 # .dotfiles
-> My Personal collection of dotfiles, and dotconfigs.
+> My Personal collection of dotfiles, and dotconfigs. (In the works of porting to make it more usable on arch linux :) )
 
 ![](files/misc/wall.jpg)
 
@@ -13,15 +13,15 @@ git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash 
-./INSTALL.sh -h
+./INSTALL.sh
 ```
 
-### WAT
+### WAATTTT
 * confs
-	* files that goes into .config
+	* Files that is found in $HOME/.config
 * dots
-	* dotfiles, nuff said
+	* Dotfiles found in $HOME
 * misc
-	* misc files
+	* Misc files such as personal guides, wallpapers, and other..
 * scripts
-	* a small folder of scripts i use that migth come in handy....it migth..
+	* Scripts that i've made myself or i've got from friends, which is credited in the commits :)
