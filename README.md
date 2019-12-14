@@ -1,8 +1,11 @@
 # .dotfiles
 > My Personal collection of dotfiles, and dotconfigs. (In the works of porting to make it more usable on arch linux :) )
 
+Desktop Wallpaper
 ![](files/misc/wall.jpg)
 
+Lockscreen Wallpaper
+![](files/misc/lock.jpg)
 
 
 ## INSTALL
