@@ -10,6 +10,7 @@ normie=$'\e[0m'
 ## String Variables
 newline=$'\n'
 inputArrow=" ---> "
+packagemanager=""
 
 ## Directories
 dots=~/.dotfiles/files/dots/
@@ -24,7 +25,6 @@ scriptDetect=$(find $confs -maxdepth 1 -name '*.sh' ! -name 'scrips' ! -name '*.
 
 # create these dirs for later
 mkdir $HOME/gitclones 2>1
-mkdir $HOME/.jordeple 2>1
 mkdir $HOME/Projects 2>1
 mkdir $HOME/.ssh 2>1
 
@@ -99,6 +99,22 @@ case "$option" in
 esac
 echo
 }
+
+packManager(){
+echo ""
+read -p "$cyan [Package Manager] $normie What package manager ? $magenta y/n$normie $newline$inputArrow" option
+echo ""
+case "$option" in
+	arch) echo "ARCH LINUX YEEEEEEEEET";
+        packmanager="yay -S --noconfirm";
+        ;;
+	debian|deb) echo "DEEBIAN OLD MAN";
+        packagemanager="apt install -y";
+        ;;
+esac
+echo
+}
+
 
 #Install Awesome, Compton and Xorg
 xorg(){
