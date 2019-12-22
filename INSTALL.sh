@@ -10,6 +10,7 @@ normie=$'\e[0m'
 ## String Variables
 newline=$'\n'
 inputArrow=" ---> "
+packagemanager=""
 
 ## Directories
 dots=~/.dotfiles/files/dots/
@@ -33,7 +34,6 @@ packManager=""
 
 # create these dirs for later
 mkdir $HOME/gitclones 2>1
-mkdir $HOME/.jordeple 2>1
 mkdir $HOME/Projects 2>1
 mkdir $HOME/.ssh 2>1
 
@@ -115,6 +115,49 @@ esac
 echo
 }
 
+<<<<<<< HEAD
+=======
+packManager(){
+echo ""
+read -p "$cyan [Package Manager] $normie What package manager ? $magenta y/n$normie $newline$inputArrow" option
+echo ""
+case "$option" in
+	arch) echo "ARCH LINUX YEEEEEEEEET";
+        packmanager="yay -S --noconfirm";
+        ;;
+	debian|deb) echo "DEEBIAN OLD MAN";
+        packagemanager="apt install -y";
+        ;;
+esac
+echo
+}
+
+
+#Install Awesome, Compton and Xorg
+xorg(){
+echo ""
+read -p "$cyan [GUI] $normie Install Awesome,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
+echo ""
+case "$option" in
+	y|Y ) echo "$green Yes $normie";
+		sudo apt update;
+
+		echo "$cyan [AWESOME] $normie";
+        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
+	    sudo apt install awesome awesome-extra -y;
+		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
+
+		echo "$cyan [COMPTON] $normie";
+		sudo apt install compton -y;
+
+		echo "$cyan [XORG] $normie";
+		sudo apt install xorg -y;;
+
+	n|N|* ) echo "$red No $normie";;
+esac
+echo
+}
+>>>>>>> c0b321ccbdd0de254fc69fa8628010bc813625b5
 
 cpu(){
 	echo ""
