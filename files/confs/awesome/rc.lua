@@ -5,7 +5,6 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("keys")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -237,20 +236,15 @@ globalkeys = gears.table.join(
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
-        {description = "swap with next client by index", group = "client"}),
-
+              {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
-
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -288,6 +282,39 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
+
+
+    -- User programs
+        -- Laptopt Specific
+    awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 5 -fps 120",false) end),
+    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5 -fps 120",false) end),
+
+        -- Mediakeys
+    awful.key({}, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
+    awful.key({}, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
+    awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
+
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
+
+
+    awful.key({}, "XF86AudioStop", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
+    awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
+
+    awful.key({ modkey,           }, "r", function () awful.util.spawn("rofi -show run") end),
+
+    awful.key({ modkey,            }, "p", function () awful.util.spawn("kbsecretSauce") end),
+
+        -- No mediakeys, but it has a numpad :thinking:
+    awful.key({}, "KP_Subtract", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
+    awful.key({}, "KP_Add", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
+
+    awful.key({}, "KP_Left", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
+    awful.key({}, "KP_Begin", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
+    awful.key({}, "KP_Right", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
+
+    awful.key({}, "KP_Enter", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
+
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -520,3 +547,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+

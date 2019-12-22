@@ -22,6 +22,15 @@ dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -print
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
 scriptDetect=$(find $confs -maxdepth 1 -name '*.sh' ! -name 'scrips' ! -name '*.' -printf '%f ')
 
+# Misc vars
+# TODO: make use of strange variables
+#wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
+#sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
+packManager=""
+#dirExsists /home/$USER/.config/nvim/;
+#ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim; #  should be set by the symlink
+
+
 # create these dirs for later
 mkdir $HOME/gitclones 2>1
 mkdir $HOME/.jordeple 2>1
@@ -29,20 +38,20 @@ mkdir $HOME/Projects 2>1
 mkdir $HOME/.ssh 2>1
 
 motd(){
-#Ascii Logo <3
-echo ""
-echo "$magenta"
-echo '______      _                                       '
-echo '|  _  \    | |                                      '
-echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
-echo '| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
-echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
-echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
-echo '                    | |                             '
-echo '                    |_|                             '
-echo "$normie"
+    echo ""
+    echo "$magenta"
+    echo '______      _                                       '
+    echo '|  _  \    | |                                      '
+    echo '| | | |__ _| |_ __ _ _ __   ___  _ __   ____   ___  '
+    echo '| | | / _  | __/ _` |  _ \ / _ \|  __| |  _ \ / _ \ '
+    echo '| |/ / (_| | || (_| | |_) | (_) | | _  | | | | (_) |'
+    echo '|___/ \__,_|\__\__,_| .__/ \___/|_|(_) |_| |_|\___/ '
+    echo '                    | |                             '
+    echo '                    |_|                             '
+    echo "$normie"
 }
 
+# functions for checking if folder exists
 dirExsists(){
 echo ""
 	if [ -d $1 ]
@@ -63,7 +72,8 @@ case "$option" in
 	y|Y) echo "$green Yes $normie";
 		for dotfile in $dotsDetect; do
 			ln -svfn $dots$dotfile ~/$dotfile 2>/dev/null
-		done;;
+        done;
+        ;;
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
@@ -78,8 +88,9 @@ case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		dirExsists $HOME/.config
 		for dotconfig in $confsDetect; do
-			ln -svfn $confs$dotconfig ~/.config/$dotconfig
-		done;;
+			ln -svfn $confs$dotconfig ~/.config/$dotconfig;
+		done;
+        ;;
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
@@ -93,37 +104,17 @@ echo ""
 case "$option" in
 	y|Y ) echo "$green Yes $normie";
 		for sh in $scriptDetect; do
-			sudo ln -svfn $script$sh /bin/$sh
-		done;;
-	n|N|* ) echo "$red No $normie";;
+            chmod +x $sh # incase it's not executable it is now #MALWARE
+            noExt=$($sh | cut -d'.' -f1);
+			sudo ln -svfn $script$sh /bin/$noExt;
+        done;
+        ;;
+	n|N|* ) echo "$red No $normie"
+        ;;
 esac
 echo
 }
 
-#Install Awesome, Compton and Xorg
-xorg(){
-echo ""
-read -p "$cyan [GUI] $normie Install Awesome,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		sudo apt update;
-
-		echo "$cyan [AWESOME] $normie";
-        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
-	    sudo apt install awesome awesome-extra -y;
-		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
-
-		echo "$cyan [COMPTON] $normie";
-		sudo apt install compton -y;
-
-		echo "$cyan [XORG] $normie";
-		sudo apt install xorg -y;;
-
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
 
 cpu(){
 	echo ""
@@ -132,11 +123,11 @@ cpu(){
 	if grep -q "AMD" "/proc/cpuinfo"; then
 		echo "$green [O.K] Found AMD CPU $normie Installing CPU Firmware"
 		echo ""
-		sudo apt install amd64-microcode
+		sudo $packManager install amd64-microcode
 	elif grep -q "Intel" "/proc/cpuinfo" ; then
 		echo "$green [O.K] Found Intel CPU $normie Installing CPU Firmware"
 		echo ""
-		sudo apt install intel-microcode
+		sudo $packManager install intel-microcode
 	else
 		echo "$red[ERROR] CPU is not known... $normie"
 	fi
@@ -144,53 +135,24 @@ cpu(){
 
 packages(){
 echo ""
-read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Laptop $newline$magenta 2:$normie Workstation $newline$magenta 3:$normie Server $newline$magenta 4:$normie Minimal Server $newline$inputArrow" option
+read -p "$cyan [Packages] $normie What Packages? $newline$magenta 1:$normie Laptop $newline$magenta 2:$normie Workstation $newline$magenta 3:$normie Server $newline$magenta $newline$inputArrow" option
 echo ""
 case "$option" in
-	1 ) echo "$cyan Laptop $normie"; 
+	1 ) echo "$cyan Laptop $normie";
 		sudo apt install dunts rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr xbacklight wicd-curses firmware-iwlwifi ntfs-3g keepassx -y;
-		mkdir /etc/X11/xorg.conf.d -p;
-		sudo ln -sfvn $misc/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf;;
-
-	2 ) echo "$cyan Workstation $normie"; 
-		sudo apt install dunst rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;;
-
-	3 ) echo "$cyan Server $normie"; 
-		sudo apt install neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;;
-
-	4 ) echo "$cyan Minimal Server $normie";
-		sudo apt install neofetch screen tmux ntfs-3g -y;;
-
+        ;;
+	2 ) echo "$cyan Workstation $normie";
+		sudo apt install dunst rofi neofetch mpv screen pulseaudio pavucontrol tmux python3.7 python3.7-dev rxvt-unicode-256color moc dirmngr ntfs-3g keepassx -y;
+        ;;
+	3 ) echo "$cyan Server $normie";
+		sudo apt install neofetch screen tmux python3.7 python3.7-dev dirmngr ntfs-3g -y;
+        ;;
 	n|N|* ) echo "$red No $normie";;
 esac
 echo
 }
 
-##Install Vim plugins?
-neovim(){
-echo ""
-read -p "$cyan [Neovim] $normie Install Neovim & Vim Plug? $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "Yes";
-		echo "\n$cyan [Neovim] $normie Installing Neovim";
-		curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage;
-		chmod u+x nvim.appimage;
-		sudo mv nvim.appimage /opt;
-		sudo ln -sfvn /opt/nvim.appimage /bin/vim;
-		dirExsists /home/$USER/.config/nvim/;
-		ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim;
-
-		echo "\n$cyan [Plug] $normie Installing Vim Pluging Manager";
-		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
-
-		pip3 install --upgrade neovim;
-		vim +PlugInstall +all;;
-	n|n|* ) echo "$red No";;
-esac
-echo
-}
-
+# handy for non-arch systems
 ##Install Docker
 docker(){
 echo ""
@@ -211,6 +173,8 @@ esac
 echo
 }
 
+
+# handy for non-arch systems
 ##Install Docker-compose
 docker_compose(){
 echo ""
