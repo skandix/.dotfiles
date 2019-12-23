@@ -5,22 +5,24 @@ filetype plugin on
 " checks if plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  autocmd VimEnter * PlugInstall | source $HOME/.vimrc
+  autocmd VimEnter * +PlugInstall +all | source $HOME/.vimrc
 endif
 
 """ checks if n package is installed.
 function! s:Py3freeze(package)
     if empty(system("pip3 freeze | grep " . a:package))
         echo "Installing Package " . a:package
-        execute "!pip3 install " . a:package . " --user "
+        execute "!pip3 install " . a:package . " --user"
     else
         echo "Found " . a:package
     endif
 endfunction
 
 "" installing required python packages
-call s:Py3freeze("pynvim")
-call s:Py3freeze("jedi")
+"" TODO: make functions only run once... or something, give it a state of some sort to check
+"call s:Py3freeze("pynvim")
+"call s:Py3freeze("jedi")
+"call s:Py3freeze("neovim")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
@@ -32,6 +34,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 "" NERDtree
 Plug 'scrooloose/nerdtree'
+
+""" VERY  VERY HANDY
 Plug 'scrooloose/nerdcommenter'
 
 "" Fuzzy File Finder
@@ -46,9 +50,6 @@ Plug 'mhinz/vim-startify'
 "" Vim JSON
 Plug 'elzr/vim-json'
 
-"" Telling discord what i'm working on and how long i've been working on that specific thing.. super fancy
-Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
-
 "" Better Whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -58,7 +59,7 @@ Plug 'itchyny/lightline.vim'
 "" Async lint engine
 Plug 'w0rp/ale'
 
- Vim Gitgutter, shows diff in Vim
+"" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
@@ -68,9 +69,6 @@ Plug 'Rigellute/shades-of-purple.vim'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
-
-"" Distracton free
-Plug 'junegunn/goyo.vim'
 
 "" Deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

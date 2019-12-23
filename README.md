@@ -2,6 +2,7 @@
 > My Personal collection of dotfiles, and dotconfigs. (In the works of porting to make it more usable on arch linux :) )
 
 Desktop Wallpaper
+(c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
 ![](files/misc/wall.jpg)
 
 Lockscreen Wallpaper
