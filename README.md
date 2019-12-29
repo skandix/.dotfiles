@@ -6,6 +6,7 @@ Desktop Wallpaper
 ![](files/misc/wall.jpg)
 
 Lockscreen Wallpaper
+(c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
 ![](files/misc/lock.jpg)
 
 
