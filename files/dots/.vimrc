@@ -67,6 +67,9 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'sainnhe/vim-color-vanilla-cake'
 Plug 'Rigellute/shades-of-purple.vim'
 
+"" Wakatime, fancy graphs
+Plug 'wakatime/vim-wakatime'
+
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
