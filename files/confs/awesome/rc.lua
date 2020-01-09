@@ -258,7 +258,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
 
-    awful.key({ modkey, "Control", "Shift"           }, "p", function () awful.spawn("alacritty --command betterlockscreen -l blur") end,
+    awful.key({ modkey, "Control", "Shift"           }, "p", function () awful.spawn("alacritty --command betterlockscreen -l") end,
               {description = "lockscreen", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
@@ -547,4 +547,3 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
