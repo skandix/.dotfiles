@@ -115,8 +115,6 @@ esac
 echo
 }
 
-<<<<<<< HEAD
-=======
 packManager(){
 echo ""
 read -p "$cyan [Package Manager] $normie What package manager ? $magenta y/n$normie $newline$inputArrow" option
@@ -157,7 +155,6 @@ case "$option" in
 esac
 echo
 }
->>>>>>> c0b321ccbdd0de254fc69fa8628010bc813625b5
 
 cpu(){
 	echo ""
