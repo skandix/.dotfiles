@@ -6,7 +6,7 @@ export SSH_AUTH_SOCK
 picom &
 nm-applet &
 tp-battery-icon &
-volctl &
+pasystray &
 discord &
 bash .screenlayout/default.sh
 setxkbmap no &

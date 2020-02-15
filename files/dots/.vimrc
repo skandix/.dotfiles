@@ -20,6 +20,7 @@ endfunction
 
 "" installing required python packages
 "" TODO: make functions only run once... or something, give it a state of some sort to check
+
 "call s:Py3freeze("pynvim")
 "call s:Py3freeze("jedi")
 "call s:Py3freeze("neovim")
@@ -153,8 +154,8 @@ let g:startify_session_dir = '~/.vim/session'
 if &term =~ '256color'
   set t_ut=
 endif
-""" BEHAVE
 
+""" BEHAVE
 set wildmode=list:longest,full	" Show vim completion menu
 set encoding=utf-8				" encoding
 set undolevels=256				" how many times one can undo
