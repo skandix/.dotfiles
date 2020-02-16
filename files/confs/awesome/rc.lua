@@ -6,14 +6,19 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+local lain = require("lain")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -356,12 +361,24 @@ clientkeys = gears.table.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
+
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
             c:raise()
         end ,
         {description = "(un)maximize", group = "client"}),
+ -- On the fly useless gaps change
+    awful.key({ altkey, "Control" }, "+",
+        function ()
+            lain.util.useless_gaps_resize(1)
+        end,
+        {description = "increment useless gaps", group = "tag"}),
+    awful.key({ altkey, "Control" }, "-",
+        function ()
+            lain.util.useless_gaps_resize(-1)
+        end,
+        {description = "decrement useless gaps", group = "tag"}),
     awful.key({ modkey, "Control" }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
