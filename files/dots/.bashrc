@@ -26,7 +26,7 @@ alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skan
 if [ -f /usr/bin/pfetch ]; then pfetch -t; fi
 
 # Prompt
-export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;165m\]\h $(tput sgr0)\]\[\033[38;5;28m\]λ \[\033[38;5;15m\]"
+export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;165m\]\h $(tput sgr0)\]\[\033[38;5;28m\]λ \[\e[0m\]"
 
 # calculator
 alias calc="python3"
