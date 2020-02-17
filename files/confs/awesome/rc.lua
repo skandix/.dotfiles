@@ -66,7 +66,8 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+local modkey = "Mod4"
+local altkey       = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -307,10 +308,9 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
 
     awful.key({ modkey,           }, "r", function () awful.util.spawn("rofi -show run") end),
-
     awful.key({ modkey,            }, "p", function () awful.util.spawn("kbsecretSauce") end),
 
-        -- No mediakeys, but it has a numpad :thinking:
+    -- No mediakeys, but it has a numpad :thinking:
     awful.key({}, "KP_Subtract", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
     awful.key({}, "KP_Add", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
 
@@ -320,6 +320,17 @@ globalkeys = gears.table.join(
 
     awful.key({}, "KP_Enter", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
 
+
+    -- Show/Hide Wibox
+    awful.key({ modkey }, "b", function ()
+            for s in screen do
+                s.mywibox.visible = not s.mywibox.visible
+                if s.mybottomwibox then
+                    s.mybottomwibox.visible = not s.mybottomwibox.visible
+                end
+            end
+        end,
+        {description = "toggle wibox", group = "awesome"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -369,16 +380,6 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize", group = "client"}),
  -- On the fly useless gaps change
-    awful.key({ altkey, "Control" }, "+",
-        function ()
-            lain.util.useless_gaps_resize(1)
-        end,
-        {description = "increment useless gaps", group = "tag"}),
-    awful.key({ altkey, "Control" }, "-",
-        function ()
-            lain.util.useless_gaps_resize(-1)
-        end,
-        {description = "decrement useless gaps", group = "tag"}),
     awful.key({ modkey, "Control" }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
