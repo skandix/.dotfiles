@@ -14,7 +14,6 @@ eval `dircolors $HOME/.dircolors`
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias ..="cd .."
 alias ls='ls --color'
-alias vim='nvim '
 
 ## Games
 alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skandix/Application Data/Twitch/Bin/Twitch.exe"
