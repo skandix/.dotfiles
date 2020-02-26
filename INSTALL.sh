@@ -7,6 +7,9 @@ green=$'\e[1;32m'
 cyan=$'\e[1;36m'
 normie=$'\e[0m'
 
+## Clearing the terminal properly
+cls='printf "\033c"'
+
 ## String Variables
 newline=$'\n'
 inputArrow=" ---> "
@@ -25,9 +28,11 @@ scriptDetect=$(find $confs -maxdepth 1 -name '*.sh' ! -name 'scrips' ! -name '*.
 
 # Misc vars
 # TODO: make use of strange variables
+
 #wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
 #sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
 packManager=""
+
 #dirExsists /home/$USER/.config/nvim/;
 #ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim; #  should be set by the symlink
 
@@ -130,32 +135,6 @@ esac
 echo
 }
 
-
-#Install Awesome, Compton and Xorg
-xorg(){
-echo ""
-read -p "$cyan [GUI] $normie Install Awesome,compton & Xorg? $magenta y/n$normie $newline$inputArrow" option
-echo ""
-case "$option" in
-	y|Y ) echo "$green Yes $normie";
-		sudo apt update;
-
-		echo "$cyan [AWESOME] $normie";
-        wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
-	    sudo apt install awesome awesome-extra -y;
-		sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
-
-		echo "$cyan [COMPTON] $normie";
-		sudo apt install compton -y;
-
-		echo "$cyan [XORG] $normie";
-		sudo apt install xorg -y;;
-
-	n|N|* ) echo "$red No $normie";;
-esac
-echo
-}
-
 cpu(){
 	echo ""
 	echo "$cyan [CPU] $normie Detecting & Installing CPU firmware"
@@ -236,12 +215,40 @@ echo
 # TODO: Automated Arch install
 # :thinking: Detect on uname hmm, or that migth be a bit shit..
 
+
+show_menu() {
 motd
-dotfiles
-dotconfig
-scripts
-packages
-cpu
-neovim
-docker
-docker_compose
+echo "
+$cyan [MAIN] $normie What do you want to do? $newline$magenta
+$magenta 1: $normie dotfiles
+$magenta 2: $normie dotconfig
+$magenta 3: $normie scripts
+$magenta 4: $normie packManager
+$magenta 5: $normie cpu
+$magenta 6: $normie neovim
+$magenta 7: $normie docker
+$magenta 8: $normie docker-compose
+"
+}
+
+show_options() {
+echo ""
+read -p "$newline$inputArrow" option
+case "$option" in
+	1 ) echo "$cyan dotfiles $normie"; dotfiles; $cls;;
+	2 ) echo "$cyan dotconfig $normie"; dotconfig; $cls;;
+	3 ) echo "$cyan scripts $normie"; scripts; $cls;;
+	4 ) echo "$cyan packManager $normie"; packManager; $cls;;
+	5 ) echo "$cyan cpu $normie"; cpu; $cls;;
+	6 ) echo "$cyan neovim $normie"; neovim; $cls;;
+	7 ) echo "$cyan docker $normie"; docker; $cls;;
+	8 ) echo "$cyan docker-compose $normie"; docker_compose; $cls;;
+    q ) echo "$red Q U I T $normie"; exit;$cls;;
+esac
+}
+
+while true
+do
+    show_menu
+    show_options
+done
