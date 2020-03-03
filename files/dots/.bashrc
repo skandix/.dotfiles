@@ -1,10 +1,11 @@
 [[ $- == *i* ]] || return
 
-# Misc
-#export LC_CTYPE=en_GB.UTF-8
-
 # colors bash creds to lasseh
+
+# Misc
+export LC_CTYPE=en_GB.UTF-8
 export EDITOR=nvim
+export TERM=alacritty
 
 # Dircolors
 export LS_OPTIONS='--color=auto'
@@ -25,7 +26,9 @@ alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skan
 if [ -f /usr/bin/pfetch ];  then pfetch -t;  else cat /etc/motd; fi;
 
 # Prompt
-export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;165m\]\h $(tput sgr0)\]\[\033[38;5;28m\]λ \[\e[0m\]"
+# export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;165m\]\h $(tput sgr0)\]\[\033[38;5;28m\]λ \[\e[0m\]"
+export PS1="\u@\h λ "
+
 
 # calculator
 alias calc="python3"
