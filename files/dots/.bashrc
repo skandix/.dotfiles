@@ -5,7 +5,6 @@
 # Misc
 export LC_CTYPE=en_GB.UTF-8
 export EDITOR=nvim
-export TERM=alacritty
 
 # Dircolors
 export LS_OPTIONS='--color=auto'
