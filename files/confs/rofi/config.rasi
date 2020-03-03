@@ -7,7 +7,7 @@ font: "mono 11";
 bw: 1;
 location: 0;
 fixed-num-lines: true;
-terminal: "alacritty";
+terminal: "urxvt";
 ssh-client: "ssh";
 ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
 run-command: "{cmd}";
