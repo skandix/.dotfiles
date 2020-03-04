@@ -45,6 +45,9 @@ Plug 'kien/ctrlp.vim'
 "" Polyglot
 Plug 'sheerun/vim-polyglot'
 
+"" hjkl
+Plug 'vim-scripts/HJKL'
+
 "" Startscreen
 Plug 'mhinz/vim-startify'
 

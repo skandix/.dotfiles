@@ -149,7 +149,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "web", "terminal", "notepad", "programming", "email", "social", "misc", ""}, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -179,6 +179,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- simple way of getting battery stat
+    -- implment simple way of detecting if bat is present orrr nooot !
     local batman = awful.widget.watch('bash -c "cat /sys/class/power_supply/BAT0/capacity"', 15)
 
     -- Add widgets to the wibox
