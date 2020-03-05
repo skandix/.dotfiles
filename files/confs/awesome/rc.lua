@@ -483,7 +483,8 @@ awful.rules.rules = {
     { rule_any = {
         instance = {},
         class = {
-        "Tor Browser" -- Needs a fixed window size to avoid fingerprinting by screen size.
+        "Tor Browser",
+        "URxvt"
         },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
