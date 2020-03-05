@@ -10,15 +10,15 @@ urxvt*secondaryScroll: True
 urxvt*foreground: #ffffff
 urxvt*urlLauncher: firefox
 
-*.font: xft:Iosevka:style=Regular:size=8
-*.boldFont: xft:Iosevka:style=Bold:size=8
-*.italicFont: xft:Iosevka:style=Italic:size=8
-*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=8
+*.font: xft:Iosevka:style=Regular:size=15
+*.boldFont: xft:Iosevka:style=Bold:size=15
+*.italicFont: xft:Iosevka:style=Italic:size=15
+*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=15
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
-URxvt.geometry: 92x24
-URxvt.internalBorder: 14
+URxvt.geometry: 62x12
+URxvt.internalBorder: 26
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048
