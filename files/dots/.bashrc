@@ -1,9 +1,7 @@
 [[ $- == *i* ]] || return
 
-# colors bash creds to lasseh
 
 # Misc
-export LC_CTYPE=en_GB.UTF-8
 export EDITOR=nvim
 
 # Dircolors
@@ -30,4 +28,6 @@ if [ -f /usr/bin/pfetch ];  then pfetch -t;  else cat /etc/motd; fi;
 
 
 # calculator
-alias calc="python3"
+calc() {
+     echo $(("$1"))
+}
