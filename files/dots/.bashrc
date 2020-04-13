@@ -30,5 +30,5 @@ if [ -f /usr/bin/pfetch ];  then pfetch -t;  else cat /etc/motd; fi;
 
 # calculator
 calc() {
-     echo $(("$1"))
+    echo $(python -c 'print($1)')
 }

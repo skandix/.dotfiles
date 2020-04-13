@@ -9,9 +9,8 @@ picom &
 nm-applet &
 tp-battery-icon &
 pasystray &
-discord &
 xrdb -merge .Xresources &
 bash .screenlayout/default.sh &
 setxkbmap no &
-#xflux -l 58.283997 -g 8.712829 
+#xflux -l 58.283997 -g 8.712829
 exec awesome
