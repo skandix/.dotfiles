@@ -302,8 +302,8 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
 
 
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pamixer --increase 2; notify-send") end),
-    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pamixer --decrease 2; notify-send") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pamixer --increase 2") end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pamixer --decrease 2") end),
 
     awful.key({}, "XF86AudioStop", function () awful.util.spawn("pamixer --toggle-mute", false) end), -- for coolermaster Masterkeys Pro S keyboard
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
