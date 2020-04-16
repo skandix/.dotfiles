@@ -68,7 +68,7 @@ Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
-Plug 'sainnhe/vim-color-vanilla-cake'
+"Plug 'sainnhe/vim-color-vanilla-cake'
 Plug 'Rigellute/shades-of-purple.vim'
 
 "" Wakatime, fancy graphs

@@ -13,6 +13,7 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias ..="cd .."
 alias ls='ls --color'
 alias uiavpn='sudo openconnect vpn.uia.no --user bendid13@uia.no'
+alias grandma2='cd "/home/skandix/.wine/drive_c/Program Files/MA Lighting Technologies"'
 
 ## Games
 alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skandix/Application Data/Twitch/Bin/Twitch.exe"
