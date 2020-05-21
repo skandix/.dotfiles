@@ -42,6 +42,9 @@ Plug 'scrooloose/nerdcommenter'
 "" Fuzzy File Finder
 Plug 'kien/ctrlp.vim'
 
+"" Python snippets
+Plug 'sirver/ultisnips'
+
 "" Polyglot
 Plug 'sheerun/vim-polyglot'
 
@@ -68,7 +71,6 @@ Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
 Plug 'liuchengxu/space-vim-dark'
-"Plug 'sainnhe/vim-color-vanilla-cake'
 Plug 'Rigellute/shades-of-purple.vim'
 
 "" Wakatime, fancy graphs
@@ -76,6 +78,9 @@ Plug 'wakatime/vim-wakatime'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
+
+"" Tagbar
+Plug 'majutsushi/tagbar'
 
 "" Deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -213,6 +218,7 @@ function! s:CloseIfOnlyControlWinLeft()
 		q
 	endif
 endfunction
+
 augroup CloseIfOnlyControlWinLeft
 	au!
 	au BufEnter * call s:CloseIfOnlyControlWinLeft()

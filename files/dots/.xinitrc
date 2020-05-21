@@ -6,6 +6,7 @@ export SSH_AUTH_SOCK
 
 [[ -f ~/.screenlayout/default.sh ]] && sh ~/.screenlayout/default.sh
 picom &
+sh $HOME/.dotfiles/scripts/blanking.sh &
 nm-applet &
 tp-battery-icon &
 pasystray &
