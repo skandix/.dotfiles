@@ -1,24 +1,21 @@
-env:
-  # TERM variable
+#env:
   TERM: xterm-256color
 
 window:
-  # Window dimensions (changes require restart)
   dimensions:
-    columns: 150
-    lines: 40
-  # Window position (changes require restart)
+    columns: 55
+    lines: 10
+
   #position:
   #  x: 0
   #  y: 0
 
-  # Window padding (changes require restart)
-  padding:
-    x: 10
-    y: 10
+    padding:
+    x: 5
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -29,7 +26,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: none
+  decorations: full
 
   # Startup Mode (changes require restart)
   #
@@ -43,21 +40,19 @@ window:
   startup_mode: Windowed
 
   # Window title
-  title: ¯\_(ツ)_/¯
+  title: Alacritty
 
   # Window class (Linux only):
-  #class: Alacritty
+  class: Alacritty
 
 scrolling:
   history: 10000
-  multiplier: 3
 
-# Font configuration (changes require restart)
+  multiplier: 3
 font:
-  # Normal (roman) font face
   normal:
-    family: monospace
-    #style: Regular
+   family: DejaVu Sans Mono
+   #style: Regular
 
   #bold:
     #family: monospace
@@ -66,6 +61,7 @@ font:
 
   #italic:
     #family: monospace
+
     #style: Italic
 
   size: 10.0
@@ -77,11 +73,11 @@ font:
   glyph_offset:
     x: 0
     y: 0
+
   use_thin_strokes: true
 
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
 colors:
   primary:
     background: '0x000000'
@@ -91,6 +87,9 @@ colors:
     #bright_foreground: '0xffffff'
 
   #cursor:
+  #  text: '0x000000'
+  #  cursor: '0xffffff'
+
   #selection:
   #  text: '0xeaeaea'
   #  background: '0x404040'
@@ -117,54 +116,23 @@ colors:
     cyan:    '0x54ced6'
     white:   '0xffffff'
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
   #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
   indexed_colors: []
+
 visual_bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
-
+background_opacity: 0.9
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
-  # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: false
+  hide_when_typing: true
 
   url:
     launcher:
@@ -174,13 +142,14 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
-  save_to_clipboard: false
-
+  save_to_clipboard: true
 dynamic_title: true
 
 cursor:
   style: Beam
   unfocused_hollow: true
+
+# Live config reload (changes require restart)
 live_config_reload: true
 
 #shell:
@@ -188,15 +157,10 @@ live_config_reload: true
 #  args:
 #    - --login
 
-# Startup directory
-#
-# Directory the shell is started in. If this is unset, or `None`, the working
-# directory of the parent process will be used.
 working_directory: None
 
 enable_experimental_conpty_backend: false
 
-# Send ESC (\x1b) before characters when alt is pressed.
 alt_send_esc: true
 
 debug:
@@ -205,8 +169,10 @@ debug:
   persistent_logging: false
   log_level: Warn
 
+  # Print all received window events.
   print_events: false
 
+  # Record all characters and escape sequences as test data.
   ref_test: false
 
 key_bindings:

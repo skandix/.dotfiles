@@ -57,7 +57,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -301,11 +301,11 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
 
-    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
 
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pamixer --increase 2") end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pamixer --decrease 2") end),
 
-    awful.key({}, "XF86AudioStop", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end), -- for coolermaster Masterkeys Pro S keyboard
+    awful.key({}, "XF86AudioStop", function () awful.util.spawn("pamixer --toggle-mute", false) end), -- for coolermaster Masterkeys Pro S keyboard
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end),
 
     awful.key({ modkey,           }, "r", function () awful.util.spawn("rofi -show run") end),
@@ -484,7 +484,7 @@ awful.rules.rules = {
         instance = {},
         class = {
         "Tor Browser",
-        "URxvt"
+        "Alacritty"
         },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client

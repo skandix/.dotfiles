@@ -15,6 +15,7 @@ newline=$'\n'
 inputArrow=" ---> "
 packagemanager=""
 
+
 ## Directories
 dots=~/.dotfiles/files/dots/
 confs=~/.dotfiles/files/confs/

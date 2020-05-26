@@ -1,9 +1,7 @@
 [[ $- == *i* ]] || return
 
-# colors bash creds to lasseh
 
 # Misc
-export LC_CTYPE=en_GB.UTF-8
 export EDITOR=nvim
 
 # Dircolors
@@ -14,6 +12,9 @@ eval `dircolors $HOME/.dircolors`
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias ..="cd .."
 alias ls='ls --color'
+alias uiavpn='sudo openconnect vpn.uia.no --user bendid13@uia.no'
+#alias grandma2='cd "/home/skandix/.wine/drive_c/Program Files/MA Lighting Technologies"'
+alias grandma2='cd "/home/skandix/.local/share/wineprefixes/ma3d/dosdevices/c:"'
 
 ## Games
 alias updateAddon="wine /home/skandix/Games/world-of-warcraft/drive_c/users/skandix/Application Data/Twitch/Bin/Twitch.exe"
@@ -30,4 +31,6 @@ if [ -f /usr/bin/pfetch ];  then pfetch -t;  else cat /etc/motd; fi;
 
 
 # calculator
-alias calc="python3"
+calc() {
+    echo $(python -c 'print($1)')
+}
