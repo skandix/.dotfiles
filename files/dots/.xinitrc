@@ -13,5 +13,6 @@ pasystray &
 xrdb -merge .Xresources &
 bash .screenlayout/default.sh &
 setxkbmap no &
+source .profile &
 #xflux -l 58.283997 -g 8.712829
 exec awesome

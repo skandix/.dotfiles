@@ -82,15 +82,6 @@ Plug 'cohama/lexima.vim'
 "" Tagbar
 Plug 'majutsushi/tagbar'
 
-"" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-jedi'
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#statement_length = 5
-let g:deoplete#sources#jedi#enable_typeinfo = 0
-
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required

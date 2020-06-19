@@ -18,7 +18,7 @@ git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash 
-./INSTALL.sh
+./CONFIG
 ```
 
 ### WAATTTT
