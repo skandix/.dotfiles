@@ -94,8 +94,7 @@ echo ""
 echo "$cyan [Scripts] $normie Symlink scripts"
 echo ""
 for sh in $scriptDetect; do
-    noExt=$($sh | cut -d'.' -f1)
-    sudo ln -svfn $script$sh /usr/bin/$noExt
+    sudo ln -svfn $script$sh /usr/bin/$sh
 done;
 read
 echo
