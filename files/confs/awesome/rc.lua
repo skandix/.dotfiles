@@ -183,7 +183,7 @@ awful.screen.connect_for_each_screen(function(s)
     local batman = awful.widget.watch('bash -c "cat /sys/class/power_supply/BAT0/capacity"', 15)
 
     -- Add widgets to the wibox
-    local spacer = wibox.widget.textbox('  |  ')
+    local spacer = wibox.widget.textbox(' ')
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets

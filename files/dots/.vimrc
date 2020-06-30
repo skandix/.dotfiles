@@ -70,8 +70,7 @@ Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 
 "" Colorscheme
-Plug 'liuchengxu/space-vim-dark'
-Plug 'Rigellute/shades-of-purple.vim'
+Plug 'altercation/vim-colors-solarized'
 
 "" Wakatime, fancy graphs
 Plug 'wakatime/vim-wakatime'
@@ -125,7 +124,6 @@ nnoremap <BS> X
 nnoremap <Leader>w :write <CR>
 nnoremap <Leader>x :xit <CR>
 nnoremap <Leader>q :quit <CR>
-
 nnoremap <Leader>b :!python3 %<CR>
 
 """" Splitting Keybinds
@@ -137,11 +135,9 @@ nnoremap <C-H> <C-W><C-H>
 
 
 """ ligthline config
-let g:shades_of_purple_lightline = 1
-let g:lightline = { 'colorscheme': 'shades_of_purple' }
-
 syntax enable
-colorscheme shades_of_purple
+set background=light
+colorscheme solarized
 
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE

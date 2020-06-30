@@ -1,3 +1,15 @@
 [user]
 	email = bendik.dyrli@uia.no
 	name = Bendik Egenes Dyrli
+[core]
+    editor = vim  # Change to whatever you want your default git editor to be
+[color]
+    status = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+[pretty]
+    pretty-history = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+[alias]
+    commit = commit -s
+    quicklog = log --pretty=format:'%Cblue%h %Cred%cD %Creset%cn %Cgreen%s%Creset' --date-order --graph
