@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
-dbus-update-activation-environment --systemd DISPLAY
+dbus-update-activation-environment --systemd DISPLAY # Dbus
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) # Keyring
 export SSH_AUTH_SOCK
 
-[[ -f ~/.screenlayout/default.sh ]] && sh ~/.screenlayout/default.sh
-picom &
-sh $HOME/.dotfiles/scripts/blanking.sh &
-nm-applet &
-tp-battery-icon &
-pasystray &
-xrdb -merge .Xresources &
-bash .screenlayout/default.sh &
-setxkbmap no &
-source .profile &
-#xflux -l 58.283997 -g 8.712829
-exec awesome
+[[ -f ~/.screenlayout/default.sh ]] && sh ~/.screenlayout/default.sh # If xrandr script exists, run that
+picom & # Compositor
+sh $HOME/.dotfiles/scripts/blanking.sh & # Script for make sure that the screen doesn't go blank
+nm-applet & # network manager applet sysicon
+tp-battery-icon & # batttery sysicon
+pasystray & # pulseaudio sysicon
+#bash .screenlayout/default.sh & 
+setxkbmap no & # Set norwegian keyboard layout
+#xflux -l 58.283997 -g 8.712829 # flux for linux to make screen more warmer 
+exec awesome # Start AwesomeWM <3

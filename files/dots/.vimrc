@@ -20,10 +20,9 @@ endfunction
 
 "" installing required python packages
 "" TODO: make functions only run once... or something, give it a state of some sort to check
-
-"call s:Py3freeze("pynvim")
-"call s:Py3freeze("jedi")
-"call s:Py3freeze("neovim")
+call s:Py3freeze("pynvim")
+call s:Py3freeze("jedi")
+call s:Py3freeze("neovim")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
@@ -36,7 +35,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 "" NERDtree
 Plug 'scrooloose/nerdtree'
 
-""" VERY  VERY HANDY
+""" VERY  VERY HANDY Commenter Plugin
 Plug 'scrooloose/nerdcommenter'
 
 "" Fuzzy File Finder
@@ -139,6 +138,11 @@ syntax enable
 set background=light
 colorscheme solarized
 
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+
+let g:lightline = {'colorscheme': 'seoul256',}
+
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
@@ -218,8 +222,8 @@ let g:ale_use_deprecated_neovim = 1
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
-""" unbinde the fucking arrow keys
-" noremap <Up> <Nop>
-" noremap <Down> <Nop>
-" noremap <Left> <Nop>
-" noremap <Right> <Nop>
+""" unbinde the fucking arrow keys also they are broken on my cooler master keyboard ;_;
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
