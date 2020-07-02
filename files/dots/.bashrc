@@ -22,7 +22,7 @@ alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 # pfetch or motd
-if [ -f /usr/bin/pfetch ];  then pfetch -t;  else cat /etc/motd; fi;
+if [ -f /usr/bin/pfetch ];  then pfetch -t;  else echo ""; fi;
 
 # Prompt
 export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;165m\]\h $(tput sgr0)\]\[\033[38;5;28m\]λ \[\e[0m\]"
