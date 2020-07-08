@@ -1,3 +1,6 @@
+*.tdb
+*-default-sink
+*-default-source
 softmixer
 files/dots/.moc/last_directory
 files/dots/.moc/cache/
