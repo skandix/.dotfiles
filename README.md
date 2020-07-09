@@ -1,5 +1,5 @@
 # .dotfiles
-> My Personal collection of dotfiles, and dotconfigs. (In the works of porting to make it more usable on arch linux :) )
+> My Personal collection of dotfiles.
 
 Desktop Wallpaper
 (c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
@@ -12,12 +12,12 @@ Lockscreen Wallpaper
 
 ## INSTALL
 ```bash
-apt install git curl
 git clone https://github.com/skandix/.dotfiles.git
 ```
 
 ## USAGE
 ```bash 
+cd .dotfiles
 ./CONFIG
 ```
 
