@@ -178,9 +178,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    -- simple way of getting battery stat
-    -- implment simple way of detecting if bat is present orrr nooot !
-    local batman = awful.widget.watch('bash -c "cat /sys/class/power_supply/BAT0/capacity"', 15)
 
     -- Add widgets to the wibox
     local spacer = wibox.widget.textbox(' ')
@@ -483,8 +480,7 @@ awful.rules.rules = {
     { rule_any = {
         instance = {},
         class = {
-        "Tor Browser",
-        "Alacritty"
+        "Tor Browser"
         },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client

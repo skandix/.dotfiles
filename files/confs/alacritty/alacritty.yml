@@ -5,8 +5,8 @@ env:
 window:
   # Window dimensions (changes require restart)
   dimensions:
-    columns: 150
-    lines: 40
+    columns: 80
+    lines: 10
   # Window position (changes require restart)
   #position:
   #  x: 0
@@ -15,7 +15,7 @@ window:
   # Window padding (changes require restart)
   padding:
     x: 10
-    y: 10
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -58,7 +58,7 @@ font:
   normal:
     family: monospace
 
-  size: 10.0
+  size: 7.0
 
   offset:
     x: 0
@@ -67,9 +67,9 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: true
+  use_thin_strokes: false
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 schemes:
   # Colors (Solarized Light)
@@ -93,7 +93,7 @@ schemes:
       blue:    '#268bd2' # blue
       magenta: '#d33682' # magenta
       cyan:    '#2aa198' # cyan
-      white:   '#eee8d5' # base2
+      white:   '#ff22ff' # base2
 
     # Bright colors
     bright:
@@ -140,7 +140,7 @@ schemes:
       cyan:    '#93a1a1' # base1
       white:   '#fdf6e3' # base3
 
-colors: *dark
+colors: *light
 
 visual_bell:
   animation: EaseOutExpo
@@ -151,7 +151,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+background_opacity: 0.8
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -178,8 +178,7 @@ selection:
 
   save_to_clipboard: false
 
-dynamic_title: true
-
+dynamic_title: false # you don't know what i'm doing ;)
 cursor:
   style: Beam
   unfocused_hollow: true
@@ -205,12 +204,9 @@ alt_send_esc: true
 
 debug:
   render_timer: false
-
   persistent_logging: false
   log_level: Warn
-
   print_events: false
-
   ref_test: false
 
 key_bindings:
