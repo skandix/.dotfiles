@@ -12,7 +12,7 @@ files/dots/.moc/playlist.m3u
 .moc/last_directory
 .moc/pid
 .moc/playlist.m3u
-tmp
-!/home/skandix/.dotfiles/files/dots/.tmux/plugins/*
+!tmp
+files/dots/.tmux/plugins/*
 
 
