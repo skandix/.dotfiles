@@ -12,3 +12,8 @@ files/dots/.moc/playlist.m3u
 .moc/last_directory
 .moc/pid
 .moc/playlist.m3u
+tmux-continuum
+tmux-online-status
+tmux-resurrect
+tmux-sensible
+tmux-yank
