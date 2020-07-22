@@ -20,12 +20,18 @@ endfunction
 
 "" installing required python packages
 "" TODO: make functions only run once... or something, give it a state of some sort to check
-call s:Py3freeze("pynvim")
-call s:Py3freeze("jedi")
-call s:Py3freeze("neovim")
+"call s:Py3freeze("pynvim")
+"call s:Py3freeze("jedi")
+"call s:Py3freeze("neovim")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
+"" Rust Vim
+Plug 'rust-lang/rust.vim'
+
+"" Vim Terminal
+Plug 'vimlab/split-term.vim'
+
 "" NERDtree tabs
 Plug 'jistr/vim-nerdtree-tabs'
 

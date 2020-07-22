@@ -5,17 +5,16 @@ env:
 window:
   # Window dimensions (changes require restart)
   dimensions:
-    columns: 80
-    lines: 10
+    columns: 100
+    lines: 0
   # Window position (changes require restart)
   #position:
   #  x: 0
   #  y: 0
-
   # Window padding (changes require restart)
   padding:
-    x: 10
-    y: 4
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -54,11 +53,10 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
   normal:
     family: monospace
 
-  size: 7.0
+  size: 9.0
 
   offset:
     x: 0
@@ -68,79 +66,35 @@ font:
     x: 0
     y: 0
   use_thin_strokes: false
-
 draw_bold_text_with_bright_colors: false
 
-schemes:
-  # Colors (Solarized Light)
-  solarized_light: &light
-    # Default colors
-    primary:
-      background: '#fdf6e3' # base3
-      foreground: '#657b83' # base00
+colors:
+  # Default colors
+  primary:
+    background: '#263238'
+    foreground: '#eeffff'
 
-    # Cursor colors
-    cursor:
-      text:   '#fdf6e3' # base3
-      cursor: '#657b83' # base00
+  # Normal colors
+  normal:
+    black: '#000000' # Arbitrary
+    red: '#e53935'
+    green: '#91b859'
+    yellow: '#ffb62c'
+    blue: '#6182b8'
+    magenta: '#ff5370' # Dark pink of the original material theme
+    cyan: '#39adb5'
+    white: '#a0a0a0' # Arbitrary
 
-    # Normal colors
-    normal:
-      black:   '#073642' # base02
-      red:     '#dc322f' # red
-      green:   '#859900' # green
-      yellow:  '#b58900' # yellow
-      blue:    '#268bd2' # blue
-      magenta: '#d33682' # magenta
-      cyan:    '#2aa198' # cyan
-      white:   '#ff22ff' # base2
-
-    # Bright colors
-    bright:
-      black:   '#002b36' # base03
-      red:     '#cb4b16' # orange
-      green:   '#586e75' # base01
-      yellow:  '#657b83' # base00
-      blue:    '#839496' # base0
-      magenta: '#6c71c4' # violet
-      cyan:    '#93a1a1' # base1
-      white:   '#fdf6e3' # base3
-
-  # Colors (Solarized Dark)
-  solarized_dark:  &dark
-    # Default colors
-    primary:
-      background: '#002b36' # base03
-      foreground: '#839496' # base0
-
-    # Cursor colors
-    cursor:
-      text:   '#002b36' # base03
-      cursor: '#839496' # base0
-
-    # Normal colors
-    normal:
-      black:   '#073642' # base02
-      red:     '#dc322f' # red
-      green:   '#859900' # green
-      yellow:  '#b58900' # yellow
-      blue:    '#268bd2' # blue
-      magenta: '#d33682' # magenta
-      cyan:    '#2aa198' # cyan
-      white:   '#eee8d5' # base2
-
-    # Bright colors
-    bright:
-      black:   '#002b36' # base03
-      red:     '#cb4b16' # orange
-      green:   '#586e75' # base01
-      yellow:  '#657b83' # base00
-      blue:    '#839496' # base0
-      magenta: '#6c71c4' # violet
-      cyan:    '#93a1a1' # base1
-      white:   '#fdf6e3' # base3
-
-colors: *light
+  # Bright colors
+  bright:
+    black: '#4e4e4e' # Arbitrary
+    red: '#ff5370'
+    green: '#c3e88d'
+    yellow: '#ffcb6b'
+    blue: '#82aaff'
+    magenta: '#f07178' # Pink of the original material theme
+    cyan: '#89ddff'
+    white: '#ffffff' # Arbitrary
 
 visual_bell:
   animation: EaseOutExpo
@@ -151,7 +105,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.9
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -183,14 +137,12 @@ cursor:
   style: Beam
   unfocused_hollow: true
 
-
 live_config_reload: true
 
 #shell:
 #  program: /bin/bash
 #  args:
 #    - --login
-
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
@@ -210,15 +162,35 @@ debug:
   ref_test: false
 
 key_bindings:
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
 
-  - { key: Paste,                    action: Paste                            }
-  - { key: Copy,                     action: Copy                             }
-  - { key: L,         mods: Control, action: ClearLogNotice                   }
-  - { key: L,         mods: Control, chars: "\x0c"                            }
-  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\f" }
+  - {
+      key: PageUp,
+      mods: Shift,
+      action: ScrollPageUp,
+      mode: ~Alt
+    }
+  - {
+      key: PageDown,
+      mods: Shift,
+      action: ScrollPageDown,
+      mode: ~Alt
+    }
+  - {
+      key: Home,
+      mods: Shift,
+      action: ScrollToTop,
+      mode: ~Alt
+    }
+  - {
+      key: End,
+      mods: Shift,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
