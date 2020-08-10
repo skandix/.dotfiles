@@ -96,11 +96,6 @@ colors:
     cyan: '#89ddff'
     white: '#ffffff' # Arbitrary
 
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
-  color: '0xffffff'
-
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
@@ -132,7 +127,6 @@ selection:
 
   save_to_clipboard: false
 
-dynamic_title: false # you don't know what i'm doing ;)
 cursor:
   style: Beam
   unfocused_hollow: true
