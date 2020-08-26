@@ -23,7 +23,8 @@ misc=~/.dotfiles/files/misc/
 # Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
-scriptDetect=$(find $script -maxdepth 1 -name '*.sh' ! -name 'script' ! -name '*.' -printf '%f ')
+#scriptDetect=$(find $script -maxdepth 1 -name '*.sh' -name '*.py' ! -name 'script' ! -name '*.' -printf '%f ')
+scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -name 'script' ! -name '*.' -printf '%f ')
 
 #wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
 #sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
