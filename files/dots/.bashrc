@@ -15,7 +15,7 @@ alias ls='ls --color'
 alias uiavpn='sudo openconnect vpn.uia.no --user bendid13@uia.no'
 alias grandma2='cd "/home/skandix/.local/share/wineprefixes/ma3d/dosdevices/c:"'
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
-
+alias java8="/usr/lib/jvm/java-8-openjdk/bin/java"
 
 
 # Auto complete
