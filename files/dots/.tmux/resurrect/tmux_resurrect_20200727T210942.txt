@@ -1,0 +1,4 @@
+pane	0	0	:bash	1	:*	0	:/home/skandix/gitclones/nannou/examples	1	bash	:
+pane	0	0	:bash	1	:*	1	:/home/skandix/gitclones/nannou/examples/draw	0	nvim	:nvim draw.rs
+window	0	0	1	:*	2869,319x87,0,0{159x87,0,0,0,159x87,160,0,2}
+state	0	
