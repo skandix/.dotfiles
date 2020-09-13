@@ -47,9 +47,6 @@ Plug 'scrooloose/nerdcommenter'
 "" Fuzzy File Finder
 Plug 'kien/ctrlp.vim'
 
-"" Python snippets
-Plug 'sirver/ultisnips'
-
 "" Polyglot
 Plug 'sheerun/vim-polyglot'
 
@@ -74,9 +71,8 @@ Plug 'w0rp/ale'
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
-"" Colorscheme
-Plug 'altercation/vim-colors-solarized'
-
+"" colors
+Plug 'ParamagicDev/vim-medic_chalk'
 "" Wakatime, fancy graphs
 Plug 'wakatime/vim-wakatime'
 
@@ -141,8 +137,7 @@ nnoremap <C-H> <C-W><C-H>
 
 """ ligthline config
 syntax enable
-set background=light
-colorscheme solarized
+colorscheme medic_chalk
 
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
