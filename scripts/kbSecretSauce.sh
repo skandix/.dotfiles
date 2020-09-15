@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-name=$(cat /proc/sys/kernel/random/uuid).jpg
-
-dir=/home/skandix/Pictures/screenshot
-localFile="$(deepin-screenshot -s $dir 2>&1 --no-notification | grep "savepath2" | cut -d\" -f2)"
-
-echo $localFile
+uuid=$(cat /proc/sys/kernel/random/uuid)
+dir=$HOME/Pictures/screenshot
+localFile="$(deepin-screen-recorder -s $dir 2>&1 --no-notification | grep "saveFilePath" | cut -d\" -f 2)"
+screenshot_ext=${localFile#*.}
+name="$dir/$uuid.$screenshot_ext"
+fileName="$uuid.$screenshot_ext"
+cp "$localFile" "$name"
 scp -q $name loot:/var/www/html/loot
-echo http://datapor.no/loot/$name | xclip
-
-
-#xclip -selection clipboard -t image/png -i $localFile
+echo http://datapor.no/loot/$fileName | xclip
