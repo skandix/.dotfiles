@@ -41,6 +41,9 @@ bindsym KP_Right exec --no-startup-id dbus-send --print-reply --dest=org.mpris.M
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 -fps 120
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -fps 120
 
+# screenshot
+bindsym $mod+p exec --no-startup-id kbSecretSauce.sh
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
