@@ -7,4 +7,4 @@ name="$dir/$uuid.$screenshot_ext"
 fileName="$uuid.$screenshot_ext"
 cp "$localFile" "$name"
 scp -q $name loot:/var/www/html/loot
-echo http://datapor.no/loot/$fileName | xclip
+echo http://loot.datapor.no/$fileName | xclip

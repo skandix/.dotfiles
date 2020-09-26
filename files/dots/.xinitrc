@@ -13,4 +13,4 @@ pasystray & # pulseaudio sysicon
 bash .screenlayout/default.sh &
 setxkbmap no & # Set norwegian keyboard layout
 #xflux -l 58.283997 -g 8.712829 # flux for linux to make screen more warmer
-exec awesome
+exec i3
