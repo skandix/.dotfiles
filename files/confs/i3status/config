@@ -23,7 +23,7 @@ order += "tztime local"
 
 # When things are not live i don't want to see it ! 
 wireless _first_ {
-        format_up = "q: (%quality at %essid %bitrate) %ip"
+        format_up = "(%quality at %essid %bitrate) %ip"
         format_down = ""
 }
 
@@ -38,12 +38,12 @@ ethernet _first_ {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining %emptytime"
+        format = "%status %percentage ETA: %emptytime"
         format_down = ""
-        status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
-        status_unk = "? UNK"
-        status_full = "☻ FULL"
+        status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "UNK"
+        status_full = "FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
