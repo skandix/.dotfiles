@@ -12,14 +12,11 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # Mediakeys (Pamixer don't allow boosting by default ! )
 bindsym XF86AudioRaiseVolume exec --no-startup-id  pamixer --increase 5 && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id  pamixer --decrease 5 && $refresh_i3status
-
 ## fucking coolermaster don't have mute button
 bindsym XF86AudioStop exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-
 ## Muting the Microphone with the pause button, should give a visual feedback when muted though !
 bindsym Pause exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 ## NEXT,PLAYPAUSE,PREV SPOTIFY
 bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -100,6 +97,9 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
+# Urgent windows like awsmwm
+bindsym $mod+u [urgent=latest] focus
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -112,6 +112,13 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# window Specific Settings
+for_window [class="Spotify"] move to workspace $ws2
+for_window [class="Pavucontrol"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -137,7 +144,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# simulate the 
+# simulate the window switch from awsmwm
 bindsym $mod+o move container to output up
 
 # reload the configuration file
@@ -173,10 +180,23 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Escape workspace back_and_forth
+
+
 bar {
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #ff00ff
+
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
         position top
         #status_command i3block
         status_command i3status
