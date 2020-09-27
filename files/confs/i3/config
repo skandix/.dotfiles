@@ -23,12 +23,16 @@ bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mp
 bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # No mediakeys, but it has a numpad :thinking:
+
 ## Mute
 bindsym KP_Enter exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
 ## LOUDER
 bindsym KP_Subtract exec --no-startup-id pamixer --decrease 5  
+
 ## LOWER
 bindsym KP_Add  exec --no-startup-id pamixer --increase 5  
+
 ## NEXT,PLAYPAUSE,PREV SPOTIFY
 bindsym KP_Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym KP_Begin exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -86,7 +90,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # rofi boi
-bindsym Mod1+space exec rofi -show run
+bindsym $mod+r exec rofi -show run
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -178,9 +182,9 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+x mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+x mode "resize"
 
 bindsym $mod+Escape workspace back_and_forth
 
@@ -198,7 +202,6 @@ bar {
         binding_mode       #2f343a #900000 #ffffff
     }
         position top
-        #status_command i3block
         status_command i3status
         tray_output primary
         font pango:DejaVu Sans Mono 10

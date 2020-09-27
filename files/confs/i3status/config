@@ -16,9 +16,8 @@ order += "ipv6"
 order += "ethernet _first_"
 order += "volume"
 order += "battery 0"
-# order += "disk /"
-# order += "load"
-# order += "memory"
+order += "disk /"
+order += "memory"
 order += "tztime local"
 
 
@@ -51,11 +50,11 @@ battery 0 {
 
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%d-%m-%Y %H:%M:%S"
 }
 
 memory {
-        format = "%used | %available"
+        format = "RAM: %used | %available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
@@ -67,7 +66,7 @@ volume master {
 }
 
 disk "/" {
-        format = "%avail"
+        format = "C:/ %avail"
 }
 
 read_file uptime {
