@@ -1,5 +1,5 @@
 # get a random background image
-exec --no-startup-id feh --randomize --bg-scale $HOME/.dotfiles/files/misc/bg/*
+exec --no-startup-id feh --randomize --bg-fill $HOME/.dotfiles/files/misc/bg/*
 
 set $mod Mod4
 font pango:DejaVu Sans Mono 8
@@ -23,16 +23,12 @@ bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mp
 bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # No mediakeys, but it has a numpad :thinking:
-
 ## Mute
 bindsym KP_Enter exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 ## LOUDER
-bindsym KP_Subtract exec --no-startup-id pamixer --decrease 5  
-
+bindsym KP_Subtract exec --no-startup-id pamixer --decrease 5
 ## LOWER
-bindsym KP_Add  exec --no-startup-id pamixer --increase 5  
-
+bindsym KP_Add  exec --no-startup-id pamixer --increase 5
 ## NEXT,PLAYPAUSE,PREV SPOTIFY
 bindsym KP_Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym KP_Begin exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -44,6 +40,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 -fps 120
 
 # screenshot
 bindsym $mod+p exec --no-startup-id kbSecretSauce.sh
+
+# locker
+bindsym Insert exec --no-startup-id xsecurelock
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -122,10 +121,6 @@ for_window [class="Spotify"] move to workspace $ws2
 for_window [class="Pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [class="PuTTY Configuration"] floating enable
-for_window [class="PuTTY"] floating enable
-for_window [class="putty"] floating enable
-
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -213,5 +208,5 @@ bar {
 }
 
 # Avoid title bar on windows, don't want to waste to much space
-new_window 1pixel 
+new_window 1pixel
 
