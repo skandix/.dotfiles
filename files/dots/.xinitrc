@@ -8,7 +8,6 @@ export SSH_AUTH_SOCK
 picom & # Compositor
 sh $HOME/.dotfiles/scripts/blanking.sh & # Script for make sure that the screen doesn't go blank
 nm-applet & # network manager applet sysicon
-tp-battery-icon & # batttery sysicon
 pasystray & # pulseaudio sysicon
 bash .screenlayout/default.sh &
 setxkbmap no & # Set norwegian keyboard layout

@@ -122,6 +122,9 @@ for_window [class="Spotify"] move to workspace $ws2
 for_window [class="Pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [class="PuTTY Configuration"] floating enable
+for_window [class="PuTTY"] floating enable
+for_window [class="putty"] floating enable
 
 
 # switch to workspace
