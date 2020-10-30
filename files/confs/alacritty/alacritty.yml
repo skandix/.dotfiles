@@ -68,39 +68,77 @@ font:
   use_thin_strokes: false
 draw_bold_text_with_bright_colors: false
 
+
+
 colors:
   # Default colors
   primary:
-    background: '#263238'
-    foreground: '#eeffff'
+    background: '#18191E'
+    foreground: '#FFEE79'
+  
+  selection:
+    text:       '#FF4D00'
+    background: '#090B26'
+
+  # Cursor colors
+  cursor:
+    text:       '#18191E'
+    cursor:     '#FFFF00'
 
   # Normal colors
   normal:
-    black: '#000000' # Arbitrary
-    red: '#e53935'
-    green: '#91b859'
-    yellow: '#ffb62c'
-    blue: '#6182b8'
-    magenta: '#ff5370' # Dark pink of the original material theme
-    cyan: '#39adb5'
-    white: '#a0a0a0' # Arbitrary
+    black:      '#18191E'
+    red:        '#FC2929'
+    green:      '#44B273'
+    yellow:     '#E25600'
+    blue:       '#1D918B'
+    magenta:    '#D16BB7'
+    cyan:       '#00BFA4'
+    white:      '#CCCCCC'
 
   # Bright colors
   bright:
-    black: '#4e4e4e' # Arbitrary
-    red: '#ff5370'
-    green: '#c3e88d'
-    yellow: '#ffcb6b'
-    blue: '#82aaff'
-    magenta: '#f07178' # Pink of the original material theme
-    cyan: '#89ddff'
-    white: '#ffffff' # Arbitrary
+    black:      '#21252D'
+    red:        '#FF5050'
+    green:      '#50C16E'
+    yellow:     '#ED722E'
+    blue:       '#47A8A1'
+    magenta:    '#D68EB2'
+    cyan:       '#5AD1AA'
+    white:      '#FFFADE'
+# colors:
+  # Default colors
+  # primary:
+  #  background: '#263238'
+  #  foreground: '#eeffff'
+
+  # Normal colors
+  # normal:
+  # black: '#000000' # Arbitrary
+  #  red: '#e53935'
+  # green: '#91b859'
+  #  yellow: '#ffb62c'
+  #  blue: '#6182b8'
+  #  magenta: '#ff5370' # Dark pink of the original material theme
+  #  cyan: '#39adb5'
+  #  white: '#a0a0a0' # Arbitrary
+
+  # Bright colors
+  # bright:
+  # black: '#4e4e4e' # Arbitrary
+  #  red: '#ff5370'
+  #  green: '#c3e88d'
+  #  yellow: '#ffcb6b'
+  #  blue: '#82aaff'
+  #  magenta: '#f07178' # Pink of the original material theme
+  #  cyan: '#89ddff'
+  #  white: '#ffffff' # Arbitrary
 
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+background_opacity: 1.0
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }

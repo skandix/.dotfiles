@@ -18,6 +18,7 @@ order += "volume"
 order += "battery 0"
 order += "disk /"
 order += "memory"
+order += "uptime"
 order += "tztime local"
 
 
@@ -55,7 +56,7 @@ tztime local {
 
 memory {
         format = "RAM: %used | %available"
-        threshold_degraded = "1G"
+        threshold_degraded = "1M"
         format_degraded = "MEMORY < %available"
 }
 
