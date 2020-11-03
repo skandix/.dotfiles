@@ -46,7 +46,6 @@ frame_width = 2
 [shortcuts]
 close = ctrl+space
 close_all = ctrl+shift+space
-history = shift+space
 
 # Context menu.
 context = ctrl+shift+period
