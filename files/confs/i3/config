@@ -1,4 +1,4 @@
-# SET 
+# SET
 set $mod Mod4
 set $term alacritty
 
