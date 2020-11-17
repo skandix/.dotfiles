@@ -1,6 +1,6 @@
 # SET
 set $mod Mod4
-set $term alacritty
+set $term urxvt
 
 # get a random background image
 exec --no-startup-id feh --randomize --bg-fill $HOME/.dotfiles/files/misc/bg/*
