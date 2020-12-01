@@ -27,7 +27,7 @@ export PS1="\[$(tput bold)\]\[\033[38;5;162m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]
 
 # Functions 
 vim_or_nvim() {
-    if command -v nvim
+    if command -v nvim &> /dev/null
     then
         nvim
     else
