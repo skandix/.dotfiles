@@ -6,6 +6,6 @@ localFile="$($software -s $dir 2>&1 --no-notification | grep "saveFilePath" | cu
 screenshot_ext=${localFile#*.}
 name="$dir/$uuid.$screenshot_ext"
 fileName="$uuid.$screenshot_ext"
-cp "$localFile" "$name"
-scp -q $name loot:/var/www/html/loot
+cp -v "$localFile" "$name"
+scp -vvv  $name loot:/var/www/html/loot
 echo http://loot.datapor.no/$fileName | xclip
