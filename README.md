@@ -1,14 +1,8 @@
 # .dotfiles
 > My Personal collection of dotfiles.
 
-Desktop Wallpaper
+Wallpaper Credz
 (c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
-![](files/misc/wall.jpg)
-
-Lockscreen Wallpaper
-(c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
-![](files/misc/lock.jpg)
-
 
 ## INSTALL
 ```bash
