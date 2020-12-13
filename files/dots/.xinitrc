@@ -12,7 +12,6 @@ export XSECURELOCK_SHOW_DATETIME=1
 export XSECURELOCK_AUTH_BACKGROUND_COLOR=rgb:1,0,1
 export XSECURELOCK_AUTH_WARNING_COLOR=rgb:1,0,0
 
-
 [[ -f ~/.screenlayout/default.sh ]] && sh ~/.screenlayout/default.sh # If xrandr script exists, run that
 picom & # Compositor
 sh $HOME/.dotfiles/scripts/blanking.sh & # Script for make sure that the screen doesn't go blank
@@ -21,5 +20,5 @@ pasystray & # pulseaudio sysicon
 bash .screenlayout/default.sh &
 setxkbmap no & # Set norwegian keyboard layout
 dunst & #notification manager
-#xflux -l 58.283997 -g 8.712829 # flux for linux to make screen more warmer
+
 exec i3

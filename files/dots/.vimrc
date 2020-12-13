@@ -67,9 +67,6 @@ Plug 'airblade/vim-gitgutter'
 "" colors
 Plug 'ParamagicDev/vim-medic_chalk'
 
-"" Wakatime, fancy graphs
-Plug 'wakatime/vim-wakatime'
-
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 

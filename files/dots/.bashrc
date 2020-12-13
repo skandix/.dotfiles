@@ -34,3 +34,4 @@ vim_or_nvim() {
         vim
     fi
 }
+source "$HOME/.cargo/env"
