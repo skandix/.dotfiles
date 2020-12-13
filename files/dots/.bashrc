@@ -1,5 +1,6 @@
 #[[ $- == *i* ]] || return
 
+# vim keys in bash
 set -o vi
 
 # Dircolors
