@@ -1,4 +1,4 @@
-#[[ $- == *i* ]] || return
+[[ $- == *i* ]] || return
 
 # Dircolors
 export LS_OPTIONS='--color=auto'

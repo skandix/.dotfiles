@@ -6,19 +6,15 @@ label=
 instance=0
 interval=5
 
-[space]
-label=C:/ 
-instance=/
-interval=30
-
-[memory]
-label=RAM: 
-instance=mem;used
-interval=30
-
-[cpu]
-label=CPU: 
+[DISK]
+command=df -h / | awk '/\//{ printf("C:/ %4s/%s \n", $4, $2) }'
 interval=2
+color=#C9E3DB
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf("RAM:%5s/%s \n", $3, $2) }'
+interval=1
+color=#FEC925
 
 # Guess the weather hourly
 [weather]
@@ -28,7 +24,7 @@ color=#A4C2F4
 
 # Query my default IP address only on startup
 [ip]
-command=hostname -i | awk '{ print "IP:" $1 }'
+command=ip route get 8.8.8.8 |grep src | cut -d' ' -f7
 interval=once
 color=#91E78B
 
@@ -37,9 +33,6 @@ command=$HOME/.dotfiles/scripts/cointicker.sh
 interval=5
 color=#f7931a
 
-# Update time every 5 seconds
-[time]
-command=date +%T
-interval=5
-
-
+[TIME_DATE]
+command=date +" %a, %d %b - %H:%M:%S "
+interval=1
