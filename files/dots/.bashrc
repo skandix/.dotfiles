@@ -1,8 +1,5 @@
 #[[ $- == *i* ]] || return
 
-# vim keys in bash
-set -o vi
-
 # Dircolors
 export LS_OPTIONS='--color=auto'
 eval `dircolors $HOME/.dircolors`

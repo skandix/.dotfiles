@@ -188,7 +188,7 @@ bar {
         binding_mode       #2f343a #900000 #ffffff
     }
         position top
-        status_command i3status
+        status_command i3blocks
         tray_output primary
         font pango:DejaVu Sans Mono 10
         separator_symbol " λ "
