@@ -16,7 +16,7 @@ alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 # pfetch or motd
-if [ -f /usr/bin/pfetch ];  then pfetch -t;  else echo ""; fi;
+if [ -f /usr/bin/pfetch ];  then pfetch -t;  else echo "need to install pfetch"; fi;
 
 # Prompt
 export PS1="\u@\h λ "
@@ -30,4 +30,3 @@ vim_or_nvim() {
         vim
     fi
 }
-source "$HOME/.cargo/env"
