@@ -12,6 +12,9 @@ alias ip='ip -c'
 alias vim=vim_or_nvim
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 
+# pywal
+(cat ~/.cache/wal/sequences &)
+
 # Auto complete
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
