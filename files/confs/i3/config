@@ -5,7 +5,9 @@ set $screen flameshot gui
 set $lock xsecurelock
 
 # get a random background image
-exec --no-startup-id feh --randomize --bg-fill $HOME/.dotfiles/files/misc/bg/*
+#exec --no-startup-id feh --randomize --bg-fill $HOME/.dotfiles/files/misc/bg/*
+
+exec --no-startup-id wal -i $HOME/.dotfiles/files/misc/bg
 
 font pango:DejaVu Sans Mono 8
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
