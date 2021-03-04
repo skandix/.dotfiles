@@ -1,5 +1,6 @@
 #/usr/bin/env bash
 
+# Skandix Symlink script
 ## Color Variables
 magenta=$'\e[1;35m'
 red=$'\e[1;31m'
@@ -23,21 +24,13 @@ misc=~/.dotfiles/files/misc/
 # Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
 confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -printf '%f ')
-#scriptDetect=$(find $script -maxdepth 1 -name '*.sh' -name '*.py' ! -name 'script' ! -name '*.' -printf '%f ')
 scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -name 'script' ! -name '*.' -printf '%f ')
 
-#wallpapers=$(ls $misc/wallpapers | shuf | head -n 1)
-#sudo ln -svfn $misc/wallpapers/$wallpapers /usr/share/awesome/themes/default/background.png;
-
-#dirExsists /home/$USER/.config/nvim/;
-#ln -fvsn /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim; #  should be set by the symlink
-
-
 # create these dirs for later
-mkdir $HOME/gitclones 2>1
-mkdir $HOME/Projects 2>1
+mkdir -p $HOME/Projects/{We,CTF,Python,Rust,Go,Misc} 2>1
 mkdir $HOME/.ssh 2>1
 
+# gotta have a cool motd
 motd(){
     echo ""
     echo "$magenta"
@@ -81,35 +74,34 @@ dotconfig(){
 echo ""
 echo "$cyan [DotConfigs] $normie Symlink dotconfig"
 echo ""
-dirExsists $HOME/.config
-for dotconfig in $confsDetect; do
-    ln -svfn $confs$dotconfig ~/.config/$dotconfig
+    dirExsists $HOME/.config
+    for dotconfig in $confsDetect; do
+        ln -svfn $confs$dotconfig ~/.config/$dotconfig
 done;
 read
 echo
 }
 
-
+# symlink scripts from scripts folder to /usr/bin/<name_of_script>
 scripts(){
 echo ""
 echo "$cyan [Scripts] $normie Symlink scripts"
 echo ""
-for sh in $scriptDetect; do
-    sudo ln -svfn $script$sh /usr/bin/$sh
-done;
+    for sh in $scriptDetect; do
+        sudo ln -svfn $script$sh /usr/bin/$sh
+    done;
 read
 echo
 }
 
-
 show_menu() {
-motd
-echo "
-$cyan [MAIN] $normie What do you want to do? $newline$magenta
-$magenta 1: $normie dotfiles
-$magenta 2: $normie dotconfig
-$magenta 3: $normie scripts
-"
+    motd
+    echo "
+    $cyan [MAIN] $normie What do you want to do? $newline$magenta
+    $magenta 1: $normie dotfiles
+    $magenta 2: $normie dotconfig
+    $magenta 3: $normie scripts
+    "
 }
 
 show_options() {
@@ -122,6 +114,8 @@ case "$option" in
     q ) echo "$red Q U I T $normie"; exit;$cls;;
 esac
 }
+
+### MAIN ###
 
 while true
 do
