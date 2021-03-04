@@ -200,7 +200,7 @@ bar {
 bindsym $mod+t bar mode toggle
 
 # Avoid title bar on windows, don't want to waste to much space
-new_window 1pixel
+default_border pixel 1
 
 # APPS
 exec --no-startup-id slack
