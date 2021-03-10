@@ -34,7 +34,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 "" NERDtree
 Plug 'scrooloose/nerdtree'
 
-""" VERY  VERY HANDY Commenter Plugin
+""" VERY VERY HANDY Commenter Plugin
 Plug 'scrooloose/nerdcommenter'
 
 "" Fuzzy File Finder
@@ -174,7 +174,7 @@ set expandtab
 set wildmenu            		" visual autocomplete for command men
 set hlsearch            		" highlight matches
 set autoread 					" checks if file has changed externally
-set showcmd             		" show command in bottom bar
+set showcmd                     " show command in bottom bar
 set number              		" show line numbers
 set rnu							" Relative line numbering
 
@@ -190,18 +190,18 @@ autocmd StdinReadPre * let s:std_in=1
 
 " Close vim if nerdtree is only buffer left when :q
 function! s:CloseIfOnlyControlWinLeft()
-	if winnr("$") != 1
-		return
-	endif
-	if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-				\ || &buftype == 'quickfix'
-		q
-	endif
+    if winnr("$") != 1
+        return
+    endif
+    if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+                \ || &buftype == 'quickfix'
+        q
+    endif
 endfunction
 
 augroup CloseIfOnlyControlWinLeft
-	au!
-	au BufEnter * call s:CloseIfOnlyControlWinLeft()
+    au!
+    au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
 
 """ ALE (taken from lasseh .vimrc)

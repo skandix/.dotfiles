@@ -10,7 +10,6 @@ alias ..="cd .."
 alias ls='ls --color'
 alias ip='ip -c'
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
-alias k="kubectl "
 
 # pywal
 (cat ~/.cache/wal/sequences &)
@@ -23,4 +22,7 @@ source <(kubectl completion bash)
 if [ -f /usr/bin/pfetch ];  then pfetch -t;  else echo "need to install pfetch"; fi;
 
 # Prompt
+if [ -z ${LOLCAT_SEED+x} ]; then LOLCAT_SEED=1; else let "LOLCAT_SEED += 1"; fi
+
 export PS1="[\t] \u@\h λ "
+

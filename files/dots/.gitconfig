@@ -1,6 +1,6 @@
 [user]
 	email = bendik.dyrli@uia.no
-	name = Bendik Egenes Dyrli
+	name = Bendik Dyrli
 [core]
     editor = vim  # Change to whatever you want your default git editor to be
 [color]

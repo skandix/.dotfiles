@@ -20,5 +20,4 @@ pasystray & # pulseaudio sysicon
 bash .screenlayout/default.sh &
 setxkbmap no & # Set norwegian keyboard layout
 dunst & #notification manager
-
 exec i3

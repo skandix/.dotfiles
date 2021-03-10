@@ -31,7 +31,7 @@ interval=1
 color=#FEC925
 
 [IP]
-command=ip route get 8.8.8.8 |grep src | cut -d' ' -f7
+command=ip route get 1.1.1.1 |grep src | cut -d' ' -f7
 interval=once
 color=#91E78B
 

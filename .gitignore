@@ -1,5 +1,5 @@
-.tmux/resurrect/
 1
+.tmux/resurrect/
 *.tdb
 *-default-sink
 *-default-source
