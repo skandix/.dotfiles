@@ -27,7 +27,7 @@ confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -pr
 scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -name 'script' ! -name '*.' -printf '%f ')
 
 # create these dirs for later
-mkdir -p $HOME/Projects/{We,CTF,Python,Rust,Go,Misc} 2>1
+mkdir -p $HOME/Projects/{Web,CTF,Python,Rust,Go,Misc} 2>1
 mkdir $HOME/.ssh 2>1
 
 # gotta have a cool motd
