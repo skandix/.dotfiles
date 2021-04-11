@@ -38,4 +38,4 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", type=str, help="who are you looking for?")
     args = parser.parse_args()
-    showPerson(args.search)
+    showPerson(args.s)

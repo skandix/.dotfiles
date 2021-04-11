@@ -34,6 +34,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 "" NERDtree
 Plug 'scrooloose/nerdtree'
 
+"" Discord nvim
+Plug 'vimsence/vimsence'
+
 """ VERY VERY HANDY Commenter Plugin
 Plug 'scrooloose/nerdcommenter'
 
