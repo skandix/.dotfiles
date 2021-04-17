@@ -1,6 +1,10 @@
 # .dotfiles
 > My Personal collection of dotfiles.
 
+## Archived
+this repo is archived in change of moving to nixos
+https://github.com/skandix/.nix-conf
+
 Wallpaper Credz
 (c) Lily Aarseth - https://www.instagram.com/lilyaarseth/
 
