@@ -1,0 +1,23 @@
+max-items 0
+browser /usr/bin/xdg-open
+reload-threads 5
+auto-reload yes
+reload-time 300
+prepopulate-query-feeds yes
+
+# unbind defaults
+unbind-key ENTER
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+# vim style movement
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+# home/end
+unbind-key g
+bind-key g home
+unbind-key G
+bind-key G end

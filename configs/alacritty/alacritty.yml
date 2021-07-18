@@ -1,0 +1,111 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 75
+    lines: 0
+  padding:
+    x: 15
+    y: 15
+  dynamic_padding: false
+  decorations: none
+  startup_mode: Windowed
+
+  title: ¯\_(ツ)_/¯
+class:
+  general: ¯\_(ツ)_/¯
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  #normal:
+  #family: Fira Code Mono
+
+  size: 8.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+  use_thin_strokes: false
+draw_bold_text_with_bright_colors: false
+
+# Colors (Horizon Dark)
+colors:
+  # Primary colors
+  primary:
+    background: "0x1c1e26"
+    foreground: "0xe0e0e0"
+
+  # Normal colors
+  normal:
+    black: "0x16161c"
+    red: "0xe95678"
+    green: "0x29d398"
+    yellow: "0xfab795"
+    blue: "0x26bbd9"
+    magenta: "0xee64ac"
+    cyan: "0x59e1e3"
+    white: "0xd5d8da"
+
+  # Bright colors
+  bright:
+    black: "0x5b5858"
+    red: "0xec6a88"
+    green: "0x3fdaa4"
+    yellow: "0xfbc3a7"
+    blue: "0x3fc4de"
+    magenta: "0xf075b5"
+    cyan: "0x6be4e6"
+    white: "0xd5d8da"
+
+background_opacity: 1.0
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: false
+
+cursor:
+  style: Beam
+  unfocused_hollow: true
+
+live_config_reload: true
+working_directory: None
+enable_experimental_conpty_backend: false
+alt_send_esc: true
+
+debug:
+  render_timer: false
+  persistent_logging: false
+  log_level: Warn
+  print_events: false
+  ref_test: false
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\f" }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
