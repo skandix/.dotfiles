@@ -2,7 +2,7 @@
 set $mod Mod4
 set $term alacritty
 set $screen flameshot gui
-set $lock dm-tool lock
+set $lock xsecurelock
 
 ### FONT ###
 font pango:Fira Code Retina 8

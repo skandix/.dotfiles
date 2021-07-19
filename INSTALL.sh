@@ -1,15 +1,40 @@
 #!/usr/bin/env sh
 
-list_pkgs(){
-    #cat ./pkgs/$1
-    echo "$(cat ./pkgs/$1)"
-}
+# Before this
+## Enable multilb
+
+git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
+makepkg -si
+
+# Blackarch stuff
+curl -O https://blackarch.org/strap.sh
+echo edf8a85057ea49dce21eea429eb270535f3c5f9a strap.sh | sha1sum -c
+chmod +x strap.sh
+sudo ./strap.sh
+
+base="alacritty pfetch bash-completion dunst feh moc youtube-dl picom-git rofi tmux newsboat xorg xorg-xinit xorg-server gnome-keyring xsecurelock"
+docker="docker docker-compose"
+fonts="nerd-fonts-fira-code noto-fonts-emoji"
+nvidia=" nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader"
+games="lutris wine-staging minecraft-launcher multimc5 steam"
+k8s="kubectl lens"
+nfc_tools="mfoc-git mfcuk-git"
+network_manager="network-manager-applet networkmanager networkmanager-openvpn"
+obs_studio="obs-studio-git obs-linuxbrowser"
+openvpn="openvpn"
+pulseaudio="pulseaudio blueman bluez bluez-utils pamixer pasystray"
+wireguard="wireguard-arch wireguard-tools"
+cli="zip unzip unrar p7zip screen go jq wget git ncdu termdown htop xclip minicom ffmpeg keybase mkdocs mkdocs-material-pymdownx-extras mkdocs-material"
+ctf_tools="ghidra-darcula sonic-visualiser volatility-3 hexedit strace ltrace msitools"
+gui="slack-desktop discord telegram-desktop-bin teams signal-desktop-beta zoom spotify plex-media-player mpv firefox-extension-bitwarden firefox torbrowser-launcher obsidian visual-studio-code-bin sublime-text-4 pavucontrol peek flameshot i3-wm i3blocks arandr"
+net_tools="traceroute nmap wireshark-qt tcpdump speedtest-cli gnu-netcat"
+python="neovim python-pip python-pipenv binwalk"
 
 TheOrville(){
-    a+=list_pkgs docker
-    a+=list_pkgs fonts
-    printf '%b\n' "$a"
-
+    packages="$base $docker $fonts $nvidia $games $network_manager $obs_studio $openvpn $pulseaudio $wireguard $cli $ctf_tools $gui $net_tools $python"
+    echo $packages
+    sudo yay -S $packages
 }
 
 TheOrville

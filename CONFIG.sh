@@ -16,10 +16,10 @@ newline=$'\n'
 inputArrow=" ---> "
 
 ## Directories
-dots=~/.dotfiles/files/dots/
-confs=~/.dotfiles/files/confs/
+dots=~/.dotfiles/dotfiles/
+confs=~/.dotfiles/configs/
 script=~/.dotfiles/scripts/
-misc=~/.dotfiles/files/misc/
+misc=~/.dotfiles/misc/
 
 # Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
@@ -28,6 +28,7 @@ scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -nam
 
 # create these dirs for later
 mkdir -p $HOME/Projects/{Web,CTF,Python,Rust,Go,Misc} 2>1
+mkdir -p $HOME/Pictures/screenshot 2>1
 mkdir $HOME/.ssh 2>1
 
 # gotta have a cool motd
@@ -101,6 +102,7 @@ show_menu() {
     $magenta 1: $normie dotfiles
     $magenta 2: $normie dotconfig
     $magenta 3: $normie scripts
+    $magenta 4: $normie All!
     "
 }
 
@@ -111,6 +113,7 @@ case "$option" in
 	1 ) echo "$cyan dotfiles $normie"; dotfiles; $cls;;
 	2 ) echo "$cyan dotconfig $normie"; dotconfig; $cls;;
 	3 ) echo "$cyan scripts $normie"; scripts; $cls;;
+    3 ) echo "$cyan All! $normie"; dotfiles && dotconfig && scripts; $cls;;
     q ) echo "$red Q U I T $normie"; exit;$cls;;
 esac
 }
