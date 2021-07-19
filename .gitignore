@@ -4,17 +4,16 @@
 *-default-sink
 *-default-source
 softmixer
-files/dots/.moc/last_directory
-files/dots/.moc/cache/
-files/dots/.moc/pid
-files/dots/.moc/playlist.m3u
-/files/dots/.vim/plugged/*
+.dotfiles/dotfiles/.moc/last_directory
+.dotfiles/dotfiles/.moc/cache/
+.dotfiles/dotfiles/.moc/pid
+.dotfiles/dotfiles/.moc/playlist.m3u
+.dotfiles/dotfiles/.vim/plugged/*
 *.swp
 .moc/cache/*
 .moc/last_directory
 .moc/pid
 .moc/playlist.m3u
 
-files/dots/.tmux/plugins/*
-!files/dots/.tmux/plugins/tmp
-
+.dotfiles/dotfiles/.tmux/plugins/*
+!.dotfiles/dotfiles/.tmux/plugins/tmp

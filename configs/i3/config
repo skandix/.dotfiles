@@ -66,7 +66,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+spabattery-polyace to output up
+bindsym $mod+Shift+space floating toggle
+
+mode "move ws" {
+ bindsym k move workspace to output up
  bindsym j move workspace to output down
  bindsym h move workspace to output left
  bindsym l move workspace to output right
@@ -89,7 +92,12 @@ bindsym $mod+u [urgent=latest] focus
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
-set $ws3 "3"battery-poly
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
@@ -162,16 +170,16 @@ bar {
 default_border pixel 1
 
 # autostart
-exec --no-startup-id picom
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id dunst
-exec --no-startup-id pasystray
+#exec --no-startup-id picom
+#exec --no-startup-id nm-applet
+#exec --no-startup-id blueman-applet
+#exec --no-startup-id dunst
+#exec --no-startup-id pasystray
 
 # Scripts to run on startup
 exec --no-startup-id blanking
 exec --no-startup-id /home/skandix/.screenlayout/default.sh
-exec --no-startup-id /home/skandix/.dotfiles/scripts/rnd_bg.sh
+exec --no-startup-id /home/skandix/.nix-conf/users/skandix/confs/i3/rnd_bg.sh
 
 # window Specific Settings
 #for_window [class="Slack"] move to workspace $ws10
