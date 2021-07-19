@@ -29,7 +29,7 @@ scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -nam
 # create these dirs for later
 mkdir -p $HOME/Projects/{Web,CTF,Python,Rust,Go,Misc} 2>1
 mkdir -p $HOME/Pictures/screenshot 2>1
-mkdir $HOME/.ssh 2>1
+mkdir  $HOME/.ssh 2>1
 
 # gotta have a cool motd
 motd(){
@@ -98,11 +98,14 @@ echo
 show_menu() {
     motd
     echo "
-    $cyan [MAIN] $normie What do you want to do? $newline$magenta
+$cyan [MAIN] $normie What do you want to do? $newline$magenta
     $magenta 1: $normie dotfiles
     $magenta 2: $normie dotconfig
     $magenta 3: $normie scripts
-    $magenta 4: $normie All!
+    $magenta 4: $normie install pkgs
+    $magenta 5: $normie All!
+
+    $red q: $normie QUIT!
     "
 }
 
@@ -113,7 +116,8 @@ case "$option" in
 	1 ) echo "$cyan dotfiles $normie"; dotfiles; $cls;;
 	2 ) echo "$cyan dotconfig $normie"; dotconfig; $cls;;
 	3 ) echo "$cyan scripts $normie"; scripts; $cls;;
-    3 ) echo "$cyan All! $normie"; dotfiles && dotconfig && scripts; $cls;;
+    4 ) echo "$cyan install pkgs $normie"; bash ./INSTALL.sh; $cls;;
+    5 ) echo "$cyan All! $normie"; bash ./INSTALL.sh && dotfiles && dotconfig && scripts; $cls;;
     q ) echo "$red Q U I T $normie"; exit;$cls;;
 esac
 }
