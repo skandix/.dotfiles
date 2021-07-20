@@ -1,5 +1,3 @@
-[[ $- == *i* ]] || return
-
 # Dircolors
 export LS_OPTIONS='--color=auto'
 eval `dircolors $HOME/.dircolors`
@@ -15,10 +13,6 @@ alias nf='a=$(pwd);cd && cd .dotfiles && vim && cd $a'
 
 # pywal
 (cat ~/.cache/wal/sequences &)
-
-# Auto complete
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
-source <(kubectl completion bash)
 
 # pfetch or motd
 if [ -f /usr/bin/pfetch ];  then pfetch -t;  else echo "need to install pfetch"; fi;
