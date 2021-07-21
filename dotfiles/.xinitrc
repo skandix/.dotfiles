@@ -15,10 +15,9 @@ export XSECURELOCK_AUTH_WARNING_COLOR=rgb:1,0,0
 [[ -f ~/.screenlayout/default.sh ]] && sh ~/.screenlayout/default.sh # If xrandr script exists, run that
 picom & # Compositor
 sh $HOME/.dotfiles/scripts/blanking.sh & # Script for make sure that the screen doesn't go blank
-sh $HOME/.dotfiles/scripts/rnd_bg.sh &
+sh $HOME/.dotfiles/scripts/rnd_bg.sh & # Get a random background and set that as background and run pywal <3
 nm-applet & # network manager applet sysicon
 pasystray & # pulseaudio sysicon
-bash .screenlayout/default.sh &
 setxkbmap no & # Set norwegian keyboard layout
 dunst & #notification manager
-exec i3
+exec i3 # yeet i3 lets gooo

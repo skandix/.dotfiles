@@ -5,7 +5,7 @@ set $screen flameshot gui
 set $lock xsecurelock
 
 ### FONT ###
-font pango:Fira Code Retina 8
+font pango:monospace 10
 
 ### MUTING MICROPHONE ###
 bindsym $mod+t exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "MUTED?!?"
@@ -175,11 +175,6 @@ default_border pixel 1
 #exec --no-startup-id blueman-applet
 #exec --no-startup-id dunst
 #exec --no-startup-id pasystray
-
-# Scripts to run on startup
-exec --no-startup-id blanking
-exec --no-startup-id /home/skandix/.screenlayout/default.sh
-exec --no-startup-id /home/skandix/.nix-conf/users/skandix/confs/i3/rnd_bg.sh
 
 # window Specific Settings
 #for_window [class="Slack"] move to workspace $ws10

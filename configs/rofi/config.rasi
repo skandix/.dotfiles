@@ -3,7 +3,7 @@ configuration {
     width: 30;
     lines: 6;
     columns: 2;
-    font: "Fira Code 10";
+    font: "Fira Code 12";
     bw: 1;
     location: 0;
     fixed-num-lines: true;
