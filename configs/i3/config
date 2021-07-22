@@ -1,5 +1,6 @@
 ### VARIABLES ###
 set $mod Mod4
+set $altMod Mod1
 set $term alacritty
 set $screen flameshot gui
 set $lock xsecurelock
@@ -34,6 +35,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym $mod+Return exec $term
 bindsym $mod+c kill
 bindsym $mod+space exec rofi -show run
+bindsym $altMod+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+s sticky toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -170,16 +172,22 @@ bar {
 default_border pixel 1
 
 # autostart
-#exec --no-startup-id picom
-#exec --no-startup-id nm-applet
-#exec --no-startup-id blueman-applet
-#exec --no-startup-id dunst
-#exec --no-startup-id pasystray
+exec_always --no-startup-id picom
+exec_always --no-startup-id "$HOME/.dotfiles/scripts/rnd_bg.sh"
+exec_always --no-startup-id dunst
+exec_always --no-startup-id setxkbmap no
+
+exec --no-startup-id greenclip daemon
+exec --no-startup-id "$HOME/.dotfiles/scripts/blanking.sh"
+exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
+exec --no-startup-id blueman-applet
+
 
 # window Specific Settings
-#for_window [class="Slack"] move to workspace $ws10
+for_window [class="Slack"] move to workspace $ws10
 for_window [class="^Microsoft Teams"] move to workspace $ws10
-#for_window [class="Discord"] move to workspace $ws10
+for_window [class="Discord"] move to workspace $ws10
 #for_window [class="Telegram"] move to workspace $ws10
 
 for_window [class="alacritty"] floating enable
