@@ -7,4 +7,5 @@ alias pressmd="reveal-md --theme solarized --highlight-theme solarized-dark "
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    cat ~/.cache/wal/sequences &
 end
