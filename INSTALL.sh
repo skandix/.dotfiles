@@ -35,15 +35,15 @@ pre_req() {
 
 
 TheOrville(){
+    pre_req
     yay -S $base
     yay -S $docker
     yay -S $fonts
     yay -S $nvidia
     yay -S $games
+    yay -S $k8s
     yay -S $network_manager
     yay -S $obs_studio
-    yay -S $openvpn
-    yay -S $pulseaudio
     yay -S $cli
     yay -S $ctf_tools
     yay -S $gui
