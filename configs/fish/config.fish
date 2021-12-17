@@ -4,6 +4,7 @@ alias ls="ls --color"
 alias ip="ip -c"
 alias nf="set a (pwd);cd && cd .dotfiles && vim && cd $a"
 alias pressmd="reveal-md --theme solarized --highlight-theme solarized-dark "
+alias tf="terraform"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

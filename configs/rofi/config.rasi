@@ -1,16 +1,21 @@
 configuration {
-    modi: "window,run,ssh,combi,windowcd";
-    width: 30;
-    lines: 6;
-    columns: 2;
+    modi: "window,run,ssh";
     font: "Fira Code 12";
-    bw: 1;
-    location: 0;
     fixed-num-lines: true;
+    show-icons: true;
     terminal: "alacritty";
     ssh-client: "ssh";
     ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
     run-command: "{cmd}";
-    hide-scrollbar: true;
+    sort: true;
+    dpi: 1;
+    max-history-size: 8;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
 }
-@import "/usr/share/rofi/themes/solarized_alternate.rasi"

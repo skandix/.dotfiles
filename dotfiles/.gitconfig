@@ -1,8 +1,8 @@
 [user]
-	email = skandix@protonmail.com
+	email = skandix@datapor.no
 	name = Bendik Dyrli
 [core]
-    editor = vim  # Change to whatever you want your default git editor to be
+    editor = vim  # who the fuck wants to use something else than vim :nauseated:
 [color]
     status = auto
     branch = auto

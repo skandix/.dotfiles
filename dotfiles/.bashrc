@@ -9,6 +9,7 @@ alias ls='ls --color'
 alias ip='ip -c'
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 alias nf='a=$(pwd);cd && cd .dotfiles && vim && cd $a'
+alias tf='terraform'
 
 
 # pywal
