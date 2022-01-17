@@ -6,7 +6,10 @@ alias nf="set a (pwd);cd && cd .dotfiles && vim && cd $a"
 alias pressmd="reveal-md --theme solarized --highlight-theme solarized-dark "
 alias tf="terraform"
 
+set fish_greeting
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     cat ~/.cache/wal/sequences &
+    pfetch | lolcat
 end
