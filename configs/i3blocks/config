@@ -30,5 +30,6 @@ interval=once
 color=#91E78B
 
 [TIME_DATE]
-command=date +" %a, %d %b - %H:%M:%S "
+#command=date +" %a, %d %b - %H:%M:%S "
+command=date +" %a, %d %b"
 interval=1
