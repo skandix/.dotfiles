@@ -4,7 +4,8 @@
 base="alacritty pfetch dunst feh moc youtube-dl picom-git rofi tmux newsboat xorg xorg-xinit xorg-server gnome-keyring xsecurelock xscreensaver xscreensaver-aerial"
 docker="docker docker-compose"
 fonts="nerd-fonts-fira-code noto-fonts-emoji"
-nvidia=" nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader"
+#nvidia=" nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader" # feelsshart man
+nvidia="nvidia nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader" 
 games="lutris wine-staging minecraft-launcher multimc5 steam"
 k8s="kubectl lens"
 nfc_tools="mfoc-git mfcuk-git"
