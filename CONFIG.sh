@@ -98,7 +98,7 @@ echo
 show_menu() {
     motd
     echo "
-$cyan [MAIN] $normie What do you want to do? $newline$magenta
+    $cyan [MAIN] $normie What do you want to do? $newline$magenta
     $magenta 1: $normie dotfiles
     $magenta 2: $normie dotconfig
     $magenta 3: $normie scripts
@@ -116,9 +116,9 @@ case "$option" in
 	1 ) echo "$cyan dotfiles $normie"; dotfiles; $cls;;
 	2 ) echo "$cyan dotconfig $normie"; dotconfig; $cls;;
 	3 ) echo "$cyan scripts $normie"; scripts; $cls;;
-    4 ) echo "$cyan install pkgs $normie"; bash ./INSTALL.sh; $cls;;
-    5 ) echo "$cyan All! $normie"; bash ./INSTALL.sh && dotfiles && dotconfig && scripts; $cls;;
-    q ) echo "$red Q U I T $normie"; exit;$cls;;
+	4 ) echo "$cyan install pkgs $normie"; bash ./INSTALL.sh; $cls;;
+	5 ) echo "$cyan All! $normie"; bash ./INSTALL.sh && dotfiles && dotconfig && scripts; $cls;;
+	q ) echo "$red Q U I T $normie"; exit;$cls;;
 esac
 }
 
