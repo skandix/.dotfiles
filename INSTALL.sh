@@ -23,15 +23,16 @@ enable_multilib(){
 }
 
 pre_req() {
+    pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     cd /tmp/yay
     makepkg -si
 
     # Blackarch stuff
-    curl -O https://blackarch.org/strap.sh
-    echo edf8a85057ea49dce21eea429eb270535f3c5f9a strap.sh | sha1sum -c
-    chmod +x strap.sh
-    sudo ./strap.sh
+    #curl -O https://blackarch.org/strap.sh
+    #echo edf8a85057ea49dce21eea429eb270535f3c5f9a strap.sh | sha1sum -c
+    #chmod +x strap.sh
+    #sudo ./strap.sh
 }
 
 
