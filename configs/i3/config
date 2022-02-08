@@ -38,6 +38,11 @@ bindsym $mod+space exec rofi -show run
 bindsym $altMod+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+s sticky toggle
 
+### GAPS ###
+bindsym $mod+Shift+g mode "$mode_gaps"
+#bindsym $altMod+Shift++ sticky toggle
+#bindsym $altMod+Shift+- sticky toggle
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

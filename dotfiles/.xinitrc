@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 dbus-update-activation-environment --systemd DISPLAY # Dbus
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) # Keyring
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" # Keyring
 export SSH_AUTH_SOCK
 
 export XSECURELOCK_BLANK_TIMEOUT=900

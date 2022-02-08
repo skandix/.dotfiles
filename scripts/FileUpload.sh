@@ -5,6 +5,6 @@ ext=${1#*.}
 obfusc="$uname.$ext"
 cp "$input" "$obfusc" -rf
 #zap=zip -r $uname.zip "$obfusc"
-scp -q $obfusc loot:/var/www/html/loot
-echo https://loot.datapor.no/$obfusc | xclip
-rm $obfusc -f
+scp -q "$obfusc" loot:/var/www/html/loot
+echo "https://loot.datapor.no/$obfusc" | xclip
+rm "$obfusc" -f

@@ -14,9 +14,9 @@ discord_presence.show_tracknum 1
 discord_presence.state_script %artist% - %bitrate%
 discord_presence.title_script %title% $if(%ispaused%,'('paused')')
 dr_meter_gui.focus_dialogue 1
-filechooser.lastdir file:///home/skandix
+filechooser.lastdir file:///mnt/feral/completed
 gtkui.autoresize_columns 1
-gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_format":"","size":"23","align":"0","color_override":"0","color":"#ff000000"},{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"209","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track","id":"-1","format":"%tracknumber%","sort_format":"","size":"85","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"308","align":"0","color_override":"0","color":"#ff000000"},{"title":"Bitrate","id":"-1","format":"%bitrate%","sort_format":"","size":"77","align":"0","color_override":"0","color":"#ffeeeeec"},{"title":"Codec","id":"-1","format":"%codec%","sort_format":"","size":"78","align":"0","color_override":"0","color":"#ffeeeeec"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"183","align":"0","color_override":"0","color":"#ff000000"}]
+gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_format":"","size":"63","align":"0","color_override":"0","color":"#ff000000"},{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"572","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track","id":"-1","format":"%tracknumber%","sort_format":"","size":"232","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"842","align":"0","color_override":"0","color":"#ff000000"},{"title":"Bitrate","id":"-1","format":"%bitrate%","sort_format":"","size":"211","align":"0","color_override":"0","color":"#ffeeeeec"},{"title":"Codec","id":"-1","format":"%codec%","sort_format":"","size":"213","align":"0","color_override":"0","color":"#ffeeeeec"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"501","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.eq.visible 0
 gtkui.layout.0.6.2 vsplitter locked=0 ratio=0.028825 pos=0 size2=0 {hsplitter locked=0 ratio=0.097599 pos=0 size2=0 {playtb {} seekbar {} } vsplitter locked=0 ratio=0.771957 pos=0 size2=0 {hsplitter locked=0 ratio=0.817850 pos=0 size2=0 {tabbed_playlist hideheaders=0 width=1039 {} selproperties {} } hsplitter locked=0 ratio=0.631647 pos=0 size2=0 {hsplitter locked=0 ratio=0.307112 pos=0 size2=0 {coverart {} spectrum {} } scope {} } } } 
 gtkui.mmb_delete_playlist 0
@@ -62,30 +62,30 @@ hotkey.key32 "Ctrl k" 0 0 toggle_stop_after_album
 hotkeys_created 1
 logwindow.geometry.h 200
 logwindow.geometry.w 400
-logwindow.geometry.x 37
-logwindow.geometry.y 35
-mainwin.geometry.h 1409
-mainwin.geometry.w 1085
-mainwin.geometry.x 1465
-mainwin.geometry.y 21
+logwindow.geometry.x 32
+logwindow.geometry.y 30
+mainwin.geometry.h 1390
+mainwin.geometry.w 2550
+mainwin.geometry.x 2560
+mainwin.geometry.y 45
 network.proxy.port 8080
 output_plugin alsa
 playback.loop 0
 playback.volume 0.0000000
 playlist.current 0
-playlist.cursor.0 11
+playlist.cursor.0 -1
 playlist.pin.groups 1
-playlist.scroll.0 -9
+playlist.scroll.0 0
 playlist.scroll.cursorfollowplayback 1
-playlist.tab.00000 Music
+playlist.tab.00000 completed
 prefwin.geometry.h 596
 prefwin.geometry.w 717
-prefwin.geometry.x 1222
-prefwin.geometry.y 405
+prefwin.geometry.x 1219
+prefwin.geometry.y 400
 resume.paused 0
 resume.playlist 0
-resume.position 0.0928798
-resume.track 39
+resume.position 0.0000000
+resume.track 290
 streamer.8_to_16 0
 streamer.samplerate 44100
 streamer.samplerate_mult_44 44100

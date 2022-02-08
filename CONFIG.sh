@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 # Skandix Symlink script
 ## Color Variables
@@ -9,7 +9,7 @@ cyan=$'\e[1;36m'
 normie=$'\e[0m'
 
 ## Clearing the terminal properly
-cls='printf "\033c"'
+cls=$(printf '\033c')
 
 ## String Variables
 newline=$'\n'
@@ -19,7 +19,6 @@ inputArrow=" ---> "
 dots=~/.dotfiles/dotfiles/
 confs=~/.dotfiles/configs/
 script=~/.dotfiles/scripts/
-misc=~/.dotfiles/misc/
 
 # Find all dotfiles(.examplerc) and dotconfigs($HOME/.config/example)
 dotsDetect=$(find $dots -maxdepth 1 -name '*' ! -name 'dots' ! -name '*.' -printf '%f ')
@@ -27,9 +26,9 @@ confsDetect=$(find $confs -maxdepth 1 -name '*' ! -name 'confs' ! -name '*.' -pr
 scriptDetect=$(find $script -maxdepth 1 -type f -iregex '.*\.\(sh\|py\)$' ! -name 'script' ! -name '*.' -printf '%f ')
 
 # create these dirs for later
-mkdir -p $HOME/Projects/{Web,CTF,Python,Rust,Go,Misc} 2>1
-mkdir -p $HOME/Pictures/screenshot 2>1
-mkdir  $HOME/.ssh 2>1
+mkdir -p "$HOME/Projects/"{Web,CTF,Python,Rust,Go,Misc} 2>&1
+mkdir -p "$HOME/Pictures/screenshot" 2>&1
+mkdir  "$HOME/.ssh" 2>&1
 
 # gotta have a cool motd
 motd(){
@@ -49,12 +48,12 @@ motd(){
 # functions for checking if folder exists
 dirExsists(){
 echo ""
-	if [ -d $1 ]
+	if [ -d "$1" ]
 	then
 		echo "$green [O.K] Found $1 $normie"
 	else
 		echo "$red [Error]: Can't find $1, Creating directory $normie"
-		mkdir -p $1
+		mkdir -p "$1"
 	fi
 }
 
@@ -64,9 +63,9 @@ echo ""
 echo "$cyan [Dotfiles] $normie Symlink dotfiles"
 echo ""
 for dotfile in $dotsDetect; do
-    ln -svfn $dots$dotfile ~/$dotfile 2>/dev/null
+    ln -svfn "$dots$dotfile" ~/"$dotfile" 2>/dev/null
 done;
-read
+read -r
 echo
 }
 
@@ -75,11 +74,11 @@ dotconfig(){
 echo ""
 echo "$cyan [DotConfigs] $normie Symlink dotconfig"
 echo ""
-    dirExsists $HOME/.config
+    dirExsists "$HOME/.config"
     for dotconfig in $confsDetect; do
-        ln -svfn $confs$dotconfig ~/.config/$dotconfig
+        ln -svfn "$confs$dotconfig" ~/".config/$dotconfig"
 done;
-read
+read -r
 echo
 }
 
@@ -89,9 +88,9 @@ echo ""
 echo "$cyan [Scripts] $normie Symlink scripts"
 echo ""
     for sh in $scriptDetect; do
-        sudo ln -svfn $script$sh /usr/bin/$sh
+        sudo ln -svfn "$script$sh" "/usr/bin/$sh"
     done;
-read
+read -r
 echo
 }
 
@@ -111,7 +110,7 @@ show_menu() {
 
 show_options() {
 echo ""
-read -p "$newline$inputArrow" option
+read -rp "$newline$inputArrow" option
 case "$option" in
 	1 ) echo "$cyan dotfiles $normie"; dotfiles; $cls;;
 	2 ) echo "$cyan dotconfig $normie"; dotconfig; $cls;;
