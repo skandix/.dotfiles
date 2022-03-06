@@ -1,0 +1,7 @@
+username: skandix
+packages:
+    - vim
+    - htop
+    - neofetch
+    - tmux
+    - speedtest-cli

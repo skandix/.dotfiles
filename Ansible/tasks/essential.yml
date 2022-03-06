@@ -1,0 +1,4 @@
+- name: Update packages
+  pacman:
+    name: "*"
+    state: latest
