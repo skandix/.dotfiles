@@ -1,2 +1,0 @@
-[home]
-machine ansible_host=192.168.1.50 ansible_user=skandix ansible_connection=ssh ansible_ssh_password="yeet" ansible_ssh_port=3301
