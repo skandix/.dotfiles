@@ -19,3 +19,4 @@ configuration {
       sorting-method:    "name";
   }
 }
+@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
