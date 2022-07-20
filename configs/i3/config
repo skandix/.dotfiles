@@ -6,7 +6,7 @@ set $screen flameshot gui
 set $lock xsecurelock
 
 ### FONT ###
-font pango:Fira Code 10
+font pango:Terminus 6px
 
 ### MUTING MICROPHONE ###
 bindsym $mod+t exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "MUTED?!?"

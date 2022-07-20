@@ -1,0 +1,24 @@
+configuration {
+    modi: "window,run,ssh";
+    font: "Hack 10";
+    width: 10;
+    height: 3;
+    fixed-num-lines: true;
+    show-icons: true;
+    terminal: "alacritty";
+    ssh-client: "ssh";
+    ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+    run-command: "{cmd}";
+    sort: true;
+    autoselect: true;
+    yoffset: -100;
+    xoffset: 0;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}@theme "/usr/share/rofi/themes/solarized_alternate.rasi"

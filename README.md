@@ -13,15 +13,3 @@ cd .dotfiles
 ./CONFIG.sh
 
 ```
-
-### WAATTTT
-* configs
-	* Files that is found in ``$HOME/.config``
-* dotsfiles
-	* Dotfiles found in ``$HOME``
-* misc
-	* Misc files such as touchpad config
-* scripts
-	* Scripts...
-* bg
-    * wallpapers I use for my system
