@@ -6,7 +6,7 @@ set $screen flameshot gui
 set $lock xsecurelock
 
 ### FONT ###
-font pango:monospace 10
+font pango:Fira Code 10
 
 ### MUTING MICROPHONE ###
 bindsym $mod+t exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "MUTED?!?"
@@ -19,14 +19,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id  pamixer --decrease 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id  pamixer --increase 5
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-### NUMPAD MEDIA KEYS ###
-bindsym KP_Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym KP_Begin exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym KP_Right exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym KP_Subtract exec --no-startup-id pamixer --decrease 5
-bindsym KP_Add  exec --no-startup-id pamixer --increase 5
-bindsym KP_Enter exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 ### MISC KEYBINDS ###
 bindsym Print exec --no-startup-id $screen
 #bindsym Insert exec --no-startup-id $lock
@@ -35,13 +27,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym $mod+Return exec $term
 bindsym $mod+c kill
 bindsym $mod+space exec rofi -show run
-bindsym $altMod+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+s sticky toggle
-
-### GAPS ###
-bindsym $mod+Shift+g mode "$mode_gaps"
-#bindsym $altMod+Shift++ sticky toggle
-#bindsym $altMod+Shift+- sticky toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -179,21 +165,13 @@ default_border pixel 1
 # autostart
 exec_always --no-startup-id picom
 exec_always --no-startup-id "$HOME/.dotfiles/scripts/rnd_bg.sh"
+exec_always --no-startup-id "$HOME/.screenlayout/default.sh"
 exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap no
 
-exec --no-startup-id greenclip daemon
 exec --no-startup-id "$HOME/.dotfiles/scripts/blanking.sh"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id blueman-applet
-
-
-# window Specific Settings
-for_window [class="Slack"] move to workspace $ws10
-for_window [class="^Microsoft Teams"] move to workspace $ws10
-for_window [class="Discord"] move to workspace $ws10
-#for_window [class="Telegram"] move to workspace $ws10
 
 for_window [class="alacritty"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -201,4 +179,4 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="tor-browser"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-for_window [class=".*"] border pixel 5
+for_window [class=".*"] border pixel 1

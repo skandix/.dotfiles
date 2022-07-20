@@ -18,26 +18,9 @@ gui="slack-desktop discord telegram-desktop-bin teams signal-desktop-beta zoom s
 net_tools="traceroute nmap wireshark-qt tcpdump speedtest-cli gnu-netcat"
 python="neovim python-pip python-pipenv binwalk"
 
-enable_multilib(){
-    echo "nononono"
-}
 
-pre_req() {
-    pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
-    cd /tmp/yay
-    makepkg -si
-
-    # Blackarch stuff
-    #curl -O https://blackarch.org/strap.sh
-    #echo edf8a85057ea49dce21eea429eb270535f3c5f9a strap.sh | sha1sum -c
-    #chmod +x strap.sh
-    #sudo ./strap.sh
-}
-
-
+# TODO: structure this in a more sane way
 TheOrville(){
-    pre_req
     yay -S $base
     yay -S $docker
     yay -S $fonts

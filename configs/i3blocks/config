@@ -9,10 +9,10 @@ command=echo "${1:-} $(uname -r)"
 interval=5
 color=#ababab
 
-[battery-poly]
-command=$HOME/.config/i3blocks/battery-poly
-LABEL=BAT
-interval=5
+# [battery-poly]
+# command=$HOME/.config/i3blocks/battery-poly
+# LABEL=BAT
+# interval=5
 
 [DISK]
 command=df -h / | awk '/\//{ printf("C:/ %4s/%s \n", $4, $2) }'
@@ -30,6 +30,5 @@ interval=once
 color=#91E78B
 
 [TIME_DATE]
-#command=date +" %a, %d %b - %H:%M:%S "
-command=date +" %a, %d %b"
+command=date +" %a, %d %b - %H:%M:%S "
 interval=1
