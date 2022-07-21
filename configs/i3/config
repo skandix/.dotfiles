@@ -141,15 +141,19 @@ bindsym $mod+Escape workspace back_and_forth
 
 bar {
   colors {
-    background #282A36
-    statusline #F8F8F2
+    set_from_resource $fg i3wm.color7 #f0f0f0
+    set_from_resource $wg i3wm.color5 #f0f0f0
+    set_from_resource $bg i3wm.color2 #f0f0f0
+
+    background $bg
+    statusline $fg
     separator  #ff00ff
 
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
+    focused_workspace  $wg $wg $bg
+    active_workspace   $bg $bg $fg
+    inactive_workspace $bg $bg $fg
+    urgent_workspace   $bg $bg $fg
+    binding_mode       $bg $bg $fg
   }
     position top
     status_command i3blocks

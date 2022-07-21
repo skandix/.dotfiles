@@ -21,4 +21,7 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
   }
-}@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
+}
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
