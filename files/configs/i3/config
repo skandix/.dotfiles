@@ -168,19 +168,16 @@ default_border pixel 1
 
 # autostart
 exec_always --no-startup-id picom
-exec_always --no-startup-id "$HOME/.dotfiles/scripts/rnd_bg.sh"
+exec_always --no-startup-id "./rnd_bg.sh"
 exec_always --no-startup-id "$HOME/.screenlayout/default.sh"
 exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap no
 
-exec --no-startup-id "$HOME/.dotfiles/scripts/blanking.sh"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 
-for_window [class="alacritty"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
-for_window [class="tor-browser"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class=".*"] border pixel 1
