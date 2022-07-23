@@ -10,7 +10,7 @@
     src: "{{ ansible_env.PWD }}/roles/tmux/files/{{ item }}"
     path: "~/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
-    - tmux.conf
+    - .tmux.conf

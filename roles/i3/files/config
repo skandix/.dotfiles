@@ -168,8 +168,8 @@ default_border pixel 1
 
 # autostart
 exec_always --no-startup-id picom
-exec_always --no-startup-id "./rnd_bg.sh"
-exec_always --no-startup-id "$HOME/.screenlayout/default.sh"
+exec_always --no-startup-id bash rnd_bg.sh
+exec_always --no-startup-id "~/.screenlayout/default.sh"
 exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap no
 

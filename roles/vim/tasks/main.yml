@@ -8,10 +8,10 @@
 
 - name: symlink vimrc conf on Linux
   file:
-    src: "{{ ansible_env.PWD }}/roles/vimrc/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
     path: "~/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - .vimrc

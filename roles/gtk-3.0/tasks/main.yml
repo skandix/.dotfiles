@@ -6,9 +6,9 @@
 - name: symlink gtk-3.0 conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/gtk-3.0/files/{{ item }}"
-    path: ~/.config/gtk-3.0/{{ item }}
+    path: "~/.config/gtk-3.0/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - settings.ini

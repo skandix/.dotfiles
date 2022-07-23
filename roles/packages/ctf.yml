@@ -8,6 +8,6 @@
       - hexedit
       - strace
       - ltrace
-      - msitools
+      # - msitools
     state: present
   become: yes

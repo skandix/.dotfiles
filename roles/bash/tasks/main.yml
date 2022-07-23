@@ -11,7 +11,7 @@
     src: "{{ ansible_env.PWD }}/roles/bash/files/{{ item }}"
     path: "~/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - .bashrc

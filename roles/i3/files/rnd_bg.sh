@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-background_path="./bg/"
-random_background=$(find "$background_path" | shuf -n 1 )
-echo "$random_background"
-feh "$random_background" --bg-scale && wal -i "$random_background"
+path="/home/$USER/.dotfiles/roles/i3/files/bg"
+feh "$(find "$path" | shuf -n 1 )" --bg-scale && wal -i "$(find "$path" | shuf -n 1 )"

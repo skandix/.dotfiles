@@ -9,7 +9,7 @@
     src: "{{ ansible_env.PWD }}/roles/obsidian/files/{{ item }}"
     path: "/usr/bin/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - _Obsidian.sh

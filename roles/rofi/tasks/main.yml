@@ -13,9 +13,9 @@
 - name: symlink rofi conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/rofi/files/{{ item }}"
-    path: ~/.config/rofi/{{ item }}
+    path: "~/.config/rofi/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - config.rasi

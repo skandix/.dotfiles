@@ -1,17 +1,15 @@
-- name: Setup local environment
+- name: Setup SpaceCruiser environment
   hosts: localhost
   vars:
     cert_path: /opt/homebrew/etc/openssl@1.1/cert.pem
   roles:
     - base
-    - yabai
     - alacritty
-    - ctags
+    - bash
+    - cpu
+    - dunst
     - git
-    - fish
-    - syncthing
-    - nvim
-    - emacs
-    - offlineimap
-    - mu
-    - qutebrowser
+    - mpv
+    - obsidian
+    - tmux
+    - vim

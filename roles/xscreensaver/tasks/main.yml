@@ -13,10 +13,10 @@
 
 - name: symlink xscreensaver
   file:
-    src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/xscreensaver/files/{{ item }}"
     path: "~/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - .xscreensaver

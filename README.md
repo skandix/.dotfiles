@@ -10,7 +10,7 @@ git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash
-
+make to|sc|ds
 ```
 
 # Inspiration // Street Cred

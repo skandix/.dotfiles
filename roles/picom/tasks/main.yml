@@ -12,9 +12,9 @@
 - name: symlink picom conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/picom/files/{{ item }}"
-    path: ~/.config/picom/{{ item }}
+    path: "~/.config/picom/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - picom.conf

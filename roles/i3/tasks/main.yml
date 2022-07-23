@@ -18,11 +18,21 @@
 - name: symlink i3 conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
-    path: ~/.config/i3/{{ item }}
+    path: "~/.config/i3/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - bg
     - config
+
+- name: symlink rnd_bg
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    path: "/usr/bin/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
     - rnd_bg.sh
+  become: yes

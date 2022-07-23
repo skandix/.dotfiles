@@ -13,9 +13,9 @@
 - name: symlink flameshot conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/flameshot/files/{{ item }}"
-    path: ~/.config/flameshot/{{ item }}
+    path: "~/.config/flameshot/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - flameshot.ini

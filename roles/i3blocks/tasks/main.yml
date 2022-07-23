@@ -13,9 +13,9 @@
 - name: symlink i3blocks conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/i3blocks/files/{{ item }}"
-    path: ~/.config/i3blocks/{{ item }}
+    path: "~/.config/i3blocks/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - battery-poly

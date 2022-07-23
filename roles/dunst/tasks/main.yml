@@ -13,9 +13,9 @@
 - name: symlink dunst conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/dunst/files/{{ item }}"
-    path: ~/.config/dunst/{{ item }}
+    path: "~/.config/dunst/{{ item }}"
     state: link
-    follow: false
+    follow: yes
     force: yes
   loop:
     - dunstrc

@@ -13,9 +13,9 @@
 - name: symlink alacritty conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.config/alacritty/{{ item }}"
+    path: "~/.config/alacritty/{{ item }}"
     state: link
-    follow: true
+    follow: yes
     force: yes
   loop:
     - alacritty.yml
