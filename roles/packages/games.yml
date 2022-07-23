@@ -1,0 +1,11 @@
+- name: install gamer stuff
+  aur:
+    use: yay
+    name:
+      - lutris
+      - wine-staging
+      - minecraft-launcher
+      - multimc5
+      - steam
+    state: present
+  become: yes

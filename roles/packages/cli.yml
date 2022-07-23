@@ -1,0 +1,26 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - zip
+      - unzip
+      - unrar
+      - p7zip
+      - screen
+      - jq
+      - wget
+      - git
+      - ncdu
+      - termdown
+      - htop
+      - xclip
+      - minicom
+      - ffmpeg
+      - keybase
+      - mkdocs
+      - mkdocs-material-pymdownx-extras
+      - mkdocs-material
+      - openvpn
+      - pywal-git
+    state: present
+  become: yes

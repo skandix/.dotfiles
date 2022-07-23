@@ -3,6 +3,20 @@
     name:
       - xsecurelock
       - xscreensaver
+
+- name: install xscreensaver-aerial
+  aur:
+    name:
       - xscreensaver-aerial
+    use: yay
     state: present
-  become: yes
+
+- name: symlink xscreensaver
+  file:
+    src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - .xscreensaver

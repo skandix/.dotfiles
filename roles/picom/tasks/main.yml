@@ -1,7 +1,20 @@
-- name: install neovim on linux
-  package:
-    name:
-      - neovim
-      - python-pynvim
+- name: install picom on linux
+  aur:
+    name: picom-git
     state: present
   become: yes
+
+- name: create picom config directory
+  file:
+    path: ~/.config/picom
+    state: directory
+
+- name: symlink picom conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/picom/files/{{ item }}"
+    path: ~/.config/picom/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - picom.conf

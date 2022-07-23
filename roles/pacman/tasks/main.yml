@@ -1,0 +1,43 @@
+# Enable multilib
+# - name: download pacman mirror list
+#   get_url:
+#     url: "https://archlinux.org/mirrorlist/?country=DK&country=NO&country=SE&protocol=http&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on"
+#     dest: "/etc/pacman.d/mirrorlist"
+
+# - name: "uncomment `#Server` in pacman mirror list"
+#   replace:
+#     dest: "/etc/pacman.d/mirrorlist"
+#     regexp: "^#Server"
+#     replace: "Server"
+
+- name: "uncomment colors"
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: "present"
+    regexp: "^Color"
+    insertafter: "^#Color"
+    line: "Color"
+
+- name: add multilib
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: "present"
+    line: "[multilib]"
+    regexp: "^\\[multilib\\]"
+    insertafter: "^#\\[multilib\\]"
+
+- name: add multilib (cont)
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: "present"
+    line: "Include = /etc/pacman.d/mirrorlist"
+    insertafter: "^\\[multilib\\]"
+    regexp: "Include = /etc/pacman.d/mirrorlist"
+
+- name: add ParallelDownloads
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: "present"
+    regexp: "^ParallelDownloads"
+    insertafter: "^#ParallelDownloads = 5"
+    line: "ParallelDownloads = 30"

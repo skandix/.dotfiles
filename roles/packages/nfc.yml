@@ -1,0 +1,8 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - mfoc-git
+      - mfcuk-git
+    state: present
+  become: yes

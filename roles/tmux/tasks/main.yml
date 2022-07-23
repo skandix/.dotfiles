@@ -1,7 +1,16 @@
 - name: install neovim on linux
   package:
     name:
-      - neovim
-      - python-pynvim
+      - tmux
     state: present
   become: yes
+
+- name: symlink tmux conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/tmux/files/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - tmux.conf

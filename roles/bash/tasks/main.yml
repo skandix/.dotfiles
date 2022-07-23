@@ -9,7 +9,10 @@
 - name: symlink bashrc on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/bash/files/{{ item }}"
-    path: "{{ ansible_env.USER }}/{{ item }}"
+    path: "~/{{ item }}"
     state: link
     follow: false
     force: yes
+  loop:
+    - .bashrc
+    - .dircolors

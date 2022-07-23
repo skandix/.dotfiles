@@ -5,10 +5,17 @@
     state: present
   become: yes
 
-- name: symlink mpv on Linux
+- name: create mpv config directory
+  file:
+    path: ~/.config/mpv
+    state: directory
+
+- name: symlink mpv conf on Linux
   file:
     src: "{{ ansible_env.PWD }}/roles/mpv/files/{{ item }}"
-    path: "{{ ansible_env.USER }}/{{ item }}"
+    path: ~/.config/mpv/{{ item }}
     state: link
     follow: false
     force: yes
+  loop:
+    - mpv.conf

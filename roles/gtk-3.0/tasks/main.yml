@@ -1,7 +1,15 @@
-- name: install neovim on linux
-  package:
-    name:
-      - neovim
-      - python-pynvim
-    state: present
-  become: yes
+- name: create gtk-3.0 config directory
+  file:
+    path: ~/.config/gtk-3.0
+    state: directory
+
+- name: symlink gtk-3.0 conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/gtk-3.0/files/{{ item }}"
+    path: ~/.config/gtk-3.0/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - settings.ini
+    - bookmarks

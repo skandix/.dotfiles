@@ -1,0 +1,9 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - python-pip
+      - python-pipenv
+      - binwalk
+    state: present
+  become: yes

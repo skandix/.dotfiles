@@ -1,6 +1,0 @@
-- name: install dunst on linux
-  package:
-    name:
-      - dunst
-    state: present
-  become: yes

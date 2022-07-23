@@ -1,14 +1,16 @@
 - name: install Obsidian on linux
   package:
-    name: obsidian-appimage
+    name: obsidian
     state: present
   become: yes
 
 - name: symlink obsidian git sync on linux
   file:
     src: "{{ ansible_env.PWD }}/roles/obsidian/files/{{ item }}"
-    path: "~/usr/bin/{{ item }}"
+    path: "/usr/bin/{{ item }}"
     state: link
     follow: false
     force: yes
+  loop:
+    - _Obsidian.sh
   become: yes

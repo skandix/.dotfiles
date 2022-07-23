@@ -1,0 +1,12 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - traceroute
+      - nmap
+      - wireshark-qt
+      - tcpdump
+      - speedtest-cli
+      - gnu-netcat
+    state: present
+  become: yes

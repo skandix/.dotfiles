@@ -3,18 +3,36 @@
   vars:
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:
+    - luizgavalda.aur
     - base
-    - locale
-    - git
-    - gnupg
-    - dunst
-    - bspwm
-    - fish
+    - pacman
     - alacritty
-    - ctags
-    - syncthing
-    - nvim
-    - emacs
-    - ranger
-    - offlineimap
-    - mu
+    - bash
+    - cpu
+    - dunst
+    - flameshot
+    - git
+    - gtk-3.0
+    - i3
+    - i3blocks
+    - mpv
+    - obsidian
+    - picom
+    - pipewire
+    - rofi
+    - tmux
+    - vim
+    - xscreensaver
+  tasks:
+    - import_tasks: roles/packages/cli.yml
+    - import_tasks: roles/packages/ctf.yml
+    - import_tasks: roles/packages/amd_gpu.yml
+    - import_tasks: roles/packages/docker.yml
+    - import_tasks: roles/packages/fonts.yml
+    - import_tasks: roles/packages/games.yml
+    - import_tasks: roles/packages/gui.yml
+    - import_tasks: roles/packages/k8s.yml
+    - import_tasks: roles/packages/networkmanager.yml
+    - import_tasks: roles/packages/nfc.yml
+    - import_tasks: roles/packages/python.yml
+    - import_tasks: roles/packages/tools.yml

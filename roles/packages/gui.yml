@@ -1,0 +1,23 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - discord
+      - telegram-desktop
+      - signal-desktop
+      - mpv
+      - firefox
+      - torbrowser-launcher
+      - sublime-text-3
+      - peek
+      - arandr
+      - mumble
+      - teams
+      - zoom
+      - firefox-extension-bitwarden
+      - visual-studio-code-bin
+      - plexamp-appimage
+      - plex-media-player
+      - slack-desktop
+    state: present
+  become: yes

@@ -1,0 +1,13 @@
+- name: install ctf tools
+  aur:
+    use: yay
+    name:
+      - ghidra
+      - sonic-visualiser
+      - volatility
+      - hexedit
+      - strace
+      - ltrace
+      - msitools
+    state: present
+  become: yes

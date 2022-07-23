@@ -5,5 +5,14 @@
       - pipewire-alsa
       - pipewire-jack
       - pipewire-pulse
+      - pamixer
+      - pasystray
+      - pavucontrol
     state: present
   become: yes
+# - name: install jamesdsp on linux
+#   aur:
+#     use: yay
+#     name:
+#       - jamesdsp
+#     state: present

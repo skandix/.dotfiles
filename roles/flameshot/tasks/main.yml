@@ -1,6 +1,21 @@
-- name: install neovim on linux
+- name: install flameshot on linux
   package:
     name:
       - flameshot
     state: present
   become: yes
+
+- name: create flameshot config directory
+  file:
+    path: ~/.config/flameshot
+    state: directory
+
+- name: symlink flameshot conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/flameshot/files/{{ item }}"
+    path: ~/.config/flameshot/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - flameshot.ini

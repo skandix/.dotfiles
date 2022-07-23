@@ -1,0 +1,8 @@
+- name: install fonts
+  aur:
+    use: yay
+    name:
+      - nerd-fonts-fira-code
+      - noto-fonts-emoji
+    state: present
+  become: yes

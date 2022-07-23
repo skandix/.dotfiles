@@ -1,0 +1,8 @@
+- name: install docker and compose
+  package:
+    use: yay
+    name:
+      - docker
+      - docker-compose
+    state: present
+  become: yes

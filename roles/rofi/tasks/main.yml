@@ -1,7 +1,21 @@
-- name: install neovim on linux
+- name: install rofi on linux
   package:
     name:
-      - neovim
-      - python-pynvim
+      - rofi
     state: present
   become: yes
+
+- name: create rofi config directory
+  file:
+    path: ~/.config/rofi
+    state: directory
+
+- name: symlink rofi conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/rofi/files/{{ item }}"
+    path: ~/.config/rofi/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.rasi

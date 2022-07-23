@@ -1,7 +1,17 @@
-- name: install neovim on linux
+- name: install vim on linux
   package:
     name:
+      - vim
       - neovim
-      - python-pynvim
     state: present
   become: yes
+
+- name: symlink vimrc conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/vimrc/files/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - .vimrc

@@ -4,3 +4,18 @@
       - alacritty
     state: present
   become: yes
+
+- name: create alacritty config directory
+  file:
+    path: "~/.config/alacritty"
+    state: directory
+
+- name: symlink alacritty conf on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/alacritty/{{ item }}"
+    state: link
+    follow: true
+    force: yes
+  loop:
+    - alacritty.yml

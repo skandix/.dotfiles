@@ -1,0 +1,8 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - kubectl
+      - lens
+    state: present
+  become: yes

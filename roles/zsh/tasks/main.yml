@@ -1,7 +1,6 @@
-- name: install neovim on linux
+- name: install zsh on linux
   package:
     name:
-      - neovim
-      - python-pynvim
+      - zsh
     state: present
   become: yes

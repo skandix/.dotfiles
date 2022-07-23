@@ -1,0 +1,1 @@
+/home/skandix/.dotfiles/roles/i3/files/rnd_bg.sh

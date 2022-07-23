@@ -1,0 +1,9 @@
+- name: install cli
+  aur:
+    use: yay
+    name:
+      - network-manager-applet
+      - networkmanager
+      - networkmanager-openvpn
+    state: present
+  become: yes
