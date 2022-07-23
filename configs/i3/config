@@ -149,7 +149,7 @@ bar {
     statusline $fg
     separator  #ff00ff
 
-    focused_workspace  $wg $wg $bg
+    focused_workspace  $wg $wg $fg
     active_workspace   $bg $bg $fg
     inactive_workspace $bg $bg $fg
     urgent_workspace   $bg $bg $fg
@@ -158,7 +158,7 @@ bar {
     position top
     status_command i3blocks
     tray_output primary
-    font pango:Fira Code 10
+    font pango:Fira Code 8
     separator_symbol " λ "
     workspace_buttons yes
 }
