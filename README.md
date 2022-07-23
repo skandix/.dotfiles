@@ -1,5 +1,7 @@
 # .dotfiles
-
+![](./assets/one.png)
+![](./assets/two.png)
+![](./assets/three.png)
 
 ## INSTALL
 ```bash

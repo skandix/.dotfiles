@@ -1,0 +1,6 @@
+- name: install neovim on linux
+  package:
+    name:
+      - flameshot
+    state: present
+  become: yes

@@ -1,0 +1,8 @@
+- name: install xscreensaver and xsecurelock on linux
+  package:
+    name:
+      - xsecurelock
+      - xscreensaver
+      - xscreensaver-aerial
+    state: present
+  become: yes

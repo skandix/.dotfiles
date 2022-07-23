@@ -1,0 +1,9 @@
+- name: install Pipewire on linux
+  package:
+    name:
+      - pipewire
+      - pipewire-alsa
+      - pipewire-jack
+      - pipewire-pulse
+    state: present
+  become: yes

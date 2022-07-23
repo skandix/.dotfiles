@@ -1,0 +1,16 @@
+- name: install i3 on linux
+  package:
+    name:
+      - xorg
+      - xorg-server
+      - xorg-xinit
+      - i3
+    state: present
+  become: yes
+- name: symlink i3 on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    path: "{{ ansible_env.USER }}/{{ item }}"
+    state: link
+    follow: false
+    force: yes

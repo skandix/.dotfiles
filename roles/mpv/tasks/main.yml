@@ -1,0 +1,14 @@
+- name: install mpv on linux
+  package:
+    name:
+      - mpv
+    state: present
+  become: yes
+
+- name: symlink mpv on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/mpv/files/{{ item }}"
+    path: "{{ ansible_env.USER }}/{{ item }}"
+    state: link
+    follow: false
+    force: yes

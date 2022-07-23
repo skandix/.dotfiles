@@ -1,0 +1,15 @@
+- name: install bash on linux
+  package:
+    name:
+      - pfetch
+      - lolcat
+    state: present
+  become: yes
+
+- name: symlink bashrc on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/bash/files/{{ item }}"
+    path: "{{ ansible_env.USER }}/{{ item }}"
+    state: link
+    follow: false
+    force: yes

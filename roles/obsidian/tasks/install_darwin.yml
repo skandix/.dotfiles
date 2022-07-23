@@ -1,0 +1,4 @@
+- name: install Obsidian on darwin
+  homebrew_cask:
+    name: obsidian
+    state: present

@@ -1,0 +1,20 @@
+- name: Setup local environment
+  hosts: localhost
+  vars:
+    cert_path: /etc/ssl/certs/ca-certificates.crt
+  roles:
+    - base
+    - locale
+    - git
+    - gnupg
+    - dunst
+    - bspwm
+    - fish
+    - alacritty
+    - ctags
+    - syncthing
+    - nvim
+    - emacs
+    - ranger
+    - offlineimap
+    - mu
