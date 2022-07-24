@@ -1,6 +1,6 @@
 # .dotfiles
-![](./assets/one.png)
-![](./assets/two.png)
+> TODO: write tagline
+
 ![](./assets/three.png)
 
 ## INSTALL
