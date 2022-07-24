@@ -152,7 +152,7 @@ bar {
     focused_workspace  $wg $wg $fg
     active_workspace   $bg $bg $fg
     inactive_workspace $bg $bg $fg
-    urgent_workspace   $bg $bg $fg
+    urgent_workspace   #ff0000 $bg $fg
     binding_mode       $bg $bg $fg
   }
     position top

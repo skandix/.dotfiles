@@ -1,4 +1,4 @@
-- name: install cli
+- name: install cli tools
   aur:
     use: yay
     name:
@@ -23,4 +23,3 @@
       - openvpn
       - pywal-git
     state: present
-  become: yes

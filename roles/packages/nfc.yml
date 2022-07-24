@@ -1,8 +1,7 @@
-- name: install cli
+- name: install nfc-tools
   aur:
     use: yay
     name:
-      - mfoc-git
+      - mfoc
       - mfcuk-git
     state: present
-  become: yes

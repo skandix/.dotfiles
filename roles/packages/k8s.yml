@@ -1,8 +1,7 @@
-- name: install cli
+- name: install k8s tools
   aur:
     use: yay
     name:
       - kubectl
       - lens
     state: present
-  become: yes

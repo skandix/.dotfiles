@@ -10,4 +10,3 @@
       - lib32-vulkan-icd-loader
       - linux-zen
     state: present
-  become: yes

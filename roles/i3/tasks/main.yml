@@ -36,3 +36,13 @@
   loop:
     - rnd_bg.sh
   become: yes
+
+- name: symlink xinitrc on Linux
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - .xinitrc

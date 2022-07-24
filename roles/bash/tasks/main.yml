@@ -1,8 +1,9 @@
-- name: install bash on linux
+- name: install bash libs on linux
   package:
     name:
       - pfetch
       - lolcat
+      - neofetch
     state: present
   become: yes
 

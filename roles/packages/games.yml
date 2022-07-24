@@ -7,5 +7,5 @@
       - minecraft-launcher
       - multimc5
       - steam
+      - ttf-liberation
     state: present
-  become: yes

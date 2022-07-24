@@ -1,8 +1,7 @@
-- name: install cli
+- name: install obs-studio
   aur:
     use: yay
     name:
       - obs-studio-git
       - obs-linuxbrowser
     state: present
-  become: yes

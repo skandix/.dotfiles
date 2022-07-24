@@ -12,8 +12,6 @@ alias ip='ip -c'
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 alias tf='terraform'
 
-# pywal
-if [ -f /usr/bin/wal ];  then (cat ~/.cache/wal/sequences &);  else echo "need to PyWal"; fi;
 xrandr --output HDMI-A-0 --scale 1.1x1.1
 
 # pfetch or motd

@@ -1,4 +1,4 @@
-- name: install cli
+- name: install other handy tools
   aur:
     use: yay
     name:
@@ -9,4 +9,3 @@
       - speedtest-cli
       - gnu-netcat
     state: present
-  become: yes

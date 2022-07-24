@@ -1,4 +1,4 @@
-- name: install cli
+- name: install gui tools
   aur:
     use: yay
     name:
@@ -20,4 +20,3 @@
       - plex-media-player
       - slack-desktop
     state: present
-  become: yes
