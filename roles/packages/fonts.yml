@@ -5,4 +5,4 @@
       - nerd-fonts-fira-code
       - noto-fonts-emoji
       - ttf-opensans
-    state: present
+    state: latest

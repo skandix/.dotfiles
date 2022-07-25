@@ -2,7 +2,7 @@
   package:
     name:
       - rofi
-    state: present
+    state: latest
   become: yes
 
 - name: create rofi config directory

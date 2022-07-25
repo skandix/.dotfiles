@@ -5,4 +5,4 @@
       - python-pip
       - python-pipenv
       - binwalk
-    state: present
+    state: latest

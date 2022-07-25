@@ -14,9 +14,8 @@
       - mumble
       - teams
       - zoom
-      - firefox-extension-bitwarden
       - visual-studio-code-bin
       - plexamp-appimage
       - plex-media-player
       - slack-desktop
-    state: present
+    state: latest

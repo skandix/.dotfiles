@@ -8,4 +8,4 @@
       - tcpdump
       - speedtest-cli
       - gnu-netcat
-    state: present
+    state: latest

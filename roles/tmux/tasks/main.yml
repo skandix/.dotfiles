@@ -2,7 +2,7 @@
   package:
     name:
       - tmux
-    state: present
+    state: latest
   become: yes
 
 - name: symlink tmux conf on Linux

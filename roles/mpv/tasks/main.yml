@@ -2,7 +2,7 @@
   package:
     name:
       - mpv
-    state: present
+    state: latest
   become: yes
 
 - name: create mpv config directory

@@ -5,4 +5,4 @@
       - network-manager-applet
       - networkmanager
       - networkmanager-openvpn
-    state: present
+    state: latest

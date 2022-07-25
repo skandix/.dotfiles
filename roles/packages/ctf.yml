@@ -9,4 +9,4 @@
       - strace
       - ltrace
       # - msitools
-    state: present
+    state: latest

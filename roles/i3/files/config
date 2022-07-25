@@ -21,7 +21,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 ### MISC KEYBINDS ###
 bindsym Print exec --no-startup-id $screen
-#bindsym Insert exec --no-startup-id $lock
+bindsym Insert exec --no-startup-id $lock
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym $mod+Return exec $term

@@ -8,4 +8,4 @@
       - multimc5
       - steam
       - ttf-liberation
-    state: present
+    state: latest

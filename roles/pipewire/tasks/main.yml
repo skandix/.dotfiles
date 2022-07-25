@@ -8,7 +8,7 @@
       - pamixer
       - pasystray
       - pavucontrol
-    state: present
+    state: latest
   become: yes
 # - name: install jamesdsp on linux
 #   aur:

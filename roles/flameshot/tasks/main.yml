@@ -2,7 +2,7 @@
   package:
     name:
       - flameshot
-    state: present
+    state: latest
   become: yes
 
 - name: create flameshot config directory

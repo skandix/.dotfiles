@@ -7,7 +7,7 @@
       - i3-wm
       - feh
       - gnome-keyring
-    state: present
+    state: latest
   become: yes
 
 - name: create i3 config directory

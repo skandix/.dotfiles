@@ -4,4 +4,4 @@
     name:
       - obs-studio-git
       - obs-linuxbrowser
-    state: present
+    state: latest

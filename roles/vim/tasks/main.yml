@@ -3,7 +3,7 @@
     name:
       - vim
       - neovim
-    state: present
+    state: latest
   become: yes
 
 - name: symlink vimrc conf on Linux

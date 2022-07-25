@@ -2,7 +2,7 @@
   package:
     name:
       - dunst
-    state: present
+    state: latest
   become: yes
 
 - name: create dunst config directory

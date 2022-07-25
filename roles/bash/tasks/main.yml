@@ -4,7 +4,7 @@
       - pfetch
       - lolcat
       - neofetch
-    state: present
+    state: latest
   become: yes
 
 - name: symlink bashrc on Linux

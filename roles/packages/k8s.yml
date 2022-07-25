@@ -4,4 +4,4 @@
     name:
       - kubectl
       - lens
-    state: present
+    state: latest

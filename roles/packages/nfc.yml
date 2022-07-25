@@ -4,4 +4,4 @@
     name:
       - mfoc
       - mfcuk-git
-    state: present
+    state: latest

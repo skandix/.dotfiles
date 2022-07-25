@@ -4,7 +4,7 @@
     name:
       - amd-ucode
       - linux-zen
-    state: present
+    state: latest
   when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('AMD') != -1)
 
 - name: install Intel CPU driver on ArchLinux
@@ -12,5 +12,5 @@
   package:
     name:
       - intel-ucode
-    state: present
+    state: latest
   when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('Intel') != -1)

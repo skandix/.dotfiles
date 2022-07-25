@@ -8,7 +8,7 @@
   become: yes
   package:
     name: git
-    state: present
+    state: latest
   when: ansible_facts['os_family'] == "Archlinux"
 
 - name: symlink gitconfig

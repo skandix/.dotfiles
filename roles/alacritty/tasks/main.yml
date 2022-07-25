@@ -2,7 +2,7 @@
   package:
     name:
       - alacritty
-    state: present
+    state: latest
   become: yes
 
 - name: create alacritty config directory

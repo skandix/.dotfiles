@@ -22,4 +22,4 @@
       - mkdocs-material
       - openvpn
       - pywal-git
-    state: present
+    state: latest

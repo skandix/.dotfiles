@@ -1,7 +1,7 @@
 - name: install Obsidian on linux
   package:
     name: obsidian
-    state: present
+    state: latest
   become: yes
 
 - name: symlink obsidian git sync on linux

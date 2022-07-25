@@ -6,10 +6,10 @@
 
 - name: install xscreensaver-aerial
   aur:
+    use: yay
     name:
       - xscreensaver-aerial
-    use: yay
-    state: present
+    state: latest
 
 - name: symlink xscreensaver
   file:
