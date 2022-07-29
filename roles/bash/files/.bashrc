@@ -12,8 +12,6 @@ alias ip='ip -c'
 alias pressmd='reveal-md --theme solarized --highlight-theme solarized-dark '
 alias tf='terraform'
 
-xrandr --output HDMI-A-0 --scale 1.1x1.1
-
 # pfetch or motd
 if [ -f /usr/bin/pfetch ];  then pfetch -t | lolcat;  else echo "need to install pfetch"; fi;
 

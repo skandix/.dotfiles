@@ -12,3 +12,8 @@ ds:
 	ansible-playbook --ask-become-pass \
         -i hosts \
         DeathStar.yml
+
+server:
+	ansible-playbook --ask-become-pass \
+        -i hosts \
+        DeathStar.yml

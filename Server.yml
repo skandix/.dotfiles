@@ -1,0 +1,19 @@
+- name: Setup Server environment
+  hosts: localhost
+  vars:
+    cert_path: /etc/ssl/certs/ca-certificates.crt
+  roles:
+    - luizgavalda.aur
+    - base
+    - pacman
+    - bash
+    - git
+    - tmux
+    - vim
+  tasks:
+    - import_tasks: roles/packages/cli.yml
+    - import_tasks: roles/packages/docker.yml
+    - import_tasks: roles/packages/k8s.yml
+    - import_tasks: roles/packages/networkmanager.yml
+    - import_tasks: roles/packages/python.yml
+    - import_tasks: roles/packages/tools.yml
