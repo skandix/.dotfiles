@@ -5,24 +5,24 @@
   roles:
     - luizgavalda.aur
     - base
-    - pacman
-    - alacritty
-    - bash
-    - cpu
-    - dunst
-    - flameshot
     - git
-    - gtk-3.0
+    #- pacman
+    - rofi
     - i3
     - i3blocks
-    - mpv
-    - obsidian
-    - picom
-    - pipewire
-    - rofi
+    - gtk-3.0
+    - bash
     - tmux
     - vim
+    - dunst
     - xscreensaver
+    - alacritty
+    - cpu
+    - flameshot
+    - picom
+    - mpv
+    - obsidian
+    #- pipewire
   tasks:
     - import_tasks: roles/packages/cli.yml
     - import_tasks: roles/packages/nvidia_gpu.yml

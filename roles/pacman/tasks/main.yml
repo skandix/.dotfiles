@@ -39,5 +39,5 @@
     dest: /etc/pacman.conf
     state: "present"
     regexp: "^ParallelDownloads"
-    insertafter: "^#ParallelDownloads = 5"
+    insertafter: "^#ParallelDownloads = 5*"
     line: "ParallelDownloads = 30"
