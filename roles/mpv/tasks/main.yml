@@ -1,16 +1,16 @@
-- name: install mpv on linux
+- name: Install mpv on Linux
   package:
     name:
       - mpv
     state: latest
   become: yes
 
-- name: create mpv config directory
+- name: Create /.config/mpv directory
   file:
     path: ~/.config/mpv
     state: directory
 
-- name: symlink mpv conf on Linux
+- name: Symlink mpv config
   file:
     src: "{{ ansible_env.PWD }}/roles/mpv/files/{{ item }}"
     path: "~/.config/mpv/{{ item }}"

@@ -1,16 +1,16 @@
-- name: install dunst on linux
+- name: Install Dunst on Linux
   package:
     name:
       - dunst
     state: latest
   become: yes
 
-- name: create dunst config directory
+- name: Create /.config/dunst directory
   file:
     path: ~/.config/dunst
     state: directory
 
-- name: symlink dunst conf on Linux
+- name: Symlink dunst config
   file:
     src: "{{ ansible_env.PWD }}/roles/dunst/files/{{ item }}"
     path: "~/.config/dunst/{{ item }}"

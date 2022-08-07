@@ -1,17 +1,21 @@
-- name: install xscreensaver and xsecurelock on linux
+- name: Install xscreensaver on Linux
+  package:
+    name:
+      - xscreensaver
+
+- name: Install xsecurelock on Linux
   package:
     name:
       - xsecurelock
-      - xscreensaver
 
-- name: install xscreensaver-aerial
+- name: Install xscreensaver-aerial on Linux
   aur:
     use: yay
     name:
       - xscreensaver-aerial
     state: latest
 
-- name: symlink xscreensaver
+- name: Symlink Alacritty config
   file:
     src: "{{ ansible_env.PWD }}/roles/xscreensaver/files/{{ item }}"
     path: "~/{{ item }}"

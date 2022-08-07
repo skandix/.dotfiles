@@ -1,16 +1,24 @@
-- name: install alacritty on linux
+- name: Install Alacritty on Macos
+  community.general.homebrew:
+    name:
+      - alacritty
+    state: absent
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: Install Alacritty on Linux
   package:
     name:
       - alacritty
     state: latest
   become: yes
+  when: ansible_facts['os_family'] != "Darwin"
 
-- name: create alacritty config directory
+- name: Create /.config/alacritty directory
   file:
     path: "~/.config/alacritty"
     state: directory
 
-- name: symlink alacritty conf on Linux
+- name: Symlink Alacritty config
   file:
     src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
     path: "~/.config/alacritty/{{ item }}"

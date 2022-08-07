@@ -10,7 +10,7 @@
 #     regexp: "^#Server"
 #     replace: "Server"
 
-- name: "uncomment colors"
+- name: "Pacman uncomment Color"
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -18,7 +18,7 @@
     insertafter: "^#Color"
     line: "Color"
 
-- name: add multilib
+- name: Pacman add multilib
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -26,7 +26,7 @@
     regexp: "^\\[multilib\\]"
     insertafter: "^#\\[multilib\\]"
 
-- name: add multilib (cont)
+- name: Pacman add multilib 
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -34,7 +34,7 @@
     insertafter: "^\\[multilib\\]"
     regexp: "Include = /etc/pacman.d/mirrorlist"
 
-- name: add ParallelDownloads
+- name: Pacman add ParallelDownloads
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"

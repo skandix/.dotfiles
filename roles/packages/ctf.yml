@@ -1,4 +1,4 @@
-- name: install ctf tools
+- name: Install CTF tools on Linux
   aur:
     use: yay
     name:

@@ -1,4 +1,4 @@
-- name: install AMD GPU drivers
+- name: Install AMD driver on Linux
   aur:
     use: yay
     name:

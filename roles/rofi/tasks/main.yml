@@ -1,16 +1,16 @@
-- name: install rofi on linux
+- name: Install Alacritty on Linux
   package:
     name:
       - rofi
     state: latest
   become: yes
 
-- name: create rofi config directory
+- name: Create /.config/rofi directory
   file:
     path: ~/.config/rofi
     state: directory
 
-- name: symlink rofi conf on Linux
+- name: Symlink rofi config
   file:
     src: "{{ ansible_env.PWD }}/roles/rofi/files/{{ item }}"
     path: "~/.config/rofi/{{ item }}"

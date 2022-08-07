@@ -1,4 +1,4 @@
-- name: install nvidia gpu drivers
+- name: Install NVIDIA driver on Linux
   aur:
     use: yay
     name:

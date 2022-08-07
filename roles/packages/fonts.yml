@@ -1,4 +1,4 @@
-- name: install fonts
+- name: Install fonts on Linux
   aur:
     use: yay
     name:

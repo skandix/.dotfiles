@@ -1,4 +1,4 @@
-- name: install gui tools
+- name: Install GUI tools on Linux
   aur:
     use: yay
     name:

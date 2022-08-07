@@ -10,9 +10,3 @@
       - pavucontrol
     state: latest
   become: yes
-# - name: install jamesdsp on linux
-#   aur:
-#     use: yay
-#     name:
-#       - jamesdsp
-#     state: present

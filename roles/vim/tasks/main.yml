@@ -1,12 +1,21 @@
-- name: install vim on linux
+- name: Install vim on Macos
+  community.general.homebrew:
+    name:
+      - vim
+      - neovim
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: Install vim on Macos
   package:
     name:
       - vim
       - neovim
     state: latest
   become: yes
+  when: ansible_facts['os_family'] == "Linux"
 
-- name: symlink vimrc conf on Linux
+- name: Symlink vim config
   file:
     src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
     path: "~/{{ item }}"

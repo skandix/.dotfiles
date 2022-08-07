@@ -1,4 +1,4 @@
-- name: install gamer stuff
+- name: Install games on Linux
   aur:
     use: yay
     name:

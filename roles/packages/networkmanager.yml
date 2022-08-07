@@ -1,4 +1,4 @@
-- name: install network manager
+- name: Install netowrkmanager on Linux
   aur:
     use: yay
     name:

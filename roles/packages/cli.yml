@@ -1,4 +1,4 @@
-- name: install cli tools
+- name: Install CLI tools on Linux
   aur:
     use: yay
     name:
