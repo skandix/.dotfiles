@@ -73,6 +73,9 @@ Plug 'ParamagicDev/vim-medic_chalk'
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
+"" FZF
+Plug 'junegunn/fzf.vim'
+
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required

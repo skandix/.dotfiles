@@ -7,19 +7,16 @@ configuration {
     show-icons: true;
     terminal: "alacritty";
     ssh-client: "ssh";
-    ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+    ssh-command: "{terminal} -e ssh {host}";
     run-command: "{cmd}";
-    sort: true;
-    autoselect: true;
-    yoffset: -100;
+    yoffset: -200;
     xoffset: 0;
+    run {
+        width: 10;
+        }
   timeout {
       action: "kb-cancel";
       delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
   }
 }
 /* Dark theme. */

@@ -140,25 +140,11 @@ mode "resize" {
 bindsym $mod+Escape workspace back_and_forth
 
 bar {
-  colors {
-    set_from_resource $fg i3wm.color7 #f0f0f0
-    set_from_resource $wg i3wm.color5 #f0f0f0
-    set_from_resource $bg i3wm.color2 #f0f0f0
 
-    background $bg
-    statusline $fg
-    separator  #ff00ff
-
-    focused_workspace  $wg $wg $fg
-    active_workspace   $bg $bg $fg
-    inactive_workspace $bg $bg $fg
-    urgent_workspace   #ff0000 $bg $fg
-    binding_mode       $bg $bg $fg
-  }
     position top
-    status_command i3blocks
+    status_command i3status
     tray_output primary
-    font pango:Fira Code 8
+    font pango:Fira Code 12
     separator_symbol " λ "
     workspace_buttons yes
 }
@@ -172,8 +158,8 @@ exec_always --no-startup-id bash rnd_bg.sh
 exec_always --no-startup-id "~/.screenlayout/default.sh"
 exec_always --no-startup-id dunst
 exec_always --no-startup-id setxkbmap no
-exec_always --no-startup-id tailscale-systray
 
+exec --no-startup-id tailscale-systray
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 

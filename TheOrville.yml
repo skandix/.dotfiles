@@ -5,24 +5,25 @@
   roles:
     - luizgavalda.aur
     - base
-    - pacman
-    - alacritty
-    - bash
-    - cpu
-    - dunst
-    - flameshot
     - git
-    - gtk-3.0
+    - pacman
+    - bash
     - i3
     - i3blocks
+    - dunst
+    - flameshot
     - mpv
-    - obsidian
-    - picom
-    - pipewire
+    - gtk-3.0
     - rofi
+    - picom
     - tmux
     - vim
     - xscreensaver
+    - cpu
+    - alacritty
+    - obsidian
+    - pipewire
+    - hashicorp
   tasks:
     - import_tasks: roles/packages/cli.yml
     - import_tasks: roles/packages/ctf.yml

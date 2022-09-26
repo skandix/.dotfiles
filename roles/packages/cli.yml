@@ -17,9 +17,9 @@
       - minicom
       - ffmpeg
       - keybase
-      - mkdocs
-      - mkdocs-material-pymdownx-extras
-      - mkdocs-material
+      #- mkdocs
+      #- mkdocs-material-pymdownx-extras
+      #- mkdocs-material
       - openvpn
       - pywal-git
     state: latest

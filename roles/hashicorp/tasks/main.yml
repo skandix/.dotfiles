@@ -1,0 +1,22 @@
+- name: install vagrant
+  aur:
+    use: yay
+    name:
+      - vagrant
+    state: latest
+
+- name: install ansible
+  aur:
+    use: yay
+    name:
+      - ansible
+      - ansible-core
+      - molecule
+    state: latest
+
+- name: install terraform
+  aur:
+    use: yay
+    name:
+      - terraform
+    state: latest
