@@ -1,4 +1,13 @@
-- name: install bash libs on linux
+- name: Install Bash eyecandy on Linux
+  community.general.homebrew:
+    name:
+      - pfetch
+      - lolcat
+      - neofetch
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: Install Bash eyecandy on Linux
   package:
     name:
       - pfetch
@@ -6,8 +15,10 @@
       - neofetch
     state: latest
   become: yes
+  when: ansible_facts['os_family'] != "Darwin"
 
-- name: symlink bashrc on Linux
+
+- name: Symlink Bash config
   file:
     src: "{{ ansible_env.PWD }}/roles/bash/files/{{ item }}"
     path: "~/{{ item }}"

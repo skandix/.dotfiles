@@ -1,21 +1,27 @@
-- name: install i3 + xorg on linux
+- name: Install i3 on Linux
   package:
     name:
-      - xorg
-      - xorg-server
-      - xorg-xinit
       - i3-wm
       - feh
       - gnome-keyring
     state: latest
   become: yes
 
-- name: create i3 config directory
+- name: Install xorg on Linux
+  package:
+    name:
+      - xorg
+      - xorg-server
+      - xorg-xinit
+    state: latest
+  become: yes
+
+- name: Create /.config/i3 directory
   file:
     path: ~/.config/i3
     state: directory
 
-- name: symlink i3 conf on Linux
+- name: Symlink i3 config
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "~/.config/i3/{{ item }}"
@@ -26,7 +32,7 @@
     - bg
     - config
 
-- name: symlink rnd_bg
+- name: Symlink rnd_bg script
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "/usr/bin/{{ item }}"
@@ -37,7 +43,7 @@
     - rnd_bg.sh
   become: yes
 
-- name: symlink xinitrc on Linux
+- name: Symlink .xinitrc config
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "~/{{ item }}"

@@ -1,4 +1,4 @@
-- name: install Obsidian on darwin
+- name: Install obsidian on Macos
   homebrew_cask:
     name: obsidian
     state: present

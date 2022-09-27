@@ -1,4 +1,4 @@
-- name: install other handy tools
+- name: Install Network tools on Linux
   aur:
     use: yay
     name:

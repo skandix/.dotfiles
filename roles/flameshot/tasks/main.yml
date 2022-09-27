@@ -1,16 +1,16 @@
-- name: install flameshot on linux
+- name: Install Flameshot on Linux
   package:
     name:
       - flameshot
     state: latest
   become: yes
 
-- name: create flameshot config directory
+- name: Create /.config/flameshot directory
   file:
     path: ~/.config/flameshot
     state: directory
 
-- name: symlink flameshot conf on Linux
+- name: Symlink flameshot config
   file:
     src: "{{ ansible_env.PWD }}/roles/flameshot/files/{{ item }}"
     path: "~/.config/flameshot/{{ item }}"

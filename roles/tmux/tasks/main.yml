@@ -1,11 +1,18 @@
-- name: install neovim on linux
+- name: Install Git on Macos
+  community.general.homebrew:
+    name:
+      - tmux
+    state: present
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: Install tmux on Linux
   package:
     name:
       - tmux
     state: latest
   become: yes
-
-- name: symlink tmux conf on Linux
+  when: ansible_facts['os_family'] == "Linux"
+- name: Symlink tmux config
   file:
     src: "{{ ansible_env.PWD }}/roles/tmux/files/{{ item }}"
     path: "~/{{ item }}"

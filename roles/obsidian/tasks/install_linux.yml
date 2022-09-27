@@ -1,10 +1,10 @@
-- name: install Obsidian on linux
+- name: Install Obsidian on Linux
   package:
     name: obsidian
     state: latest
   become: yes
 
-- name: symlink obsidian git sync on linux
+- name: Symlink _Obsidian script
   file:
     src: "{{ ansible_env.PWD }}/roles/obsidian/files/{{ item }}"
     path: "/usr/bin/{{ item }}"
@@ -14,3 +14,4 @@
   loop:
     - _Obsidian.sh
   become: yes
+

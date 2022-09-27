@@ -1,4 +1,4 @@
-- name: install docker and compose
+- name: Install Docker & Docker compose on Linux
   aur:
     use: yay
     name:

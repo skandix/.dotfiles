@@ -1,4 +1,4 @@
-- name: install k8s tools
+- name: Install k8s tools on Linux
   aur:
     use: yay
     name:

@@ -1,16 +1,16 @@
-- name: install i3blocks on linux
+- name: Install i3blocks on Linux
   package:
     name:
       - i3blocks
     state: latest
   become: yes
 
-- name: create i3blocks config directory
+- name: Create /.config/i3blocks directory
   file:
     path: ~/.config/i3blocks
     state: directory
 
-- name: symlink i3blocks conf on Linux
+- name: Symlink i3blocks config
   file:
     src: "{{ ansible_env.PWD }}/roles/i3blocks/files/{{ item }}"
     path: "~/.config/i3blocks/{{ item }}"

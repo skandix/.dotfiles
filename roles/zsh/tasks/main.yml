@@ -1,4 +1,4 @@
-- name: install zsh on linux
+- name: Install zsh on Linux
   package:
     name:
       - zsh

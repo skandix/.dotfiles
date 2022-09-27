@@ -1,24 +1,24 @@
-- name: create .ssh folder
+- name: Create ~/.ssh directory
   file:
     path: "~/.ssh"
     state: directory
 
-- name: create Picture folder
+- name: Create ~/.Pictures directory
   file:
     path: "~/Pictures"
     state: directory
 
-- name: create screenshot folder
+- name: Create ~/.Pictures/screenshot directory
   file:
     path: "~/Pictures/screenshot"
     state: directory
 
-- name: create gitclone folder
+- name: Create ~/gitclones directory
   file:
     path: "~/gitclones"
     state: directory
 
-- name: create junkyard folder
+- name: Create ~/junkyard directory
   file:
     path: "~/junkyard"
     state: directory
