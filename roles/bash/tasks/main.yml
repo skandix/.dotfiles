@@ -28,3 +28,4 @@
   loop:
     - .bashrc
     - .dircolors
+    - context-color

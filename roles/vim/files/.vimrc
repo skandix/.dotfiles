@@ -20,8 +20,8 @@ endfunction
 
 "" installing required python packages
 "" TODO: make functions only run once... or something, give it a state of some sort to check
-call s:Py3freeze("pynvim")
-call s:Py3freeze("neovim")
+"call s:Py3freeze("pynvim")
+"call s:Py3freeze("neovim")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START

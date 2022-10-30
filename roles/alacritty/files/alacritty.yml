@@ -1,29 +1,17 @@
 env:
   TERM: xterm-256color
-
 window:
-  dimensions:
-    columns: 75
-    lines: 0
   padding:
     x: 15
     y: 15
   dynamic_padding: false
   decorations: none
-  startup_mode: Windowed
-
-  title: ¯\_(ツ)_/¯
-class:
-  general: ¯\_(ツ)_/¯
 
 scrolling:
   history: 10000
   multiplier: 3
 
 font:
-  #normal:
-  #family: Fira Code Mono
-
   size: 12.0
 
   offset:
@@ -33,7 +21,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: false
 draw_bold_text_with_bright_colors: false
 
 # Colors (Horizon Dark)
@@ -73,7 +60,6 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-
   hide_when_typing: true
 
 selection:
@@ -100,7 +86,6 @@ key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Insert, mods: Shift, action: PasteSelection }
-
   - { key: Paste, action: Paste }
   - { key: Copy, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }

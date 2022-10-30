@@ -1,6 +1,32 @@
+- name: Install zsh on Macos
+  community.general.homebrew:
+    name:
+      - pfetch
+      - lolcat
+      - neofetch
+      - zsh
+      - zinit
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
 - name: Install zsh on Linux
   package:
     name:
+      - pfetch
+      - lolcat
+      - neofetch
       - zsh
-    state: present
+      - zinit-git
+    state: latest
   become: yes
+  when: ansible_facts['os_family'] != "Darwin"
+
+- name: Symlink zsh config
+  file:
+    src: "{{ ansible_env.PWD }}/roles/zsh/files/{{ item }}"
+    path: "~/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - .zshrc
