@@ -3,11 +3,11 @@
   vars:
     cert_path: /opt/homebrew/etc/openssl@1.1/cert.pem
   roles:
-    - base
-    - alacritty
-    - bash
-    - cpu
-    - git
-    - obsidian
-    - tmux
-    - vim
+    - zsh
+    #- alacritty
+    #- bash
+    #- cpu
+    #- git
+    #- obsidian
+    #- tmux
+    #- vim
