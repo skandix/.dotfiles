@@ -20,7 +20,9 @@ SAVEHIST=1000
 ## ALIAS ##
 alias ..="cd .."
 alias ip="ip -c"
-alias k="kubectl"
+alias k="kubecolor"
+alias kd="k delete -f ."
+alias ka="k apply -f ."
 alias o="openstack"
 alias tf="terraform"
 alias ls="ls --color"
