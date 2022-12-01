@@ -1,13 +1,22 @@
+[bandwidth]
+command=$HOME/.config/i3blocks/bandwidth
+interval=5
+INTERFACE=eno1
+INLABEL=⬇️ 
+OUTLABEL=⬆️
+color=#ff00ff
+#TREAT_UNKNOWN_AS_UP=0
+
 markup=none
 [procs]
-command=echo "${1:-} $(ps -U $USER | wc -l)"
+command=echo "${1:-⚙️} $(ps -U $USER | wc -l)"
 interval=5
-color=#0a0a0a
+color=#ff00ff
 
 [kernel]
-command=echo "${1:-} $(uname -r)"
+command=echo "${1:-🐧} $(uname -r)"
 interval=5
-color=#0a0a0a
+color=#ff00ff
 
 # [battery-poly]
 # command=$HOME/.config/i3blocks/battery-poly
@@ -15,22 +24,22 @@ color=#0a0a0a
 # interval=5
 
 [DISK]
-command=df -h / | awk '/\//{ printf("C:/ %4s/%s \n", $4, $2) }'
+command=df -h / | awk '/\//{ printf("💾 %4s/%s \n", $4, $2) }'
 interval=2
-color=#0a0a0a
+color=#ff00ff
 
 [MEM]
-command=free -h | awk '/Mem:/ { printf("Ram: %5s/%s \n", $3, $2) }'
+command=free -h | awk '/Mem:/ { printf("🐏 %5s/%s \n", $3, $2) }'
 interval=1
-color=#0a0a0a
+color=#ff00ff
 
 [IP]
 command=ip route get 1.1.1.1 |grep src | cut -d' ' -f7
 interval=once
-color=#0a0a0a
+color=#ff00ff
 
 [TIME_DATE]
 command=date +" %a, %d %b - %H:%M:%S "
 interval=1
-color=#0a0a0a
+color=#ff00ff
 

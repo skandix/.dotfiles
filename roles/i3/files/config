@@ -142,7 +142,7 @@ bindsym $mod+Escape workspace back_and_forth
 bar {
 
     position top
-    status_command i3status
+    status_command i3blocks
     tray_output primary
     font pango:Fira Code 12
     separator_symbol " λ "
