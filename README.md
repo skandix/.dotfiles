@@ -1,8 +1,6 @@
 # .dotfiles
 > TODO: write tagline
-
-![](./assets/three.png)
-
+> 
 ## INSTALL
 ```bash
 git clone https://github.com/skandix/.dotfiles.git
@@ -12,6 +10,16 @@ git clone https://github.com/skandix/.dotfiles.git
 ```bash
 make to|sc|ds
 ```
+
+## SCREENSHOT
+<br>
+
+![](./assets/work.png)
+
+![](./assets/rofi.png)
+
+
+
 
 # Inspiration // Street Cred
 - https://snow-dev.com/posts/next-level-dotfiles-with-ansible.html
