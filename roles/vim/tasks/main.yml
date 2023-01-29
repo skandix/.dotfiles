@@ -15,12 +15,19 @@
   become: yes
   when: ansible_facts['os_family'] == "Linux"
 
-- name: Symlink vim config
+- name: Create nvim dir
+  file:
+    path: "~/.config/nvim/"
+    state: directory
+    follow: yes
+    force: yes
+
+- name: Symlink nvim config
   file:
     src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
-    path: "~/{{ item }}"
+    path: "~/.config/nvim/{{ item }}"
     state: link
     follow: yes
     force: yes
   loop:
-    - .vimrc
+    - init.vim

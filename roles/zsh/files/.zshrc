@@ -1,6 +1,5 @@
 # load zinit plugin manager
 source /usr/share/zinit/zinit.zsh # yay -S zinit-git
-
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
@@ -17,6 +16,12 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+## ENVS ##
+PAGER = "less";
+BROWSER = "firefox";
+EDITOR = "nvim";
+SHELL = "zsh";
+
 ## ALIAS ##
 alias ..="cd .."
 alias ip="ip -c"
@@ -27,6 +32,8 @@ alias o="openstack"
 alias tf="terraform"
 alias ls="ls --color"
 alias compose="docker compose"
+alias vim="nvim"
+alias nf="cd $HOME/.dotfiles && nvim . && cd -"
 
 ## BINDKEY ###
 bindkey  "^[[H"   beginning-of-line

@@ -2,31 +2,23 @@
 set nocompatible
 filetype plugin on
 
-" checks if plug is installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  autocmd VimEnter * +PlugInstall +all | source $HOME/.vimrc
-endif
 
 """ checks if n package is installed.
 function! s:Py3freeze(package)
     if empty(system("pip3 freeze | grep " . a:package))
         echo "Installing Package " . a:package
         execute "!pip3 install " . a:package . " --user"
-    else
-        echo "Found " . a:package
     endif
 endfunction
 
-"" installing required python packages
-"" TODO: make functions only run once... or something, give it a state of some sort to check
-"call s:Py3freeze("pynvim")
-"call s:Py3freeze("neovim")
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
 "" Rust Vim
 Plug 'rust-lang/rust.vim'
+
+" Ansible syntax
+Plug 'pearofducks/ansible-vim'
 
 " indenting fancy stuff
 Plug 'nathanaelkane/vim-indent-guides'
@@ -41,13 +33,10 @@ Plug 'vimsence/vimsence'
 Plug 'scrooloose/nerdcommenter'
 
 "" Fuzzy File Finder
-Plug 'kien/ctrlp.vim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 "" Polyglot
 Plug 'sheerun/vim-polyglot'
-
-"" hjkl
-Plug 'vim-scripts/HJKL'
 
 "" Startscreen
 Plug 'mhinz/vim-startify'
@@ -59,7 +48,8 @@ Plug 'elzr/vim-json'
 Plug 'ntpeters/vim-better-whitespace'
 
 "" Ligth version of Powerline
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "" Async lint engine
 Plug 'w0rp/ale'
@@ -67,14 +57,17 @@ Plug 'w0rp/ale'
 "" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
 
-"" colors
-Plug 'ParamagicDev/vim-medic_chalk'
+"" color parantheses
+Plug 'luochen1990/rainbow'
+
+"" colorscheme
+Plug 'ray-x/aurora'
 
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
-"" FZF
-Plug 'junegunn/fzf.vim'
+"" AutoComplete
+Plug 'valloric/youcompleteme'
 
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
@@ -129,18 +122,16 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
+""" colorscheme
+let g:aurora_italic = 1     " italic
+let g:aurora_transparent = 1     " transparent
+let g:aurora_bold = 1     " bold
+let g:aurora_darker = 1     " darker background
+
+colorscheme aurora
+
 """ ligthline config
 syntax enable
-colorscheme medic_chalk
-
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
-
-let g:lightline = {'colorscheme': 'seoul256',}
-
-hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
 
 """ Startify
 let g:startify_session_dir = '~/.vim/session'
@@ -149,6 +140,10 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+""" Indent guides enable
+let g:indent_guides_enable_on_vim_startup = 1
+
+
 """ BEHAVE
 set wildmode=list:longest,full	" Show vim completion menu
 set encoding=utf-8				" encoding
@@ -156,7 +151,7 @@ set undolevels=256				" how many times one can undo
 set updatetime=250				" Faster update of internals
 set numberwidth=6				" with of the 'gutter' col for numbering
 set foldmethod=indent
-set termguicolors
+set termguicolors               " 24 bit colors
 set foldlevel=99
 set splitright
 set backspace=indent,eol,start

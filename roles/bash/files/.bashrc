@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
 # auto complete
 source /usr/share/bash-completion/bash_completion

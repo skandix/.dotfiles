@@ -13,6 +13,11 @@ ds:
         -i hosts \
         DeathStar.yml
 
+run:
+	ansible-playbook --ask-become-pass \
+        -i hosts \
+        run.yml
+
 server:
 	ansible-playbook --ask-become-pass \
         -i hosts \
