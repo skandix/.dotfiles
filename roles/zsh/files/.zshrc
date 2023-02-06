@@ -16,12 +16,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-## ENVS ##
-PAGER = "less";
-BROWSER = "firefox";
-EDITOR = "nvim";
-SHELL = "zsh";
-
 ## ALIAS ##
 alias ..="cd .."
 alias ip="ip -c"
@@ -34,6 +28,7 @@ alias ls="ls --color"
 alias compose="docker compose"
 alias vim="nvim"
 alias nf="cd $HOME/.dotfiles && nvim . && cd -"
+#alias docker="podman"
 
 ## BINDKEY ###
 bindkey  "^[[H"   beginning-of-line

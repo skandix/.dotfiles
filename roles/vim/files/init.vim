@@ -66,9 +66,6 @@ Plug 'ray-x/aurora'
 "" Auto close brackets
 Plug 'cohama/lexima.vim'
 
-"" AutoComplete
-Plug 'valloric/youcompleteme'
-
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
 filetype plugin indent on    " required
