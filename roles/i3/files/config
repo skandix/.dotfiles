@@ -2,7 +2,8 @@
 set $mod Mod4
 set $altMod Mod1
 set $term alacritty
-set $screen flameshot gui
+set $screen flameshot gui 
+#set $screen /home/skandix/.ssh/zipline.sh &
 set $lock xsecurelock
 
 ### FONT ###
