@@ -1,4 +1,4 @@
-- name: Install AMD Microcode dLinux
+- name: CPU | Install AMD Microcode dLinux
   become: yes
   package:
     name:
@@ -7,7 +7,7 @@
     state: latest
   when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('AMD') != -1)
 
-- name: Install Intel CPU Microcode Linux
+- name: CPU | Install Intel CPU Microcode Linux
   become: yes
   package:
     name:

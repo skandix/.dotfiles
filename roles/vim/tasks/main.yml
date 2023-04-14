@@ -1,4 +1,4 @@
-- name: Install vim on Macos
+- name: VIM | Install vim on Macos
   community.general.homebrew:
     name:
       - vim
@@ -6,7 +6,7 @@
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: Install vim on Macos
+- name: VIM | Install vim on Macos
   package:
     name:
       - vim
@@ -15,14 +15,14 @@
   become: yes
   when: ansible_facts['os_family'] == "Linux"
 
-- name: Create nvim dir
+- name: VIM | Create nvim dir
   file:
     path: "~/.config/nvim/"
     state: directory
     follow: yes
     force: yes
 
-- name: Symlink nvim config
+- name: VIM | Symlink nvim config
   file:
     src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
     path: "~/.config/nvim/{{ item }}"

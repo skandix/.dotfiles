@@ -1,18 +1,19 @@
-- name: Install Git on Macos
+- name: TMUX | Install tmux on Macos
   community.general.homebrew:
     name:
       - tmux
     state: present
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: Install tmux on Linux
+- name: TMUX | Install tmux on Linux
   package:
     name:
       - tmux
     state: latest
   become: yes
   when: ansible_facts['os_family'] == "Linux"
-- name: Symlink tmux config
+
+- name: TMUX | Symlink tmux config
   file:
     src: "{{ ansible_env.PWD }}/roles/tmux/files/{{ item }}"
     path: "~/{{ item }}"

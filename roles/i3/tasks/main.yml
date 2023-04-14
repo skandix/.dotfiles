@@ -1,4 +1,4 @@
-- name: Install i3 on Linux
+- name: I3 | Install i3 on Linux
   package:
     name:
       - i3-wm
@@ -7,7 +7,7 @@
     state: latest
   become: yes
 
-- name: Install xorg on Linux
+- name: I3 | Install xorg on Linux
   package:
     name:
       - xorg
@@ -16,12 +16,12 @@
     state: latest
   become: yes
 
-- name: Create /.config/i3 directory
+- name: I3 | Create /.config/i3 directory
   file:
     path: ~/.config/i3
     state: directory
 
-- name: Symlink i3 config
+- name: I3 | Symlink i3 config
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "~/.config/i3/{{ item }}"
@@ -32,7 +32,7 @@
     - bg
     - config
 
-- name: Symlink rnd_bg script
+- name: I3 | Symlink rnd_bg script
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "/usr/bin/{{ item }}"
@@ -43,7 +43,7 @@
     - rnd_bg.sh
   become: yes
 
-- name: Symlink .xinitrc config
+- name: I3 | Symlink .xinitrc config
   file:
     src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
     path: "~/{{ item }}"

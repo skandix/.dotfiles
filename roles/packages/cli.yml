@@ -1,4 +1,4 @@
-- name: Install CLI tools on Linux
+- name: PACKAGES | Install CLI tools on Linux
   aur:
     use: yay
     name:

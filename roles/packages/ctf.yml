@@ -1,4 +1,4 @@
-- name: Install CTF tools on Linux
+- name: PACKAGES | Install CTF tools on Linux
   aur:
     use: yay
     name:

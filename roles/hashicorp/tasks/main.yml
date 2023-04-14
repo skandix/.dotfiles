@@ -1,11 +1,11 @@
-- name: install vagrant
+- name: Hasicorp | install vagrant
   aur:
     use: yay
     name:
       - vagrant
     state: latest
 
-- name: install ansible
+- name: Hasicorp | install ansible
   aur:
     use: yay
     name:
@@ -14,7 +14,7 @@
       - molecule
     state: latest
 
-- name: install terraform
+- name: Hasicorp | install terraform
   aur:
     use: yay
     name:

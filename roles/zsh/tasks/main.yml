@@ -1,4 +1,4 @@
-- name: Install zsh on Macos
+- name: ZSH | Install zsh on Macos
   community.general.homebrew:
     name:
       - pfetch
@@ -9,7 +9,8 @@
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: Install zsh on Linux
+- name: ZSH | Install zsh on Linux
+  become: yes
   package:
     name:
       - pfetch
@@ -18,10 +19,9 @@
       - zsh
       - zinit-git
     state: latest
-  become: yes
   when: ansible_facts['os_family'] != "Darwin"
 
-- name: Symlink zsh config
+- name: ZSH | Symlink zsh config
   file:
     src: "{{ ansible_env.PWD }}/roles/zsh/files/{{ item }}"
     path: "~/{{ item }}"

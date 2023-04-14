@@ -1,4 +1,4 @@
-- name: Install netowrkmanager on Linux
+- name: PACKAGES | Install netowrkmanager on Linux
   aur:
     use: yay
     name:

@@ -1,4 +1,4 @@
-- name: Install NFC tools on Linux
+- name: PACKAGES | Install NFC tools on Linux
   aur:
     use: yay
     name:

@@ -1,4 +1,4 @@
-- name: Install OBS Studio on Linux
+- name: PACKAGES | Install OBS Studio on Linux
   aur:
     use: yay
     name:

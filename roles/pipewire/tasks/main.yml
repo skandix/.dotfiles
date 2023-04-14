@@ -1,4 +1,4 @@
-- name: install Pipewire on linux
+- name: PIPEWIRE | install Pipewire on linux
   package:
     name:
       - pipewire

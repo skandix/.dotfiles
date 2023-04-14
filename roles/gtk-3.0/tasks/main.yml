@@ -1,9 +1,9 @@
-- name: Create /.config/gtk-3.0 directory
+- name: GTK | Create /.config/gtk-3.0 directory
   file:
     path: ~/.config/gtk-3.0
     state: directory
 
-- name: Symlink gtk-3.0 config
+- name: GTK | Symlink gtk-3.0 config
   file:
     src: "{{ ansible_env.PWD }}/roles/gtk-3.0/files/{{ item }}"
     path: "~/.config/gtk-3.0/{{ item }}"

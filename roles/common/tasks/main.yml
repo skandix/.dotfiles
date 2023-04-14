@@ -1,24 +1,24 @@
-- name: Create ~/.ssh directory
+- name: COMMON | Create ~/.ssh directory
   file:
     path: "~/.ssh"
     state: directory
 
-- name: Create ~/.Pictures directory
+- name: COMMON | Create ~/.Pictures directory
   file:
     path: "~/Pictures"
     state: directory
 
-- name: Create ~/.Pictures/screenshot directory
+- name: COMMON | Create ~/.Pictures/screenshot directory
   file:
     path: "~/Pictures/screenshot"
     state: directory
 
-- name: Create ~/gitclones directory
+- name: COMMON | Create ~/gitclones directory
   file:
     path: "~/gitclones"
     state: directory
 
-- name: Create ~/junkyard directory
+- name: COMMON | Create ~/junkyard directory
   file:
     path: "~/junkyard"
     state: directory

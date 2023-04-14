@@ -1,4 +1,4 @@
-- name: Install AMD driver on Linux
+- name: PACKAGE | Install AMD driver on Linux
   aur:
     use: yay
     name:

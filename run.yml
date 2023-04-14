@@ -1,6 +1,0 @@
-- name: Setup DeathStar environment
-  hosts: localhost
-  vars:
-    cert_path: /etc/ssl/certs/ca-certificates.crt
-  roles:
-    - vim

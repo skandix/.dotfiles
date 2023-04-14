@@ -1,4 +1,4 @@
-- name: Install NVIDIA driver on Linux
+- name: PACKAGES | Install NVIDIA driver on Linux
   aur:
     use: yay
     name:

@@ -1,4 +1,4 @@
-- name: Install obsidian on Macos
+- name: OBSIDIAN | Install obsidian on Macos
   homebrew_cask:
     name: obsidian
     state: present

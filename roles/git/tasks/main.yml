@@ -1,17 +1,17 @@
-- name: Install Git on Macos
+- name: GIT | Install Git on Macos
   community.general.homebrew:
     name: git
     state: present
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: Install Git on Linux
+- name: GIT | Install Git on Linux
   become: yes
   package:
     name: git
     state: latest
   when: ansible_facts['os_family'] == "Archlinux"
 
-- name: Symlink .gitconfig
+- name: GIT | Symlink .gitconfig
   file:
     src: "{{ ansible_env.PWD }}/roles/git/files/.gitconfig"
     path: ~/.gitconfig

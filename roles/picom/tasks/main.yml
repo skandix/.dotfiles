@@ -1,15 +1,15 @@
-- name: Install picom on Linux
+- name: PICOM | Install picom on Linux
   aur:
     name: picom-git
     state: present
   become: yes
 
-- name: Create /.config/picom directory
+- name: PICOM | Create /.config/picom directory
   file:
     path: ~/.config/picom
     state: directory
 
-- name: Symlink picom config
+- name: PICOM | Symlink picom config
   file:
     src: "{{ ansible_env.PWD }}/roles/picom/files/{{ item }}"
     path: "~/.config/picom/{{ item }}"

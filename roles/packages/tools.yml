@@ -1,4 +1,4 @@
-- name: Install Network tools on Linux
+- name: PACKAGES | Install Network tools on Linux
   aur:
     use: yay
     name:

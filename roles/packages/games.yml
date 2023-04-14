@@ -1,4 +1,4 @@
-- name: Install games on Linux
+- name: PACKAGES | Install games on Linux
   aur:
     use: yay
     name:

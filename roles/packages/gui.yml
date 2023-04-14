@@ -1,4 +1,4 @@
-- name: Install GUI tools on Linux
+- name: PACKAGES | Install GUI tools on Linux
   aur:
     use: yay
     name:
@@ -8,7 +8,7 @@
       - mpv
       - firefox
       - torbrowser-launcher
-      - sublime-text-3
+      - sublime-text-4
       - peek
       - arandr
       - mumble

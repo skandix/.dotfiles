@@ -4,10 +4,9 @@
     cert_path: /opt/homebrew/etc/openssl@1.1/cert.pem
   roles:
     - zsh
-    #- alacritty
-    #- bash
-    #- cpu
-    #- git
-    #- obsidian
-    #- tmux
-    #- vim
+    - alacritty
+    - bash
+    - cpu
+    - git
+    - tmux
+    - vim

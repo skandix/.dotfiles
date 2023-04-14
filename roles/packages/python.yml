@@ -1,4 +1,4 @@
-- name: Install Python on Linux
+- name: PACKAGES | Install Python on Linux
   aur:
     use: yay
     name:
