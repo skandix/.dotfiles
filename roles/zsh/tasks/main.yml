@@ -10,8 +10,8 @@
   when: ansible_facts['os_family'] == "Darwin"
 
 - name: ZSH | Install zsh on Linux
-  become: yes
-  package:
+  aur:
+    use: yay
     name:
       - pfetch
       - lolcat

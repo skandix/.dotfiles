@@ -1,6 +1,5 @@
 - name: Setup TheOrville environment
   hosts: localhost
-  become: yes
   vars:
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:

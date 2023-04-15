@@ -3,5 +3,5 @@
     use: yay
     name:
       - kubectl
-      - lens
+      - k9s
     state: latest

@@ -2,7 +2,6 @@
   aur:
     name: picom-git
     state: present
-  become: yes
 
 - name: PICOM | Create /.config/picom directory
   file:
