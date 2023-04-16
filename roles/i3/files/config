@@ -13,9 +13,9 @@ font pango:Terminus 6px
 bindsym $mod+t exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "MUTED?!?"
 
 ### MEDIA KEYS ###
-bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioLowerVolume exec --no-startup-id  pamixer --decrease 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id  pamixer --increase 5
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
