@@ -4,9 +4,9 @@
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:
     - luizgavalda.aur
-    - base
+    - common
     - git
-    #- pacman
+    - pacman
     - rofi
     - i3
     - i3blocks
@@ -21,7 +21,6 @@
     - flameshot
     - picom
     - mpv
-    - obsidian
     #- pipewire
   tasks:
     - import_tasks: roles/packages/cli.yml
