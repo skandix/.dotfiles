@@ -3,32 +3,35 @@
   vars:
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:
+    - pacman
     - luizgavalda.aur
     - common
     - git
-    - pacman
-    - rofi
+    - zsh
     - i3
     - i3blocks
+    - dunst
+    - flameshot
+    - mpv
     - gtk-3.0
-    - bash
+    - rofi
+    - picom
     - tmux
     - vim
-    - dunst
     - xscreensaver
-    - alacritty
     - cpu
-    - flameshot
-    - picom
-    - mpv
-    #- pipewire
+    - alacritty
+    - pipewire
+    - hashicorp
   tasks:
     - import_tasks: roles/packages/cli.yml
+    - import_tasks: roles/packages/ctf.yml
     - import_tasks: roles/packages/nvidia_gpu.yml
-    - import_tasks: roles/packages/networkmanager.yml
     - import_tasks: roles/packages/docker.yml
     - import_tasks: roles/packages/fonts.yml
     - import_tasks: roles/packages/gui.yml
     - import_tasks: roles/packages/k8s.yml
+    - import_tasks: roles/packages/networkmanager.yml
+    - import_tasks: roles/packages/nfc.yml
     - import_tasks: roles/packages/python.yml
     - import_tasks: roles/packages/tools.yml
