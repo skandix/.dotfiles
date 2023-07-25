@@ -10,6 +10,7 @@
     - git
     - tmux
     - vim
+    - helix
   tasks:
     - import_tasks: roles/packages/cli.yml
     - import_tasks: roles/packages/docker.yml

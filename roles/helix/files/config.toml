@@ -1,0 +1,43 @@
+theme = "heisenberg"
+
+[editor]
+line-number = "relative"
+mouse = false
+true-color = true
+cursorline = true
+cursorcolumn = true # midas matrix patcher vibes :D 
+bufferline = "always"
+auto-pairs = true
+
+[editor.statusline]
+separator = "λ"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+
+[keys.normal.backspace]
+r = ":sh cargo run"
+
+# normal leader key behaviour in vim
+[keys.normal.space]
+w = ":w"
+q = ":q"
+r = [":w", ":config-reload"] 
+c = [":config-open"]
