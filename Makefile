@@ -22,3 +22,6 @@ server:
 	ansible-playbook --ask-become-pass \
         -i hosts \
         DeathStar.yml
+
+deps: 
+        ansible-galaxy install luizgavalda.aur
