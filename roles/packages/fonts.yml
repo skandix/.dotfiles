@@ -1,8 +1,10 @@
 - name: PACKAGES | Install fonts on Linux
-  aur:
-    use: yay
+  pacman:
     name:
       - nerd-fonts-fira-code
       - noto-fonts-emoji
       - ttf-opensans
     state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"

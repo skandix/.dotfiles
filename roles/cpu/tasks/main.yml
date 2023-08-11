@@ -1,16 +1,5 @@
-- name: CPU | Install AMD Microcode dLinux
-  become: yes
-  package:
-    name:
-      - amd-ucode
-      - linux-zen
-    state: latest
-  when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('AMD') != -1)
+- name: Install Intel
+  include_tasks: intel.yml
 
-- name: CPU | Install Intel CPU Microcode Linux
-  become: yes
-  package:
-    name:
-      - intel-ucode
-    state: latest
-  when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('Intel') != -1)
+- name: Install AMD
+  include_tasks: amd.yml

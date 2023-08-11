@@ -1,7 +1,9 @@
 - name: PACKAGES | Install OBS Studio on Linux
-  aur:
-    use: yay
+  pacman:
     name:
       - obs-studio-git
       - obs-linuxbrowser
     state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"

@@ -1,0 +1,30 @@
+# source: https://github.com/archlinux-ansible/ansible-arch_packages/blob/master/tasks/packages.yaml#L6C1-L33
+- name: GPU | Install prerequisites
+  package:
+    name:
+      - pciutils
+    state: present
+
+- name: GPU | Look for GPUs on PCIe bus
+  shell: "set -o pipefail; lspci -v -s $(lspci | grep ' VGA ' | cut -d' ' -f 1)"
+  register: gpus_lspci
+  changed_when: no
+
+- name: GPU | Check which GPUs are present
+  set_fact:
+    gpu: >-
+      {{
+        ('amd' if 'AMD' in gpus_lspci.stdout
+        else 'intel' if 'Intel' in gpus_lspci.stdout
+        else 'nvidia' if 'NVIDIA' in gpus_lspci.stdout) | default('generic')
+      }}
+
+- name: Install AMD
+  include_tasks: amd.yml
+  when: gpu == 'amd'
+
+
+- name: Install Nvidia
+  include_tasks: nvidia.yml
+  when: gpu == 'nvidia'
+

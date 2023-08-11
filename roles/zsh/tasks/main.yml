@@ -9,9 +9,9 @@
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
+
 - name: ZSH | Install zsh on Linux
-  aur:
-    use: yay
+  pacman:
     name:
       - pfetch
       - lolcat
@@ -19,6 +19,8 @@
       - zsh
       - zinit-git
     state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
   when: ansible_facts['os_family'] != "Darwin"
 
 - name: ZSH | Symlink zsh config

@@ -1,0 +1,19 @@
+- name: Hasicorp | Install Vagrant
+  package:
+    name:
+      - vagrant
+    state: latest
+
+- name: Hasicorp | Install Ansible
+  package:
+    name:
+      - ansible
+      - ansible-core
+      - molecule
+    state: latest
+
+- name: Hasicorp | Install Terraform
+  package:
+    name:
+      - terraform
+    state: latest

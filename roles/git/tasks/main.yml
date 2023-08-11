@@ -1,5 +1,5 @@
 - name: GIT | Install Git on Macos
-  community.general.homebrew:
+  homebrew:
     name: git
     state: present
   when: ansible_facts['os_family'] == "Darwin"
@@ -9,7 +9,7 @@
   package:
     name: git
     state: latest
-  when: ansible_facts['os_family'] == "Archlinux"
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: GIT | Symlink .gitconfig
   file:

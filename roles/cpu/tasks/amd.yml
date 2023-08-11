@@ -1,0 +1,8 @@
+- name: CPU | Install AMD Microcode dLinux
+  become: yes
+  package:
+    name:
+      - amd-ucode
+      - linux-zen
+    state: latest
+  when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('Amd') != -1)

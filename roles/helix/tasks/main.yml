@@ -1,17 +1,16 @@
-- name: HELIX | Install Alacritty on Macos
+- name: HELIX | Install Helix-editor on Macos
   community.general.homebrew:
     name:
       - helix
     state: absent
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: HELIX | Install Alacritty on Linux
+- name: HELIX | Install Helix-editor on Linux
   package:
     name:
       - helix
     state: latest
   become: yes
-  when: ansible_facts['os_family'] != "Darwin"
 
 - name: HELIX | Create /.config/helix directory
   file:

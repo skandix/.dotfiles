@@ -11,6 +11,7 @@
 #     replace: "Server"
 
 - name: PACMAN | Pacman uncomment Color
+  become: yes
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -19,6 +20,7 @@
     line: "Color"
 
 - name: PACMAN | Pacman add multilib
+  become: yes
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -27,6 +29,7 @@
     insertafter: "^#\\[multilib\\]"
 
 - name: PACMAN | Pacman add multilib
+  become: yes
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
@@ -35,6 +38,7 @@
     regexp: "Include = /etc/pacman.d/mirrorlist"
 
 - name: PACMAN | Pacman add ParallelDownloads
+  become: yes 
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"

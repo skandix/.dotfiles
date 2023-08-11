@@ -8,7 +8,8 @@ git clone https://github.com/skandix/.dotfiles.git
 
 ## USAGE
 ```bash
-make to|sc|ds
+make help
+make to|sc|ds|server
 ```
 
 ## SCREENSHOT

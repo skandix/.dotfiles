@@ -1,7 +1,9 @@
 - name: PACKAGES | Install NFC tools on Linux
-  aur:
-    use: yay
+  pacman:
     name:
       - mfoc
       - mfcuk-git
     state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"

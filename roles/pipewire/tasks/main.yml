@@ -3,7 +3,6 @@
     name:
       - pipewire
       - pipewire-alsa
-      - pipewire-jack
       - pipewire-pulse
       - pamixer
       - pasystray

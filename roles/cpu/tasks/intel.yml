@@ -1,0 +1,7 @@
+- name: CPU | Install Intel CPU Microcode Linux
+  become: yes
+  package:
+    name:
+      - intel-ucode
+    state: latest
+  when: (ansible_facts['os_family'] == "ArchLinux") and (ansible_facts['ansible_processor'].find('Intel') != -1)

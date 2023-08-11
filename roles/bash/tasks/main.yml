@@ -1,5 +1,5 @@
 - name: BASH | Install Bash eyecandy on Linux
-  community.general.homebrew:
+  homebrew:
     name:
       - pfetch
       - lolcat
@@ -15,7 +15,6 @@
       - neofetch
     state: latest
   become: yes
-  when: ansible_facts['os_family'] != "Darwin"
 
 - name: BASH | Symlink Bash config
   file:

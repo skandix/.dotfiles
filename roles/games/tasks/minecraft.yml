@@ -1,0 +1,10 @@
+- name: GAMES | Install Minecraft on Linux
+  pacman:
+    name:
+      - minecraft-launcher
+      - multimc5
+    state: latest
+    executable: yay
+    extra_args: --buiilddir /var/cache/yay
+
+

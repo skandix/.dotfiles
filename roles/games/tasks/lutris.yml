@@ -1,0 +1,7 @@
+- name: GAMES | Install Lutris on Linux
+  become: yes
+  package:
+    name:
+      - lutris
+      - wine-staging
+    state: latest

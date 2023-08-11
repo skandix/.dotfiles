@@ -1,0 +1,15 @@
+- name: GAMES | Install steam fonts on Linux
+  become: yes
+  package:
+    name:
+      - steam
+    state: latest
+
+- name: GAMES | Install steam fonts on Linux
+  pacman:
+    name:
+      - ttf-liberation
+    state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"

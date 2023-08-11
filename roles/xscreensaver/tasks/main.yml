@@ -1,21 +1,24 @@
-- name: Screensaver | Install xscreensaver on Linux
-  become: yes
-  package:
-    name:
-      - xscreensaver
-
 - name: Screensaver | Install xsecurelock on Linux
   become: yes
   package:
     name:
       - xsecurelock
+    state: latest
+
+- name: Screensaver | Install xscreensaver on Linux
+  become: yes
+  package:
+    name:
+      - xscreensaver
+    state: latest
 
 - name: Screensaver | Install xscreensaver-aerial on Linux
-  aur:
-    use: yay
-    name:
-      - xscreensaver-aerial
+  pacman:
+    name: xscreensaver-aerial
     state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: Screensaver | Symlink Alacritty config
   become: yes

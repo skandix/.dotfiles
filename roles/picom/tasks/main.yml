@@ -1,12 +1,18 @@
 - name: PICOM | Install picom on Linux
-  aur:
-    name: picom-git
-    state: present
+  pacman:
+    name:
+      - picom-git
+    state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: PICOM | Create /.config/picom directory
   file:
     path: ~/.config/picom
     state: directory
+  when: ansible_facts['os_family'] == "ArchLinux"
+
 
 - name: PICOM | Symlink picom config
   file:
@@ -17,3 +23,5 @@
     force: yes
   loop:
     - picom.conf
+  when: ansible_facts['os_family'] == "ArchLinux"
+

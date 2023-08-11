@@ -1,5 +1,5 @@
 - name: ALACRITTY | Install Alacritty on Macos
-  community.general.homebrew:
+  homebrew:
     name:
       - alacritty
     state: absent
@@ -11,7 +11,6 @@
       - alacritty
     state: latest
   become: yes
-  when: ansible_facts['os_family'] != "Darwin"
 
 - name: ALACRITTY | Create /.config/alacritty directory
   file:
