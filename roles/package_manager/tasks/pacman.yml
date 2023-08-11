@@ -14,17 +14,17 @@
   become: yes
   lineinfile:
     dest: /etc/pacman.conf
-    state: "present"
-    regexp: "^Color"
-    insertafter: "^#Color"
-    line: "Color"
+    state: 'present'
+    regexp: '^Color'
+    insertafter: '^#Color'
+    line: 'Color'
 
 - name: PACMAN | Pacman add multilib
   become: yes
   lineinfile:
     dest: /etc/pacman.conf
-    state: "present"
-    line: "[multilib]"
+    state: 'present'
+    line: '[multilib]'
     regexp: "^\\[multilib\\]"
     insertafter: "^#\\[multilib\\]"
 
@@ -32,16 +32,16 @@
   become: yes
   lineinfile:
     dest: /etc/pacman.conf
-    state: "present"
-    line: "Include = /etc/pacman.d/mirrorlist"
+    state: 'present'
+    line: 'Include = /etc/pacman.d/mirrorlist'
     insertafter: "^\\[multilib\\]"
-    regexp: "Include = /etc/pacman.d/mirrorlist"
+    regexp: 'Include = /etc/pacman.d/mirrorlist'
 
 - name: PACMAN | Pacman add ParallelDownloads
-  become: yes 
+  become: yes
   lineinfile:
     dest: /etc/pacman.conf
-    state: "present"
-    regexp: "^ParallelDownloads"
-    insertafter: "^#ParallelDownloads = 5*"
-    line: "ParallelDownloads = 30"
+    state: 'present'
+    regexp: '^ParallelDownloads'
+    insertafter: '^#ParallelDownloads = 5*'
+    line: 'ParallelDownloads = 30'

@@ -3,8 +3,7 @@
   vars:
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:
-    - pacman
-    - games
+    - package_manager
     - common
     - cpu
     - gpu

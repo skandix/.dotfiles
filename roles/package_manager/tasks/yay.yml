@@ -1,0 +1,29 @@
+- name: YAY | Install prerequsite
+  pacman:
+    name:
+      - git
+      - base-devel
+    state: latest
+  when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: YAY | git clone jguer yay
+  git:
+    repo: https://github.com/Jguer/yay
+    dest: /tmp
+    single_branch: yes
+    version: next
+  when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: YAY | Running makepkg
+  command: cd /tmp/yay && makepkg -si
+  when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: YAY | Symlink yay config
+  file:
+    src: '{{ ansible_env.PWD }}/roles/package_manager/files/{{ item }}'
+    path: "~/.config/yay/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - config.json

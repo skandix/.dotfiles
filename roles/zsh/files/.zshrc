@@ -26,7 +26,6 @@ alias o="openstack"
 alias tf="terraform"
 alias ls="ls --color"
 alias compose="docker compose"
-alias vim="nvim"
 alias nf="cd $HOME/.dotfiles && nvim . && cd -"
 #alias docker="podman"
 

@@ -1,0 +1,25 @@
+- name: Download blackarch setup script
+  get_url:
+    url: https://blackarch.org/strap.sh
+    dest: /tmp/strap.sh
+
+- name: Setup blackarch repository
+  become: yes
+  command: '/bin/sh /tmp/strap.sh'
+
+- name: Setup blackarch mirrorlist
+  become: yes
+  lineinfile:
+    dest: /etc/pacman.d/blackarch-mirrorlist
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+    backrefs: yes
+  loop:
+    - {
+        regexp: 'Server = https://ftp.halifax.rwth-aachen.de(.*)$',
+        line: '#Server = https://ftp.halifax.rwth-aachen.de(.*)$'
+      }
+    - {
+        regexp: 'Server = https://ftp.icm.edu.pl(.*)$',
+        line: 'Server = https://ftp.icm.edu.pl\1'
+      }

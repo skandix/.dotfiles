@@ -23,7 +23,7 @@
     path: "~/junkyard"
     state: directory
 
-- name: .wallpapers | Create wallpaper directory
-  file:
-    path: "~/.wallpapers"
-    state: directory
+# - name: .wallpapers | Create wallpaper directory
+#   file:
+#     path: "~/.wallpapers"
+#     state: directory

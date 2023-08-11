@@ -6,7 +6,6 @@
       - wireshark-qt
       - tcpdump
       - speedtest-cli
-      - gnu-netcat
     state: latest
     executable: yay
     extra_args: --builddir /var/cache/yay

@@ -1,0 +1,8 @@
+- name: MAKEPKG | makepkg add makeflags to nproc
+  become: yes
+  lineinfile:
+    dest: /etc/makepkg.conf
+    state: 'present'
+    regexp: '^#MAKEFLAGS="-j2"'
+    insertafter: '^#MAKEFLAGS="-j2"'
+    line: 'MAKEFLAGS="-j$(nproc)"'

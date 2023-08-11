@@ -7,6 +7,18 @@
       - hexedit
       - strace
       - ltrace
+      - burpsuite
+      - gnu-netcat
+      - gobuster
+      - hexedit
+      - hydra
+      - john
+      - metasploit
+      - msf-mpc
+      - nmap
+      - seclists
+      - sqlmap
+      - wpscan
       # - msitools
     state: latest
     executable: yay

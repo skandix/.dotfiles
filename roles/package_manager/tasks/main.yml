@@ -1,0 +1,13 @@
+# this have to run first!
+# many roles rely on that this is installed on the system.
+- name: Installing yay & Push config
+  include_tasks: yay.yml
+
+- name: Tweak makepkg config
+  include_tasks: makepkg.yml
+
+- name: Tweak pacman config
+  include_tasks: pacman.yml
+
+- name: Install blackarch repo
+  include_tasks: blackarch.yml
