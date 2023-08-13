@@ -3,9 +3,10 @@
   vars:
     cert_path: /etc/ssl/certs/ca-certificates.crt
   roles:
-    - pacman
-    - luizgavalda.aur
+    - package_mananger
     - common
+    - cpu
+    - gpu
     - git
     - zsh
     - i3
@@ -20,17 +21,14 @@
     - vim
     - helix
     - xscreensaver
-    - cpu
     - alacritty
     - pipewire
     - hashicorp
   tasks:
     - import_tasks: roles/packages/cli.yml
     - import_tasks: roles/packages/ctf.yml
-    - import_tasks: roles/packages/amd_gpu.yml
     - import_tasks: roles/packages/docker.yml
     - import_tasks: roles/packages/fonts.yml
-    - import_tasks: roles/packages/games.yml
     - import_tasks: roles/packages/gui.yml
     - import_tasks: roles/packages/k8s.yml
     - import_tasks: roles/packages/networkmanager.yml
