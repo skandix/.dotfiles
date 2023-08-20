@@ -1,0 +1,28 @@
+- name: WEZTERM | Install WEZTERM on Macos
+  homebrew:
+    name:
+      - wezterm
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: WEZTERM | Install WEZTERM  on Linux
+  package:
+    name:
+      - wezterm
+    state: latest
+  become: yes
+
+- name: WEZTERM | Create /.config/wezterm directory
+  file:
+    path: "~/.config/wezterm"
+    state: directory
+
+- name: WEZTERM | Symlink wezterm config
+  file:
+    src: "{{ ansible_env.PWD }}/roles/wezterm/files/{{ item }}"
+    path: "~/.config/wezterm/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - wezterm.lua

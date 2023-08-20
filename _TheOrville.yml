@@ -21,8 +21,9 @@
     - vim
     - helix
     - xscreensaver
-    - alacritty
+    - wezterm
     - pipewire
+    - games
   tasks:
     - import_tasks: roles/packages/hashicorp.yml
     - import_tasks: roles/packages/cli.yml

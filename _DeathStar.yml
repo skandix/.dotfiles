@@ -21,7 +21,7 @@
     - vim
     - helix
     - xscreensaver
-    - alacritty
+    - wezterm
     - pipewire
   tasks:
     - import_tasks: roles/packages/cli.yml

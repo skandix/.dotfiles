@@ -27,6 +27,7 @@ alias tf="terraform"
 alias ls="ls --color"
 alias compose="docker compose"
 alias nf="cd $HOME/.dotfiles && nvim . && cd -"
+alias vim="helix"
 #alias docker="podman"
 
 ## BINDKEY ###
