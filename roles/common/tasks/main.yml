@@ -23,7 +23,17 @@
     path: "~/junkyard"
     state: directory
 
-# - name: .wallpapers | Create wallpaper directory
-#   file:
-#     path: "~/.wallpapers"
-#     state: directory
+- name: .wallpapers | Create wallpaper directory
+  file:
+    path: "~/.wallpapers"
+    state: directory
+
+- name: .wallpapers | Symlink wallpaper folder
+  file:
+    src: '{{ ansible_env.PWD }}/roles/common/files/{{ item }}'
+    path: '~/{{ item }}'
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - .wallpapers
