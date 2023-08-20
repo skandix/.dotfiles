@@ -1,0 +1,21 @@
+- name: DISCORD | Install discord  on Linux
+  package:
+    name:
+      - discord
+    state: latest
+  become: yes
+
+- name: DISCORD | Create /.config/discord directory
+  file:
+    path: "~/.config/discord"
+    state: directory
+
+- name: DISCORD | Symlink discord config
+  file:
+    src: "{{ ansible_env.PWD }}/roles/discord/files/{{ item }}"
+    path: "~/.config/discord/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - settings.json

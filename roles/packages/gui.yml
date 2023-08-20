@@ -1,7 +1,6 @@
 - name: PACKAGES | Install GUI tools on Linux
   pacman:
     name:
-      - discord
       - telegram-desktop
       - signal-desktop
       - mpv
