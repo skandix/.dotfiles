@@ -1,0 +1,32 @@
+- name: HYPRLAND | Install hyprland on Linux
+  package:
+    name:
+      - hyprland-git
+    state: latest
+  become: yes
+
+- name: HYPRLAND | Create /.config/hypr directory
+  file:
+    path: ~/.config/hypr
+    state: directory
+
+- name: HYPRLAND | Symlink hypr config
+  file:
+    src: "{{ ansible_env.PWD }}/roles/hypr/files/{{ item }}"
+    path: "~/.config/hypr/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - hyperland.conf
+
+- name: HYPRLAND | Symlink startw script
+  become: yes
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    path: "/usr/bin/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - startw
