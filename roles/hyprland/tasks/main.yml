@@ -1,9 +1,14 @@
 - name: HYPRLAND | Install hyprland on Linux
-  package:
+  pacman:
     name:
       - hyprland-git
+      - dunst
+      - wf-recorder
+      - wlogout
+      - xdg-desktop-portal-hyprland
     state: latest
-  become: yes
+    executable: paru
+    extra_args: --builddir /var/cache/paru
 
 - name: HYPRLAND | Create /.config/hypr directory
   file:
@@ -18,7 +23,9 @@
     follow: yes
     force: yes
   loop:
-    - hyperland.conf
+    - hyprland.conf
+    - keybinds.conf
+    - startup.conf
 
 - name: HYPRLAND | Symlink startw script
   become: yes
