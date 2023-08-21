@@ -29,7 +29,6 @@
     follow: yes
     force: yes
   loop:
-    - bg
     - config
 
 - name: I3 | Symlink rnd_bg script

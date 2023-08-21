@@ -9,6 +9,6 @@
       - lib32-vulkan-icd-loader
       - linux-zen
     state: latest
-    executable: yay
-    extra_args: --builddir /var/cache/yay
+    executable: paru
+    extra_args: --builddir /var/cache/paru
   when: gpu == 'amd'

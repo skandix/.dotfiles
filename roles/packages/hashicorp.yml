@@ -1,10 +1,12 @@
 - name: Hasicorp | Install Vagrant
+  become: yes
   package:
     name:
       - vagrant
     state: latest
 
 - name: Hasicorp | Install Ansible
+  become: yes
   package:
     name:
       - ansible
@@ -13,6 +15,7 @@
     state: latest
 
 - name: Hasicorp | Install Terraform
+  become: yes
   package:
     name:
       - terraform

@@ -17,6 +17,6 @@
       - plex-media-player
       - slack-desktop
     state: latest
-    executable: yay
-    extra_args: --builddir /var/cache/yay
+    executable: paru
+    extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"

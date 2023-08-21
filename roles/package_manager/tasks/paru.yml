@@ -1,4 +1,4 @@
-- name: YAY | Install prerequsite
+- name: PARU | Install prerequsite
   pacman:
     name:
       - git
@@ -6,24 +6,30 @@
     state: latest
   when: ansible_facts['os_family'] == "ArchLinux"
 
-- name: YAY | git clone jguer yay
+- name: PARU | git clone paru
   git:
-    repo: https://github.com/Jguer/yay
+    repo: https://aur.archlinux.org/paru.git
     dest: /tmp
     single_branch: yes
     version: next
   when: ansible_facts['os_family'] == "ArchLinux"
 
-- name: YAY | Running makepkg
-  command: cd /tmp/yay && makepkg -si
+- name: PARU | Running makepkg
+  command: cd /tmp/paru && makepkg -si
   when: ansible_facts['os_family'] == "ArchLinux"
 
-- name: YAY | Symlink yay config
+- name: PARU | Create /.config/paru directory
+  file:
+    path: '~/.config/paru'
+    state: directory
+
+
+- name: PARU | Symlink paru config
   file:
     src: '{{ ansible_env.PWD }}/roles/package_manager/files/{{ item }}'
-    path: "~/.config/yay/{{ item }}"
+    path: "~/.config/paru/{{ item }}"
     state: link
     follow: yes
     force: yes
   loop:
-    - config.json
+    - paru.conf

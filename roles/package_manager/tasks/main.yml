@@ -1,7 +1,7 @@
 # this have to run first!
 # many roles rely on that this is installed on the system.
-- name: Installing yay & Push config
-  include_tasks: yay.yml
+- name: Installing paru & Push config
+  include_tasks: paru.yml
 
 - name: Tweak makepkg config
   include_tasks: makepkg.yml
