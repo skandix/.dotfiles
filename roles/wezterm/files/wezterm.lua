@@ -16,19 +16,19 @@ config.enable_wayland = false
 config.hide_tab_bar_if_only_one_tab = true -- since i use i3 i do not need tabs as much as i would i.e windows
 config.bold_brightens_ansi_colors = true
 config.window_close_confirmation = "NeverPrompt"
-
+config.color_scheme = 'Catppuccin Mocha'
 
 config.window_frame = {
 	font_size  = 8.0,
 }
 
-
-
-config.inactive_pane_hsb = {
-  saturation = 0.9,
-  brightness = 0.8,
+config.keys = {
+	{
+	key = "v",
+	mods = "CTRL|SHIFT",
+	action = wezterm.action({ PasteFrom = "Clipboard"  })
+	},
 }
-
 
 -- and finally, return the configuration to wezterm
 return config

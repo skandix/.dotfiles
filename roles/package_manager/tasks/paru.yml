@@ -11,7 +11,7 @@
     repo: https://aur.archlinux.org/paru.git
     dest: /tmp
     single_branch: yes
-    version: next
+    version: master
   when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: PARU | Running makepkg
