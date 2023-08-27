@@ -1,11 +1,10 @@
 - name: HYPRLAND | Install hyprland on Linux
   pacman:
     name:
-      - hyprland-git
+      - hyprland
       - dunst
-      - wf-recorder
-      - wlogout
-      - xdg-desktop-portal-hyprland
+      #- wf-recorder
+      #- wlogout
     state: latest
     executable: paru
     extra_args: --builddir /var/cache/paru
@@ -17,7 +16,7 @@
 
 - name: HYPRLAND | Symlink hypr config
   file:
-    src: "{{ ansible_env.PWD }}/roles/hypr/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/hyprland/files/{{ item }}"
     path: "~/.config/hypr/{{ item }}"
     state: link
     follow: yes
@@ -30,7 +29,7 @@
 - name: HYPRLAND | Symlink startw script
   become: yes
   file:
-    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/hyprland/files/{{ item }}"
     path: "/usr/bin/{{ item }}"
     state: link
     follow: yes
