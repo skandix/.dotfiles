@@ -1,0 +1,21 @@
+- name: firefox | Install firefox  on Linux
+  package:
+    name:
+      - firefox
+    state: latest
+  become: yes
+
+- name: firefox | Create chrome directory
+  file:
+    path: /home/hx/.mozilla/firefox/cili5yib.default-release/chrome
+    state: directory
+
+- name: firefox | Symlink userChrome.css
+  file:
+    src: '{{ ansible_env.PWD }}/roles/firefox/files/{{ item }}'
+    path: '~/.mozilla/firefox/cili5yib.default-release/chrome/{{ item }}'
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - userChrome.css
