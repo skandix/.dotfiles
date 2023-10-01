@@ -1,0 +1,39 @@
+.tabbrowser-tab {
+  visibility: hidden;
+}
+.titlebar-button {
+  height: 27px !important;
+}
+
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
+
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
+
+#sidebar-header {
+  visibility: collapse !important;
+}
+
+#titlebar-spacer {
+  background-color: var(--chrome-secondary-background-color);
+}
+#titlebar-buttonbox-container {
+  background-color: var(--chrome-secondary-background-color);
+}
+.titlebar-color {
+  background-color: var(--toolbar-bgcolor);
+}
+
+#main-window[inFullscreen="true"] #sidebar-box,
+#main-window[inFullscreen="true"] #sidebar-box + splitter {
+    visibility: collapse;
+}
+
+#sidebar-box #sidebar-header {
+  display: none !important;
+}
