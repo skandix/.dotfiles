@@ -62,7 +62,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+s sticky toggle
 
 
 mode "move ws" {
