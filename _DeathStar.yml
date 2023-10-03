@@ -14,7 +14,7 @@
     - i3
     - i3blocks
     - dunst
-    - flameshot
+      #    - flameshot
     - mpv
     - gtk-3.0
     - rofi

@@ -1,9 +1,10 @@
 - name: FLAMESHOT | Install Flameshot on Linux
-  package:
+  pacman:
     name:
       - flameshot
     state: latest
-  become: yes
+    executable: paru
+    extra_args: --builddir /var/cache/paru
 
 - name: FLAMESHOT | Create /.config/flameshot directory
   file:

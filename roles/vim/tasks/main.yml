@@ -2,7 +2,7 @@
   community.general.homebrew:
     name:
       - vim
-      - neovim
+        #      - neovim
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
@@ -10,7 +10,7 @@
   package:
     name:
       - vim
-      - neovim
+        #     - neovim
     state: latest
   become: yes
   when: ansible_facts['os_family'] == "Linux"
@@ -26,6 +26,17 @@
   file:
     src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
     path: "~/.config/nvim/{{ item }}"
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - init.vim
+
+
+- name: VIM | Symlink vim config
+  file:
+    src: "{{ ansible_env.PWD }}/roles/vim/files/{{ item }}"
+    path: "~/.vimrc"
     state: link
     follow: yes
     force: yes
