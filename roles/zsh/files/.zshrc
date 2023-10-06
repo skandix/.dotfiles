@@ -9,7 +9,10 @@ zinit light trapd00r/LS_COLORS
 zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-#zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
+
+## COLORS ##
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
