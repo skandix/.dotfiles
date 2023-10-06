@@ -14,57 +14,25 @@ endfunction
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
-"" Rust Vim
 Plug 'rust-lang/rust.vim'
-
-" Ansible syntax
 Plug 'pearofducks/ansible-vim'
-
-" indenting fancy stuff
 Plug 'nathanaelkane/vim-indent-guides'
-
-"" NERDtree
 Plug 'scrooloose/nerdtree'
-
-"" Discord nvim
 Plug 'vimsence/vimsence'
-
-""" VERY VERY HANDY Commenter Plugin
 Plug 'scrooloose/nerdcommenter'
-
-"" Fuzzy File Finder
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-
-"" Polyglot
 Plug 'sheerun/vim-polyglot'
-
-"" Startscreen
 Plug 'mhinz/vim-startify'
-
-"" Vim JSON
 Plug 'elzr/vim-json'
-
-"" Better Whitespace
 Plug 'ntpeters/vim-better-whitespace'
-
-"" Ligth version of Powerline
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-"" Async lint engine
 Plug 'w0rp/ale'
-
-"" Vim Gitgutter, shows diff in Vim
 Plug 'airblade/vim-gitgutter'
-
-"" color parantheses
 Plug 'luochen1990/rainbow'
-
-"" colorscheme
 Plug 'ray-x/aurora'
-
-"" Auto close brackets
 Plug 'cohama/lexima.vim'
+Plug 'dylanaraps/wal.vim'
 
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
@@ -125,7 +93,7 @@ let g:aurora_transparent = 1     " transparent
 let g:aurora_bold = 1     " bold
 let g:aurora_darker = 1     " darker background
 
-colorscheme aurora
+colorscheme wal
 
 """ ligthline config
 syntax enable

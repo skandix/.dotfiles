@@ -5,6 +5,7 @@
   roles:
     - package_manager
     - common
+    - discord
     - cpu
     - gpu
     - git

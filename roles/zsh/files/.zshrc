@@ -12,7 +12,10 @@ zinit light trapd00r/LS_COLORS
 zinit load zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-#zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
+
+## COLORS ##
+(cat ~/.cache/wal/sequences &) &>/dev/null
+source ~/.cache/wal/colors-tty.sh &>/dev/null
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -30,7 +33,6 @@ alias tf="terraform"
 alias ls="ls --color"
 alias compose="docker compose"
 alias nf="cd $HOME/.dotfiles && nvim . && cd -"
-#alias vim="helix"
 #alias docker="podman"
 
 ## BINDKEY ###
