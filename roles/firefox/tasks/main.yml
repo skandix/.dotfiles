@@ -20,8 +20,10 @@
   loop:
     - userChrome.css
 
-- name: Vars for mac apps
   vars:
     homebrew_cask_apps:
       - firefox
+
+    homebrew_installed_packages:
+      - neofetch
 
