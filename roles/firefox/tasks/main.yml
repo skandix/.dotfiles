@@ -20,6 +20,8 @@
   loop:
     - userChrome.css
 
-- vars:
+- name: Vars for mac apps
+  vars:
     homebrew_cask_apps:
       - firefox
+
