@@ -3,11 +3,13 @@
   vars:
     cert_path: /opt/homebrew/etc/openssl@1.1/cert.pem
   roles:
-    - zsh
-    - wezterm
-    - bash
-    - cpu
-    - git
-    - tmux
-    - vim
-    - helix
+    # - zsh
+    # - wezterm
+    # - bash
+    # - cpu
+    # - git
+    # - tmux
+    # - vim
+    # - helix
+    - geerlingguy.mac.homebrew
+    - firefox

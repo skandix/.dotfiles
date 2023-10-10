@@ -19,3 +19,7 @@
     force: yes
   loop:
     - userChrome.css
+
+- vars:
+    homebrew_cask_apps:
+      - firefox

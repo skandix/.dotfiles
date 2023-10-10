@@ -2,12 +2,16 @@
 # many roles rely on that this is installed on the system.
 - name: Installing paru & Push config
   include_tasks: paru.yml
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: Tweak makepkg config
   include_tasks: makepkg.yml
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: Tweak pacman config
   include_tasks: pacman.yml
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: Install blackarch repo
   include_tasks: blackarch.yml
+  when: ansible_facts['os_family'] == "ArchLinux"
