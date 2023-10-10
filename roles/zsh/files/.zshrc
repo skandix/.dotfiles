@@ -1,5 +1,8 @@
 # load zinit plugin manager
-source /usr/share/zinit/zinit.zsh # yay -S zinit-git
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
@@ -11,8 +14,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 ## COLORS ##
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+(cat ~/.cache/wal/sequences &) &>/dev/null
+source ~/.cache/wal/colors-tty.sh &>/dev/null
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -39,6 +42,6 @@ bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-if [ -f /usr/bin/pfetch ];  then pfetch -t | lolcat;  else yay -S pfetch lolcat; fi;
+if [ -f /usr/bin/pfetch ];  then pfetch -t | lolcat;  else echo "missing pfetch and lolcat"; fi;
 
 PS1="%n@%m λ " # shell prompt
