@@ -1,9 +1,10 @@
 - name: FIREFOX | Install Firefox  on Linux
+  become: yes
   package:
     name:
       - firefox
     state: latest
-  become: yes
+  when: ansible_facts['os_family'] != "Darwin"
 
 - name: FIREFOX | Install Firefox on Macos (Cask)
   community.general.homebrew_cask:
