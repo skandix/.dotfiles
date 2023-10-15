@@ -7,3 +7,13 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install OBS Studio on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - obs
+      - obs-browser
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"

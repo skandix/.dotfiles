@@ -4,6 +4,17 @@
       - mpv
     state: latest
   become: yes
+  when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: MPV | Install mpv on Macos (Cask)
+  community.general.homebrew:
+    name:
+      - mpv
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"
+
 
 - name: MPV | Create /.config/mpv directory
   file:

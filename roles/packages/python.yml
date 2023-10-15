@@ -8,3 +8,11 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install Python on Macos
+  community.general.homebrew:
+    name:
+      - pipenv
+      - binwalk
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"

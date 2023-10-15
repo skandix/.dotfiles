@@ -1,7 +1,6 @@
 - name: PACKAGES | Install CLI tools on Linux
   pacman:
     name:
-    name:
       - zip
       - unzip
       - unrar
@@ -9,7 +8,6 @@
       - screen
       - jq
       - wget
-      - git
       - ncdu
       - termdown
       - htop
@@ -17,12 +15,32 @@
       - minicom
       - ffmpeg
       - keybase
-      #- mkdocs
-      #- mkdocs-material-pymdownx-extras
-      #- mkdocs-material
       - openvpn
       - pywal-git
     state: latest
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install CLI tools on Macos
+  community.general.homebrew:
+    name:
+      - p7zip
+      - jq
+      - wget
+      - ncdu
+      - htop
+      - ffmpeg
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: PACKAGES | Install CLI tools on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - keybase
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"
+
+

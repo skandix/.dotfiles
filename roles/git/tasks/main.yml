@@ -1,7 +1,7 @@
 - name: GIT | Install Git on Macos
   homebrew:
     name: git
-    state: present
+    state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
 - name: GIT | Install Git on Linux

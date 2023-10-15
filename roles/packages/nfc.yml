@@ -7,3 +7,11 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install NFC tools on Macos
+  community.general.homebrew:
+    name:
+      - mfoc
+      - mfcuk
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"

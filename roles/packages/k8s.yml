@@ -7,3 +7,12 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+
+- name: PACKAGES | Install k8s tools on Macos
+  community.general.homebrew:
+    name:
+      - kubernetes-cli
+      - k9s
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"

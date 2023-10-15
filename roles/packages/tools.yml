@@ -2,7 +2,6 @@
   pacman:
     name:
       - traceroute
-      - nmap
       - wireshark-qt
       - tcpdump
       - speedtest-cli
@@ -10,3 +9,11 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install Network tools on Macos
+  community.general.homebrew:
+    name:
+      - tcpdump
+      - speedtest-cli
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"

@@ -7,3 +7,6 @@
 
 - name: Install Lutris
   include_tasks: lutris.yml
+
+- name: Install Mangohud
+  include_tasks: mangohud.yml

@@ -2,15 +2,14 @@
   community.general.homebrew:
     name:
       - vim
-        #      - neovim
+      - neovim
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
-- name: VIM | Install vim on Macos
+- name: VIM | Install vim on Linux
   package:
     name:
       - vim
-        #     - neovim
     state: latest
   become: yes
   when: ansible_facts['os_family'] == "Linux"

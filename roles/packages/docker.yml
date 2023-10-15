@@ -7,3 +7,11 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install Docker & Docker compose on Macos
+  community.general.homebrew:
+    name:
+      - docker
+      - docker-compose
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"

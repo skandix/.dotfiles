@@ -1,9 +1,18 @@
-#- name: firefox | Install firefox  on Linux
-#  package:
-#    name:
-#      - firefox
-#    state: latest
-#  become: yes
+- name: FIREFOX | Install Firefox  on Linux
+  package:
+    name:
+      - firefox
+    state: latest
+  become: yes
+
+- name: FIREFOX | Install Firefox on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - firefox
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"
 
 # - name: firefox | Create chrome directory
 #   file:
@@ -19,12 +28,3 @@
 #     force: yes
 #   loop:
 #     - userChrome.css
-
-- name: Variables
-  vars:
-    homebrew_cask_apps:
-      - firefox
-
-    homebrew_installed_packages:
-      - neofetch
-

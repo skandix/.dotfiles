@@ -1,4 +1,8 @@
-- name: OBSIDIAN | Install obsidian on Macos
-  homebrew_cask:
-    name: obsidian
-    state: present
+- name: OBSIDIAN | Install obsidian on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - obsidian
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"

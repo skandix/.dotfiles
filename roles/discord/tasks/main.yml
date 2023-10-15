@@ -5,6 +5,15 @@
     state: latest
   become: yes
 
+- name: PACKAGES | Install CTF tools on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - discord
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"
+
 - name: DISCORD | Create /.config/discord directory
   file:
     path: "~/.config/discord"

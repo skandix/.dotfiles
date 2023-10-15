@@ -10,7 +10,6 @@
       - burpsuite
       - gnu-netcat
       - gobuster
-      - hexedit
       - hydra
       - john
       - metasploit
@@ -24,3 +23,29 @@
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install CTF tools on Macos
+  community.general.homebrew:
+    name:
+      - volatility
+      - hexedit
+      - strace
+      - netcat
+      - gobuster
+      - hydra
+      - john
+      - nmap
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: PACKAGES | Install CTF tools on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - ghidra
+      - sonic-visualiser
+      - burp-suite
+      - metasploit
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"

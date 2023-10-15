@@ -20,3 +20,20 @@
     name:
       - terraform
     state: latest
+
+- name: PACKAGES | Install Hashicorp tools on Macos
+  community.general.homebrew:
+    name:
+      - ansible
+      - terraform
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: PACKAGES | Install Hashicorp tools on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - vagrant
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"

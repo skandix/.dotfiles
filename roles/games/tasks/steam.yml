@@ -13,3 +13,12 @@
     executable: yay
     extra_args: --builddir /var/cache/yay
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: GAMES | Install steam on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - steam
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"

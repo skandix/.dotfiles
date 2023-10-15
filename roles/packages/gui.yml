@@ -3,7 +3,6 @@
     name:
       - telegram-desktop
       - signal-desktop
-      - mpv
       - torbrowser-launcher
       - sublime-text-4
       - peek
@@ -15,7 +14,35 @@
       - plexamp-appimage
       - plex-media-player
       - slack-desktop
+      - wireshark-qt
     state: latest
     executable: paru
     extra_args: --builddir /var/cache/paru
   when: ansible_facts['os_family'] == "ArchLinux"
+
+- name: PACKAGES | Install GUI tools on Macos
+  community.general.homebrew:
+    name:
+      - wireshark
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
+
+- name: PACKAGES | Install GUI tools on Macos (Cask)
+  community.general.homebrew_cask:
+    name:
+      - telegram
+      - signal
+      - torbrowser-launcher
+      - sublime-text
+      - mumble
+      - microsoft-teams
+      - zoom
+      - visual-studio-code
+      - plexamp
+      - plex-media-player
+      - slack
+    state: latest
+    greedy: true
+    accept_external_apps: true
+  when: ansible_facts['os_family'] == "Darwin"
