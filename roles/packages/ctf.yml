@@ -29,7 +29,6 @@
     name:
       - volatility
       - hexedit
-      - strace
       - netcat
       - gobuster
       - hydra

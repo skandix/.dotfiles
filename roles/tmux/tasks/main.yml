@@ -11,7 +11,7 @@
       - tmux
     state: latest
   become: yes
-  #when: ansible_facts['os_family'] 
+  when: ansible_facts['os_family'] != "Darwin"
 
 - name: TMUX | Symlink tmux config
   file:

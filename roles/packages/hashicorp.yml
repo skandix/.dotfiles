@@ -1,25 +1,13 @@
-- name: Hasicorp | Install Vagrant
-  become: yes
-  package:
-    name:
-      - vagrant
-    state: latest
-
-- name: Hasicorp | Install Ansible
-  become: yes
-  package:
-    name:
-      - ansible
-      - ansible-core
-      - molecule
-    state: latest
-
-- name: Hasicorp | Install Terraform
+- name: PACKAGES | Install Hashicorp Tools Linux
   become: yes
   package:
     name:
       - terraform
+      - ansible
+      - ansible-core
+      - vagrant
     state: latest
+  when: ansible_facts['os_family'] != "Darwin"
 
 - name: PACKAGES | Install Hashicorp tools on Macos
   community.general.homebrew:
@@ -33,7 +21,6 @@
   community.general.homebrew_cask:
     name:
       - vagrant
+      - virtualbox
     state: latest
-    greedy: true
-    accept_external_apps: true
   when: ansible_facts['os_family'] == "Darwin"

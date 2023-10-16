@@ -4,6 +4,7 @@
     name:
       - steam
     state: latest
+  when: ansible_facts['os_family'] == "ArchLinux"
 
 - name: GAMES | Install steam fonts on Linux
   pacman:

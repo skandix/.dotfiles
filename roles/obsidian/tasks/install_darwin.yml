@@ -3,6 +3,4 @@
     name:
       - obsidian
     state: latest
-    greedy: true
-    accept_external_apps: true
   when: ansible_facts['os_family'] == "Darwin"

@@ -4,6 +4,7 @@
       - discord
     state: latest
   become: yes
+  when: ansible_facts['os_family'] != "Darwin"
 
 - name: PACKAGES | Install CTF tools on Macos (Cask)
   community.general.homebrew_cask:
