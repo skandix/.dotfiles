@@ -4,6 +4,8 @@
       - swinsian
       - dozer
       - binary-ninja
+      - tailscale
+      - wireguard
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
