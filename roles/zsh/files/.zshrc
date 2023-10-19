@@ -42,6 +42,6 @@ bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-if [ -f /usr/bin/pfetch ];  then pfetch -t | lolcat;  else echo "missing pfetch and lolcat"; fi;
+pfetch -t |lolcat
 
 PS1="%n@%m λ " # shell prompt

@@ -15,17 +15,17 @@
     accept_external_apps: true
   when: ansible_facts['os_family'] == "Darwin"
 
-# - name: firefox | Create chrome directory
-#   file:
-#     path: /home/hx/.mozilla/firefox/cili5yib.default-release/chrome
-#     state: directory
+- name: FIREFOX | Create chrome directory
+  file:
+    path: $HOME/.mozilla/firefox/49z9or9s.default-release/chrome
+    state: directory
 
-# - name: firefox | Symlink userChrome.css
-#   file:
-#     src: '{{ ansible_env.PWD }}/roles/firefox/files/{{ item }}'
-#     path: '$HOME/.mozilla/firefox/krha8z9z.default-release/chrome/{{ item }}'
-#     state: link
-#     follow: yes
-#     force: yes
-#   loop:
-#     - userChrome.css
+- name: FIREFOX | Symlink userChrome.css
+  file:
+    src: '{{ ansible_env.PWD }}/roles/firefox/files/{{ item }}'
+    path: '$HOME/.mozilla/firefox/49z9or9s.default-release/chrome/{{ item }}'
+    state: link
+    follow: yes
+    force: yes
+  loop:
+    - userChrome.css

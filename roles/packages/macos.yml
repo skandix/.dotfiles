@@ -1,3 +1,10 @@
+- name: PACKAGES | Install Specific Mac Apps
+  community.general.homebrew:
+    name:
+      - mas
+    state: latest
+  when: ansible_facts['os_family'] == "Darwin"
+
 - name: PACKAGES | Install Specific Mac Apps (Cask)
   community.general.homebrew_cask:
     name:
@@ -5,7 +12,6 @@
       - dozer
       - binary-ninja
       - tailscale
-      - wireguard
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
@@ -14,6 +20,7 @@
     id:
       - 441258766 # magnet
       - 937984704 # Amfetamin
+      - 1451685025 # Wireguard
     state: present
     upgrade_all: true
   when: ansible_facts['os_family'] == "Darwin"

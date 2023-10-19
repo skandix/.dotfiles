@@ -33,7 +33,7 @@
     name:
       - telegram
       - signal
-      - torbrowser-launcher
+      - tor-browser
       - sublime-text
       - mumble
       - microsoft-teams
