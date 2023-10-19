@@ -11,7 +11,6 @@
     - git
     - zsh
     - i3
-    - hyprland
     - i3blocks
     - dunst
     - flameshot
@@ -21,9 +20,7 @@
     - picom
     - tmux
     - vim
-    - helix
     - xscreensaver
-    - wezterm
     - pipewire
     - games
   tasks:
