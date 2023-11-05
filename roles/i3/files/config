@@ -145,7 +145,6 @@ bindsym $mod+Escape workspace back_and_forth
 
 bar {
 position top
-	mode hide
 	status_command i3blocks
 	tray_output primary
 	separator_symbol " λ "
