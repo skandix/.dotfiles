@@ -1,12 +1,3 @@
-[bandwidth]
-command=$HOME/.config/i3blocks/bandwidth
-interval=5
-INTERFACE=eno1
-INLABEL=⬇️ 
-OUTLABEL=⬆️
-color=#ff00ff
-#TREAT_UNKNOWN_AS_UP=0
-
 markup=none
 [procs]
 command=echo "${1:-⚙️} $(ps -U $USER | wc -l)"
