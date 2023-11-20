@@ -42,6 +42,9 @@ bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+## EXPORT ##
+source gitclones/bofh/openstack/openstack.sh
+
 pfetch -t |lolcat
 
 PS1="%n@%m λ " # shell prompt

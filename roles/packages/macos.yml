@@ -2,6 +2,7 @@
   community.general.homebrew:
     name:
       - mas
+      - openstackclient
     state: latest
   when: ansible_facts['os_family'] == "Darwin"
 
