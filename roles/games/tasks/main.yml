@@ -1,6 +1,6 @@
-- name: Install Minecraft
-  include_tasks: minecraft.yml
-  when: ansible_facts['os_family'] != "Darwin"
+#- name: Install Minecraft
+  #include_tasks: minecraft.yml
+  #when: ansible_facts['os_family'] != "Darwin"
 
 - name: Install Steam
   include_tasks: steam.yml
