@@ -15,7 +15,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 """ checks if n package is installed.
 function! s:Py3freeze(package)
-    if empty(system("pip3 freeze | grep " . a:package))
+     if empty(system("pip3 freeze | grep " . a:package))
         echo "Installing Package " . a:package
         execute "!pip3 install " . a:package . " --user"
     endif
@@ -24,13 +24,20 @@ endfunction
 call plug#begin('~/.vim/plugged')
 
 """ PLUGIN LIST START
+""" Rust 
 Plug 'rust-lang/rust.vim'
+
+""" Ansible
 Plug 'pearofducks/ansible-vim'
+
+""" Visual Help
 Plug 'nathanaelkane/vim-indent-guides'
+
+""" 
 Plug 'scrooloose/nerdtree'
+Plug 'yassinebridi/vim-purpura'
 Plug 'vimsence/vimsence'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
 Plug 'elzr/vim-json'
@@ -42,7 +49,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'ray-x/aurora'
 Plug 'cohama/lexima.vim'
-Plug 'dylanaraps/wal.vim'
 
 """ PLUGIN LIST END
 call plug#end()            " end of plugin section
@@ -88,6 +94,7 @@ nnoremap <Leader>w :write <CR>
 nnoremap <Leader>x :xit <CR>
 nnoremap <Leader>q :quit <CR>
 nnoremap <Leader>b :!python3 %<CR>
+nnoremap <Leader>r :so $MYVIMRC<CR>
 
 """" Splitting Keybinds
 "split navigations
@@ -98,12 +105,8 @@ nnoremap <C-H> <C-W><C-H>
 
 
 """ colorscheme
-let g:aurora_italic = 1     " italic
-let g:aurora_transparent = 1     " transparent
-let g:aurora_bold = 1     " bold
-let g:aurora_darker = 1     " darker background
 
-colorscheme wal
+colorscheme purpura
 
 """ ligthline config
 syntax enable
