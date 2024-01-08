@@ -25,4 +25,4 @@
     follow: yes
     force: yes
   loop:
-    - alacritty.yml
+    - alacritty.toml
