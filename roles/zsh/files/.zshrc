@@ -33,6 +33,7 @@ alias tf="terraform"
 alias ls="ls --color"
 alias compose="docker compose"
 alias nf="cd $HOME/.dotfiles && nvim . && cd -"
+alias fire="openstack project cleanup --auto-approve --project "
 #alias docker="podman"
 
 ## BINDKEY ###
